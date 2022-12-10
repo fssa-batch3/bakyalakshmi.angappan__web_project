@@ -1,0 +1,558 @@
+@import "normalize.css";
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body h1,h2{
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    position:relative;
+}
+/*-------header-------*/
+
+.header{
+    position:sticky;
+    top:0px;
+    z-index: 1;
+    margin:px;
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color:#fff;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
+}
+
+img#logo{   
+    height:70px;
+} 
+
+.header nav ul{
+    display:flex;
+    list-style: none;
+}
+
+.header nav ul a{
+    font-family: 'Jost', sans-serif;
+    font-weight:500;
+    color:#000;
+    display:flex;
+    flex-wrap: wrap;
+    text-decoration:none;
+    margin-right:100px;
+    font-size: 20px; 
+}
+
+.header nav ul a:hover{
+    font-weight: 700;
+    color:#000;
+    display:flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+    margin-right:100px;
+}
+
+/* ---dropdown--- */
+
+.dropdown{
+    display:block;
+    position:relative;
+}
+
+.dropdown .dropdown_list{
+    display:none;
+    position: absolute;
+    background-color: #fff;
+    margin-right: 0;
+    width:15vw;
+    box-shadow:0px 1px 8px 0px #000;
+    z-index: 1;  
+    padding:20px;
+}
+.dropdown .dropdown_list a{
+    text-transform: capitalize;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.dropdown .dropdown_list h4{
+    padding-bottom: 3%;
+} 
+.dropdown .dropdown_list div{
+    padding-bottom: 3%;
+}
+.dropdown_categories {
+    width:100%;
+}
+
+.dropdown:hover .dropdown_list{
+    display:block;
+}
+
+/* ---dropdown--- */
+.searchbar{
+    font-family: 'Jost', sans-serif;
+    display: flex;
+}
+ 
+.searchbar .search_box input{
+    font-family: 'Jost', sans-serif;
+    width:400px;
+    height:40px;
+    border-right: none;
+    padding:10px;
+    background-color: #eee;
+    border:none;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+} 
+
+.searchbar .button button{
+    border:none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    height:100%;
+    padding:10px;
+}
+
+.icons i{
+    font-size: 24px;
+    padding-bottom: 5%;
+}
+
+.icons a{
+    font-family: 'Jost', sans-serif;
+    margin-left: 30px;
+    text-decoration: none;
+    color:#000;
+    font-size: 14px;
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+
+/* banner1 */
+
+section.banner1{
+    font-family: 'Jost', sans-serif;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    width:100%;
+    /* background-color: #eee; */
+    
+} 
+
+.bannerone{
+    width: ;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.bannerone .banner1sub{
+    font-family: 'Jost', sans-serif;
+    width: 100%;
+    height: 100%;
+    padding: 0; 
+    margin: 0;
+    background: linear-gradient(90deg, #181c1d, #b4cdd1);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:center ;
+    align-items: center;
+}
+.container .bannerone .banner1sub div:nth-child(1), .container .bannerone .banner1sub div:nth-child(2){
+    width: 50%;
+    height: 100%;
+}
+
+.firstimg{
+    width: 60%;
+    height: 100%;
+}
+
+.banner1sub div{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.banner1sub div h1{
+    margin-left: 7%;
+    margin-bottom: 5%;
+    color:#eee;
+    text-transform: capitalize;
+}
+
+.banner1sub div p{
+    text-transform: capitalize;
+    margin-left: 7%;
+    color: #eee;
+    font-size:30px;
+    width:80%
+} 
+
+
+
+/* categories */
+
+.categories .categories_list div{
+    position: relative;
+    width:100%;
+}
+.categories .categories_list div h4{
+    position: absolute;
+    left:7%;
+    bottom:8%;
+    width:70%;
+    padding:3px;
+    border-radius: 5px;
+}
+
+ a{
+    color:#000;
+}
+
+.categories .categories_list div h4{
+    font-family: 'Jost', sans-serif;  
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.884);  
+}
+
+.categories h1{
+    margin-bottom: 2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+.categories .categories_list{
+    background-color: #eee;
+    padding:40px;
+    display:flex;
+    justify-content: space-around;
+}
+
+.categories img{
+    width:86%;
+    border:5px solid #fff;
+}
+
+/* deals */
+
+.deals h1{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.deals .deals_list{
+    background-color: #eee;
+    padding:40px;
+    display:flex;
+    justify-content: space-around;
+}
+
+.deals .deals_list div {
+    position: relative;
+    width:100%;
+}
+
+div.deals .deals_list div h4{
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    width:38%;
+    background-color: rgba(255, 255, 255, 0.895);
+    position: absolute;
+    bottom:85%;
+    border-top-right-radius: 40%;
+    border-bottom-right-radius: 40%;
+    padding:2%;
+}
+
+.deals .deals_list div h2{
+    width:70%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.785);
+    left:6%;
+    bottom: 4%;
+    padding: 2%;
+    text-align: center;
+    text-transform:uppercase;
+} 
+
+.deals_list img{
+    border:5px solid #fff;
+}
+
+
+/* freedelivery */
+
+.delivery{
+    font-family: 'Jost', sans-serif;
+    text-align: center;
+    font-size: 40px;
+    border:2px solid #555;
+    margin-top:2em;
+    padding:2%;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+.delivery i{
+    font-size: 50px;
+}
+/* fashion */
+.heading{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+.banner{
+    width: 98vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:center;
+    padding:1%
+}
+
+.banner .bannersub{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background:linear-gradient(10deg,#fff,#222);
+    border:5px solid #fff;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.bannersub div:nth-child(1),.bannersub div:nth-child(2){
+    width: 30%;
+    height: 100%;
+}
+
+.bannersub h1:first-child{
+    text-transform: capitalize;
+    font-size: 40px;
+}
+
+.bannersub h1 span{
+    text-transform: capitalize;
+    font-size: 60px;
+}
+.bannersub h2{
+    text-transform: capitalize;
+}
+.bannersub div:nth-child(2){
+    background-color: #fff;
+    height:85%;
+    margin-top: 2%;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px #555;
+}
+
+.bannersub div:nth-child(2) button{
+    background-color: #222;
+    color:#fff;
+    padding: 3%;
+    width:40%;
+    position: absolute;
+    bottom: 10%;
+    left: 30%;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+.bannersub div:nth-child(2) div:hover{
+    background-color: #555;
+}
+
+.bannersub .image{
+    border: 1px solid #000;
+    width:80%;
+    height:95%;
+    padding: 2%;
+    box-shadow: 1px 2px 5px #000;
+    margin-top: 6px;
+}
+/* 
+section.fashion{
+    background-color: #eee;
+} */
+
+div.fashion_list{
+    background-color: #eee;
+}
+
+div.fashion_categories{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    position: relative;
+    margin-top: 5%;
+    padding-bottom: 5%;
+}
+
+div.fashion_categories div{
+    position:relative;
+}
+
+div.fashion_categories div div{
+
+    position:absolute;
+    width:90%;
+    background-color: rgba(255, 255, 255, 0.817);
+    left:3%;
+    bottom:6%;
+    text-align: center;
+    padding:2%;
+}
+
+div.fashion_categories div div h2{
+    margin:0;
+    text-transform: uppercase;
+    padding-bottom: 1%;
+}
+
+div.fashion_categories div img{
+    margin-right:10px;
+    border:5px solid #fff;
+}
+div.fashion_categories div img:hover{
+    box-shadow: 2px 2px 5px #bbb;
+}
+
+/* features */
+
+div.features{
+    border:1px solid #eee;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-top: 10%;
+    padding: 2%;
+    background-color:#fff;
+}
+
+div.features div{
+    text-align: center;
+}
+
+div.features div h2{
+    text-transform: uppercase;
+    font-size: 18px;  
+}
+
+.features div i{
+    font-size: 40px;
+    padding-bottom: 20px;
+}
+/* footer */
+.footer{
+    background-color: #eee;
+    color:#555;
+}
+.footer_nav_contact{
+    padding-top:5%;
+    width: 80%;
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    align-content: center;
+    text-transform: capitalize;
+    margin-left:10%;
+    margin-right: 10%;
+
+}
+.footer_nav{
+    width:30%;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+} 
+.footer_contact{
+    width: 60%;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.footer_contact div{
+    width:80%;
+}
+
+.footer_contact .contact_details i{
+    color:#555;
+
+}
+.footer_nav div h3{
+    padding-bottom: 10%;
+}
+.footer_contact div h3{
+    padding-bottom: 2%;
+}
+.footer_nav nav ul{
+    list-style: none;
+  
+}
+
+.footer_nav nav ul li {
+    padding-bottom: 5%;
+    text-decoration: none;
+}
+.footer_nav nav ul li a{
+    text-decoration: none;
+}
+.footer_nav nav ul li a:hover{
+    border-bottom: 1px solid #000;
+}
+
+
+.bottom_footer{
+    border-top: 1px solid #bbb;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width:90%;
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.footer_contact .contact_details{
+    padding-bottom: 5%;
+}
+
+.socialmedia a i{
+    color:#555;
+    font-size: 30PX;
+    padding: 8px;
+}
+

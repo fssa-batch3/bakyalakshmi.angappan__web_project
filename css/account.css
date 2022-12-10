@@ -1,0 +1,93 @@
+*{
+    margin:0;
+    padding:0;
+}
+.header-account{
+    margin-top:1%;
+    font-family: 'Jost', sans-serif;
+    width:51vw;
+    position:relative;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 2%;
+    margin-left: 25%;
+}
+
+.header-account h2{
+    position:absolute;
+}
+.header-account span{
+    font-weight: 600;
+}
+
+.container{
+    width:90vw;
+    height:100vh;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 5%;
+}
+
+.profile_details{
+    font-family: 'Jost', sans-serif;
+    width:55%;
+}
+
+.profile_details div.heading {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 3%;
+}
+
+.profile_details div.heading h3{
+    margin-left: 1%;
+    font-weight: 600;
+}
+.profile_details_table{
+    padding-top: 60px;
+    font-size:18px;
+    border:2px solid #eee;
+    padding:60px;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+table tbody tr td{
+    width:50%;
+    padding-bottom: 30px;
+    padding-right:10%;
+}
+
+.profile_details_table table{
+    padding-top: 40px;
+}
+ .profile_details button{
+    width:100%;
+    padding: 10px 40px;
+    background-color: #222;
+    color:#fff;
+    font-size: 16px;
+    border:none;
+}
+.profile_details button:hover{
+    width:100%;
+    padding: 10px 40px;
+    background-color: #555;
+    color:#fff;
+    font-size: 16px;
+    border:none;
+} 
+
+.header-account{
+    display:flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.line{
+    border-bottom: 1px solid #eee;
+    margin-bottom: 4%;
+}
+
+
+
