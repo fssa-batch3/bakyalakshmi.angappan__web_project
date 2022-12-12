@@ -19,7 +19,10 @@
     text-align: center;
     margin-bottom: 5%;
 }
-
+.smallcontainer a{
+    text-decoration: none;
+    color:black;
+}
 .smallcontainer img{
     width:70%;
     height:80%;
@@ -37,7 +40,7 @@
     color: #3c6d75;
     padding-bottom: 2%;
 }
-
+text
 .product_name{
     font-weight: 100;
     margin:0;

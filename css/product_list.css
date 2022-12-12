@@ -4,6 +4,9 @@
 }
 
 /* heading */
+body{
+    font-family: 'Jost', sans-serif;
+}
 
 div.location{
     color:#5a5a5a;
@@ -12,7 +15,8 @@ div.location{
     text-transform: capitalize;
 }
 
-.heading_top{
+.smallcontainer .heading_top{
+    font-family: 'Jost', sans-serif;
     margin-bottom: 5%;
 }
 
@@ -21,10 +25,15 @@ div.location{
     text-transform: uppercase;
     letter-spacing: 1px; 
     margin:0; 
+   
 }
-
+.heading_top h1{
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    margin-bottom: 5%;
+}
 .heading_top h3{
-    font-weight: 100;
+    font-weight: 400;
     color: #5a5a5a;
 }
 
@@ -57,6 +66,7 @@ div.location{
     border-bottom:1px solid #eee ;
     padding: 10px;
 }
+
 .smallcontainer img:hover{
     border:1px solid #eee;
 }
@@ -67,11 +77,12 @@ div.location{
     /* color: #5796a0; */
     color: #3c6d75;
     padding-bottom: 2%;
+    font-weight: 700;
 }
 
 .product_name{
+    font-weight: 400;
     text-transform: capitalize;
-    font-weight: 100;
     margin:0;
     padding-bottom: 1%;
 }
@@ -82,7 +93,6 @@ div.location{
     padding-bottom: 2%;
 }
 
-
 .product_price{
     font-size: 20px;
     font-weight: 600;
@@ -91,6 +101,7 @@ div.location{
 .original_price{
     color:#5a5a5a;
 }
+
 .product_offer{
     color: #3c6d75;
 }

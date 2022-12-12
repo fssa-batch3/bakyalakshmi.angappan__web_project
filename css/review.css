@@ -4,8 +4,12 @@
     padding:0;
     box-sizing: border-box;
 }
+body{
+    font-family: 'Jost', sans-serif;
+}
 
 .container{
+    
     margin-top: 4%;
     height:90vh;
     display:flex;
@@ -25,13 +29,13 @@
     text-transform: capitalize;
     box-shadow: 2px 2px 4px #eee;
 }
-div.circle-mark i{
-    color:#bbb;
+div.x-mark i{
+    color:#555;
     float:right;
-    font-size:30px;
+    font-size:25px;
     position: absolute;
     top:2%;
-    right:2%;
+    right:3%;
 }
 .container-form h3{
     color:#222;
@@ -44,7 +48,7 @@ div.circle-mark i{
 }
 
 .product_details {
-    margin-top: 3%;
+    margin-top: 2%;
 }
 
 .order_list{
@@ -61,6 +65,7 @@ textarea{
 }
 
 .container-form button{
+    font-family: 'Jost', sans-serif;
     font-size: 18px;
     width:100%;
     background-color:#222;
@@ -73,6 +78,7 @@ textarea{
 }
 
 .container-form button:hover{
+    font-family: 'Jost', sans-serif;
     font-size: 18px;
     width:100%;
     background-color:#555;
@@ -86,11 +92,13 @@ textarea{
 .container-form div{
     padding:1%;
 }
+
 .image_container{
     border:none;
 }
 
 input[type=file]{
+    font-family: 'Jost', sans-serif;
     width:80%;
     border: dashed;
     border:1px dashed #000;
@@ -98,6 +106,8 @@ input[type=file]{
 }
 
 .write_review-image_container{
+
+    font-family: 'Jost', sans-serif;
     display:flex;
     flex-direction:row;
     flex-wrap: nowrap;
@@ -108,7 +118,7 @@ input[type=file]{
 
 
 .write_review-image_container .add_photos{
-    
+
     background-color: #555;
     color:#fff;
     width:20%;
@@ -120,7 +130,6 @@ input[type=file]{
     margin-top: 10%;
 }
 .review i{
-
     color:#000;
     padding-bottom: 1%;
 }

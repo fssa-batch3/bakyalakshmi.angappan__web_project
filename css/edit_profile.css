@@ -15,6 +15,7 @@
 }
 
 .container-form{
+    position:relative;
     font-family: 'Jost', sans-serif;
     width:30%;
     height:100%;
@@ -27,6 +28,14 @@
 }
 .container-form div{
     padding-bottom: 3%;
+}
+div.x-mark i{
+    color:#555;
+    float:right;
+    font-size:25px;
+    position: absolute;
+    top:2%;
+    right:3%;
 }
 
 .container-form h2{  

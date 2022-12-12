@@ -18,10 +18,13 @@
 .header-account span{
     font-weight: 600;
 }
-
+.header-account a{
+    text-decoration: none;
+    color:#555;
+}
 .container{
     width:90vw;
-    height:100vh;
+    height:85vh;
     display:flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -89,5 +92,28 @@ table tbody tr td{
     margin-bottom: 4%;
 }
 
+div.seller{
+    font-family: 'Jost', sans-serif;
+    border:2px solid #eee;
+    text-align: center;
+    padding:2%;
+    background-color: #eee;
+    margin-bottom: 0;
+    border-bottom: 1px solid  #fff;
+}
+div.seller h2{
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    padding-bottom:1%;
+}
+div.seller button{
+    margin-top: 1%;
+    color:#fff;
+    background-color: #222;
+    border:none;
+    width:15%;
+    padding:6px;
+    border-radius: 5px;
+}
 
 
