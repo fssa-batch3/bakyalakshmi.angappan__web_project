@@ -47,12 +47,12 @@
     font-weight: 600;
 }
 .profile_details_table{
-    padding-top: 60px;
+    padding-top: 8%;
     font-size:18px;
     border:2px solid #eee;
-    padding:60px;
-    padding-right: 10%;
-    padding-left: 10%;
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-bottom: 8%;
 }
 
 table tbody tr td{
