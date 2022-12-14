@@ -93,6 +93,7 @@ div.location{
 }
 
 .product_price{
+    text-transform:capitalize;
     font-size: 20px;
     font-weight: 600;
 }

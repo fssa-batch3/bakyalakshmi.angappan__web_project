@@ -90,6 +90,7 @@ span.location{
     padding-bottom: 1%;
 }
 .rightside .price{
+    text-transform: capitalize;
     font-size: 28px;
 }
 
