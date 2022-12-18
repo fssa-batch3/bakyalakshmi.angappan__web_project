@@ -216,22 +216,19 @@ section.banner1{
     width:100%;
 }
 .categories .categories_list div h4{
+    font-family: 'Jost', sans-serif;  
     position: absolute;
     left:7%;
     bottom:8%;
     width:70%;
     padding:3px;
     border-radius: 5px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.884);  
 }
 
  a{
     color:#000;
-}
-
-.categories .categories_list div h4{
-    font-family: 'Jost', sans-serif;  
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.884);  
 }
 
 .categories h1{

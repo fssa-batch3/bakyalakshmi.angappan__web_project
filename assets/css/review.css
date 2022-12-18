@@ -9,8 +9,7 @@ body{
 }
 
 .container{
-    
-    margin-top: 4%;
+    margin-top: 3%;
     height:90vh;
     display:flex;
     justify-content:center;
@@ -29,6 +28,7 @@ body{
     text-transform: capitalize;
     box-shadow: 2px 2px 4px #eee;
 }
+
 div.x-mark i{
     color:#555;
     float:right;
@@ -38,7 +38,7 @@ div.x-mark i{
     right:3%;
 }
 .container-form h3{
-    color:#222;
+    color:#555;
     text-align: center;
 }
 

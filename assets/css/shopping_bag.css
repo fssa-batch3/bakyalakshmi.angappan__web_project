@@ -30,9 +30,11 @@
 }
 
 .side_container{
-    position: sticky;
+    position:sticky;
+    text-transform: capitalize;
+    padding:3%;
+    background-color:#eee;
     width:30%;
-    background-color:#bbb;
 }
 
 /* container address */
@@ -67,6 +69,16 @@
     border: 2px solid #eee;
     margin-bottom: 5%;
     padding: 3%;
+    position:relative;
+}
+
+div.x-mark i{
+    color:#555;
+    float:right;
+    font-size:25px;
+    position: absolute;
+    top:3%;
+    right:2%;
 }
 
  .product_thumbnail img{
@@ -108,13 +120,6 @@ span.date{
     padding-right: 10%;
 }
 
-.buttons div button.remove{
-    padding:5%;
-    background-color: #fff;
-    border:1px solid #bbb;
-    width:150px;
-}
-
 .buttons div button.movetobag{
     padding:5%;
     background-color: #222;
@@ -125,12 +130,6 @@ span.date{
 
 /* pricedetails */
 
-.side_container{
-    position:sticky;
-    text-transform: capitalize;
-    padding:3%;
-    background-color:#eee;
-}
 .side_container h3{
     padding-bottom: 5%;
 }
