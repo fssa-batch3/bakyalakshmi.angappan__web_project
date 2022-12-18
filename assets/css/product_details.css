@@ -51,9 +51,11 @@ span.location{
 .thumbmnailproducts img{
     border:1px solid #bbb;
 }
+
 .thumbmnailproducts img:hover{
     opacity: 0.7;
 }
+
 .product_image{
     margin-right: 10%;
     width:40%;
@@ -124,7 +126,7 @@ span.location{
 .size .size_no{
     margin-top:10px;
     height: 1%;
-    width: 4%;
+    width: 3%;
     border:1px solid #bbb;
     background-color:#fff;
     border-radius: 50%;
@@ -134,7 +136,7 @@ span.location{
 .size .size_no:hover{
     margin-top:10px;
     height: 1%;
-    width: 4%;
+    width: 3%;
     border:1px solid #bbb;
     background-color:#000;
     color:#fff;
