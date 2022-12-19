@@ -7,7 +7,7 @@
 
 .container{
     font-family: 'Jost', sans-serif;
-    margin-top: 2%;
+    margin-top: 3%;
     height:90vh;
     display:flex;
     justify-content:center;
@@ -17,7 +17,7 @@
 .container-form{
     position:relative;
     font-family: 'Jost', sans-serif;
-    width:30%;
+    width:33%;
     height:100%;
     padding:2%;
     background-color: white;
