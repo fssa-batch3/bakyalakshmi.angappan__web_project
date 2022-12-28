@@ -105,8 +105,8 @@ a.forgotpassword{
 
 }
 
-@media only screen and (max-width: 360px) {
-    
+@media only screen and (max-width: 480px) {
+
   .container-form{
     width:300px;
   }
