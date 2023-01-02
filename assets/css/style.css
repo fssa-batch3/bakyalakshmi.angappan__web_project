@@ -5,103 +5,56 @@
     padding:0;
     box-sizing: border-box;
 }
-body h1,h2{
+body {
     font-family: 'Jost', sans-serif;
     font-weight: 500;
     position:relative;
+    text-transform: capitalize;
 }
 /*-------header-------*/
 
-.header{
+header{
     position:sticky;
     top:0px;
     z-index: 1;
-    margin:px;
-    display:flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: center;
     background-color:#fff;
-    padding-top: 1%;
-    padding-bottom: 1%;
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
 }
 
-img#logo{   
+.navbar-brand img{   
     height:70px;
 } 
 
-.header nav ul{
-    display:flex;
-    list-style: none;
-}
-
-.header nav ul a{
+.nav-item, .nav-link{
     font-family: 'Jost', sans-serif;
-    font-weight:500;
+    font-weight:600;
     color:#000;
-    display:flex;
-    flex-wrap: wrap;
     text-decoration:none;
-    margin-right:100px;
     font-size: 20px; 
 }
 
-.header nav ul a:hover{
+.nav-link:hover{
+    text-transform: capitalize;
     font-weight: 700;
     color:#000;
-    display:flex;
-    flex-wrap: wrap;
     text-decoration: none;
-    margin-right:100px;
-}
-
-/* ---dropdown--- */
-
-.dropdown{
-    display:block;
-    position:relative;
-}
-
-.dropdown .dropdown_list{
-    display:none;
-    position: absolute;
-    background-color: #fff;
-    margin-right: 0;
-    width:15vw;
-    box-shadow:0px 1px 8px 0px #000;
-    z-index: 1;  
-    padding:20px;
-}
-.dropdown .dropdown_list a{
-    text-transform: capitalize;
-    width: 100%;
-    margin-bottom: 5px;
-}
-
-.dropdown .dropdown_list h4{
-    padding-bottom: 3%;
 } 
-.dropdown .dropdown_list div{
-    padding-bottom: 3%;
-}
-.dropdown_categories {
-    width:100%;
+
+.dropdown-menu a:hover{
+    text-transform: capitalize;
+    font-weight: 700;
+    color:#000;
+    text-decoration: none;
 }
 
-.dropdown:hover .dropdown_list{
-    display:block;
-}
-
-/* ---dropdown--- */
 .searchbar{
     font-family: 'Jost', sans-serif;
     display: flex;
 }
  
-.searchbar .search_box input{
+.searchbar input{
     font-family: 'Jost', sans-serif;
-    width:400px;
+    width:350px;
     height:40px;
     border-right: none;
     padding:10px;
@@ -147,12 +100,10 @@ section.banner1{
     margin-top: 3em;
     margin-bottom: 3em;
     width:100%;
-    /* background-color: #eee; */
-    
+    /* background-color: #eee; */  
 } 
 
 .bannerone{
-    width: ;
     height: 50vh;
     display: flex;
     flex-direction: column;
@@ -175,7 +126,7 @@ section.banner1{
     justify-content:center ;
     align-items: center;
 }
-.container .bannerone .banner1sub div:nth-child(1), .container .bannerone .banner1sub div:nth-child(2){
+.container-fluid .bannerone .banner1sub div:nth-child(1), .container-fluid .bannerone .banner1sub div:nth-child(2){
     width: 50%;
     height: 100%;
 }
@@ -213,21 +164,21 @@ section.banner1{
 
 .categories .categories_list div{
     position: relative;
-    width:100%;
+    width:10rem;
 }
 .categories .categories_list div h4{
     font-family: 'Jost', sans-serif;  
     position: absolute;
     left:7%;
-    bottom:8%;
-    width:70%;
+    bottom:5%;
+    width:80%;
     padding:3px;
     border-radius: 5px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.884);  
 }
 
-a{
+.container-fluid a{
     color:#000;
 }
 
@@ -240,11 +191,12 @@ a{
     background-color: #eee;
     padding:40px;
     display:flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
 .categories img{
-    width:86%;
+    width:150px;
     border:5px solid #fff;
 }
 
@@ -259,33 +211,37 @@ a{
 
 .deals .deals_list{
     background-color: #eee;
-    padding:40px;
     display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
     justify-content: space-around;
+    padding-top: 4%;
+    padding-bottom: 4%;
 }
 
 .deals .deals_list div {
     position: relative;
-    width:100%;
+    width:20rem;
 }
 
-div.deals .deals_list div h4{
+div.deals .deals_list h4{
     font-family: 'Jost', sans-serif;
+    font-size: 18px;
     font-weight: 400;
-    width:38%;
+    width:50%;
     background-color: rgba(255, 255, 255, 0.895);
     position: absolute;
-    bottom:85%;
+    top: 2%;
     border-top-right-radius: 40%;
     border-bottom-right-radius: 40%;
     padding:2%;
 }
 
 .deals .deals_list div h2{
-    width:70%;
+    width:90%;
     position: absolute;
     background-color: rgba(255, 255, 255, 0.785);
-    left:6%;
+    left:5%;
     bottom: 4%;
     padding: 2%;
     text-align: center;
@@ -293,6 +249,7 @@ div.deals .deals_list div h4{
 } 
 
 .deals_list img{
+    width:20rem;
     border:5px solid #fff;
 }
 
@@ -387,8 +344,8 @@ div.deals .deals_list div h4{
 
 .bannersub .image{
     border: 1px solid #000;
-    width:80%;
-    height:95%;
+    width:20rem;
+    
     padding: 2%;
     box-shadow: 1px 2px 5px #000;
     margin-top: 6px;
@@ -550,11 +507,4 @@ div.features div h2{
     padding: 8px;
 }
 
-@media only screen and (max-width: 768px) {
 
-    body{
-        width: 768px;
-    }
-
-    
-}
