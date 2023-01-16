@@ -29,34 +29,33 @@
                             <form>
                             <div>
                                 <label class="label_field">full name</label><br/>
-                                <input class="input_field" type="text" />
+                                <input class="input_field" id="fullname"  type="text" />
                             </div>
 
                             <div>
-                                <label class="label_field">Email address</label><br/>
-                                <input class="input_field"  />
+                                <label class="label_field" >Email address</label><br/>
+                                <input class="input_field" id="email"  />
                             </div>
 
                             <div>
-                                <label class="label_field">Mobile number</label><br/>
-                                <input class="input_field"  />
+                                <label class="label_field" >Mobile number</label><br/>
+                                <input class="input_field"  id="mobilenumber"  />
                             </div>
 
                             <div>
-                                <label class="label_field">Password</label><br/>
-                                <input class="input_field" type="password"   />
+                                <label class="label_field" >Password</label><br/>
+                                <input class="input_field" type="password"  id="password"  />
                             </div>
 
                             <div>
                                 <label class="label_field">Re-enter password</label><br/>
-                                <input class="input_field"  type="password"/>
+                                <input class="input_field"  type="password" id="reenterpassword" />
                             </div>
-                        </form>
+     
 
                         <div class="buttons">
                             <div>
-                                <a href="../homepage/homepage.html">
-                                    <button>Create Your MFS Account
+                                    <button type="button" onclick="signup()">Create Your MFS Account
                                     </button>
                                 </a>
                             </div>
@@ -66,8 +65,37 @@
                             </div>
                         </div>
 
+                    </form>
+
                         </div>
                         
             </div>
+
+            <script>
+
+                function signup() {
+
+                const fullname = document.getElementById("fullname").value;
+                const email = document.getElementById("email").value;
+                const mobilenumber  = document.getElementById("mobilenumber").value;
+                const password = document.getElementById("password").value;
+                const reenterpassword = document.getElementById("reenterpassword").value;
+
+                console.log(fullname)
+                console.log(email)
+                console.log(mobilenumber)
+                console.log(password)
+                console.log(reenterpassword)
+
+                // localStorage.setItem("key",value)//
+
+                localStorage.setItem("user_fullname",fullname);
+                localStorage.setItem("user_email",email);
+
+                window.location.href = "../homepage/homepage.html";
+
+                }
+
+            </script>
 </body>
 </html>

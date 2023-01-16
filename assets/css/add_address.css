@@ -117,3 +117,10 @@ textarea{
     color: #000;
 }
 
+@media(max-width:360px){
+    .container-form{
+        width:90%;
+        height:90%;
+    }
+}
+

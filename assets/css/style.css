@@ -21,7 +21,18 @@ header{
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
 }
 
-.navbar-brand img{   
+#desktop-header nav .container-fluid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    width:100%;
+}
+
+
+
+.navbar-brand img{ 
+    padding-left: 10px;  
     height:70px;
 } 
 
@@ -54,21 +65,21 @@ header{
  
 .searchbar input{
     font-family: 'Jost', sans-serif;
-    width:350px;
-    height:40px;
-    border-right: none;
+    border: none;
+    width:351px;
+    height:80%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius:0 ;
     padding:10px;
     background-color: #eee;
-    border:none;
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
+
 } 
 
-.searchbar .button button{
+.searchbar button{
     border:none;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
-    height:100%;
+    height:80%;
     padding:10px;
 }
 
@@ -90,8 +101,14 @@ header{
     flex-direction: row;
     flex-wrap: wrap;
     text-align: center;
+    padding-right: 10px;
 }
 
+/* container */
+div.container-fluid{
+    padding-left:0;
+    padding-right: 0;
+}
 
 /* banner1 */
 
@@ -192,7 +209,7 @@ section.banner1{
     padding:40px;
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-around; 
 }
 
 .categories img{
@@ -214,7 +231,7 @@ section.banner1{
     display:flex;
     flex-direction: row;
     flex-wrap:wrap;
-    justify-content: space-around;
+    justify-content: space-around; 
     padding-top: 4%;
     padding-bottom: 4%;
 }
@@ -253,7 +270,6 @@ div.deals .deals_list h4{
     border:5px solid #fff;
 }
 
-
 /* freedelivery */
 
 .delivery{
@@ -269,7 +285,9 @@ div.deals .deals_list h4{
 .delivery i{
     font-size: 50px;
 }
+
 /* fashion */
+
 .heading{
     text-align: center;
     text-transform: uppercase;
@@ -278,13 +296,12 @@ div.deals .deals_list h4{
     padding-bottom: 3%;
 }
 .banner{
-    width: 98vw;
+    width: 95vw;
     height: 60vh;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content:center;
-    padding:1%
+
 }
 
 .banner .bannersub{
@@ -474,7 +491,7 @@ div.features div h2{
 }
 
 .footer_nav nav ul li {
-    padding-bottom: 5%;
+    /* padding-bottom: 5%; */
     text-decoration: none;
 }
 .footer_nav nav ul li a{
@@ -507,4 +524,248 @@ div.features div h2{
     padding: 8px;
 }
 
+#mobile-header{
+    display:none;
+}
 
+@media(max-width:360px){
+    header#desktop-header{
+        display:none;
+    }
+
+    header#mobile-header{
+        display:flex;
+    }
+
+    body{
+        width:100%;
+    }
+
+    header #mobile-header {
+        width:100vw;
+    }
+
+    #mobile-header .navbar{
+        display:flex;
+        flex-wrap: wrap;
+        margin:0 10px 0 10px;
+    }
+
+    #mobile-icons a,  #mobile-icons i{
+        font-size:20px;
+        padding-left:8px;
+        margin-left:0;
+
+    }
+    #mobile-header .navbar-toggler{
+        border:none;
+        width:30px;
+        height:30px;
+        padding:0;
+    }
+
+    .fashion .banner img{
+        display:none;
+    }
+
+    .navbar-brand img{
+        height:40px;
+        width:90px;
+    }
+
+    section.banner1{
+        font-family: 'Jost', sans-serif;
+        width:100%;
+        margin-top:7%;
+        margin-bottom: 7%;
+        
+        /* background-color: #eee; */  
+    } 
+    
+    section.banner1 .bannerone{
+        height:20vh;
+    }
+
+    .banner1 .banner1sub{
+        height:100%;
+    }
+
+    .banner1sub div h1{
+        margin-left: 2%;
+        margin-bottom: 1%;
+        color:#eee;
+        text-transform: capitalize;
+        font-size: 14px;
+    }
+    
+    .banner1sub div p{
+        text-transform: capitalize;
+        margin-left: 2%;
+        color: #eee;
+        font-size:12px;
+        width:80%
+    } 
+    .categories h1,.container-fluid h1{
+        font-size:20px;
+        margin-top:5%;
+        margin-bottom:5%;
+    }
+    .categories .categories_list{
+        padding:4%;
+        display:flex;
+        flex-wrap: nowrap;
+        justify-content: initial;
+        overflow-x: scroll;
+
+    }
+
+    .deals .deals_list{
+            background-color: #eee;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content:initial;
+            padding: 4%;
+            overflow-x: scroll;
+    }
+
+    .deals_list img{
+        width:18rem;
+    }
+
+    .deals_list div{
+        margin:0 7% 0 7% ;
+    }
+
+    .delivery {
+        font-family: 'Jost', sans-serif;
+        text-align: center;
+        font-size: 19px;
+        border: 2px solid #555;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        padding: 2%;
+        text-transform: capitalize;
+        font-weight: 400;
+    }
+
+    .delivery i{
+        font-size: 20px;
+    }
+
+    div.fashion_categories {
+        display: flex;
+        flex-direction: row;
+        flex-wrap:nowrap;
+        justify-content: initial;
+        overflow-x:scroll;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+/* mobilefooter */
+    .footer_nav_contact{
+        padding-top:5%;
+        width: 100%;
+        display:flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin:0;
+        align-items: center;
+        align-content: center;
+        text-transform: capitalize;
+    }
+
+    .footer_nav{
+        width:100%;
+        display:flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    } 
+
+    .footer_nav div{
+        width:40%;
+    }
+
+    .footer_contact{
+        width: 100%;
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:initial;
+        padding-left: 5%;
+    }
+    .footer_contact div{
+        width:100%;
+    }
+
+    .footer_nav div h3 {
+        font-size: 18px;
+        padding-bottom:2%;
+    }
+
+    .footer_nav ul {
+        padding-left: 2%;
+    }
+
+    .footer_nav ul a{
+        color:#555;
+    }
+    .footer{
+        margin-top:10%;
+    } 
+    .bottom_footer {
+        border-top: 1px solid #bbb;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 5%;
+    }
+
+    .footer_contact div h3{
+        font-size: 18px;
+        padding-bottom: 0;
+    }
+
+    .footer_contact .contact_details {
+        padding-bottom:1%;
+    }
+
+    .features{
+        display:none;
+    }
+
+    .socialmedia a i{
+        color:#555;
+        font-size: 18PX;
+        padding: 8px;
+    }
+
+    .bottom_footer{
+        border-top: 1px solid #bbb;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        width:90%;
+        display:flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content:center;
+        align-items: center;
+        margin-left: 5%;
+        text-align: center;
+    }
+
+    .bottom_footer h2 {
+        font-size: 18px;
+    }
+
+    .bottom_footer div{
+        width:100%;
+    }
+
+}

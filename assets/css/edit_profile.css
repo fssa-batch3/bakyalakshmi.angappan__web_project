@@ -121,3 +121,18 @@ div.x-mark i{
     color: #000;
 } 
 
+
+@media(max-width:360px){
+
+    .container{
+        font-family: 'Jost', sans-serif;
+        margin-top: 3%;
+        height:95vh;
+    }
+    .container-form{
+        width:90%;
+        height:95%;
+    }
+    
+}
+

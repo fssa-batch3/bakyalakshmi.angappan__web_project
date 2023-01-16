@@ -149,3 +149,45 @@
 textarea{
     width:100%;
 }
+
+@media(max-width:360px){
+    .heading_top {
+        font-family: 'Jost', sans-serif;
+        padding-top: 5%;
+        width: 100%;
+        margin-bottom:0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 0;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 1%;
+    }
+    .container {
+        margin:5%;
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #eee;
+        padding:3%;
+        margin-left: 0;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .product_thumbnail img {
+        box-shadow: 0 2px 5px #bbb;
+        width: 100%;
+    }
+
+
+    .arrowmark {
+        display: flex;
+        flex-direction: row;
+        padding-left: 0;
+        align-self: center;
+    }
+}

@@ -1,43 +1,46 @@
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
 }
 
 /* heading */
-body{
+body {
     font-family: 'Jost', sans-serif;
 }
 
-div.location{
-    color:#5a5a5a;
+div.location {
+    color: #5a5a5a;
     margin-top: 2%;
     margin-left: 2%;
     text-transform: capitalize;
 }
 
-.smallcontainer .heading_top{
+.smallcontainer .heading_top {
     font-family: 'Jost', sans-serif;
     margin-bottom: 5%;
 }
 
-.heading_top h3, .heading_top h1{
+.heading_top h3,
+.heading_top h1 {
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1px; 
-    margin:0; 
-}   
+    letter-spacing: 1px;
+    margin: 0;
+}
 
-.heading_top h1{
+.heading_top h1 {
     font-family: 'Jost', sans-serif;
     font-weight: 600;
     margin-bottom: 5%;
 }
-.heading_top h3{
+
+.heading_top h3 {
     font-weight: 400;
     color: #5a5a5a;
+    
 }
 
-.products{
+.products {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -45,62 +48,169 @@ div.location{
     padding-bottom: 30px;
 }
 
-.smallcontainer{
+.smallcontainer {
     width: 25%;
-    height:50%;
+    height: 50%;
     /*background-color:wheat;*/
     border-radius: 10px;
     text-align: center;
     margin-bottom: 5%;
 }
 
-.smallcontainer a{
-    text-decoration: none;
-    color:#000;
+.smallcontainer .images {
+    position: relative;
 }
 
-.smallcontainer img{
-    width:70%;
-    height:80%;
-    border-bottom:1px solid #eee ;
+.smallcontainer .images i.wishlist {
+    font-size: 24px;
+    position: absolute;
+    bottom: 3%;
+    right: 20%;
+
+}
+
+.smallcontainer a {
+    text-decoration: none;
+    color: #000;
+}
+
+.smallcontainer img {
+    width: 70%;
+    height: 80%;
+    border-bottom: 1px solid #eee;
     padding: 10px;
 }
 
-.smallcontainer img:hover{
-    border:1px solid #eee;
+.smallcontainer img:hover {
+    border: 1px solid #eee;
 }
 
-.brand_name{
+.brand_name {
     text-transform: uppercase;
-    margin:0;
+    margin: 0;
     /* color: #5796a0; */
     color: #3c6d75;
     padding-bottom: 2%;
     font-weight: 700;
 }
 
-.product_name{
+.product_name {
     font-weight: 400;
     text-transform: capitalize;
-    margin:0;
+    margin: 0;
     padding-bottom: 1%;
 }
 
-.smallcontainer i{
-    color:#222;
+.smallcontainer i {
+    color: #222;
     padding-bottom: 2%;
 }
 
-.product_price{
-    text-transform:capitalize;
+
+.product_price {
+    text-transform: capitalize;
     font-size: 20px;
     font-weight: 600;
 }
 
-.original_price{
-    color:#5a5a5a;
+.original_price {
+    color: #5a5a5a;
 }
 
-.product_offer{
+.product_offer {
     color: #3c6d75;
+}
+
+#mobile-header {
+    display: none;
+}
+
+@media(max-width:360px) {
+    header#desktop-header {
+        display: none;
+    }
+
+    header#mobile-header {
+        display: flex;
+    }
+
+    body {
+        width: 100%;
+    }
+
+    header #mobile-header {
+        width: 100vw;
+    }
+
+    #mobile-header .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 10px 0 10px;
+    }
+
+    #mobile-icons a,
+    #mobile-icons i {
+        font-size: 20px;
+        padding-left: 8px;
+        margin-left: 0;
+
+    }
+
+    #mobile-header .navbar-toggler {
+        border: none;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+    }
+
+    .smallcontainer {
+        width: 11rem;
+        height: 50%;
+        /*background-color:wheat;*/
+        border-radius: 10px;
+        text-align: center;
+        margin-bottom: 5%;
+    }
+
+    .smallcontainer img {
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid #eee;
+        padding: 10px;
+    }
+
+    .smallcontainer img:hover {
+        border: 1px solid #eee;
+    }
+
+    .brand_name {
+        text-transform: uppercase;
+        margin: 0;
+        /* color: #5796a0; */
+        color: #3c6d75;
+        padding-bottom: 2%;
+        font-weight: 700;
+        font-size: 18px;
+    }
+
+    .product_name {
+        font-weight: 400;
+        text-transform: capitalize;
+        margin: 0;
+        padding-bottom: 1%;
+        font-size: 14px;
+    }
+
+    .smallcontainer i {
+        color: #222;
+        padding-bottom: 2%;
+        font-size: 14px;
+    }
+
+    .product_price {
+        text-transform: capitalize;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
 }

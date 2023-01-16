@@ -28,59 +28,86 @@
                             <form>
                         <div>
                             <label class="label_field">full name</label><br/>
-                            <input class="input_field" type="text" value="Bakyalakshmi" />
+                            <input class="input_field" type="text"  id="fullname" value="Bakyalakshmi" />
                         </div>
 
                         <div>
                             <label class="label_field">Mobile number</label><br/>
-                            <input class="input_field" type="tel" value="9789853625" />
+                            <input class="input_field" type="tel" value="9789853625" id="mobilenumber" />
                         </div>
 
                         <div>
                             <label class="label_field">Email </label><br/>
-                            <input class="input_field" type="email" value="bakyalakshmi623@gmail.com"/>
+                            <input class="input_field" type="email" id="email" value="bakyalakshmi623@gmail.com"/>
                         </div>
 
 
 
                         <div>
                             <label class="label_field">gender</label>
-                            <input class="input_field"  type="text" value="female"/>
+                            <input class="input_field"  type="text" id="gender" value="female"/>
                         </div>
                         
                         <div>
                             <label class="label_field">date of birth</label><br/>
-                            <input class="input_field" type="date"   />
+                            <input class="input_field" type="date" id="dateofbirth" value="2005-06-23" />
                         </div>
 
                         <div>
                             <label class="label_field">address</label><br/>
-                            <input class="input_field" value="513, R.R nagar, Kodungaiyur, chennai-600118"/>
+                            <input class="input_field" id="address" value="513, R.R nagar, Kodungaiyur, chennai-600118"/>
                         </div>
 
                         <div>
                             <label class="label_field">hint name</label><br/>
-                            <input class="input_field" value="bakya"/>
+                            <input class="input_field" id="hint" value="bakya"/>
                         </div>
-                    </form>
+         
 
                             <div class="save-changes">
-                                <a href="../homepage/account.html"> 
-                                    <button> save changes</button> </a>
-                                </a>
+                                    <button type="button" onclick="save_profile()"> save changes</button>
                             </div>
     
-                            <div class="change-password">
-                            
-                                    <button> <a href="../../pages/homepage/changepassword.html">change password</a></button>
-                                </a>
-                            </div>
-                    
+                            <div class="change-password">                            
+                                    <button type="button" onclick="change_password()">change password</button>
+                            </div>  
 
+                        </form>
+                        
                     </div>
+        </div>
 
 
-    </div>
+        <script>
+
+            function save_profile() {
+
+            const fullname = document.getElementById("fullname").value;
+            const mobilenumber = document.getElementById("mobilenumber").value;
+            const Email = document.getElementById("email").value;
+            const gender = document.getElementById("gender").value;
+            const dateofbirth = document.getElementById("dateofbirth").value;
+            const address = document.getElementById("address").value;
+            const hintname = document.getElementById("hint").value;
+
+            console.log(fullname)
+            console.log(mobilenumber)
+            console.log(Email)
+            console.log(gender)
+            console.log(dateofbirth)
+            console.log(address)
+            console.log(hintname)
+
+            window.location.href="../homepage/account.html";
+
+            const user_fullname = localStorage.getItem("")
+            }
+
+            function change_password() {
+
+                window.location.href="../../pages/homepage/changepassword.html";
+            }
+            
+        </script>
 </body>
 </html>
-

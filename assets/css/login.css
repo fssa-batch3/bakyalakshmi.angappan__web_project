@@ -55,10 +55,11 @@ div.x-mark i{
 }
 
 a.forgotpassword{
+    color: #000;
     font-family: 'Jost', sans-serif;
     text-transform: capitalize;
     text-decoration: none;
-    margin-left: 30%;
+    margin-left: 4rem;
 }
 .container-form .input_field{
     font-family: 'Jost', sans-serif;
@@ -102,5 +103,11 @@ a.forgotpassword{
     font-size: 14px;
     font-weight: 600;
     color: #000;
-
 }
+
+@media(max-width:360px){
+    .container-form{
+        width:80%;
+    }
+}
+

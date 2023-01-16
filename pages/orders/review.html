@@ -53,7 +53,7 @@
 
 
                     <div>
-                        <textarea placeholder="please write the product review here" name="" id="" ></textarea>
+                        <textarea placeholder="please write the product review here" name="" id="write"></textarea>
                     </div>
 
 
@@ -70,10 +70,26 @@
                     </div>
                 </div>
 
+                <button type="button" onclick="review()">submit</button>
             
             </form>
-<a href="../../pages/orders/order_list.html"><button type="submit">submit</button></a>
+
         </div>
     </div>
+
+
+    <script>
+
+        function review(){
+
+            const review = document.getElementById("write").value;
+
+            console.log(review)
+
+            window.location.href="../../pages/orders/order_list.html";
+        }
+
+    </script>
+
 </body>
 </html>

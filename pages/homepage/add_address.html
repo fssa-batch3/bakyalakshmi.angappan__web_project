@@ -27,41 +27,66 @@
                             <h2>add your delivery address</h2>
                         <div>
                             <label class="label_field">your name</label>
-                            <input class="input_field" type="text" required="true"/>
+                            <input class="input_field" type="text" required="true" id="name" />
                         </div>
 
                         <div>
                             <label class="label_field">Mobile number</label><br/>
-                            <input class="input_field"  />
+                            <input class="input_field" id="mobilenumber"  />
                         </div>
 
                         <div>
                             <label class="label_field">pincode</label><br/>
-                            <input class="input_field" type=""   />
+                            <input class="input_field" type=""  id="pincode"  />
                         </div>
 
                         <div>
                             <label class="label_field">city</label><br/>
-                            <input class="input_field"  type="text"/>
+                            <input class="input_field"  type="text"id="city" />
                         </div>
 
                         <div>
                             <label class="label_field">state</label><br/>
-                            <input class="input_field"  type="text"/>
+                            <input class="input_field"  type="text"id="state" />
                         </div>
 
                         <div>
                             <label class="label_field">full address</label><br/>
-                            <textarea cols="30" rows="6"></textarea>
+                            <textarea cols="30" rows="6"id="fulladdress" ></textarea>
                         </div>
-                    </form>
 
                         <div>
-                            <a href="../orders/shopping_bag.html">
-                            <button class="save_btn" type="submit">save</button>
-                            </a>
+                            <button class="save_btn" type="button" onclick="add_address()" >save</button>
                         </div>
+
+                    </form>
+
                     </div>
-                </div>
+        </div>
+
+                <script>
+
+                    function add_address(){
+
+                    const yourname = document.getElementById("name").value;
+                    const mobilenumber = document.getElementById("mobilenumber").value;
+                    const pincode = document.getElementById("pincode").value;
+                    const city = document.getElementById("city").value;
+                    const state = document.getElementById("state").value;
+                    const fulladdress = document.getElementById("fulladdress").value;
+
+                    console.log(yourname)
+                    console.log(mobilenumber)
+                    console.log(pincode)
+                    console.log(city)
+                    console.log(state)
+                    console.log(fulladdress)
+
+                    window.location.href="../orders/shopping_bag.html";
+
+                    }
+
+                </script>
+
 </body>
 </html>

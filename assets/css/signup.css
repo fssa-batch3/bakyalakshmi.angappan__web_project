@@ -23,7 +23,7 @@ img{
 .container-form{
     position:relative;
     width:30%;
-    height:90%;
+    height:85%;
     padding:2%;
     margin-top: 2%;
     background-color: white;
@@ -90,4 +90,12 @@ div.x-mark i{
     font-weight: 700;
     color: #000;
 
+}
+
+
+@media(max-width:360px){
+    .container-form{
+        width:80%;
+        margin-top: 6rem;
+    }
 }

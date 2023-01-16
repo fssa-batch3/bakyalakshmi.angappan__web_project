@@ -57,8 +57,9 @@
 
 table tbody tr td{
     width:50%;
-    padding-bottom: 30px;
-    padding-right:10%;
+    padding-top: 10%;
+    padding-bottom: 5%;
+    padding-right:0;
 }
 
 .profile_details_table table{
@@ -115,5 +116,41 @@ div.seller button{
     padding:6px;
     border-radius: 5px;
 }
+#mobile-header{
+    display:none;
+}
+@media(max-width:360px){
 
+    .container {
+        width: 100%;
+        height:100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-left:0;
+    }
+
+    .profile_details {
+        font-family: 'Jost', sans-serif;
+        width: 100%;
+    }
+    
+    table tbody tr td {
+        width: 50%;
+        padding-bottom: 5%;
+        padding-right:0;
+    }    
+    
+    
+ .profile_details_table {
+    width:100%;
+    padding-top: 8%;
+    font-size: 18px;
+    border: 2px solid #eee;
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-bottom: 8%;
+}
+}
 

@@ -26,30 +26,47 @@
                                 <h2> login </h2>
                             <div>
                                 <label class="label_field">Email or username</label> <br/>
-                                <input class="input_field" type="text" id="userName" required="true" />
+                                <input class="input_field" type="text" id="emailorusername"required="true" />
                             </div>
                             
                             <div>
-                                <label class="label_field">password</label><a class="forgotpassword" href="../homepage/forgot_password.html">forgot password?</a> <br/>
-                                <input class="input_field" type="password" />
-                            </div>
-
-                        </form>
-                            <div>
-                                <a href="../homepage/homepage.html">
-                                <button type="submit">Login</i>
-                                </button>
-                                </a>
+                                <label class="label_field">password</label>
+                                <a class="forgotpassword" href="../homepage/forgot_password.html">forgot password?</a> <br/>
+                                <input class="input_field" id="password" type="password" />
                             </div>
 
                         
+
+                            <div>
+                                <button type="button" onclick="login()">Login
+                                </button>
+                            </div>
 
                             <div>
                                 <span>New to MFS?</span><a href="../../pages/homepage/signup.html">create new account</a>
                             </div>
-                        
+
+                        </form>
 
                         </div>
         </div>
+
+        <script>
+
+    function login() {
+
+            const email = document.getElementById("emailorusername").value;
+            const password = document.getElementById("password").value;
+
+            console.log(email)
+            console.log(password)
+  
+            
+            window.location.href = "../homepage/homepage.html";
+    }
+
+        </script>
+
+
 </body>
 </html>
