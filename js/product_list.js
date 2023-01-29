@@ -49,154 +49,321 @@ let span_product_offer;
 let product_list = [
 
     {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-1.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
-    },
+        "image": {
+            "source": "../../assets/images/homepage-images/mens fashion/men-jean-1.jpg",
+            "alt": "jean"
+        },
 
-    {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-2.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
-    },
+        "brand": "DNMX",
+        "name": "Mid-Rise Skinny Fit Jeans",
 
-    {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-3.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
-    },
+        "price": {
 
-    {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-4.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
-    },
+            "currency": "Rs",
+            "current": "799",
+            "actual": "999",
 
-    {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-5.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
-    },
+            "offer": {
+                "value": "30",
+                "type": "%"
+            }
+        },
 
-    {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-6.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
-    },
-
-    {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-7.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
-    },
-
-    {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-8.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
+        "ratings": "4.5",
+        "buyers": "2100"
     },
 
 
     {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-9.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
+        "image": {
+            "source": "../../assets/images/homepage-images/mens fashion/men-jean-2.jpg",
+            "alt": "jean"
+        },
+
+        "brand": "DNMX",
+        "name": "Mid-Rise Skinny Fit Jeans",
+
+        "price": {
+
+            "currency": "Rs",
+            "current": "799",
+            "actual": "999",
+
+            "offer": {
+                "value": "30",
+                "type": "%"
+            }
+        },
+
+        "ratings": "4.5",
+        "buyers": "2100"
     },
 
-    {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-10.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
-    },
 
     {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-11.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
+        "image": {
+            "source": "../../assets/images/homepage-images/mens fashion/men-jean-3.jpg",
+            "alt": "jean"
+        },
+
+        "brand": "DNMX",
+        "name": "Mid-Rise Skinny Fit Jeans",
+
+        "price": {
+
+            "currency": "Rs",
+            "current": "799",
+            "actual": "999",
+
+            "offer": {
+                "value": "30",
+                "type": "%"
+            }
+        },
+
+        "ratings": "4.5",
+        "buyers": "2100"
     },
 
-    {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-12.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
-    },
 
     {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-13.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
+        "image": {
+            "source": "../../assets/images/homepage-images/mens fashion/men-jean-4.jpg",
+            "alt": "jean"
+        },
+
+        "brand": "DNMX",
+        "name": "Mid-Rise Skinny Fit Jeans",
+
+        "price": {
+
+            "currency": "Rs",
+            "current": "799",
+            "actual": "999",
+
+            "offer": {
+                "value": "30",
+                "type": "%"
+            }
+        },
+
+        "ratings": "4.5",
+        "buyers": "2100"
     },
 
-    {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-14.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
-    },
 
     {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-15.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
+        "image": {
+            "source": "../../assets/images/homepage-images/mens fashion/men-jean-5.jpg",
+            "alt": "jean"
+        },
+
+        "brand": "DNMX",
+        "name": "Mid-Rise Skinny Fit Jeans",
+
+        "price": {
+
+            "currency": "Rs",
+            "current": "799",
+            "actual": "999",
+
+            "offer": {
+                "value": "30",
+                "type": "%"
+            }
+        },
+
+        "ratings": "4.5",
+        "buyers": "2100"
     },
 
+
     {
-        "product_image": "../../assets/images/homepage-images/mens fashion/men-jean-16.jpg",
-        "brand_name": "DNMX",
-        "product_name": "Mid-Rise Skinny Fit Jeans",
-        "product_price": "Rs.799",
-        "original_price": "rs.999",
-        "product_offer": "(30% off)"
+        "image": {
+            "source": "../../assets/images/homepage-images/mens fashion/men-jean-6.jpg",
+            "alt": "jean"
+        },
+
+        "brand": "DNMX",
+        "name": "Mid-Rise Skinny Fit Jeans",
+
+        "price": {
+
+            "currency": "Rs",
+            "current": "799",
+            "actual": "999",
+
+            "offer": {
+                "value": "30",
+                "type": "%"
+            }
+        },
+
+        "ratings": "4.5",
+        "buyers": "2100"
     },
+
+
+    {
+        "image": {
+            "source": "../../assets/images/homepage-images/mens fashion/men-jean-7.jpg",
+            "alt": "jean"
+        },
+
+        "brand": "DNMX",
+        "name": "Mid-Rise Skinny Fit Jeans",
+
+        "price": {
+
+            "currency": "Rs",
+            "current": "799",
+            "actual": "999",
+
+            "offer": {
+                "value": "30",
+                "type": "%"
+            }
+        },
+
+        "ratings": "4.5",
+        "buyers": "2100"
+    },
+
+
+    {
+        "image": {
+            "source": "../../assets/images/homepage-images/mens fashion/men-jean-8.jpg",
+            "alt": "jean"
+        },
+
+        "brand": "DNMX",
+        "name": "Mid-Rise Skinny Fit Jeans",
+
+        "price": {
+
+            "currency": "Rs",
+            "current": "799",
+            "actual": "999",
+
+            "offer": {
+                "value": "30",
+                "type": "%"
+            }
+        },
+
+        "ratings": "4.5",
+        "buyers": "2100"
+    },
+
+
+    {
+        "image": {
+            "source": "../../assets/images/homepage-images/mens fashion/men-jean-9.jpg",
+            "alt": "jean"
+        },
+
+        "brand": "DNMX",
+        "name": "Mid-Rise Skinny Fit Jeans",
+
+        "price": {
+
+            "currency": "Rs",
+            "current": "799",
+            "actual": "999",
+
+            "offer": {
+                "value": "30",
+                "type": "%"
+            }
+        },
+
+        "ratings": "4.5",
+        "buyers": "2100"
+    },
+
+
+    {
+        "image": {
+            "source": "../../assets/images/homepage-images/mens fashion/men-jean-10.jpg",
+            "alt": "jean"
+        },
+
+        "brand": "DNMX",
+        "name": "Mid-Rise Skinny Fit Jeans",
+
+        "price": {
+
+            "currency": "Rs",
+            "current": "799",
+            "actual": "999",
+
+            "offer": {
+                "value": "30",
+                "type": "%"
+            }
+        },
+
+        "ratings": "4.5",
+        "buyers": "2100"
+    },
+
+
+    {
+        "image": {
+            "source": "../../assets/images/homepage-images/mens fashion/men-jean-11.jpg",
+            "alt": "jean"
+        },
+
+        "brand": "DNMX",
+        "name": "Mid-Rise Skinny Fit Jeans",
+
+        "price": {
+
+            "currency": "Rs",
+            "current": "799",
+            "actual": "999",
+
+            "offer": {
+                "value": "30",
+                "type": "%"
+            }
+        },
+
+        "ratings": "4.5",
+        "buyers": "2100"
+    },
+
+
+    {
+        "image": {
+            "source": "../../assets/images/homepage-images/mens fashion/men-jean-12.jpg",
+            "alt": "jean"
+        },
+
+        "brand": "DNMX",
+        "name": "Mid-Rise Skinny Fit Jeans",
+
+        "price": {
+
+            "currency": "Rs",
+            "current": "799",
+            "actual": "999",
+
+            "offer": {
+                "value": "30",
+                "type": "%"
+            }
+        },
+
+        "ratings": "4.5",
+        "buyers": "2100"
+    },
+
 
 
 ]
 
-for (let i = 0; i < 16; i++) {
+for (let i = 0; i < product_list.length; i++) {
 
     // <div class="smallcontainer"></div>
     div_smallcontainer = document.createElement("div");
@@ -212,23 +379,48 @@ for (let i = 0; i < 16; i++) {
     div_smallcontainer.append(a_product_link);
 
 
-
     //  <div class= "images"> <div>
     div_images = document.createElement("div");
     div_images.setAttribute("class", "images");
-    div_smallcontainer.append(div_images);
+    a_product_link.append(div_images);
 
     // <img class="product_image" src="../../assets/images/homepage-images/mens fashion/men-jean-1.jpg" alt="mens jean" >
     img_product_image = document.createElement("img");
     img_product_image.setAttribute("class", "product_image");
-    img_product_image.setAttribute("src", product_list[i]["product_image"]);
-    img_product_image.setAttribute("alt", "mens jean");
+    img_product_image.setAttribute("src", product_list[i]["image"]["source"]);
+    img_product_image.setAttribute("alt", product_list[i]["image"]["alt"]);
     div_images.append(img_product_image);
 
     // <i class="wishlist" class="fa-solid fa-heart"></i>
     i_wishlist = document.createElement("i");
-    i_wishlist.setAttribute("class", "wishlist");
+    i_wishlist.setAttribute("class", "wishlist fa-solid fa-heart");
     div_images.append(i_wishlist);
+
+    // <div class="ratings"></div>
+    div_ratings = document.createElement("div");
+    div_ratings.setAttribute("class", "ratings");
+    div_images.append(div_ratings);
+
+    // <div class="ratings_count">4.4</div>
+    div_ratings_count = document.createElement("div");
+    div_ratings_count.setAttribute("class", "ratings_count");
+    div_ratings_count.innerText = product_list[i]["ratings"];
+    div_ratings.append(div_ratings_count);
+
+
+    // <i class="star fa-solid fa-star"></i>
+    i_star = document.createElement("i");
+    i_star.setAttribute("class", "star fa-solid fa-star");
+    div_ratings.append(i_star);
+
+
+
+    // <p class="buyers_count">4.4</p>
+    div_buyers_count = document.createElement("div");
+    div_buyers_count.setAttribute("class", "buyers_count");
+    div_buyers_count.innerText = product_list[i]["buyers"];
+    div_ratings.append(div_buyers_count);
+
 
     // <div class ="names"> <div>
     div_names = document.createElement("div");
@@ -239,29 +431,14 @@ for (let i = 0; i < 16; i++) {
 
     h3_brand_name = document.createElement("h3");
     h3_brand_name.setAttribute("class", "brand_name");
-    h3_brand_name.innerText = product_list[i]["brand_name"];
+    h3_brand_name.innerText = product_list[i]["brand"];
     div_names.append(h3_brand_name);
 
     //  <h4 class="product_name">Mid-Rise Skinny Fit Jeans</h4>
     h4_product_name = document.createElement("h4");
     h4_product_name.setAttribute("class", "product_name");
-    h4_product_name.innerText = product_list[i]["product_name"];
+    h4_product_name.innerText = product_list[i]["name"];
     div_names.append(h4_product_name);
-
-    // <div class="ratings"> </div>
-    div_ratings = document.createElement("div");
-    div_ratings.setAttribute("class", "ratings");
-    div_smallcontainer.append(div_ratings);
-
-    // <i class="fa-solid fa-star"></i>
-    i_star = document.createElement("i");
-    i_star.setAttribute("class", "fa-solid fa-star");
-    i_star.setAttribute("class", "fa-solid fa-star");
-    i_star.setAttribute("class", "fa-solid fa-star");
-    i_star.setAttribute("class", "fa-solid fa-star");
-    i_star.setAttribute("class", "fa-solid fa-star");
-    div_ratings.append(i_star);
-
 
     // <div class= "prices"> </div>
     div_prices = document.createElement("div");
@@ -269,30 +446,26 @@ for (let i = 0; i < 16; i++) {
     div_smallcontainer.append(div_prices);
 
     // <span class="product_price">rs.799</span>
-
     span_product_price = document.createElement("span");
-    span_product_price.setAttribute("class", "product_price");
-    span_product_price.innerText = product_list[i]["product_price"];
+    span_product_price.setAttribute("class", "current_price");
+    span_product_price.innerText = product_list[i]["price"]["currency"] + "." + product_list[i]["price"]["current"];
     div_prices.append(span_product_price);
 
 
     // <span class="original_price"><del>rs.999</del></span>
     span_original_price = document.createElement("span");
-    span_original_price.setAttribute("class", "original_price");
+    span_original_price.setAttribute("class", "actual_price");
     div_prices.append(span_original_price);
 
     del_original_price = document.createElement("del");
-    del_original_price.innerText = product_list[i]["original_price"];
+    del_original_price.innerText = product_list[i]["price"]["actual"];
     span_original_price.append(del_original_price);
 
     // <span class="product_offer">(30% off)</span>
     span_product_offer = document.createElement("span");
     span_product_offer.setAttribute("class", "product_offer");
-    span_product_offer.innerText = product_list[i]["product_offer"];
+    span_product_offer.innerText = "(" + product_list[i]["price"]["offer"]["value"] + "%" + "off" + ")";
     div_prices.append(span_product_offer);
 }
 
-
-
-// document.querySelector("div.products").append(div_smallcontainer);
 

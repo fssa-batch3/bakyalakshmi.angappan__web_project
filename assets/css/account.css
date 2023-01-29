@@ -1,40 +1,44 @@
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
 }
-.header-account{
-    margin-top:1%;
+
+.header-account {
+    margin-top: 1%;
     font-family: 'Jost', sans-serif;
-    width:51vw;
-    position:relative;
+    width: 51vw;
+    position: relative;
     border-bottom: 2px solid #eee;
     margin-bottom: 2%;
     margin-left: 25%;
 }
 
-.header-account h2{
-    position:absolute;
+.header-account h2 {
+    position: absolute;
 }
-.header-account span{
+
+.header-account span {
     font-weight: 600;
 }
-.header-account a{
+
+.header-account a {
     text-decoration: none;
-    color:#555;
+    color: #555;
 }
-.container{
-    width:90vw;
-    height:85vh;
-    display:flex;
+
+.container {
+    width: 90vw;
+    height: 80vh;
+    display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
     margin-left: 5%;
 }
 
-.profile_details{
+.profile_details {
     font-family: 'Jost', sans-serif;
-    width:55%;
+    width: 55%;
 }
 
 .profile_details div.heading {
@@ -42,109 +46,12 @@
     padding-bottom: 3%;
 }
 
-.profile_details div.heading h3{
+.profile_details div.heading h3 {
     margin-left: 1%;
     font-weight: 600;
 }
-.profile_details_table{
-    padding-top: 8%;
-    font-size:18px;
-    border:2px solid #eee;
-    padding-left: 7%;
-    padding-right: 7%;
-    padding-bottom: 8%;
-}
 
-table tbody tr td{
-    width:50%;
-    padding-top: 10%;
-    padding-bottom: 5%;
-    padding-right:0;
-}
-
-.profile_details_table table{
-    padding-top: 40px;
-}
- .profile_details button{
-    width:100%;
-    padding: 10px 40px;
-    background-color: #222;
-    color:#fff;
-    font-size: 16px;
-    border:none;
-}
-.profile_details button:hover{
-    width:100%;
-    padding: 10px 40px;
-    background-color: #555;
-    color:#fff;
-    font-size: 16px;
-    border:none;
-} 
-
-.header-account{
-    display:flex;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-.line{
-    border-bottom: 1px solid #eee;
-    margin-bottom: 4%;
-}
-
-div.seller{
-    font-family: 'Jost', sans-serif;
-    border:2px solid #eee;
-    text-align: center;
-    padding:2%;
-    background-color: #eee;
-    margin-bottom: 0;
-    border-bottom: 1px solid  #fff;
-}
-div.seller h2{
-    font-family: 'Jost', sans-serif;
-    text-transform: uppercase;
-    padding-bottom:1%;
-}
-div.seller button{
-    margin-top: 1%;
-    color:#fff;
-    background-color: #222;
-    border:none;
-    width:15%;
-    padding:6px;
-    border-radius: 5px;
-}
-#mobile-header{
-    display:none;
-}
-@media(max-width:360px){
-
-    .container {
-        width: 100%;
-        height:100%;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-around;
-        margin-left:0;
-    }
-
-    .profile_details {
-        font-family: 'Jost', sans-serif;
-        width: 100%;
-    }
-    
-    table tbody tr td {
-        width: 50%;
-        padding-bottom: 5%;
-        padding-right:0;
-    }    
-    
-    
- .profile_details_table {
-    width:100%;
+.profile_details_table {
     padding-top: 8%;
     font-size: 18px;
     border: 2px solid #eee;
@@ -152,5 +59,108 @@ div.seller button{
     padding-right: 7%;
     padding-bottom: 8%;
 }
+
+table tbody tr td {
+    width: 50%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-right: 0;
 }
 
+.profile_details_table table {
+    padding-top: 40px;
+}
+
+.profile_details button {
+    width: 100%;
+    padding: 10px 40px;
+    background-color: #222;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+}
+
+.profile_details button:hover {
+    width: 100%;
+    padding: 10px 40px;
+    background-color: #555;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+}
+
+.header-account {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.line {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 4%;
+}
+
+div.seller {
+    font-family: 'Jost', sans-serif;
+    border: 2px solid #eee;
+    text-align: center;
+    padding: 2%;
+    background-color: #eee;
+    margin-bottom: 0;
+    border-bottom: 1px solid #fff;
+}
+
+div.seller h2 {
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    padding-bottom: 1%;
+}
+
+div.seller button {
+    margin-top: 1%;
+    color: #fff;
+    background-color: #222;
+    border: none;
+    width: 15%;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+#mobile-header {
+    display: none;
+}
+
+@media(max-width:360px) {
+
+    .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-left: 0;
+    }
+
+    .profile_details {
+        font-family: 'Jost', sans-serif;
+        width: 100%;
+    }
+
+    table tbody tr td {
+        width: 40%;
+        padding-bottom: 5%;
+        padding-right: 0;
+    }
+
+
+    .profile_details_table {
+        width: 100%;
+        padding-top: 8%;
+        font-size: 18px;
+        border: 2px solid #eee;
+        padding-left: 7%;
+        padding-right: 7%;
+        padding-bottom: 8%;
+    }
+}

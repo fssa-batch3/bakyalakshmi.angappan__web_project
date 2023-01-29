@@ -1,86 +1,92 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/edit_profile.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>edit_profile</title>
 </head>
+
 <body>
     <div class="container">
 
-                    <div class="container-form">
-                        <div class="x-mark">
-                            <a href="../../pages/homepage/account.html">
-                                <i class="fa-solid fa-xmark"></i>
-                            </a>
-                        </div>
+        <div class="container-form">
+            <div class="x-mark">
+                <a href="../../pages/homepage/account.html">
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
+            </div>
 
-                            <h2>edit profile</h2>
-                            <form>
-                        <div>
-                            <label class="label_field">full name</label><br/>
-                            <input class="input_field" type="text"  id="fullname" value="Bakyalakshmi" />
-                        </div>
+            <h2>edit profile</h2>
+            <form>
+                <div>
+                    <label class="label_field">full name</label><br />
+                    <input class="input_field" type="text" id="fullname" />
+                </div>
 
-                        <div>
-                            <label class="label_field">Mobile number</label><br/>
-                            <input class="input_field" type="tel" value="9789853625" id="mobilenumber" />
-                        </div>
+                <div>
+                    <label class="label_field">Mobile number</label><br />
+                    <input class="input_field" type="tel" id="mobilenumber" />
+                </div>
 
-                        <div>
-                            <label class="label_field">Email </label><br/>
-                            <input class="input_field" type="email" id="email" value="bakyalakshmi623@gmail.com"/>
-                        </div>
+                <div>
+                    <label class="label_field">Email </label><br />
+                    <input class="input_field" type="email" id="email" />
+                </div>
 
 
 
-                        <div>
-                            <label class="label_field">gender</label>
-                            <input class="input_field"  type="text" id="gender" value="female"/>
-                        </div>
-                        
-                        <div>
-                            <label class="label_field">date of birth</label><br/>
-                            <input class="input_field" type="date" id="dateofbirth" value="2005-06-23" />
-                        </div>
+                <div>
+                    <label class="label_field">gender</label>
+                    <input class="input_field" type="text" id="gender" />
+                </div>
 
-                        <div>
-                            <label class="label_field">address</label><br/>
-                            <input class="input_field" id="address" value="513, R.R nagar, Kodungaiyur, chennai-600118"/>
-                        </div>
+                <div>
+                    <label class="label_field">date of birth</label><br />
+                    <input class="input_field" type="date" id="dateofbirth" />
+                </div>
 
-                        <div>
-                            <label class="label_field">hint name</label><br/>
-                            <input class="input_field" id="hint" value="bakya"/>
-                        </div>
-         
+                <div>
+                    <label class="label_field">address</label><br />
+                    <input class="input_field" id="address" />
+                </div>
 
-                            <div class="save-changes">
-                                    <button type="button" onclick="save_profile()"> save changes</button>
-                            </div>
-    
-                            <div class="change-password">                            
-                                    <button type="button" onclick="change_password()">change password</button>
-                            </div>  
+                <div>
+                    <label class="label_field">hint name</label><br />
+                    <input class="input_field" id="hint" />
+                </div>
 
-                        </form>
-                        
-                    </div>
+
+                <div class="save-changes">
+                    <button type="button" onclick="save_profile()"> save changes</button>
+                </div>
+
+                <div class="change-password">
+                    <button type="button" onclick="change_password()">change password</button>
+                </div>
+
+            </form>
+
         </div>
+    </div>
 
 
-        <script>
+    <script>
 
-            function save_profile() {
+        function save_profile() {
 
             const fullname = document.getElementById("fullname").value;
             const mobilenumber = document.getElementById("mobilenumber").value;
@@ -98,16 +104,35 @@
             console.log(address)
             console.log(hintname)
 
-            window.location.href="../homepage/account.html";
 
-            const user_fullname = localStorage.getItem("")
-            }
 
-            function change_password() {
+            let user_fullname = localStorage.getItem("user_fullname");
+            const user_mobilenumber = localStorage.getItem("user_mobilenumber");
+            let user_email = localStorage.getItem("user_email");
+            // const user_gender = localStorage.serItem("user_gender", gender);
+            // const user_date = localStorage.setItem("user_date", date);
+            // const user_address = localStorage.setItem("user_address", address);
+            // const user_hintname = localStorage.setItem("user_hintname", hintname);
 
-                window.location.href="../../pages/homepage/changepassword.html";
-            }
-            
-        </script>
+            // document.getElementById("fullname").innerText = user_fullname;
+            // document.getElementById("user_mobilenumber").innerText = user_mobilenumber;
+            // document.getElementById("user_email").innerText = user_email;
+            // document.getElementById("user_gender").innerText = user_gender;
+            // document.getElementById("user_date").innerText = user_date;
+            // document.getElementById("user_address").innerText = user_address;
+            // document.getElementById("user_hintname").innerText = user_hintname;
+
+            window.location.href = "./account.html";
+
+
+        }
+
+        function change_password() {
+
+            window.location.href = "../../pages/homepage/changepassword.html";
+        }
+
+    </script>
 </body>
+
 </html>
