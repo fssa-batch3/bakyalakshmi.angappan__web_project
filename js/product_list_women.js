@@ -1,35 +1,3 @@
-{/* <div class="smallcontainer">
-    <a class="product_link" href="../products/product details/mens_product_details/product_details-men-jean1.html">
-
-    <div class= "images">
-        <img class="product_image" src="../../assets/images/homepage-images/mens fashion/men-jean-1.jpg"
-            alt="mens jean">
-        <i class="wishlist" class="fa-solid fa-heart"></i>
-    </div>
-
-    <div class ="names">
-        <h3 class="brand_name">DNMX</h3>
-        <h4 class="product_name">Mid-Rise Skinny Fit Jeans</h4>
-    </div>
-
-    <div class="ratings">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa fa-star-half-full"></i>
-        <i class="fa fa-star-o"></i>
-    </div>
-
-    <div class= "prices">
-        <span class="product_price">rs.799</span>
-        <span class="original_price"><del>rs.999</del></span>
-        <span class="product_offer">(30% off)</span>
-    </div>
-</a>
-
-</div> */}
-
-
 let div_smallcontainer;
 let a_product_link;
 let div_images;
@@ -50,22 +18,22 @@ let product_list = [
 
     {
         "image": {
-            "source": "../../../assets/images/homepage-images/mens fashion/mens-shirt-1.jpg",
-            "alt": "slim fit casual shirt"
+            "source": "../../../assets/images/homepage-images/womens fashion/shirt-3.jpg",
+            "alt": "checked collar shirt"
         },
 
-        "brand": "highlander",
+        "brand": "roadster",
         "name": "slim fit casual shirt",
 
         "price": {
 
             "currency": "Rs",
-            //   // "current": 599,
+            "current": 599,
             "actual": 999,
 
             "offer": {
-                "value": 299,
-                "type": "rs"
+                "value": 30,
+                "type": "%"
             }
         },
 
@@ -75,17 +43,17 @@ let product_list = [
 
     {
         "image": {
-            "source": "../../../assets/images/homepage-images/mens fashion/mens-shirt-2.jpg",
-            "alt": "slim fit casual shirt"
+            "source": "../../../assets/images/homepage-images/womens fashion/shirt-4.jpg",
+            "alt": "checked casual collar shirt"
         },
 
-        "brand": "here&now",
-        "name": "men slim fit casual shirt",
+        "brand": "her by invi",
+        "name": "checked casual collar shirt",
 
         "price": {
 
             "currency": "Rs",
-            //   // "current": 499,
+            "current": 499,
             "actual": 999,
 
             "offer": {
@@ -100,17 +68,17 @@ let product_list = [
 
     {
         "image": {
-            "source": "../../../assets/images/homepage-images/mens fashion/t-shirt-1.jpg",
-            "alt": "men typograpy printed t-shirt"
+            "source": "../../../assets/images/homepage-images/womens fashion/skirts-1.jpg",
+            "alt": "women flared skirt"
         },
 
-        "brand": "here&now",
-        "name": "men typograpy printed t-shirt",
+        "brand": "sassafras",
+        "name": "women flared skirt",
 
         "price": {
 
             "currency": "Rs",
-            //   // "current": 299,
+            "current": 299,
             "actual": 599,
 
             "offer": {
@@ -125,33 +93,30 @@ let product_list = [
 
     {
         "image": {
-            "source": "../../../assets/images/homepage-images/mens fashion/men-jean-1.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
+            "source": "../../../assets/images/homepage-images/womens fashion/women-tshirt-1.jpg",
+            "alt": "printed crew-neck t-shirt"
         },
 
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
+        "brand": "Dillinger",
+        "name": "printed crew-neck t-shirt",
 
         "price": {
 
             "currency": "Rs",
-            //   //   //   // "current": 799,
+            "current": 299,
             "actual": 999,
 
             "offer": {
-                "value": 20,
+                "value": 70,
                 "type": "%"
             }
         },
 
-        "ratings": 3.2,
-        "buyers": 200
+        "ratings": 4.3,
+        "buyers": 1000
     },
 
 ]
-
-
-
 
 for (let i = 0; i < product_list.length; i++) {
 
@@ -234,24 +199,11 @@ for (let i = 0; i < product_list.length; i++) {
     div_prices = document.createElement("div");
     div_prices.setAttribute("class", "prices");
     div_smallcontainer.append(div_prices);
-    //////price - current calculation
-    let actual = product_list[i]["price"]["actual"];
-    let value = product_list[i]["price"]["offer"]["value"];
-    let type = product_list[i]["price"]["type"];
-    let current;
-
-    if (type === "%") {
-        current = actual - actual * value / 100;
-    }
-    else {
-        current = actual - value;
-    }
-    console.log(current);
 
     // <span class="product_price">rs.799</span>
     span_product_price = document.createElement("span");
     span_product_price.setAttribute("class", "current_price");
-    span_product_price.innerText = product_list[i]["price"]["currency"] + "." + current;
+    span_product_price.innerText = product_list[i]["price"]["currency"] + "." + product_list[i]["price"]["current"];
     div_prices.append(span_product_price);
 
 
@@ -267,8 +219,6 @@ for (let i = 0; i < product_list.length; i++) {
     // <span class="product_offer">(30% off)</span>
     span_product_offer = document.createElement("span");
     span_product_offer.setAttribute("class", "product_offer");
-    span_product_offer.innerText = "(" + product_list[i]["price"]["offer"]["value"] + product_list[i]["price"]["offer"]["type"] + "off" + ")";
+    span_product_offer.innerText = "(" + product_list[i]["price"]["offer"]["value"] + "%" + "off" + ")";
     div_prices.append(span_product_offer);
 }
-
-

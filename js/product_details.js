@@ -66,6 +66,60 @@
 
 </div>  */}
 
+///////object//////////
+
+const product_details =
+{
+    "image": [
+        {
+            "source": "../../../../assets/images/product_details-images/product_thumbnail-1.jpg",
+            "alt": ""
+        },
+
+        {
+            "source": "../../../../assets/images/product_details-images/product_thumbnail-2.jpg",
+            "alt": ""
+        },
+
+        {
+            "source": "../../../../assets/images/product_details-images/product_thumbnail-3.jpg",
+            "alt": ""
+        },
+
+        {
+            "source": "../../../../assets/images/product_details-images/product_thumbnail-4.jpg",
+            "alt": ""
+        }
+    ],
+
+
+    "brand": "dnmx",
+    "name": "Mid-Rise Skinny Fit Jeans",
+
+
+
+
+
+    "modelsize": 32,
+
+}
+//     "price": {
+//         "currency": "rs",
+//         "actual": 999,
+//         "offer": {
+//             "value": 20,
+//             "type": "%"
+//         }
+
+//         "color": " ",
+//         "size": [28, 30, 32, 34, 38]
+//         "details": "",
+
+
+// //     }
+
+// // ]
+
 ////////////leftside////////////
 
 // <div class="leftside"></div>
@@ -80,29 +134,15 @@ div_thumbmnailproducts.setAttribute("class", "thumbmnailproducts");
 div_leftside.append(div_thumbmnailproducts);
 
 //<img src="../../../../assets/images/product_details-images/product_thumbnail-1.jpg" alt=""></img>
-thumbnail_img = document.createElement("img");
-thumbnail_img.setAttribute("class", "thumbnail_image_1");
-thumbnail_img.setAttribute("src", "../../../../assets/images/product_details-images/product_thumbnail-1.jpg");
-thumbnail_img.setAttribute("alt", "");
-div_thumbmnailproducts.append(thumbnail_img);
 
-thumbnail_img = document.createElement("img");
-thumbnail_img.setAttribute("class", "thumbnail_image_2");
-thumbnail_img.setAttribute("src", "../../../../assets/images/product_details-images/product_thumbnail-2.jpg");
-thumbnail_img.setAttribute("alt", "");
-div_thumbmnailproducts.append(thumbnail_img);
+for (let i = 0; i <= product_details["image"][i].length; i++) {
 
-thumbnail_img = document.createElement("img");
-thumbnail_img.setAttribute("class", "thumbnail_image_3");
-thumbnail_img.setAttribute("src", "../../../../assets/images/product_details-images/product_thumbnail-3.jpg");
-thumbnail_img.setAttribute("alt", "");
-div_thumbmnailproducts.append(thumbnail_img);
+    thumbnail_img = document.createElement("img");
+    thumbnail_img.setAttribute("class", "thumbnail_image_1");
+    thumbnail_img.setAttribute("src",);
+    div_thumbmnailproducts.append(thumbnail_img);
 
-thumbnail_img = document.createElement("img");
-thumbnail_img.setAttribute("class", "thumbnail_image_4");
-thumbnail_img.setAttribute("src", "../../../../assets/images/product_details-images/product_thumbnail-4.jpg");
-thumbnail_img.setAttribute("alt", "");
-div_thumbmnailproducts.append(thumbnail_img);
+}
 
 //<div class="product_image"></div>
 div_product_image = document.createElement("div");
@@ -119,7 +159,7 @@ div_product_image.append(img_product_image);
 // <p class="modelsize">Our model wears a size 32</p>
 p_modelsize = document.createElement("p");
 p_modelsize.setAttribute("class", "modelsize");
-p_modelsize.innerText = `Our model wears a size 32`;
+p_modelsize.innerText = `Our model wears a size` + " " + product_details["modelsize"];
 div_product_image.append(p_modelsize);
 
 ////////////rightside//////////////

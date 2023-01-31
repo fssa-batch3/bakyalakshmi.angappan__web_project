@@ -1,0 +1,19 @@
+{
+    "image": {
+        "source": "string",
+        "alt": "string"
+    },
+    "brand": "string",
+    "name": "string",
+    "price": {
+        "currency": "string",
+        "current": "number",
+        "actual": "number",
+        "offer": {
+            "value": "number",
+            "type": "string"
+        }
+    },
+    "ratings": "number",
+    "buyers": "number"
+}
