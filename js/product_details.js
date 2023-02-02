@@ -102,15 +102,39 @@ const product_details =
 
     "modelsize": 32,
 
-}
-//     "price": {
-//         "currency": "rs",
-//         "actual": 999,
-//         "offer": {
-//             "value": 20,
-//             "type": "%"
-//         }
 
+    "price": {
+        "currency": "rs",
+        "actual": 999,
+        "offer": {
+            "value": 20,
+            "type": "%"
+        }
+    },
+
+    "size": [
+        {
+            "sizenumber": 28,
+            "quantity": 1
+        },
+        {
+            "sizenumber": 30,
+            "quantity": 1
+        },
+        {
+            "sizenumber": 32,
+            "quantity": 1
+        },
+        {
+            "sizenumber": 34,
+            "quantity": 1
+        },
+        {
+            "sizenumber": 38,
+            "quantity": 1
+        },
+    ]
+}
 //         "color": " ",
 //         "size": [28, 30, 32, 34, 38]
 //         "details": "",
@@ -121,6 +145,7 @@ const product_details =
 // // ]
 
 ////////////leftside////////////
+
 
 // <div class="leftside"></div>
 div_leftside = document.createElement("div");
@@ -133,8 +158,6 @@ div_thumbmnailproducts = document.createElement("div");
 div_thumbmnailproducts.setAttribute("class", "thumbmnailproducts");
 div_leftside.append(div_thumbmnailproducts);
 
-//<img src="../../../../assets/images/product_details-images/product_thumbnail-1.jpg" alt=""></img>
-
 for (let i = 0; i <= product_details["image"][i].length; i++) {
 
     thumbnail_img = document.createElement("img");
@@ -144,6 +167,9 @@ for (let i = 0; i <= product_details["image"][i].length; i++) {
 
 }
 
+//<img src="../../../../assets/images/product_details-images/product_thumbnail-1.jpg" alt=""></img>
+
+
 //<div class="product_image"></div>
 div_product_image = document.createElement("div");
 div_product_image.setAttribute("class", "product_image");
@@ -152,7 +178,7 @@ div_leftside.append(div_product_image);
 //<img src="../../../../assets/images/homepage-images/mens fashion/men-jean-1.jpg" alt=""></img>
 
 img_product_image = document.createElement("img");
-img_product_image.setAttribute("src", "../../../../assets/images/homepage-images/mens fashion/men-jean-1.jpg");
+img_product_image.setAttribute("src", image);
 img_product_image.setAttribute("alt", "");
 div_product_image.append(img_product_image);
 
@@ -201,13 +227,20 @@ div_current_price.setAttribute("class", "current_price");
 div_current_price.innerText = "Rs.799";
 div_prices.append(div_current_price);
 
-//<p>Price inclusive of all taxes</p>
 
 //<div class="product_offer">MRP<del>rs.999</del><b>(20%OFF)</b></div>
 
-// div_product_offer = document.createElement("div");
-// div_product_offer.setAttribute("class", "product_offer");
-// div_prices.append(div_product_offer);
+div_product_offer = document.createElement("div");
+div_product_offer.setAttribute("class", "product_offer");
+div_prices.append(div_product_offer);
+
+del_actual = document.createElement("del");
+del_actual.innerText = product_details["price"]["currency"] + "." + product_details["price"]["actual"];
+div_product_offer.append(del_actual)
+
+b_offer = document.createElement("b");
+b_offer.innerText = `(${product_details["price"]["offer"]["value"]} ${product_details["price"]["offer"]["type"]} off)`
+div_product_offer.append(b_offer)
 
 
 //<div class="product_tax"></div>
@@ -243,31 +276,22 @@ p_select_size = document.createElement("p");
 p_select_size.innerText = "selectsize";
 div_size.append(p_select_size);
 
+
+const size = product_details["size"];
+const noOfItems = size.length;
+
+
 //  <span class="size_no">28</span>
-span_size_no = document.createElement("span");
-span_size_no.setAttribute("class", "size_no");
-span_size_no.innerText = 28;
-div_size.append(span_size_no);
 
-span_size_no = document.createElement("span");
-span_size_no.setAttribute("class", "size_no");
-span_size_no.innerText = 28;
-div_size.append(span_size_no);
 
-span_size_no = document.createElement("span");
-span_size_no.setAttribute("class", "size_no");
-span_size_no.innerText = 28;
-div_size.append(span_size_no);
+for (let k = 0; k <= noOfItems; k++) {
 
-span_size_no = document.createElement("span");
-span_size_no.setAttribute("class", "size_no");
-span_size_no.innerText = 28;
-div_size.append(span_size_no);
+    span_size_no = document.createElement("span");
+    span_size_no.setAttribute("class", "size_no");
+    span_size_no.innerText = size[k]["sizenumber"];
+    div_size.append(span_size_no);
 
-span_size_no = document.createElement("span");
-span_size_no.setAttribute("class", "size_no");
-span_size_no.innerText = 28;
-div_size.append(span_size_no);
+}
 
 //<div class="buttons"></div>
 div_buttons = document.createElement("div");
@@ -301,26 +325,6 @@ div_product_details.append(h3_Product_Details);
 ul_details = document.createElement("ul");
 ul_details.setAttribute("class", "details");
 div_product_details.append(ul_details);
-
-li = document.createElement("li");
-li.innerText = " 5-pocket styling";
-ul_details.append(li);
-
-li = document.createElement("li");
-li.innerText = " 5-pocket styling";
-ul_details.append(li);
-
-li = document.createElement("li");
-li.innerText = " 5-pocket styling";
-ul_details.append(li);
-
-li = document.createElement("li");
-li.innerText = " 5-pocket styling";
-ul_details.append(li);
-
-li = document.createElement("li");
-li.innerText = " 5-pocket styling";
-ul_details.append(li);
 
 
 

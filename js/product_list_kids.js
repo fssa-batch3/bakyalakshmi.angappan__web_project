@@ -199,11 +199,26 @@ for (let i = 0; i < product_list.length; i++) {
     div_prices = document.createElement("div");
     div_prices.setAttribute("class", "prices");
     div_smallcontainer.append(div_prices);
+    //////price - current calculation
+
+    let actual = product_list[i]["price"]["actual"];
+    let value = product_list[i]["price"]["offer"]["value"];
+    let type = product_list[i]["price"]["offer"]["type"];
+    let current;
+
+    if (type === "%") {
+        current = actual - actual * value / 100;
+        current = Math.round(current);
+    }
+    else {
+        current = actual - value;
+
+    }
 
     // <span class="product_price">rs.799</span>
     span_product_price = document.createElement("span");
     span_product_price.setAttribute("class", "current_price");
-    span_product_price.innerText = product_list[i]["price"]["currency"] + "." + product_list[i]["price"]["current"];
+    span_product_price.innerText = product_list[i]["price"]["currency"] + "." + current;
     div_prices.append(span_product_price);
 
 
@@ -219,6 +234,6 @@ for (let i = 0; i < product_list.length; i++) {
     // <span class="product_offer">(30% off)</span>
     span_product_offer = document.createElement("span");
     span_product_offer.setAttribute("class", "product_offer");
-    span_product_offer.innerText = "(" + product_list[i]["price"]["offer"]["value"] + "%" + "off" + ")";
+    span_product_offer.innerText = "(" + product_list[i]["price"]["offer"]["value"] + product_list[i]["price"]["offer"]["type"] + "off" + ")";
     div_prices.append(span_product_offer);
 }

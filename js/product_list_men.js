@@ -237,11 +237,12 @@ for (let i = 0; i < product_list.length; i++) {
     //////price - current calculation
     let actual = product_list[i]["price"]["actual"];
     let value = product_list[i]["price"]["offer"]["value"];
-    let type = product_list[i]["price"]["type"];
+    let type = product_list[i]["price"]["offer"]["type"];
     let current;
 
     if (type === "%") {
         current = actual - actual * value / 100;
+        current = Math.round(current);
     }
     else {
         current = actual - value;
