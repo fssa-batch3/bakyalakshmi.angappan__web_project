@@ -463,6 +463,7 @@ div.features div h2{
     flex-wrap: nowrap;
     justify-content: space-evenly;
 } 
+
 .footer_contact{
     width: 60%;
     display:flex;

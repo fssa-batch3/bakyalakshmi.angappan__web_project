@@ -1,13 +1,13 @@
 {/* <div class="leftside">
 <div class="thumbmnailproducts">
-    <img src="../../../../assets/images/product_details-images/product_thumbnail-1.jpg" alt="">
-    <img src="../../../../assets/images/product_details-images/product_thumbnail-2.jpg" alt="">
-    <img src="../../../../assets/images/product_details-images/product_thumbnail-3.jpg" alt="">
-    <img src="../../../../assets/images/product_details-images/product_thumbnail-4.jpg" alt="">
+    <img src="../../assets/images/product_details-images/product_thumbnail-1.jpg" alt="">
+    <img src="../../assets/images/product_details-images/product_thumbnail-2.jpg" alt="">
+    <img src="../../assets/images/product_details-images/product_thumbnail-3.jpg" alt="">
+    <img src="../../assets/images/product_details-images/product_thumbnail-4.jpg" alt="">
 </div>
 
 <div class="product_image">
-    <img src="../../../../assets/images/product_list-images/product_list-1.jpg" alt="">
+    <img src="../../assets/images/product_list-images/product_list-1.jpg" alt="">
     <p class="modelsize">Our model wears a size 32</p>
 </div>
 </div> */}
@@ -72,22 +72,22 @@ const product_details =
 {
     "image": [
         {
-            "source": "../../../../assets/images/product_details-images/product_thumbnail-1.jpg",
+            "source": "../../assets/images/product_details-images/product_thumbnail-1.jpg",
             "alt": ""
         },
 
         {
-            "source": "../../../../assets/images/product_details-images/product_thumbnail-2.jpg",
+            "source": "../../assets/images/product_details-images/product_thumbnail-2.jpg",
             "alt": ""
         },
 
         {
-            "source": "../../../../assets/images/product_details-images/product_thumbnail-3.jpg",
+            "source": "../../assets/images/product_details-images/product_thumbnail-3.jpg",
             "alt": ""
         },
 
         {
-            "source": "../../../../assets/images/product_details-images/product_thumbnail-4.jpg",
+            "source": "../../assets/images/product_details-images/product_thumbnail-4.jpg",
             "alt": ""
         }
     ],
@@ -95,9 +95,6 @@ const product_details =
 
     "brand": "dnmx",
     "name": "Mid-Rise Skinny Fit Jeans",
-
-
-
 
 
     "modelsize": 32,
@@ -135,14 +132,6 @@ const product_details =
         },
     ]
 }
-//         "color": " ",
-//         "size": [28, 30, 32, 34, 38]
-//         "details": "",
-
-
-// //     }
-
-// // ]
 
 ////////////leftside////////////
 
@@ -153,21 +142,22 @@ div_leftside.setAttribute("class", "leftside");
 console.log(div_leftside);
 document.querySelector("div.content").append(div_leftside);
 
-//<div class="thumbmnailproducts"></div>
-div_thumbmnailproducts = document.createElement("div");
-div_thumbmnailproducts.setAttribute("class", "thumbmnailproducts");
-div_leftside.append(div_thumbmnailproducts);
+//<div class="thumbnailproducts"></div>
+div_thumbnailproducts = document.createElement("div");
+div_thumbnailproducts.setAttribute("class", "thumbnailproducts");
+div_leftside.append(div_thumbnailproducts);
 
-for (let i = 0; i <= product_details["image"][i].length; i++) {
+
+// //<img src="../../assets/images/product_details-images/product_thumbnail-1.jpg" alt=""></img>
+
+for (let i = 0; i < product_details["image"].length; i++) {
 
     thumbnail_img = document.createElement("img");
-    thumbnail_img.setAttribute("class", "thumbnail_image_1");
-    thumbnail_img.setAttribute("src",);
-    div_thumbmnailproducts.append(thumbnail_img);
+    thumbnail_img.setAttribute("class", "thumbnail_image");
+    thumbnail_img.setAttribute("src", product_details["image"][i]["source"]);
+    div_thumbnailproducts.append(thumbnail_img);
 
 }
-
-//<img src="../../../../assets/images/product_details-images/product_thumbnail-1.jpg" alt=""></img>
 
 
 //<div class="product_image"></div>
@@ -175,11 +165,11 @@ div_product_image = document.createElement("div");
 div_product_image.setAttribute("class", "product_image");
 div_leftside.append(div_product_image);
 
-//<img src="../../../../assets/images/homepage-images/mens fashion/men-jean-1.jpg" alt=""></img>
+//<img src="../../assets/images/homepage-images/mens fashion/men-jean-1.jpg" alt=""></img>
 
 img_product_image = document.createElement("img");
-img_product_image.setAttribute("src", image);
-img_product_image.setAttribute("alt", "");
+img_product_image.setAttribute("src", product_details["image"]["source"]);
+img_product_image.setAttribute("alt", product_details["image"]["alt"]);
 div_product_image.append(img_product_image);
 
 // <p class="modelsize">Our model wears a size 32</p>
@@ -206,7 +196,6 @@ h3_brand_name = document.createElement("h3");
 h3_brand_name.setAttribute("class", "brand_name");
 h3_brand_name.innerText = "DNMX";
 div_names.append(h3_brand_name);
-
 
 //<h4 class="product_name">Mid-Rise Skinny Fit Jeans</h4>
 
@@ -240,7 +229,7 @@ div_product_offer.append(del_actual)
 
 b_offer = document.createElement("b");
 b_offer.innerText = `(${product_details["price"]["offer"]["value"]} ${product_details["price"]["offer"]["type"]} off)`
-div_product_offer.append(b_offer)
+div_product_offer.append(b_offer);
 
 
 //<div class="product_tax"></div>
@@ -249,11 +238,6 @@ div_product_tax.setAttribute("class", "product_tax");
 div_product_tax.innerText = "Price inclusive of all taxes";
 div_prices.append(div_product_tax);
 
-//<p>Price inclusive of all taxes</p>
-// p_product_tax = document.createElement("p");
-// p_product_tax.setAttribute("class", "product_tax");
-
-// div_prices.append(p_product_tax);
 
 //<div class="color"></div>
 div_color = document.createElement("div");
@@ -280,14 +264,13 @@ div_size.append(p_select_size);
 const size = product_details["size"];
 const noOfItems = size.length;
 
-
 //  <span class="size_no">28</span>
 
-
-for (let k = 0; k <= noOfItems; k++) {
+for (let k = 0; k < noOfItems; k++) {
 
     span_size_no = document.createElement("span");
     span_size_no.setAttribute("class", "size_no");
+    console.log(size)
     span_size_no.innerText = size[k]["sizenumber"];
     div_size.append(span_size_no);
 
