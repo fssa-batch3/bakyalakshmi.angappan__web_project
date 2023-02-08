@@ -15,8 +15,8 @@ let span_original_price;
 let del_original_price;
 let span_product_offer;
 
-let genderCategoryList = [
-    {
+let generalCategoryList = {
+    "gender": {
         "name": "men",
         "id": 0,
         "category": [
@@ -46,7 +46,7 @@ let genderCategoryList = [
         ]
     },
 
-    {
+    "gender": {
         "name": "women",
         "id": 0,
         "category": [
@@ -76,7 +76,7 @@ let genderCategoryList = [
     },
 
 
-    {
+    "gender": {
         "name": "kid",
         "id": 0,
         "category": [
@@ -91,7 +91,7 @@ let genderCategoryList = [
         ]
     }
 
-]
+}
 
 
 let product_list = [
