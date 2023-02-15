@@ -89,6 +89,15 @@ table tbody tr td {
     border: none;
 }
 
+/* 
+.profile_details button#remove {
+    font-size: 18px;
+    width: 1%;
+    right: 10%;
+    text-align: center;
+
+} */
+
 .header-account {
     display: flex;
     justify-content: space-between;
@@ -99,6 +108,7 @@ table tbody tr td {
     border-bottom: 1px solid #eee;
     margin-bottom: 4%;
 }
+
 
 div.seller {
     font-family: 'Jost', sans-serif;
