@@ -28,7 +28,7 @@
                     <i class="fa-solid fa-xmark"></i>
                 </a>
             </div>
-            <form onsubmit="signIn()">
+            <form onsubmit="signIn(event)">
 
                 <h2> login </h2>
                 <div>
@@ -39,7 +39,8 @@
                 <div>
                     <label class="label_field">password</label>
                     <a class="forgotpassword" href="../homepage/forgot_password.html">forgot password?</a> <br />
-                    <input class="input_field" id="password" type="password" />
+                    <input class="input_field" id="password" type="password" pattern="{8,}"
+                        title="Must contain at least 8 or more characters" required="true" />
                 </div>
 
                 <div>

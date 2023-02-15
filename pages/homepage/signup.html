@@ -34,30 +34,32 @@
 
             <h2>create account</h2>
 
-            <form role="form" onsubmit="signUp(event)">
+            <form role="form" onsubmit="signUp(event)" id="signup">
                 <div>
                     <label class="label_field">full name</label><br />
-                    <input class="input_field" id="full_name" type="text" />
+                    <input class="input_field" id="full_name" type="text" pattern="[a-zA-Z]+" required="true" />
                 </div>
 
                 <div>
                     <label class="label_field">Email address</label><br />
-                    <input class="input_field" id="email" type="email" />
+                    <input class="input_field" id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        required="true" />
                 </div>
 
                 <div>
                     <label class="label_field">Mobile number</label><br />
-                    <input class="input_field" id="mobile_number" type="tel" />
+                    <input class="input_field" id="mobile_number" type="tel" pattern="[0-9].{9}" required="true" />
                 </div>
 
                 <div>
                     <label class="label_field">Password</label><br />
-                    <input class="input_field" type="password" id="password" />
+                    <input class="input_field" type="password" id="password" pattern='{0,8}'
+                        title="Must contain at least 8 or more characters" required="true" />
                 </div>
 
                 <div>
                     <label class="label_field">Re-enter password</label><br />
-                    <input class="input_field" type="password" id="re_enter_password" />
+                    <input class="input_field" type="password" id="re_enter_password" required="true" />
                 </div>
 
                 <div class="buttons">
