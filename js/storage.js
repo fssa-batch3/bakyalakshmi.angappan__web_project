@@ -7,6 +7,7 @@ function signUp(e) {
     let mobile_number = document.getElementById("mobile_number").value
     let password = document.getElementById("password").value
     let re_enter_password = document.getElementById("re_enter_password").value
+    let unique_id = crypto.randomUUID();
     ///extra details collecting from user
     let gender = "";
     let dob = "";
@@ -29,11 +30,11 @@ function signUp(e) {
         );
 
     if (!exist) {
-        user_list.push({ full_name, email, mobile_number, password, re_enter_password, gender, dob, address, hintname });
+        user_list.push({ full_name, email, mobile_number, password, re_enter_password, gender, dob, address, hintname, unique_id });
         localStorage.setItem('user_list', JSON.stringify(user_list));
         document.querySelector('form').reset();
         alert('Account created Successfully');
-        location.href = "/account.html";
+        location.href = "./login.html";
     }
     else {
         alert('Sorry the User already Exist!! \n Try with different Email');

@@ -1,102 +1,105 @@
 @import "normalize.css";
 
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: 'Jost', sans-serif;
     font-weight: 500;
-    position:relative;
+    position: relative;
     text-transform: capitalize;
 }
+
 /*-------header-------*/
 
-header{
-    position:sticky;
-    top:0px;
+header {
+    position: sticky;
+    top: 0px;
     z-index: 1;
-    background-color:#fff;
+    background-color: #fff;
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
 }
 
-#desktop-header nav .container-fluid{
+#desktop-header nav .container-fluid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content:space-evenly;
-    width:100%;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
 
 
-.navbar-brand img{ 
-    padding-left: 10px;  
-    height:70px;
-} 
+.navbar-brand img {
+    padding-left: 10px;
+    height: 70px;
+}
 
-.nav-item, .nav-link{
+.nav-item,
+.nav-link {
     font-family: 'Jost', sans-serif;
-    font-weight:600;
-    color:#000;
-    text-decoration:none;
-    font-size: 20px; 
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     text-transform: capitalize;
     font-weight: 700;
-    color:#000;
-    text-decoration: none;
-} 
-
-.dropdown-menu a:hover{
-    text-transform: capitalize;
-    font-weight: 700;
-    color:#000;
+    color: #000;
     text-decoration: none;
 }
 
-.searchbar{
+.dropdown-menu a:hover {
+    text-transform: capitalize;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+}
+
+.searchbar {
     font-family: 'Jost', sans-serif;
     display: flex;
 }
- 
-.searchbar input{
+
+.searchbar input {
     font-family: 'Jost', sans-serif;
     border: none;
-    width:351px;
-    height:80%;
+    width: 351px;
+    height: 80%;
     border-top-right-radius: 0;
-    border-bottom-right-radius:0 ;
-    padding:10px;
+    border-bottom-right-radius: 0;
+    padding: 10px;
     background-color: #eee;
 
-} 
-
-.searchbar button{
-    border:none;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    height:80%;
-    padding:10px;
 }
 
-.icons i{
+.searchbar button {
+    border: none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    height: 80%;
+    padding: 10px;
+}
+
+.icons i {
     font-size: 24px;
     padding-bottom: 5%;
 }
 
-.icons a{
+.icons a {
     font-family: 'Jost', sans-serif;
     margin-left: 30px;
     text-decoration: none;
-    color:#000;
+    color: #000;
     font-size: 14px;
 }
 
-.icons{
+.icons {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -105,22 +108,22 @@ header{
 }
 
 /* container */
-div.container-fluid{
-    padding-left:0;
+div.container-fluid {
+    padding-left: 0;
     padding-right: 0;
 }
 
 /* banner1 */
 
-section.banner1{
+section.banner1 {
     font-family: 'Jost', sans-serif;
     margin-top: 3em;
     margin-bottom: 3em;
-    width:100%;
-    /* background-color: #eee; */  
-} 
+    width: 100%;
+    /* background-color: #eee; */
+}
 
-.bannerone{
+.bannerone {
     height: 50vh;
     display: flex;
     flex-direction: column;
@@ -130,172 +133,177 @@ section.banner1{
 
 }
 
-.bannerone .banner1sub{
+.bannerone .banner1sub {
     font-family: 'Jost', sans-serif;
     width: 100%;
     height: 100%;
-    padding: 0; 
+    padding: 0;
     margin: 0;
     background: linear-gradient(90deg, #181c1d, #b4cdd1);
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content:center ;
+    justify-content: center;
     align-items: center;
 }
-.container-fluid .bannerone .banner1sub div:nth-child(1), .container-fluid .bannerone .banner1sub div:nth-child(2){
+
+.container-fluid .bannerone .banner1sub div:nth-child(1),
+.container-fluid .bannerone .banner1sub div:nth-child(2) {
     width: 50%;
     height: 100%;
 }
 
-.firstimg{
+.firstimg {
     width: 60%;
     height: 100%;
 }
 
-.banner1sub div{
-    display:flex;
+.banner1sub div {
+    display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
 }
 
-.banner1sub div h1{
+.banner1sub div h1 {
     margin-left: 7%;
     margin-bottom: 5%;
-    color:#eee;
+    color: #eee;
     text-transform: capitalize;
 }
 
-.banner1sub div p{
+.banner1sub div p {
     text-transform: capitalize;
     margin-left: 7%;
     color: #eee;
-    font-size:30px;
-    width:80%
-} 
-
-
+    font-size: 30px;
+    width: 80%
+}
 
 /* categories */
 
-.categories .categories_list div{
+.categories .categories_list div {
     position: relative;
-    width:10rem;
+    width: 10rem;
 }
-.categories .categories_list div h4{
-    font-family: 'Jost', sans-serif;  
+
+.categories .categories_list div h4 {
+    font-family: 'Jost', sans-serif;
     position: absolute;
-    left:7%;
-    bottom:5%;
-    width:80%;
-    padding:3px;
+    /* left: 9%; */
+    right: 5%;
+    bottom: 5%;
+    width: 80%;
+    padding: 3px;
     border-radius: 5px;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.884);  
+    background-color: rgba(255, 255, 255, 0.884);
 }
 
-.container-fluid a{
-    color:#000;
+.container-fluid a {
+    color: #000;
 }
 
-.categories h1{
+.categories h1 {
     margin-bottom: 2em;
     text-align: center;
     text-transform: uppercase;
 }
-.categories .categories_list{
+
+.categories .categories_list {
     background-color: #eee;
-    padding:40px;
-    display:flex;
+    padding: 40px;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; 
+    justify-content: space-around;
 }
 
-.categories img{
-    width:150px;
-    border:5px solid #fff;
+.categories img {
+    width: 180px;
+    border: 5px solid #fff;
 }
 
 /* deals */
 
-.deals h1{
+.deals h1 {
     margin-top: 2em;
     margin-bottom: 2em;
     text-align: center;
     text-transform: uppercase;
 }
 
-.deals .deals_list{
+.deals .deals_list {
     background-color: #eee;
-    display:flex;
+    display: flex;
     flex-direction: row;
-    flex-wrap:wrap;
-    justify-content: space-around; 
+    flex-wrap: wrap;
+    justify-content: space-around;
     padding-top: 4%;
     padding-bottom: 4%;
 }
 
 .deals .deals_list div {
     position: relative;
-    width:20rem;
+    width: 20rem;
 }
 
-div.deals .deals_list h4{
+div.deals .deals_list h4 {
     font-family: 'Jost', sans-serif;
     font-size: 18px;
     font-weight: 400;
-    width:50%;
+    width: 50%;
     background-color: rgba(255, 255, 255, 0.895);
     position: absolute;
     top: 2%;
     border-top-right-radius: 40%;
     border-bottom-right-radius: 40%;
-    padding:2%;
+    padding: 2%;
 }
 
-.deals .deals_list div h2{
-    width:90%;
+.deals .deals_list div h2 {
+    width: 90%;
     position: absolute;
     background-color: rgba(255, 255, 255, 0.785);
-    left:5%;
+    left: 5%;
     bottom: 4%;
     padding: 2%;
     text-align: center;
-    text-transform:uppercase;
-} 
+    text-transform: uppercase;
+}
 
-.deals_list img{
-    width:20rem;
-    border:5px solid #fff;
+.deals_list img {
+    width: 20rem;
+    border: 5px solid #fff;
 }
 
 /* freedelivery */
 
-.delivery{
+.delivery {
     font-family: 'Jost', sans-serif;
     text-align: center;
     font-size: 40px;
-    border:2px solid #555;
-    margin-top:2em;
-    padding:2%;
+    border: 2px solid #555;
+    margin-top: 2em;
+    padding: 2%;
     text-transform: capitalize;
     font-weight: 400;
 }
-.delivery i{
+
+.delivery i {
     font-size: 50px;
 }
 
 /* fashion */
 
-.heading{
+.heading {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
     padding-top: 3%;
     padding-bottom: 3%;
 }
-.banner{
+
+.banner {
     width: 95vw;
     height: 60vh;
     display: flex;
@@ -304,36 +312,39 @@ div.deals .deals_list h4{
 
 }
 
-.banner .bannersub{
+.banner .bannersub {
     width: 100%;
     height: 100%;
     margin: 0;
-    background:linear-gradient(10deg,#fff,#222);
-    border:5px solid #fff;
-    display:flex;
+    background: linear-gradient(10deg, #fff, #222);
+    border: 5px solid #fff;
+    display: flex;
     justify-content: space-evenly;
 }
 
-.bannersub div:nth-child(1),.bannersub div:nth-child(2){
+.bannersub div:nth-child(1),
+.bannersub div:nth-child(2) {
     width: 30%;
     height: 100%;
 }
 
-.bannersub h1:first-child{
+.bannersub h1:first-child {
     text-transform: capitalize;
     font-size: 40px;
 }
 
-.bannersub h1 span{
+.bannersub h1 span {
     text-transform: capitalize;
     font-size: 60px;
 }
-.bannersub h2{
+
+.bannersub h2 {
     text-transform: capitalize;
 }
-.bannersub div:nth-child(2){
+
+.bannersub div:nth-child(2) {
     background-color: #fff;
-    height:85%;
+    height: 85%;
     margin-top: 2%;
     text-align: center;
     position: relative;
@@ -341,11 +352,11 @@ div.deals .deals_list h4{
     box-shadow: 1px 1px 10px #555;
 }
 
-.bannersub div:nth-child(2) button{
+.bannersub div:nth-child(2) button {
     background-color: #222;
-    color:#fff;
+    color: #fff;
     padding: 3%;
-    width:40%;
+    width: 40%;
     position: absolute;
     bottom: 10%;
     left: 30%;
@@ -355,287 +366,300 @@ div.deals .deals_list h4{
     text-transform: capitalize;
 }
 
-.bannersub div:nth-child(2) div:hover{
+.bannersub div:nth-child(2) div:hover {
     background-color: #555;
 }
 
-.bannersub .image{
+.bannersub .image {
     border: 1px solid #000;
-    width:20rem;
-    
+    width: 20rem;
+
     padding: 2%;
     box-shadow: 1px 2px 5px #000;
     margin-top: 6px;
 }
 
-div.fashion_list{
+div.fashion_list {
     background-color: #eee;
 }
 
-div.fashion_categories{
-    display:flex;
+div.fashion_categories {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content:space-around;
+    justify-content: space-around;
     position: relative;
     margin-top: 5%;
     padding-bottom: 5%;
 }
 
-div.fashion_categories div{
-    position:relative;
+div.fashion_categories div {
+    position: relative;
 }
 
-div.fashion_categories div div{
+div.fashion_categories div div {
 
-    position:absolute;
-    width:90%;
+    position: absolute;
+    width: 90%;
     background-color: rgba(255, 255, 255, 0.817);
-    left:3%;
-    bottom:6%;
+    left: 3%;
+    bottom: 6%;
     text-align: center;
-    padding:2%;
+    padding: 2%;
 }
 
-div.fashion_categories div div h2{
-    margin:0;
+div.fashion_categories div div h2 {
+    margin: 0;
     text-transform: uppercase;
     padding-bottom: 1%;
 }
 
-div.fashion_categories div img{
-    margin-right:10px;
-    border:5px solid #fff;
+div.fashion_categories div img {
+    margin-right: 10px;
+    border: 5px solid #fff;
 }
-div.fashion_categories div img:hover{
+
+div.fashion_categories div img:hover {
     box-shadow: 2px 2px 5px #bbb;
 }
 
 /* features */
 
-div.features{
-    border:1px solid #eee;
+div.features {
+    border: 1px solid #eee;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
     margin-top: 10%;
     padding: 2%;
-    background-color:#fff;
+    background-color: #fff;
 }
 
-div.features div{
+div.features div {
     text-align: center;
 }
 
-div.features div h2{
+div.features div h2 {
     text-transform: uppercase;
-    font-size: 18px;  
+    font-size: 18px;
 }
 
-.features div i{
+.features div i {
     font-size: 40px;
     padding-bottom: 20px;
 }
 
 /* footer */
-.footer{
+.footer {
     background-color: #eee;
-    color:#555;
+    color: #555;
 }
-.footer_nav_contact{
-    padding-top:5%;
+
+.footer_nav_contact {
+    padding-top: 5%;
     width: 80%;
-    display:flex;
+    display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     align-content: center;
     text-transform: capitalize;
-    margin-left:10%;
+    margin-left: 10%;
     margin-right: 10%;
 
 }
-.footer_nav{
-    width:30%;
-    display:flex;
+
+.footer_nav {
+    width: 30%;
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-} 
+}
 
-.footer_contact{
+.footer_contact {
     width: 60%;
-    display:flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
 }
 
-.footer_contact div{
-    width:80%;
+.footer_contact div {
+    width: 80%;
 }
 
-.footer_contact .contact_details i{
-    color:#555;
+.footer_contact .contact_details i {
+    color: #555;
 
 }
-.footer_nav div h3{
+
+.footer_nav div h3 {
     padding-bottom: 10%;
 }
-.footer_contact div h3{
+
+.footer_contact div h3 {
     padding-bottom: 2%;
 }
-.footer_nav nav ul{
+
+.footer_nav nav ul {
     list-style: none;
-  
+
 }
 
 .footer_nav nav ul li {
     /* padding-bottom: 5%; */
     text-decoration: none;
 }
-.footer_nav nav ul li a{
+
+.footer_nav nav ul li a {
     text-decoration: none;
 }
-.footer_nav nav ul li a:hover{
+
+.footer_nav nav ul li a:hover {
     border-bottom: 1px solid #000;
 }
 
 
-.bottom_footer{
+.bottom_footer {
     border-top: 1px solid #bbb;
     padding-top: 1%;
     padding-bottom: 1%;
-    width:90%;
-    display:flex;
+    width: 90%;
+    display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     margin-left: 5%;
 }
 
-.footer_contact .contact_details{
+.footer_contact .contact_details {
     padding-bottom: 5%;
 }
 
-.socialmedia a i{
-    color:#555;
+.socialmedia a i {
+    color: #555;
     font-size: 30PX;
     padding: 8px;
 }
 
-#mobile-header{
-    display:none;
+#mobile-header {
+    display: none;
 }
 
-@media(max-width:360px){
-    header#desktop-header{
-        display:none;
+@media(max-width:360px) {
+    header#desktop-header {
+        display: none;
     }
 
-    header#mobile-header{
-        display:flex;
+    header#mobile-header {
+        display: flex;
     }
 
-    body{
-        width:100%;
+    body {
+        width: 100%;
     }
 
     header #mobile-header {
-        width:100vw;
+        width: 100vw;
     }
 
-    #mobile-header .navbar{
-        display:flex;
+    #mobile-header .navbar {
+        display: flex;
         flex-wrap: wrap;
-        margin:0 10px 0 10px;
+        margin: 0 10px 0 10px;
     }
 
-    #mobile-icons a,  #mobile-icons i{
-        font-size:20px;
-        padding-left:8px;
-        margin-left:0;
+    #mobile-icons a,
+    #mobile-icons i {
+        font-size: 20px;
+        padding-left: 8px;
+        margin-left: 0;
 
     }
-    #mobile-header .navbar-toggler{
-        border:none;
-        width:30px;
-        height:30px;
-        padding:0;
+
+    #mobile-header .navbar-toggler {
+        border: none;
+        width: 30px;
+        height: 30px;
+        padding: 0;
     }
 
-    .fashion .banner img{
-        display:none;
+    .fashion .banner img {
+        display: none;
     }
 
-    .navbar-brand img{
-        height:40px;
-        width:90px;
+    .navbar-brand img {
+        height: 40px;
+        width: 90px;
     }
 
-    section.banner1{
+    section.banner1 {
         font-family: 'Jost', sans-serif;
-        width:100%;
-        margin-top:7%;
+        width: 100%;
+        margin-top: 7%;
         margin-bottom: 7%;
-        
-        /* background-color: #eee; */  
-    } 
-    
-    section.banner1 .bannerone{
-        height:20vh;
+
+        /* background-color: #eee; */
     }
 
-    .banner1 .banner1sub{
-        height:100%;
+    section.banner1 .bannerone {
+        height: 20vh;
     }
 
-    .banner1sub div h1{
+    .banner1 .banner1sub {
+        height: 100%;
+    }
+
+    .banner1sub div h1 {
         margin-left: 2%;
         margin-bottom: 1%;
-        color:#eee;
+        color: #eee;
         text-transform: capitalize;
         font-size: 14px;
     }
-    
-    .banner1sub div p{
+
+    .banner1sub div p {
         text-transform: capitalize;
         margin-left: 2%;
         color: #eee;
-        font-size:12px;
-        width:80%
-    } 
-    .categories h1,.container-fluid h1{
-        font-size:20px;
-        margin-top:5%;
-        margin-bottom:5%;
+        font-size: 12px;
+        width: 80%
     }
-    .categories .categories_list{
-        padding:4%;
-        display:flex;
+
+    .categories h1,
+    .container-fluid h1 {
+        font-size: 20px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .categories .categories_list {
+        padding: 4%;
+        display: flex;
         flex-wrap: nowrap;
         justify-content: initial;
         overflow-x: scroll;
 
     }
 
-    .deals .deals_list{
-            background-color: #eee;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content:initial;
-            padding: 4%;
-            overflow-x: scroll;
+    .deals .deals_list {
+        background-color: #eee;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: initial;
+        padding: 4%;
+        overflow-x: scroll;
     }
 
-    .deals_list img{
-        width:18rem;
+    .deals_list img {
+        width: 18rem;
     }
 
-    .deals_list div{
-        margin:0 7% 0 7% ;
+    .deals_list div {
+        margin: 0 7% 0 7%;
     }
 
     .delivery {
@@ -650,71 +674,75 @@ div.features div h2{
         font-weight: 400;
     }
 
-    .delivery i{
+    .delivery i {
         font-size: 20px;
     }
 
     div.fashion_categories {
         display: flex;
         flex-direction: row;
-        flex-wrap:nowrap;
+        flex-wrap: nowrap;
         justify-content: initial;
-        overflow-x:scroll;
+        overflow-x: scroll;
         padding-left: 8%;
         padding-right: 8%;
     }
-/* mobilefooter */
-    .footer_nav_contact{
-        padding-top:5%;
+
+    /* mobilefooter */
+    .footer_nav_contact {
+        padding-top: 5%;
         width: 100%;
-        display:flex;
+        display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        margin:0;
+        margin: 0;
         align-items: center;
         align-content: center;
         text-transform: capitalize;
     }
 
-    .footer_nav{
-        width:100%;
-        display:flex;
+    .footer_nav {
+        width: 100%;
+        display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: space-around;
-    } 
-
-    .footer_nav div{
-        width:40%;
     }
 
-    .footer_contact{
+    .footer_nav div {
+        width: 40%;
+    }
+
+    .footer_contact {
         width: 100%;
-        display:flex;
+        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content:initial;
+        justify-content: initial;
         padding-left: 5%;
     }
-    .footer_contact div{
-        width:100%;
+
+    .footer_contact div {
+        width: 100%;
     }
 
     .footer_nav div h3 {
         font-size: 18px;
-        padding-bottom:2%;
+        padding-bottom: 2%;
     }
 
     .footer_nav ul {
         padding-left: 2%;
     }
 
-    .footer_nav ul a{
-        color:#555;
+    .footer_nav ul a {
+        color: #555;
     }
-    .footer{
-        margin-top:10%;
-    } 
+
+    .footer {
+        margin-top: 10%;
+    }
+
     .bottom_footer {
         border-top: 1px solid #bbb;
         padding-top: 1%;
@@ -728,34 +756,34 @@ div.features div h2{
         margin-left: 5%;
     }
 
-    .footer_contact div h3{
+    .footer_contact div h3 {
         font-size: 18px;
         padding-bottom: 0;
     }
 
     .footer_contact .contact_details {
-        padding-bottom:1%;
+        padding-bottom: 1%;
     }
 
-    .features{
-        display:none;
+    .features {
+        display: none;
     }
 
-    .socialmedia a i{
-        color:#555;
+    .socialmedia a i {
+        color: #555;
         font-size: 18PX;
         padding: 8px;
     }
 
-    .bottom_footer{
+    .bottom_footer {
         border-top: 1px solid #bbb;
         padding-top: 1%;
         padding-bottom: 1%;
-        width:90%;
-        display:flex;
+        width: 90%;
+        display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content:center;
+        justify-content: center;
         align-items: center;
         margin-left: 5%;
         text-align: center;
@@ -765,8 +793,8 @@ div.features div h2{
         font-size: 18px;
     }
 
-    .bottom_footer div{
-        width:100%;
+    .bottom_footer div {
+        width: 100%;
     }
 
 }

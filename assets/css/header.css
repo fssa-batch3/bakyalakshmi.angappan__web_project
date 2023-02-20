@@ -1,12 +1,13 @@
 @import "normalize.css";
 
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-body{
-    position:relative;
+
+body {
+    position: relative;
 }
 
 /*-------header-------*/
@@ -137,125 +138,132 @@ img#logo{
     flex-direction: row;
     flex-wrap: wrap;
     text-align: center;
-} */ 
+} */
 
-header{
-    position:sticky;
-    top:0px;
+header {
+    position: sticky;
+    top: 0px;
     z-index: 1;
-    background-color:#fff;
+    background-color: #fff;
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
 }
 
-.navbar-brand img{   
-    height:70px;
-} 
+.navbar-brand img {
+    height: 70px;
+}
 
-.nav-item, .nav-link{
+.nav-item,
+.nav-link {
     font-family: 'Jost', sans-serif;
-    font-weight:600;
-    color:#000;
-    text-decoration:none;
-    font-size: 20px; 
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     text-transform: capitalize;
     font-weight: 700;
-    color:#000;
-    text-decoration: none;
-} 
-
-.dropdown-menu a:hover{
-    text-transform: capitalize;
-    font-weight: 700;
-    color:#000;
+    color: #000;
     text-decoration: none;
 }
 
-.searchbar{
+.dropdown-menu a:hover {
+    text-transform: capitalize;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+}
+
+.searchbar {
     font-family: 'Jost', sans-serif;
     display: flex;
 }
- 
-.searchbar input{
+
+.searchbar input {
     font-family: 'Jost', sans-serif;
-    width:350px;
-    height:40px;
+    width: 350px;
+    height: 40px;
     border-right: none;
-    padding:10px;
+    padding: 10px;
     background-color: #eee;
-    border:none;
+    border: none;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
-} 
-
-.searchbar .button button{
-    border:none;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    height:100%;
-    padding:10px;
 }
 
-.icons i{
+.searchbar .button button {
+    border: none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    height: 100%;
+    padding: 10px;
+}
+
+.icons i {
     font-size: 24px;
     padding-bottom: 5%;
 }
 
-.icons a{
+.icons a {
     font-family: 'Jost', sans-serif;
     margin-left: 30px;
     text-decoration: none;
-    color:#000;
+    color: #000;
     font-size: 14px;
 }
 
-.icons{
+.icons {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     text-align: center;
 }
 
-@media(max-width:360px){
-    header#desktop-header{
-        display:none;
+header#mobile-header {
+    display: none;
+}
+
+@media(max-width:360px) {
+    header#desktop-header {
+        display: none;
     }
 
-    header#mobile-header{
-        display:flex;
+    header#mobile-header {
+        display: flex;
     }
 
-    body{
-        width:100%;
+    body {
+        width: 100%;
     }
 
     header #mobile-header {
-        width:100vw;
+        width: 100vw;
     }
 
-    #mobile-header .navbar{
-        display:flex;
+    #mobile-header .navbar {
+        display: flex;
         flex-wrap: wrap;
-        margin:0 10px 0 10px;
+        margin: 0 10px 0 10px;
     }
 
-    #mobile-icons a,  #mobile-icons i{
-        font-size:20px;
-        padding-left:8px;
-        margin-left:0;
+    #mobile-icons a,
+    #mobile-icons i {
+        font-size: 20px;
+        padding-left: 8px;
+        margin-left: 0;
 
     }
-    #mobile-header .navbar-toggler{
-        border:none;
-        width:30px;
-        height:30px;
-        padding:0;
+
+    #mobile-header .navbar-toggler {
+        border: none;
+        width: 30px;
+        height: 30px;
+        padding: 0;
     }
 
-    .navbar-brand img{
-        height:40px;
-        width:90px;
+    .navbar-brand img {
+        height: 40px;
+        width: 90px;
     }
 }

@@ -21,8 +21,8 @@
     margin-bottom: 2%;
     margin-left: 10%;
 }
-.container{
 
+.container{
     width:70%;
     border:1px solid #bbb;
     background-color:#fff;
@@ -84,7 +84,6 @@ div.x-mark i{
  .product_thumbnail img{
     width:60%;  
 } 
-
 
 .product_name , .brand_name{
     margin:0;

@@ -402,7 +402,8 @@
             </div>
 
             <div>
-                <a href="../../index.html"><button>Log out</button><i class="fa-solid fa-chevron-right"></i></a>
+                <span id="logout" onClick="logOut(event)">Log out</span>
+                <i class="fa-solid fa-chevron-right"></i>
             </div>
         </div>
 
@@ -601,10 +602,14 @@
 
             }
 
-            function logOut(e) {
-                localStorage.setItem("user_list", "");
-                // console.log("baku")
 
+            function logOut(e) {
+
+                let logout = document.getElementById("logout");
+                logout.onclick = "logOut(e)";
+
+                localStorage.setItem("user_list", "");
+        
                 location.href = "../../index.html"
 
             }
