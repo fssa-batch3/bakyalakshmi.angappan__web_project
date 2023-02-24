@@ -8,6 +8,7 @@ function signUp(e) {
     let password = document.getElementById("password").value
     let re_enter_password = document.getElementById("re_enter_password").value
     let unique_id = crypto.randomUUID();
+    
     ///extra details collecting from user
     let gender = "";
     let dob = "";
@@ -40,7 +41,6 @@ function signUp(e) {
         alert('Sorry the User already Exist!! \n Try with different Email');
         document.querySelector('form').reset();
     }
-
 }
 
 // const signUpForm = document.querySelector("signup");

@@ -1,0 +1,143 @@
+<!-- <form>
+    <div class="form-row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="First name">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Last name">
+      </div>
+    </div>
+  </form> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add product</title>
+    <link rel="stylesheet" href="../../assets/css/bootstrap css/bootstrap.css">
+    <link rel="stylesheet" href="./css/addproduct.css">
+
+</head>
+
+
+
+<body>
+
+
+    <form class="form gap-0 row-gap-6 flex-column align-content-center justify-content-center flex-wrap" id="form">
+
+        <div class="form-group">
+            <label>image</label>
+            <input type="text" class="form-control" id="inputsource">
+        </div>
+
+        <div class="form-row">
+            <select id="inputcategory" class="form-control col-md-6">
+                <option selected>select category</option>
+                <option>men's fashion</option>
+                <option>women's fashion</option>
+                <option>kids's fashion</option>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <label>brand</label>
+            <input type="text" class="form-control" id="inputbrand">
+        </div>
+        <div class="form-group">
+            <label for="inputname">Name</label>
+            <input type="text" class="form-control" id="inputname">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="inputcolor">color</label>
+                <input type="text" class="form-control" id="inputcolor">
+            </div>
+
+            <div class="form-row mb-lg-4">
+                <label for="inputsize">size</label>
+                <select type="number" id="inputsize" class="form-control">
+                    <option selected>choose size</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row ">
+
+            <div class="form-group">
+                <label for="inputmrp">MRP</label>
+                <input type="number" class="form-control " id="inputmrp">
+
+                <select class=" form-control" id="inputcurrency">
+                    <option>rs</option>
+                </select>
+            </div>
+
+
+            <div class="form-group d-flex">
+                <label for="inputoffer">offer</label>
+                <input type="number" class="form-control col-md-1 " id="inputoffer">
+
+                <select class="form-group  form-control" id="inputoffertype">
+                    <option>%</option>
+                    <option>rs</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="form-group col-md-2">
+            <label for="inputdetails">details</label>
+            <textarea name="" id="inputdetails" cols="50" rows="6"></textarea>
+        </div>
+
+
+        <!-- <div class="form-row custom-file d-flex justify-content-center align-content-center m-lg-5">
+            <label class="custom-file-label" for="customFileLang" value="please provide only the front image">please
+                provide only the front image</label>
+            <input type="file" class="custom-file-input " id="customFileLang">
+        </div> -->
+
+
+        <!-- <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    Check me out
+                </label>
+            </div>
+        </div> -->
+        <button type="submit" class="btn btn-primary">upload product</button>
+    </form>
+
+    <hr>
+
+    <div>
+        <table class="table align-middle table-bordered " id="crudtable">
+            <caption>List of products</caption>
+            <thead class="table-dark">
+                <tr class="table-active">
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col">category</th>
+                    <th scope="col">brand</th>
+                    <th scope="col">name</th>
+                    <th scope="col">color</th>
+                    <th scope="col">size</th>
+                    <th scope="col">MRP</th>
+                    <th scope="col">offer</th>
+                    <th scope="col">actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-light">
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="./js/addproduct.js"></script>
+
+</html>

@@ -1,0 +1,12 @@
+button.edit_button {
+    background-color: yellow;
+    color: black;
+    border: none;
+    margin-right: 20px;
+}
+
+button.del_button {
+    background-color: red;
+    color: aliceblue;
+    border: none;
+}

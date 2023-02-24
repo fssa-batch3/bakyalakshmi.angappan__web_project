@@ -15,1214 +15,1216 @@ let span_original_price;
 let del_original_price;
 let span_product_offer;
 
-let generalCategoryList = {
-    "gender": {
-        "name": "men",
-        "id": 0,
-        "category": [
-            {
-                "name": "T-shirts",
-                "id": 0
-            },
-            {
-                "name": "shirts",
-                "id": 1
-            },
-
-            {
-                "name": "jean",
-                "id": 2
-            },
-
-            {
-                "name": "trousers",
-                "id": 3
-            },
-
-            {
-                "name": "shorts",
-                "id": 4
-            },
-        ]
-    },
-
-    "gender": {
-        "name": "women",
-        "id": 0,
-        "category": [
-            {
-                "name": "t-shirts",
-                "id": 0
-            },
-            {
-                "name": "shirts",
-                "id": 1
-            },
-            {
-                "name": "jean",
-                "id": 2
-            },
-
-            {
-                "name": "pallazoes",
-                "id": 3
-            },
-
-            {
-                "name": "skirts",
-                "id": 4
-            },
-        ]
-    },
-
-
-    "gender": {
-        "name": "kid",
-        "id": 0,
-        "category": [
-            {
-                "name": "boys",
-                "id": 0
-            },
-            {
-                "name": "girls",
-                "id": 1
-            }
-        ]
-    }
-
-}
-
-
-let product_list = [
-
-    //mens 
-
-    //shirt
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-1.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "highlander",
-        "name": "slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 299,
-                "type": "rs"
-            }
-        },
-
-        "ratings": 4.0,
-        "buyers": 170,
-        "gender": 0,
-        "category": 0,
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-2.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "here&now",
-        "name": "men slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100,
-        "category": 0
-    },
-
-    // {
-    //     "image": {
-    //         "source": "../../assets/images/homepage-images/mens fashion/t-shirt-1.jpg",
-    //         "alt": "men typograpy printed t-shirt"
-    //     },
-
-    //     "brand": "here&now",
-    //     "name": "men typograpy printed t-shirt",
-
-    //     "price": {
-
-    //         "currency": "Rs",
-    //         "actual": 599,
-
-    //         "offer": {
-    //             "value": 50,
-    //             "type": "%"
-    //         }
-    //     },
-
-    //     "ratings": 3.5,
-    //     "buyers": 100,
-    //     "category": 0
-    // },
-
-    // {
-    //     "image": {
-    //         "source": "../../assets/images/homepage-images/mens fashion/men-jean-1.jpg",
-    //         "alt": "Mid-Rise Skinny Fit Jeans"
-    //     },
-
-    //     "brand": "DNMX",
-    //     "name": "Mid-Rise Skinny Fit Jeans",
-
-    //     "price": {
-
-    //         "currency": "Rs",
-    //         "actual": 999,
-
-    //         "offer": {
-    //             "value": 20,
-    //             "type": "%"
-    //         }
-    //     },
-
-    //     "ratings": 3.2,
-    //     "buyers": 200,
-    //     "category": 0
-    // },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-3.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "highlander",
-        "name": "slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 299,
-                "type": "rs"
-            }
-        },
-
-        "ratings": 4.0,
-        "buyers": 170,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-4.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "here&now",
-        "name": "men slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-5.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "highlander",
-        "name": "slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 299,
-                "type": "rs"
-            }
-        },
-
-        "ratings": 4.0,
-        "buyers": 170,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-6.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "here&now",
-        "name": "men slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-7.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "highlander",
-        "name": "slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 299,
-                "type": "rs"
-            }
-        },
-
-        "ratings": 4.0,
-        "buyers": 170,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-8.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "here&now",
-        "name": "men slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100,
-        "category": 0
-    },
-
-    //t-shirt
-
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/t-shirt-1.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "here&now",
-        "name": "men slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/t-shirt-2.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "here&now",
-        "name": "men slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/t-shirt-3.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "here&now",
-        "name": "men slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/t-shirt-4.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "here&now",
-        "name": "men slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/t-shirt-5.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "here&now",
-        "name": "men slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/t-shirt-6.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "here&now",
-        "name": "men slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/t-shirt-7.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "here&now",
-        "name": "men slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/t-shirt-8.jpg",
-            "alt": "slim fit casual shirt"
-        },
-
-        "brand": "here&now",
-        "name": "men slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100,
-        "category": 0
-    },
-
-    //jean
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-jean-1.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-jean-2.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-jean-3.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-jean-4.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-jean-5.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-jean-6.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-jean-7.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-jean-8.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-    //trousers
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-trousers-1.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-trousers-2.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-trousers-3.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-trousers-4.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-    //shorts
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-shorts-1.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-shorts-2.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-shorts-3.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/mens fashion/men-shorts-4.jpg",
-            "alt": "Mid-Rise Skinny Fit Jeans"
-        },
-
-        "brand": "DNMX",
-        "name": "Mid-Rise Skinny Fit Jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "actual": 999,
-
-            "offer": {
-                "value": 20,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.2,
-        "buyers": 200,
-        "category": 0
-    },
-
-
-    //womens
-
-    //shirts
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/womens fashion/shirt-1.jpg",
-            "alt": "checked collar shirt"
-        },
-
-        "brand": "roadster",
-        "name": "slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "current": 599,
-            "actual": 999,
-
-            "offer": {
-                "value": 30,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.0,
-        "buyers": 170
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/womens fashion/shirt-2.jpg",
-            "alt": "checked collar shirt"
-        },
-
-        "brand": "roadster",
-        "name": "slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "current": 599,
-            "actual": 999,
-
-            "offer": {
-                "value": 30,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.0,
-        "buyers": 170
-    },
-
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/womens fashion/shirt-3.jpg",
-            "alt": "checked collar shirt"
-        },
-
-        "brand": "roadster",
-        "name": "slim fit casual shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "current": 599,
-            "actual": 999,
-
-            "offer": {
-                "value": 30,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.0,
-        "buyers": 170
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/womens fashion/shirt-4.jpg",
-            "alt": "checked casual collar shirt"
-        },
-
-        "brand": "her by invi",
-        "name": "checked casual collar shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "current": 499,
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100
-    },
-
-    //t-shirts
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/womens fashion/skirts-1.jpg",
-            "alt": "women flared skirt"
-        },
-
-        "brand": "sassafras",
-        "name": "women flared skirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "current": 299,
-            "actual": 599,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.5,
-        "buyers": 100
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/womens fashion/women-tshirt-1.jpg",
-            "alt": "printed crew-neck t-shirt"
-        },
-
-        "brand": "Dillinger",
-        "name": "printed crew-neck t-shirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "current": 299,
-            "actual": 999,
-
-            "offer": {
-                "value": 70,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.3,
-        "buyers": 1000
-    },
-
-    //kids
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/deals for kids/tshirt-1.jpg",
-            "alt": "boys round neck tshirt"
-        },
-
-        "brand": "h&m",
-        "name": "boys round neck tshirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "current": 599,
-            "actual": 999,
-
-            "offer": {
-                "value": 30,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.0,
-        "buyers": 170
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/deals for kids/boys-pants-2.jpg",
-            "alt": "boys denim jeans"
-        },
-
-        "brand": "v-mart",
-        "name": "boys denim jeans",
-
-        "price": {
-
-            "currency": "Rs",
-            "current": 499,
-            "actual": 999,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.8,
-        "buyers": 2100
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/deals for kids/frock-2.jpg",
-            "alt": "georgette a line dress"
-        },
-
-        "brand": "sangria",
-        "name": "georgette a line dress",
-
-        "price": {
-
-            "currency": "Rs",
-            "current": 299,
-            "actual": 599,
-
-            "offer": {
-                "value": 50,
-                "type": "%"
-            }
-        },
-
-        "ratings": 3.5,
-        "buyers": 100
-    },
-
-    {
-        "image": {
-            "source": "../../assets/images/homepage-images/deals for kids/tshirt-3.jpg",
-            "alt": "boys tshirt"
-        },
-
-        "brand": "max",
-        "name": "boys tshirt",
-
-        "price": {
-
-            "currency": "Rs",
-            "current": 299,
-            "actual": 999,
-
-            "offer": {
-                "value": 70,
-                "type": "%"
-            }
-        },
-
-        "ratings": 4.3,
-        "buyers": 1000
-    },
-
-]
-
+// let generalCategoryList = {
+//     "gender": {
+//         "name": "men",
+//         "id": 0,
+//         "category": [
+//             {
+//                 "name": "T-shirts",
+//                 "id": 0
+//             },
+//             {
+//                 "name": "shirts",
+//                 "id": 1
+//             },
+
+//             {
+//                 "name": "jean",
+//                 "id": 2
+//             },
+
+//             {
+//                 "name": "trousers",
+//                 "id": 3
+//             },
+
+//             {
+//                 "name": "shorts",
+//                 "id": 4
+//             },
+//         ]
+//     },
+
+//     "gender": {
+//         "name": "women",
+//         "id": 0,
+//         "category": [
+//             {
+//                 "name": "t-shirts",
+//                 "id": 0
+//             },
+//             {
+//                 "name": "shirts",
+//                 "id": 1
+//             },
+//             {
+//                 "name": "jean",
+//                 "id": 2
+//             },
+
+//             {
+//                 "name": "pallazoes",
+//                 "id": 3
+//             },
+
+//             {
+//                 "name": "skirts",
+//                 "id": 4
+//             },
+//         ]
+//     },
+
+
+//     "gender": {
+//         "name": "kid",
+//         "id": 0,
+//         "category": [
+//             {
+//                 "name": "boys",
+//                 "id": 0
+//             },
+//             {
+//                 "name": "girls",
+//                 "id": 1
+//             }
+//         ]
+//     }
+
+// }
+
+
+// let product_list = [
+
+//     //mens 
+
+//     //shirt
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-1.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "highlander",
+//         "name": "slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 299,
+//                 "type": "rs"
+//             }
+//         },
+
+//         "ratings": 4.0,
+//         "buyers": 170,
+//         "gender": 0,
+//         "category": 0,
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-2.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "here&now",
+//         "name": "men slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100,
+//         "category": 0
+//     },
+
+//     // {
+//     //     "image": {
+//     //         "source": "../../assets/images/homepage-images/mens fashion/t-shirt-1.jpg",
+//     //         "alt": "men typograpy printed t-shirt"
+//     //     },
+
+//     //     "brand": "here&now",
+//     //     "name": "men typograpy printed t-shirt",
+
+//     //     "price": {
+
+//     //         "currency": "Rs",
+//     //         "actual": 599,
+
+//     //         "offer": {
+//     //             "value": 50,
+//     //             "type": "%"
+//     //         }
+//     //     },
+
+//     //     "ratings": 3.5,
+//     //     "buyers": 100,
+//     //     "category": 0
+//     // },
+
+//     // {
+//     //     "image": {
+//     //         "source": "../../assets/images/homepage-images/mens fashion/men-jean-1.jpg",
+//     //         "alt": "Mid-Rise Skinny Fit Jeans"
+//     //     },
+
+//     //     "brand": "DNMX",
+//     //     "name": "Mid-Rise Skinny Fit Jeans",
+
+//     //     "price": {
+
+//     //         "currency": "Rs",
+//     //         "actual": 999,
+
+//     //         "offer": {
+//     //             "value": 20,
+//     //             "type": "%"
+//     //         }
+//     //     },
+
+//     //     "ratings": 3.2,
+//     //     "buyers": 200,
+//     //     "category": 0
+//     // },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-3.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "highlander",
+//         "name": "slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 299,
+//                 "type": "rs"
+//             }
+//         },
+
+//         "ratings": 4.0,
+//         "buyers": 170,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-4.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "here&now",
+//         "name": "men slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-5.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "highlander",
+//         "name": "slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 299,
+//                 "type": "rs"
+//             }
+//         },
+
+//         "ratings": 4.0,
+//         "buyers": 170,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-6.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "here&now",
+//         "name": "men slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-7.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "highlander",
+//         "name": "slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 299,
+//                 "type": "rs"
+//             }
+//         },
+
+//         "ratings": 4.0,
+//         "buyers": 170,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/mens-shirt-8.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "here&now",
+//         "name": "men slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100,
+//         "category": 0
+//     },
+
+//     //t-shirt
+
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/t-shirt-1.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "here&now",
+//         "name": "men slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/t-shirt-2.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "here&now",
+//         "name": "men slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/t-shirt-3.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "here&now",
+//         "name": "men slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/t-shirt-4.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "here&now",
+//         "name": "men slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/t-shirt-5.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "here&now",
+//         "name": "men slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/t-shirt-6.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "here&now",
+//         "name": "men slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/t-shirt-7.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "here&now",
+//         "name": "men slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/t-shirt-8.jpg",
+//             "alt": "slim fit casual shirt"
+//         },
+
+//         "brand": "here&now",
+//         "name": "men slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100,
+//         "category": 0
+//     },
+
+//     //jean
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-jean-1.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-jean-2.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-jean-3.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-jean-4.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-jean-5.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-jean-6.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-jean-7.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-jean-8.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+//     //trousers
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-trousers-1.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-trousers-2.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-trousers-3.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-trousers-4.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+//     //shorts
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-shorts-1.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-shorts-2.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-shorts-3.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/mens fashion/men-shorts-4.jpg",
+//             "alt": "Mid-Rise Skinny Fit Jeans"
+//         },
+
+//         "brand": "DNMX",
+//         "name": "Mid-Rise Skinny Fit Jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 20,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.2,
+//         "buyers": 200,
+//         "category": 0
+//     },
+
+
+//     //womens
+
+//     //shirts
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/womens fashion/shirt-1.jpg",
+//             "alt": "checked collar shirt"
+//         },
+
+//         "brand": "roadster",
+//         "name": "slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "current": 599,
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 30,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.0,
+//         "buyers": 170
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/womens fashion/shirt-2.jpg",
+//             "alt": "checked collar shirt"
+//         },
+
+//         "brand": "roadster",
+//         "name": "slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "current": 599,
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 30,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.0,
+//         "buyers": 170
+//     },
+
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/womens fashion/shirt-3.jpg",
+//             "alt": "checked collar shirt"
+//         },
+
+//         "brand": "roadster",
+//         "name": "slim fit casual shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "current": 599,
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 30,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.0,
+//         "buyers": 170
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/womens fashion/shirt-4.jpg",
+//             "alt": "checked casual collar shirt"
+//         },
+
+//         "brand": "her by invi",
+//         "name": "checked casual collar shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "current": 499,
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100
+//     },
+
+//     //t-shirts
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/womens fashion/skirts-1.jpg",
+//             "alt": "women flared skirt"
+//         },
+
+//         "brand": "sassafras",
+//         "name": "women flared skirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "current": 299,
+//             "actual": 599,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.5,
+//         "buyers": 100
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/womens fashion/women-tshirt-1.jpg",
+//             "alt": "printed crew-neck t-shirt"
+//         },
+
+//         "brand": "Dillinger",
+//         "name": "printed crew-neck t-shirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "current": 299,
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 70,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.3,
+//         "buyers": 1000
+//     },
+
+//     //kids
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/deals for kids/tshirt-1.jpg",
+//             "alt": "boys round neck tshirt"
+//         },
+
+//         "brand": "h&m",
+//         "name": "boys round neck tshirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "current": 599,
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 30,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.0,
+//         "buyers": 170
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/deals for kids/boys-pants-2.jpg",
+//             "alt": "boys denim jeans"
+//         },
+
+//         "brand": "v-mart",
+//         "name": "boys denim jeans",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "current": 499,
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.8,
+//         "buyers": 2100
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/deals for kids/frock-2.jpg",
+//             "alt": "georgette a line dress"
+//         },
+
+//         "brand": "sangria",
+//         "name": "georgette a line dress",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "current": 299,
+//             "actual": 599,
+
+//             "offer": {
+//                 "value": 50,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 3.5,
+//         "buyers": 100
+//     },
+
+//     {
+//         "image": {
+//             "source": "../../assets/images/homepage-images/deals for kids/tshirt-3.jpg",
+//             "alt": "boys tshirt"
+//         },
+
+//         "brand": "max",
+//         "name": "boys tshirt",
+
+//         "price": {
+
+//             "currency": "Rs",
+//             "current": 299,
+//             "actual": 999,
+
+//             "offer": {
+//                 "value": 70,
+//                 "type": "%"
+//             }
+//         },
+
+//         "ratings": 4.3,
+//         "buyers": 1000
+//     },
+
+// ]
+
+let product_list = JSON.parse(localStorage.getItem("product_list"));
+//console.log(product_list);
 
 for (let i = 0; i < product_list.length; i++) {
 
     // <div class="smallcontainer"></div>
     div_smallcontainer = document.createElement("div");
     div_smallcontainer.setAttribute("class", "smallcontainer");
-    console.log(div_smallcontainer);
+    // console.log(div_smallcontainer);
     document.querySelector("div.products").append(div_smallcontainer);
 
 
@@ -1241,8 +1243,8 @@ for (let i = 0; i < product_list.length; i++) {
     // <img class="product_image" src="../../assets/images/homepage-images/mens fashion/men-jean-1.jpg" alt="mens jean" >
     img_product_image = document.createElement("img");
     img_product_image.setAttribute("class", "product_image");
-    img_product_image.setAttribute("src", product_list[i]["image"]["source"]);
-    img_product_image.setAttribute("alt", product_list[i]["image"]["alt"]);
+    img_product_image.setAttribute("src", "../../assets/images/homepage-images/deals for kids/tshirt-3.jpg");
+    img_product_image.setAttribute("alt", "Shirt");
     div_images.append(img_product_image);
 
     // <i class="wishlist" class="fa-solid fa-heart"></i>
@@ -1258,7 +1260,7 @@ for (let i = 0; i < product_list.length; i++) {
     // <div class="ratings_count">4.4</div>
     div_ratings_count = document.createElement("div");
     div_ratings_count.setAttribute("class", "ratings_count");
-    div_ratings_count.innerText = product_list[i]["ratings"];
+    div_ratings_count.innerText = "33";
     div_ratings.append(div_ratings_count);
 
 
@@ -1272,9 +1274,8 @@ for (let i = 0; i < product_list.length; i++) {
     // <p class="buyers_count">4.4</p>
     div_buyers_count = document.createElement("div");
     div_buyers_count.setAttribute("class", "buyers_count");
-    div_buyers_count.innerText = product_list[i]["buyers"];
+    div_buyers_count.innerText = "777";
     div_ratings.append(div_buyers_count);
-
 
     // <div class ="names"> <div>
     div_names = document.createElement("div");
@@ -1299,17 +1300,17 @@ for (let i = 0; i < product_list.length; i++) {
     div_prices.setAttribute("class", "prices");
     div_smallcontainer.append(div_prices);
     //////price - current calculation
-    let actual = product_list[i]["price"]["actual"];
-    let value = product_list[i]["price"]["offer"]["value"];
-    let type = product_list[i]["price"]["offer"]["type"];
+    let mrp = product_list[i]["mrp"];
+    let value = product_list[i]["value"];
+    let type = product_list[i]["type"];
     let current;
 
     if (type === "%") {
-        current = actual - actual * value / 100;
+        current = mrp - mrp * value / 100;
         current = Math.round(current);
     }
     else {
-        current = actual - value;
+        current = mrp - value;
     }
     console.log(current);
 
@@ -1317,23 +1318,23 @@ for (let i = 0; i < product_list.length; i++) {
     span_product_price = document.createElement("span");
     span_product_price.setAttribute("class", "current_price");
 
-    span_product_price.innerText = product_list[i]["price"]["currency"] + "." + current;
+    span_product_price.innerText = product_list[i]["mrp"] + product_list[i]["currency"] + "." + current;
     div_prices.append(span_product_price);
 
 
     // <span class="original_price"><del>rs.999</del></span>
     span_original_price = document.createElement("span");
-    span_original_price.setAttribute("class", "actual_price");
+    span_original_price.setAttribute("class", "mrp_price");
     div_prices.append(span_original_price);
 
     del_original_price = document.createElement("del");
-    del_original_price.innerText = product_list[i]["price"]["actual"];
+    del_original_price.innerText = product_list[i]["mrp"];
     span_original_price.append(del_original_price);
 
     // <span class="product_offer">(30% off)</span>
     span_product_offer = document.createElement("span");
     span_product_offer.setAttribute("class", "product_offer");
-    span_product_offer.innerText = "(" + product_list[i]["price"]["offer"]["value"] + product_list[i]["price"]["offer"]["type"] + "off" + ")";
+    span_product_offer.innerText = "(" + product_list[i]["value"] + product_list[i]["type"] + "off" + ")";
     div_prices.append(span_product_offer);
 }
 
