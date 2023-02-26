@@ -46,7 +46,6 @@ function createProduct(category, brand, name, color, size, mrp, value) {
 
 product_list.foreach(createProduct);
 
-
 function upload(e) {
     e.preventDefault();
 
@@ -70,7 +69,7 @@ function upload(e) {
     let product_id = crypto.randomUUID();
 
 
-    createProduct(category, brand, name, color, size, mrp, value);
+    createProduct(category, brand, name, color, size,mrp, value);
 
 
     let product_list = JSON.parse(localStorage.getItem('product_list')) || [];
