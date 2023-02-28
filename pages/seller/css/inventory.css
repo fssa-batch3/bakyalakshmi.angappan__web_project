@@ -1,0 +1,20 @@
+button.edit_button {
+    background-color: #ffc107;
+    color: black;
+    border: none;
+    margin-right: 20px;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+button.del_button {
+    background-color: #dc3545;
+    color: aliceblue;
+    border: none;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+thead tbody tr td th {
+    padding: 0.5rem;
+}

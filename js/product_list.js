@@ -1318,7 +1318,7 @@ for (let i = 0; i < product_list.length; i++) {
     span_product_price = document.createElement("span");
     span_product_price.setAttribute("class", "current_price");
 
-    span_product_price.innerText = product_list[i]["mrp"] + product_list[i]["currency"] + "." + current;
+    span_product_price.innerText = product_list[i]["currency"] + "." + current;
     div_prices.append(span_product_price);
 
 
