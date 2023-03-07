@@ -26,27 +26,32 @@
     <!-- desktop header -->
     <header id="desktop-header">
         <nav class="navbar navbar-expand-lg">
+
             <div class="container-fluid d-flex justify-content-between">
 
                 <a class="navbar-brand" href="./index.html">
-                    <img src="./assets/images/homepage-images/logo.png" alt="my fashio studio logo" />
+                    <img src="./assets/images/homepage-images/mobile logo.png" alt="my fashion studio logo" />
                 </a>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                MEN
-                            </a>
+                        <li class="nav-link" data-filter="all">
+                            ALL
+                        </li>
 
-                            <ul class="dropdown-menu ">
+                    </ul>
 
-                                <li>
-                                    <a class="dropdown-item" href="./pages/products/product-list.html">
-                                        <h4>all products</h4>
-                                    </a>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            men
+
+                            <ul class="dropdown-menu">
+
+                                <li class="nav-link dropdown-item" data-filter="men">
+                                    <h4>all products</h4>
                                 </li>
 
                                 <li class="dropdown-item">
@@ -77,22 +82,17 @@
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="../products/all products list/men-allproducts-list.html"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                WOMEN
-                            </a>
+                        <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                            WOMEN
 
 
+                            <ul class="dropdown-menu">
 
-                            <ul class="dropdown-menu ">
-
-
-                                <li>
-                                    <a class="dropdown-item" href="./pages/products/product-list.html">
-                                        <h4>all products</h4>
-                                    </a>
+                                <li class="nav-link dropdown-item" data-filter="women">
+                                    <h4>all products</h4>
                                 </li>
+
 
                                 <li class="dropdown-item">
                                     <h4>topwear</h4>
@@ -121,30 +121,26 @@
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                KIDS
-                            </a>
-
-
+                        <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            KIDS
 
                             <ul class="dropdown-menu ">
 
-                                <li>
-                                    <a class="dropdown-item" href="./pages/products/product-list.html">
-                                        <h4>all products</h4>
-                                    </a>
+                                <li class="nav-link dropdown-item" data-filter="kids">
+                                    <h4>all products</h4>
                                 </li>
-
 
                                 <li class="dropdown-item">
                                     <h4>topwear</h4>
                                 </li>
+
                                 <li><a class="dropdown-item"
                                         href="../products/product_list-mens-t-shirt.html">T-shirt</a>
                                 </li>
+
                                 <li><a class="dropdown-item" href="../products/product_list-mens-shirts.html">shirts</a>
                                 </li>
+
                                 <li class="dropdown-divider"></li>
                                 <li class="dropdown-item">
                                     <h4>bottom wear</h4>
@@ -160,6 +156,8 @@
                         </li>
 
                     </ul>
+
+
 
                 </div>
 
@@ -190,7 +188,7 @@
     </header>
 
     <!-- mobile header -->
-
+    <!-- 
     <header id="mobile-header">
         <nav class="navbar navbar-expand-lg" id="mobile-header">
             <div class="container-fluid d-flex justify-content-between">
@@ -328,7 +326,7 @@
 
                 </div>
 
-    </header>
+    </header> -->
 
     <!-- main content -->
     <div class="container-fluid">
@@ -747,7 +745,7 @@
                     <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
                     <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
                     <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href="./pages/products/product-list.html"><i class="fa-brands fa-square-instagram"></i></a>
                 </div>
 
                 <div>
@@ -757,8 +755,22 @@
         </div>
     </footer>
 
+    <script>
+        const nav_link = document.querySelectorAll(".nav-link")
+        // console.log(nav_link);
+        nav_link.forEach(nav => {
+            nav.addEventListener("click", e => {
+                const data_filter = nav.dataset.filter;
+
+                location.href = `./pages/products/product-list.html?gender=${data_filter}`
+            })
+        });
+
+    </script>
     <script src="./js/bootstrap.bundle.js"></script>
     <script src="./js/account.js"></script>
+
+
 </body>
 
 </html>

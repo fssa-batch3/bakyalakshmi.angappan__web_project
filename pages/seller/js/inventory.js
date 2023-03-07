@@ -1,12 +1,13 @@
 
 
-function createProduct(category, brand, name, color, size, mrp, value, product_id) {
+function createProduct(gendercategory, category, brand, name, color, size, mrp, value, product_id) {
 
-    let crudTable = document.getElementById("crudtable");
+    let crudTable = document.querySelector(".table-light");
 
     let productData = document.createElement("tr");
 
     let td_index = document.createElement("td");
+    let td_gender_category = document.createElement("td");
     let td_category = document.createElement("td");
     let td_brand = document.createElement("td");
     let td_name = document.createElement("td");
@@ -32,7 +33,8 @@ function createProduct(category, brand, name, color, size, mrp, value, product_i
     td_actions.append(del_button);
 
 
-    td_index.innerText = i;
+    td_index.innerText = i + 1;
+    td_gender_category.innerText = gendercategory;
     td_category.innerText = category;
     td_brand.innerText = brand;
     td_name.innerText = name;
@@ -43,16 +45,14 @@ function createProduct(category, brand, name, color, size, mrp, value, product_i
     td_value.innerText = value;
     // td_type.innerText = type;
 
-    productData.append(td_index, td_category, td_brand, td_name, td_color, td_size, td_mrp, td_value, td_actions);
+    productData.append(td_index, td_gender_category, td_category, td_brand, td_name, td_color, td_size, td_mrp, td_value, td_actions);
     crudTable.append(productData);
 };
 
 let product = JSON.parse(localStorage.getItem("product_list"));
 for (i = 0; i < product.length; i++) {
-    createProduct(product[i]["category"], product[i]["brand"], product[i]["name"], product[i]["color"], product[i]["size"], product[i]["mrp"], product[i]["value"], product[i]["product_id"]);
+    createProduct(product[i]["gendercategory"], product[i]["category"], product[i]["brand"], product[i]["name"], product[i]["color"], product[i]["size"], product[i]["mrp"], product[i]["value"], product[i]["product_id"]);
 }
-
-
 
 // function to edit product
 
@@ -94,11 +94,10 @@ del.forEach(function (find) {
 
         let indexOfProduct = product.indexOf(product_data);
         product.splice(indexOfProduct, 1);
-
+        
         localStorage.setItem("product_list", JSON.stringify(product));
 
         location.reload();
-
     })
 
 });

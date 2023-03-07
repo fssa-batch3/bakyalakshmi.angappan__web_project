@@ -12,6 +12,7 @@ function find_product(e) {
 let product_data = product.find(find_product);
 
 document.getElementById("inputsource").value = product_data["source"];
+document.getElementById("inputgendercategory").value = product_data["gendercategory"];
 document.getElementById("inputcategory").value = product_data["category"];
 document.getElementById("inputbrand").value = product_data["brand"];
 
@@ -27,6 +28,7 @@ function save(e) {
     e.preventDefault();
 
     product_data["source"] = document.getElementById("inputsource").value
+    product_data["gendercategory"] = document.getElementById("inputgendercategory").value
     product_data["category"] = document.getElementById("inputcategory").value
     product_data["brand"] = document.getElementById("inputbrand").value
     product_data["name"] = document.getElementById("inputname").value
@@ -36,7 +38,6 @@ function save(e) {
 
     product_data["mrp"] = document.getElementById("inputmrp").value;
     product_data["details"] = document.getElementById("inputdetails").value
-
 
 
     localStorage.setItem("product_list", JSON.stringify(product));
