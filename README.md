@@ -9,7 +9,7 @@ Low Fedility:https://drive.google.com/drive/folders/1XjLJWR7bkeLsjL0TFTkvkEeH2ox
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=fssa-batch3_bakyalakshmi.angappan__web_project&metric=bugs)](https://sonarcloud.io/summary/new_code?id=fssa-batch3_bakyalakshmi.angappan__web_project)
 # features
 
-### user CRUD
+### user 
     --login 
     --register
     --create profile
@@ -17,10 +17,44 @@ Low Fedility:https://drive.google.com/drive/folders/1XjLJWR7bkeLsjL0TFTkvkEeH2ox
     --update profile
     --delete profile
  
- ### product CRUD
+ ### product 
     --create product 
     --read product
     --update product 
     --delete product
+    --product details
+    
+   ### shopping bag
+    --add bag products
+    --read bag products
+    --update bag product
+    --delete bag product
+    
+   ### order
+    --create order
+    --read order
+    --delete order
+    
+   ### category
+    --create category
+    --read category 
+    --update category
+    --delete category
+    
+   ### wishlist
+    --create wishlist products
+    --read wishlist products
+    --update wishlist product
+    --delete wishlist product
+  
+   ### search
+  
+
+    
+    
+    
+  
+    
+    
  
  
