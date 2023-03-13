@@ -1,3 +1,28 @@
+// getting the gender_list from ls
+const gender = JSON.parse(localStorage.getItem("gender_list"));
+// console.log(gender_list);
+
+
+// function to create gender option from ls
+const inputgender = document.querySelector("#inputgendercategory")
+function creategender() {
+    for (i = 0; i < gender.length; i++) {
+        let gender_option = document.createElement("option");
+        gender_option.value = gender[i]["id"]
+        gender_option.innerText = gender[i]["gender"]
+        inputgender.append(gender_option);
+    };
+}
+
+creategender();
+
+
+// function to store the gender if stored on ls 
+
+// getting the gender_list
+
+
+// function when from on submit
 const form = document.getElementById("form");
 form.addEventListener("submit", upload);
 
@@ -34,7 +59,6 @@ function upload(e) {
     product_list.push({
         // source, gendercategory, category, brand, name, color, size, currency, mrp, value, type, details, product_id
         "product_id": product_id,
-        "gender": gendercategory,
         "category": category,
 
         "image": {
@@ -59,51 +83,24 @@ function upload(e) {
         "color": color,
         "details": details,
         "ratings": 3.5,
-        "buyers": 100
+        "buyers": 100,
+
+        "filter": [
+            {
+                "gender": [{
+                    "name":gendercategory,
+                    "value":1
+                }]
+            }
+
+        ]
+
+
     });
 
     localStorage.setItem('product_list', JSON.stringify(product_list));
-
-
     location.href = "./inventory.html"
 
+
 };
-
-let gender_category_list = []
-
-gender_category_list.push(
-    {
-        "gender": "men",
-        "category": [
-            {
-                "name": "t_shirt"
-            }
-        ]
-    },
-    {
-        "gender": "women",
-        "category": [
-            {
-                "name": "t_shirt"
-            }
-        ]
-    },
-    {
-        "gender": "kids",
-        "category": [
-            {
-                "name": "t_shirt"
-            }
-        ]
-    }
-);
-localStorage.setItem('gender_category_list', JSON.stringify(gender_category_list));
-
-
-
-
-
-
-
-
 
