@@ -51,7 +51,7 @@ function createProduct(gendercategory, category, brand, name, color, size, mrp, 
 
 let product = JSON.parse(localStorage.getItem("product_list"));
 for (i = 0; i < product.length; i++) {
-    createProduct(product[i]["gendercategory"], product[i]["category"], product[i]["brand"], product[i]["name"], product[i]["color"], product[i]["size"], product[i]["mrp"], product[i]["value"], product[i]["product_id"]);
+    createProduct(product[i]["gender"], product[i]["category"], product[i]["brand"], product[i]["name"], product[i]["color"], product[i]["size"], product[i]["mrp"], product[i]["value"], product[i]["product_id"]);
 }
 
 // function to edit product
@@ -69,10 +69,7 @@ edit.forEach(function (find) {
 
         location.href = "./editproduct.html"
     })
-
-
 });
-
 
 //function to delete a product 
 
@@ -94,7 +91,7 @@ del.forEach(function (find) {
 
         let indexOfProduct = product.indexOf(product_data);
         product.splice(indexOfProduct, 1);
-        
+
         localStorage.setItem("product_list", JSON.stringify(product));
 
         location.reload();

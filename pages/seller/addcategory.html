@@ -57,30 +57,41 @@
 
         <form class="form w-50 d-flex flex-column m-5 row-gap-3" id="form">
 
-            <h6 class="text-center">add gender</h6>
+
+            <!-- for entering gender -->
+            <!-- <h6 class="text-center">add gender</h6>
             <div class="mb-3">
                 <label for="inputcategory" class="form-label">Enter gender</label>
                 <input class="form-control" id="inputcategory">
             </div>
 
-            <button type="button" id="btn_add_cat" class="btn btn-primary">add gender</button>
+            <button type="button" id="btn_add_cat" class="btn btn-primary">add gender</button> -->
 
             <h6 class="text-center">add categories</h6>
 
-            <div class="form-row">
-                <select id="choosecategory" aria-placeholder="choose category" class="form-control col-md-6">
-                    <option>men</option>
+            <div class="form-row d-flex gap-5">
+                <select id="choosecategory" aria-placeholder="choose category" class="form-control w-75">
+                    <option selected value="">select gender</option>
+                    <!-- <option>men</option>
                     <option>women</option>
-                    <option>kids</option>
+                    <option>kids</option> -->
                 </select>
+
+
+                <button type="button" id="btn_cat" class="btn btn-primary ">show</button>
+
+            </div>
+
+            <div class="category form-row d-flex flex-column float-end gap-5">
+
             </div>
 
             <div class="mb-3">
                 <label for="inputsubcategory" class="form-label">Enter category</label>
-                <input type="text" class="form-control" id="inputsubcategory">
+                <input type="text" class="form-control" id="inputcategory">
             </div>
 
-            <button type="button" id="btn_add_sub_cat" class="btn btn-primary">add category</button>
+            <button type="button" id="btn_add_cat" class="btn btn-primary">add category</button>
         </form>
     </div>
 

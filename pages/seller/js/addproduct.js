@@ -1,26 +1,69 @@
 // getting the gender_list from ls
 const gender = JSON.parse(localStorage.getItem("gender_list"));
+
+// getting the category_list from ls
+const localcategory = JSON.parse(localStorage.getItem("category_list"));
+
+console.log(localcategory)
+
+// getting the gender_list from ls
+// const gender = JSON.parse(localStorage.getItem("gender_list"));
 // console.log(gender_list);
 
 
 // function to create gender option from ls
-const inputgender = document.querySelector("#inputgendercategory")
-function creategender() {
-    for (i = 0; i < gender.length; i++) {
-        let gender_option = document.createElement("option");
-        gender_option.value = gender[i]["id"]
-        gender_option.innerText = gender[i]["gender"]
-        inputgender.append(gender_option);
-    };
+const inputgender = document.querySelector("#inputgendercategory");
+inputgender.addEventListener("click", gen);
+
+function gen() {
+    const inputValue = document.getElementById("inputgendercategory").value;
+    console.log("inputValue" + inputValue);
+
+    function creategender() {
+        const inputgender = document.querySelector("#inputgendercategory")
+        inputgender.innerHTML = "";
+        let selected_option = document.createElement("option");
+        // selected_option.setAttribute()
+        selected_option.innerHTML = "select gender"
+        inputgender.append(selected_option);
+
+        for (i = 0; i < gender.length; i++) {
+            let gender_option = document.createElement("option");
+            gender_option.value = gender[i]["id"]
+            gender_option.innerHTML = gender[i]["gender"];
+            inputgender.append(gender_option);
+        };
+    }
+
+    creategender();
 }
 
-creategender();
+
+// console.log(filteredcategory);
+
+// const inputcategory = document.querySelector("#inputgendercategory")
+
+// function createcategory() {
+//     for (i = 0; i < category.length; i++) {
+//         let category_option = document.createElement("option");
+//         category_option.value = filteredcategory[i]["id"]
+//         category_option.innerText = filteredcategory[i]["category"]
+//         inputgender.append(category_option);
+//     };
+// }
+// createcategory();
 
 
-// function to store the gender if stored on ls 
+// function to store the gender name stored on ls 
+const inputvalue = document.getElementById("inputgendercategory").value
 
-// getting the gender_list
+// // finding the object
 
+// let findgender = gender.find(e => e.inputvalue == gender["value"]);
+// console.log(findgender);
+
+// let gender_name = findgender["gender"];
+// console.log(gender_name);
 
 // function when from on submit
 const form = document.getElementById("form");
@@ -84,18 +127,8 @@ function upload(e) {
         "details": details,
         "ratings": 3.5,
         "buyers": 100,
-
-        "filter": [
-            {
-                "gender": [{
-                    "name":gendercategory,
-                    "value":1
-                }]
-            }
-
-        ]
-
-
+        "gender": gender,
+        "value": inputvalue
     });
 
     localStorage.setItem('product_list', JSON.stringify(product_list));
