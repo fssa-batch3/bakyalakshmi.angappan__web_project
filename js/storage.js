@@ -15,19 +15,6 @@ function signUp(e) {
     let address = "";
     let hintname = "";
 
-    function validate() {
-        // if (!password) {
-        //     alert("hui")
-        //     let errorpsw = document.querySelector("#passwordloc").innerHTML = "Must contain 6 characters"
-        //     return errorpsw;
-        // }
-
-        if (password !== re_enter_password) {
-            alert('password must be same');
-        }
-    }
-    validate();
-
     let user_list = JSON.parse(localStorage.getItem('user_list')) || [];
     let exist = user_list.length &&
         JSON.parse(localStorage.getItem('user_list')).some(data =>
