@@ -1218,15 +1218,11 @@ let span_product_offer;
 
 
 let product = JSON.parse(localStorage.getItem("product_list"));
-// console.log(product);
-// let filteredProducts = ;
-
 const params = new URLSearchParams(window.location.search);
+const urlcategory = params.get("category");
 
-const urlgender = params.get("gender");
-
-let filteredProducts = product.filter((product) => product.gender === urlgender);
-// console.log(filteredProducts);
+let filteredProducts = product.filter((product) => product.category === urlcategory);
+console.log(filteredProducts);
 
 for (let i = 0; i < filteredProducts.length; i++) {
 
@@ -1234,7 +1230,7 @@ for (let i = 0; i < filteredProducts.length; i++) {
     div_smallcontainer = document.createElement("div");
     div_smallcontainer.setAttribute("class", "smallcontainer");
     div_smallcontainer.setAttribute("data-id", filteredProducts[i]["product_id"]);
-    div_smallcontainer.setAttribute("data-gender", filteredProducts[i]["gender"]);
+    // div_smallcontainer.setAttribute("value", filteredProducts[i]["category"]);
     // console.log(div_smallcontainer);
     document.querySelector("div.products").append(div_smallcontainer);
     // console.log(div_smallcontainer);
@@ -1250,8 +1246,8 @@ for (let i = 0; i < filteredProducts.length; i++) {
     // <img class="product_image" src="../../assets/images/homepage-images/mens fashion/men-jean-1.jpg" alt="mens jean" >
     img_product_image = document.createElement("img");
     img_product_image.setAttribute("class", "product_image");
-    img_product_image.setAttribute("src", "../../assets/images/homepage-images/deals for kids/tshirt-3.jpg");
-    img_product_image.setAttribute("alt", "Shirt");
+    img_product_image.setAttribute("src", filteredProducts[i]["image"]["source"]);
+    img_product_image.setAttribute("alt", filteredProducts[i]["name"]);
     div_images.append(img_product_image);
 
     // <i class="wishlist" class="fa-solid fa-heart"></i>
@@ -1267,7 +1263,7 @@ for (let i = 0; i < filteredProducts.length; i++) {
     // <div class="ratings_count">4.4</div>
     div_ratings_count = document.createElement("div");
     div_ratings_count.setAttribute("class", "ratings_count");
-    div_ratings_count.innerText = "33";
+    div_ratings_count.innerText = filteredProducts[i]["ratings"];
     div_ratings.append(div_ratings_count);
 
 
@@ -1281,7 +1277,7 @@ for (let i = 0; i < filteredProducts.length; i++) {
     // <p class="buyers_count">4.4</p>
     div_buyers_count = document.createElement("div");
     div_buyers_count.setAttribute("class", "buyers_count");
-    div_buyers_count.innerText = "777";
+    div_buyers_count.innerText = filteredProducts[i]["buyers"];
     div_ratings.append(div_buyers_count);
 
     // <div class ="names"> <div>
@@ -1307,9 +1303,9 @@ for (let i = 0; i < filteredProducts.length; i++) {
     div_prices.setAttribute("class", "prices");
     div_smallcontainer.append(div_prices);
     //////price - current calculation
-    let mrp = filteredProducts[i]["mrp"];
-    let value = filteredProducts[i]["value"];
-    let type = filteredProducts[i]["type"];
+    let mrp = filteredProducts[i]["price"]["mrp"];
+    let value = filteredProducts[i]["price"]["offer"]["value"];
+    let type = filteredProducts[i]["price"]["offer"]["type"];
     let current;
 
     if (type === "%") {
@@ -1325,7 +1321,7 @@ for (let i = 0; i < filteredProducts.length; i++) {
     span_product_price = document.createElement("span");
     span_product_price.setAttribute("class", "current_price");
 
-    span_product_price.innerText = filteredProducts[i]["currency"] + "." + current;
+    span_product_price.innerText = filteredProducts[i]["price"]["currency"] + "." + current;
     div_prices.append(span_product_price);
 
     // <span class="original_price"><del>rs.999</del></span>
@@ -1334,21 +1330,20 @@ for (let i = 0; i < filteredProducts.length; i++) {
     div_prices.append(span_original_price);
 
     del_original_price = document.createElement("del");
-    del_original_price.innerText = filteredProducts[i]["mrp"];
+    del_original_price.innerText = filteredProducts[i]["price"]["mrp"];
     span_original_price.append(del_original_price);
 
     // <span class="product_offer">(30% off)</span>
     span_product_offer = document.createElement("span");
     span_product_offer.setAttribute("class", "product_offer");
-    span_product_offer.innerText = "(" + filteredProducts[i]["value"] + filteredProducts[i]["type"] + "off" + ")";
+    span_product_offer.innerText = "(" + filteredProducts[i]["price"]["offer"]["value"] + filteredProducts[i]["price"]["offer"]["type"] + "off" + ")";
     div_prices.append(span_product_offer);
 }
 
 
-// getting the image 
+// // getting the image
 
 let product_container = document.querySelectorAll(".smallcontainer");
-
 
 // console.log(product_container);
 
@@ -1360,8 +1355,6 @@ product_container.forEach(event => {
     })
 }
 );
-
-
 
 
 

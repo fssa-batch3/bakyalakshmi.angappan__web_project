@@ -133,9 +133,22 @@
 //     ]
 // }
 
-////////////leftside////////////
 
 let product = JSON.parse(localStorage.getItem("product_list"));
+
+// searching values in url params
+const params = new URLSearchParams(window.location.search);
+
+const urlproduct_id = params.get("product_id");
+
+function find_product(e) {
+    return e.product_id == urlproduct_id;
+};
+
+let productdata = product.find(find_product);
+
+////////////leftside////////////
+
 // console.log(product);
 
 // <div class="leftside"></div>
@@ -150,11 +163,11 @@ div_leftside.append(div_thumbnailproducts);
 
 // //<img src="../../assets/images/product-images/product_thumbnail-1.jpg" alt=""></img>
 
-// for (let i = 0; i < product["source"].length; i++) {
+// for (let i = 0; i < productdata["source"].length; i++) {
 
 //     thumbnail_img = document.createElement("img");
 //     thumbnail_img.setAttribute("class", "thumbnail_image");
-//     thumbnail_img.setAttribute("src", product["source"]);
+//     thumbnail_img.setAttribute("src", productdata["image"]["source"]);
 //     div_thumbnailproducts.append(thumbnail_img);
 
 // };
@@ -170,9 +183,11 @@ div_leftside.append(div_product_image);
 
 img_product_image = document.createElement("img");
 img_product_image.setAttribute("id", "product_image");
-img_product_image.setAttribute("src", product["source"]);
-img_product_image.setAttribute("alt", product["alt"]);
+img_product_image.setAttribute("src", productdata['image']["source"]);
+img_product_image.setAttribute("alt", productdata['image']["alt"]);
 div_product_image.append(img_product_image);
+
+// console.log(img_product_image);
 
 // <p class="modelsize">Our model wears a size 32</p>
 p_modelsize = document.createElement("p");
@@ -195,14 +210,14 @@ div_rightside.append(div_names);
 // <h3 class="brand_name">DNMX</h3>
 h3_brand_name = document.createElement("h3");
 h3_brand_name.setAttribute("id", "brand_name");
-h3_brand_name.innerText = product["brand"];
+h3_brand_name.innerText = productdata["brand"];
 div_names.append(h3_brand_name);
 
 //<h4 class="product_name">Mid-Rise Skinny Fit Jeans</h4>
 
 h4_product_name = document.createElement("h3");
 h4_product_name.setAttribute("id", "product_name");
-h4_product_name.innerText = product["name"];
+h4_product_name.innerText = productdata["name"];
 div_names.append(h4_product_name);
 
 //<div class="prices"></div>
@@ -225,12 +240,12 @@ div_product_offer.setAttribute("class", "product_offer");
 div_prices.append(div_product_offer);
 
 del_actual = document.createElement("del");
-del_actual.innerText = product["currency"] + "." + product["mrp"];
+del_actual.innerText = productdata["price"]["currency"] + "." + productdata["price"]["mrp"];
 div_product_offer.append(del_actual)
 
 // `(${product["price"]["offer"]["value"]} ${product["price"]["offer"]["type"]} off)`
 b_offer = document.createElement("b");
-b_offer.innerText = 12
+b_offer.innerText = productdata["price"]["offer"]["value"] + productdata["price"]["offer"]["type"] + "off"
 div_product_offer.append(b_offer);
 
 
@@ -244,7 +259,7 @@ div_prices.append(div_product_tax);
 //<div class="color"></div>
 div_color = document.createElement("div");
 div_color.setAttribute("class", "color");
-div_color.innerText = "black";
+div_color.innerText = productdata["color"];
 div_rightside.append(div_color);
 
 //<div class="choosecolor"></div>
@@ -259,8 +274,17 @@ div_rightside.append(div_size);
 
 // <p>select size</p>
 p_select_size = document.createElement("p");
-p_select_size.innerText = "selectsize";
+p_select_size.innerText = "size";
 div_size.append(p_select_size);
+
+let size = JSON.parse(localStorage.getItem("size_list"));
+
+let find_size = size.find(e => e.id == productdata["size"]);
+
+div_size = document.createElement("div");
+div_size.setAttribute("class", "size");
+div_size.innerText = find_size["value"];
+div_rightside.append(div_size);
 
 
 // const size = product["size"];
@@ -288,12 +312,16 @@ div_rightside.append(div_buttons);
 //<button>ADD TO BAG</button>
 button_bag = document.createElement("button");
 button_bag.setAttribute("class", "addtobag");
+button_bag.setAttribute("id", "bag");
 button_bag.innerText = "ADD TO BAG";
 div_buttons.append(button_bag);
+
+console.log(button_bag);
 
 //<button> wishlist </button>
 button_wishlist = document.createElement("button");
 button_wishlist.setAttribute("class", "wishlist");
+button_wishlist.setAttribute("id", "wishlist");
 button_wishlist.innerText = "wishlist";
 div_buttons.append(button_wishlist);
 
@@ -304,7 +332,7 @@ div_rightside.append(div_product);
 
 //<h3>Product Details</h3>
 h3_Product = document.createElement("h3");
-h3_Product.innerText = "Product Details";
+h3_Product.innerText = productdata["details"];
 div_product.append(h3_Product);
 
 ul_details = document.createElement("ul");
@@ -312,20 +340,36 @@ ul_details.setAttribute("class", "details");
 div_product.append(ul_details);
 
 
-// searching values in url params
-const params = new URLSearchParams(window.location.search);
 
-const urlproduct_id = params.get("product_id");
 
-function find_product(e) {
-    return e.product_id == urlproduct_id;
-};
+button_bag.addEventListener("click", bag);
 
-let product_data = product.find(find_product);
-// console.log(product_data);
+function bag() {
+    let unique_id = JSON.parse(localStorage.getItem("unique_id"))
+    const params = new URLSearchParams(window.location.search);
 
-document.querySelector("#brand_name").innerText = product_data["brand"];
-document.querySelector("#product_name").innerText = product_data["name"];
+    const urlproduct_id = params.get("product_id");
+
+    let addtobag = [];
+
+    addtobag.push(
+        {
+            "user_id": unique_id,
+            "product_id": urlproduct_id
+        }
+    );
+
+    localStorage.setItem("bag", JSON.stringify(addtobag));
+
+    // function find_product(e) {
+    //     return e.product_id == urlproduct_id;
+    // };
+
+    // let productdata = product.find(find_product);
+
+}
+
+
 
 
 

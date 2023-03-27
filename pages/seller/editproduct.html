@@ -37,9 +37,7 @@
             <div class="form-row">
                 <select id="inputgendercategory" class="form-control col-md-6">
                     <option selected>select category</option>
-                    <option>men's fashion</option>
-                    <option>women's fashion</option>
-                    <option>kids's fashion</option>
+
                 </select>
             </div>
 
@@ -47,11 +45,7 @@
             <div class="form-row">
                 <select id="inputcategory" class="form-control col-md-6">
                     <option selected>select category</option>
-                    <option>t-shirt</option>
-                    <option>shirt</option>
-                    <option>jean</option>
-                    <option>trousers</option>
-                    <option>shorts</option>
+
                 </select>
             </div>
 
@@ -74,12 +68,6 @@
                 <div class="form-group d-flex column-gap-2">
                     <label for="inputsize">size</label>
                     <select type="number" id="inputsize" class="form-control">
-                        <option>28</option>
-                        <option>30</option>
-                        <option>32</option>
-                        <option>34</option>
-                        <option>38</option>
-                        <option>40</option>
                     </select>
                 </div>
             </div>
@@ -106,6 +94,11 @@
                     </select>
                 </div>
 
+                <div class="form-group d-flex end-0 column-gap-2">
+                    <label for="inputquantity">quantity</label>
+                    <input type="number" class="form-control" id="inputquantity">
+                </div>
+
             </div>
 
             <div class="form-group">
@@ -113,7 +106,7 @@
                 <textarea name="" class="form-control" id="inputdetails" cols="45" rows="8"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">save changes</button>
+            <button type="submit" class="btn btn-primary" id = "savechange">save changes</button>
         </form>
 
     </div>
@@ -122,7 +115,7 @@
 
 </body>
 
-
+<script src="./js/addproduct.js"></script>
 <script src="./js/editproduct.js"></script>
 
 </html>

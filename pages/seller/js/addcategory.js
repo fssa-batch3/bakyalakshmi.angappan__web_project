@@ -1,3 +1,76 @@
+// storing the size in ls
+let size_list = [];
+
+size_list.push(
+    {
+        "value": "s",
+        "quantity": 12,
+        "status": true,
+        "id": 1
+    },
+    {
+        "value": "l",
+        "quantity": 12,
+        "status": true,
+        "id": 2
+    },
+    {
+        "value": "m",
+        "quantity": 12,
+        "status": true,
+        "id": 3
+    },
+    {
+        "value": "xl",
+        "quantity": 12,
+        "status": true,
+        "id": 4
+    },
+    {
+        "value": "xxl",
+        "quantity": 12,
+        "status": true,
+        "id": 5
+    },
+
+    {
+        "value": "32",
+        "quantity": 12,
+        "status": true,
+        "id": 6
+    },
+    {
+        "value": "34",
+        "quantity": 12,
+        "status": true,
+        "id": 7
+    },
+    {
+        "value": "36",
+        "quantity": 12,
+        "status": true,
+        "id": 8
+    },
+    {
+        "value": "38",
+        "quantity": 12,
+        "status": true,
+        "id": 9
+    },
+    {
+        "value": "40",
+        "quantity": 12,
+        "status": true,
+        "id": 10
+    }
+)
+
+console.log(size_list);
+localStorage.setItem('size_list', JSON.stringify(size_list));
+
+
+
+
 // getting the gender_list from ls
 const gender = JSON.parse(localStorage.getItem("gender_list"));
 // console.log(gender_list);
@@ -135,25 +208,39 @@ function addcat(e) {
     // console.log(inputcategory)
 
     // getting the filtered products
-    let a = filter();
+
 
     // finding the object
-    let findcategory = a.find(e => e.category == inputcategory)
-
+    let findcategory = localcategory.find(e => e.category == inputcategory);
+    console.log(findcategory)
 
     if (findcategory) {
-        alert("category aldready exists")
+
+        findcategory["status"] = true;
+        localStorage.setItem('category_list', JSON.stringify(localcategory));
+
+        alert("category created succesfully ");
     };
+
+    // if (findcategory["status"] == false) {
+
+    // };
 
     if (!findcategory) {
         localcategory.push({
             "category": inputcategory,
             "id": localcategory.length + 1,
-            "gender": inputvalue
+            "gender": inputvalue,
+            "status": true
         });
 
         alert("category created succesfully ");
     }
+
+
+
+
+
 
     localStorage.setItem('category_list', JSON.stringify(localcategory));
 };

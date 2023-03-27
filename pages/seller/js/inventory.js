@@ -1,5 +1,6 @@
 
 
+
 function createProduct(gendercategory, category, brand, name, color, size, mrp, value, product_id) {
 
     let crudTable = document.querySelector(".table-light");
@@ -15,7 +16,7 @@ function createProduct(gendercategory, category, brand, name, color, size, mrp, 
     let td_size = document.createElement("td");
     let td_mrp = document.createElement("td");
     //  let td_currency = document.createElement("td");
-    let td_value = document.createElement("td");
+    let td_offer = document.createElement("td");
     // let td_type = document.createElement("td");
     let td_actions = document.createElement("td");
 
@@ -32,27 +33,55 @@ function createProduct(gendercategory, category, brand, name, color, size, mrp, 
     del_button.innerText = "delete";
     td_actions.append(del_button);
 
-
     td_index.innerText = i + 1;
-    td_gender_category.innerText = gendercategory;
-    td_category.innerText = category;
+
+    // 
+
+    let localgender = JSON.parse(localStorage.getItem("gender_list"));
+    console.log(localgender);
+    let findgender = localgender.find(e => e.id == gendercategory);
+    console.log(findgender);
+
+    td_gender_category.innerText = findgender["gender"];
+
+
+
+    let localcategory = JSON.parse(localStorage.getItem("category_list"));
+    console.log(localcategory);
+
+    let findcategory = localcategory.find(e => e.id == category);
+    console.log(findcategory);
+
+    td_category.innerText = findcategory["category"];
+
     td_brand.innerText = brand;
     td_name.innerText = name;
     td_color.innerText = color;
-    td_size.innerText = size;
-    td_mrp.innerText = mrp;
-    // td_currency.innerText = currency;
-    td_value.innerText = value;
-    // td_type.innerText = type;
 
-    productData.append(td_index, td_gender_category, td_category, td_brand, td_name, td_color, td_size, td_mrp, td_value, td_actions);
+    const localsize = JSON.parse(localStorage.getItem("size_list"));
+    console.log(localsize);
+    let findsize = localsize.find(e => e.id == size);
+    console.log(findsize);
+
+    td_size.innerText = findsize["value"];
+    td_mrp.innerText = mrp;
+    td_offer.innerText = value;
+
+    productData.append(td_index, td_gender_category, td_category, td_brand, td_name, td_color, td_size, td_mrp, td_offer, td_actions);
     crudTable.append(productData);
+
+
 };
 
+
+
 let product = JSON.parse(localStorage.getItem("product_list"));
+
+
 for (i = 0; i < product.length; i++) {
-    createProduct(product[i]["gender"], product[i]["category"], product[i]["brand"], product[i]["name"], product[i]["color"], product[i]["size"], product[i]["mrp"], product[i]["value"], product[i]["product_id"]);
+    createProduct(product[i]["gender"], product[i]["category"], product[i]["brand"], product[i]["name"], product[i]["color"], product[i]["size"], product[i]["price"]["mrp"], product[i]["price"]["offer"]["value"], product[i]["product_id"]);
 }
+
 
 // function to edit product
 
@@ -70,6 +99,8 @@ edit.forEach(function (find) {
         location.href = "./editproduct.html"
     })
 });
+
+
 
 //function to delete a product 
 
