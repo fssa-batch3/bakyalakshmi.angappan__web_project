@@ -6,11 +6,11 @@ let size_data = [{"value":"s","quantity":12,"status":true,"id":1},{"value":"l","
 
 
 if (!gender_list) {
-    localStorage.setItem(("product_list"),JSON.stringify(gender_data));
+    localStorage.setItem(("gender_list"),JSON.stringify(gender_data));
 }
 
 
 if (!size_list) {
-    localStorage.setItem(("product_list"),JSON.stringify(size_data));
+    localStorage.setItem(("size_list"),JSON.stringify(size_data));
 }
 
