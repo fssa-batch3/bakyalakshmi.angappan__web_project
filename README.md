@@ -100,7 +100,7 @@ Low Fedility:https://drive.google.com/drive/folders/1XjLJWR7bkeLsjL0TFTkvkEeH2ox
       3. Click the "Edit profile" button.
       4. Enter the additional information such as Gender,Date of Birth,Address,Hint name
       5. The user is redirected to edit profile page.
-      5. Click the "Save Changes" button.
+      6. Click the "Save Changes" button.
    - Expected Result:
       - The user's profile details are updated.
 
