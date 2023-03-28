@@ -202,7 +202,7 @@ function addcat(e) {
 
     // getting the category_list
     let localcategory = JSON.parse(localStorage.getItem('category_list')) || [];
-
+    let seller_uuid = JSON.parse(localStorage.getItem('seller_id')) 
     // getting the category by id 
     let inputcategory = document.getElementById("inputcategory").value
     // console.log(inputcategory)
@@ -228,6 +228,7 @@ function addcat(e) {
 
     if (!findcategory) {
         localcategory.push({
+            "seller_id": seller_uuid,
             "category": inputcategory,
             "id": localcategory.length + 1,
             "gender": inputvalue,

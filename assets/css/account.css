@@ -42,6 +42,8 @@
 }
 
 .profile_details div.heading {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
     border-bottom: 2px solid #eee;
     padding-bottom: 3%;
 }

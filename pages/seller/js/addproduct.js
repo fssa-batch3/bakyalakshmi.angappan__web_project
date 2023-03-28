@@ -184,6 +184,7 @@ function upload(e) {
     let product_list = JSON.parse(localStorage.getItem('product_list')) || [];
 
     const localgender = JSON.parse(localStorage.getItem("gender_list"));
+    let seller_uuid = JSON.parse(localStorage.getItem('seller_id')) 
     // let gender_category_list = JSON.parse(localStorage.getItem('gender_category_list')) || [];
 
 
@@ -200,6 +201,7 @@ function upload(e) {
     if (inputvalue != "") {
         product_list.push({
             // source, gendercategory, category, brand, name, color, size, currency, mrp, value, type, details, product_id
+            "seller_id":seller_uuid,
             "product_id": product_id,
 
             "image": {

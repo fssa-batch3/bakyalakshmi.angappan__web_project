@@ -5,7 +5,7 @@ let before_login =
     `    <header id="desktop-header">
 <nav class="navbar navbar-expand-lg">
 
-    <div class="container-fluid d-flex justify-content-between">
+    <div class="container-fluid d-flex justify-content-evenly">
 
         <a class="navbar-brand" href="./index.html">
             <img src="./assets/images/homepage-images/logo.png" alt="my fashion studio logo" />
@@ -14,7 +14,7 @@ let before_login =
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-1 mb-lg-0">
 
                 <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                     value=1>
@@ -26,7 +26,7 @@ let before_login =
 
             </ul>
 
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-1 mb-lg-0">
 
                 <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                     value=2>
@@ -41,7 +41,7 @@ let before_login =
 
             </ul>
 
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-1 mb-lg-0">
 
                 <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                     value=3>
@@ -53,10 +53,13 @@ let before_login =
 
             </ul>
 
-
-
         </div>
 
+    <div>
+        <a href="${root}/pages/seller/seller-login.html">
+                <button class="seller_btn"> seller <button>
+        </a>
+    </div>
         <form class="searchbar" role="search">
             <input class="form-control me-8 " type="search" placeholder="search for products,brands and more"
                 aria-label="Search">
@@ -91,7 +94,7 @@ let after_login =
     `    <header id="desktop-header">
 <nav class="navbar navbar-expand-lg">
 
-    <div class="container-fluid d-flex justify-content-between">
+    <div class="container-fluid d-flex justify-content-evenly">
 
         <a class="navbar-brand" href="./index.html">
             <img src="./assets/images/homepage-images/logo.png" alt="my fashion studio logo" />
@@ -175,7 +178,7 @@ let after_login =
 const unique_id = localStorage.getItem("unique_id")
 console.log(unique_id);
 
-if (unique_id == 0) {
+if (unique_id == 0 || unique_id == undefined) {
     //console.log(user_account)
     document.body.insertAdjacentHTML("afterbegin", before_login);
     let user_profile = document.getElementById("profile");

@@ -398,7 +398,7 @@
 
         <div class="header-account">
             <div class="">
-                <h2>your account</h2>
+                <h2>your profile</h2>
             </div>
 
             <div>
@@ -413,7 +413,14 @@
                 <div class="profile_details_table">
 
                     <div class="heading">
-                        <h3>profile details</h3>
+                        <div>
+                            <h3>profile details</h3>
+                        </div>
+
+
+                        <div>
+                            <button id="remove" onClick="del(event)"><i class="fa-solid fa-trash"></i></button>
+                        </div>
                     </div>
 
                     <table id="user_data">
@@ -436,7 +443,7 @@
                             </tr>
 
                             <tr>
-                                <td>Email ID</td>
+                                <td>Email Address</td>
                                 <td id="email"></td>
                             </tr>
 
@@ -464,11 +471,6 @@
                     <a href="../../pages/homepage/edit profile.html">
                         <div class="profile-editButton"><button>EDIT</button> </div>
                     </a>
-
-                    <div>
-                        <button id="remove" onClick="del(event)"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -618,7 +620,7 @@
 
         </script>
 
-
+        <!-- <script src="../../js/storage.js"></script> -->
         <script src="../../js/bootstrap.bundle.js"></script>
 
 </body>
