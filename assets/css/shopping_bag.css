@@ -82,16 +82,13 @@ div.x-mark i{
 }
 
  .product_thumbnail img{
-    width:60%;  
+    width:10em;  
+    margin-right: 5em;
 } 
 
 .product_name , .brand_name{
     margin:0;
     font-size: 20px;
-}
-
-.order_details div.product_list div{
-    padding-bottom: 4%;
 }
 
 .product_price{
@@ -112,7 +109,7 @@ span.date{
     font-size: 18px;
 }
 .buttons{
-    margin-top: 3%;
+    margin-top: 8%;
     display:flex;
 }
 .buttons div {
@@ -153,7 +150,9 @@ span.date{
     margin-top: 4%;
 }
 
-@media(max-width:360px){
+
+
+/* @media(max-width:360px){
     .main_content {
         font-family: 'Jost', sans-serif;
         display: flex;
@@ -205,4 +204,4 @@ span.date{
     }
 }
 
-
+ */

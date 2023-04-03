@@ -25,265 +25,49 @@
 
 <body>
 
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <!-- <img src="/assets/images/homepage-images/mobile logo.png" alt=""> -->
+            <a class="navbar-brand" href="#">MY FASHION STUDIO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <!-- desktop header -->
-    <header id="desktop-header">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid d-flex justify-content-between">
-
-                <a class="navbar-brand" href="../../index.html">
-                    <img src="../../assets/images/homepage-images/logo.png" alt="my fashio studio logo" />
-                </a>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="../products/all products list/men-allproducts-list.html"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                MEN
-                            </a>
-
-                            <ul class="dropdown-menu ">
-
-                                <li class="dropdown-item">
-                                    <h4>topwear</h4>
-                                </li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list-mens-t-shirt.html">T-shirt</a></li>
-                                <li><a class="dropdown-item" href="../products/product_list-mens-shirts.html">shirts</a>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li class="dropdown-item">
-                                    <h4>bottom wear</h4>
-                                </li>
-                                <li><a class="dropdown-item" href="../products/product_list-men-jeans.html">jeans</a>
-                                </li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list-mens-trousers.html">trousers</a></li>
-                                <li><a class="dropdown-item" href="../products/product_list_mens-shorts.html">shorts</a>
-                                </li>
-                            </ul>
+            
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">seller</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./seller-account.html">profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./addcategory.html">add categories</a>
                         </li>
 
-                    </ul>
-
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="../products/all products list/men-allproducts-list.html"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                WOMEN
-                            </a>
-
-                            <ul class="dropdown-menu ">
-
-                                <li class="dropdown-item">
-                                    <h4>topwear</h4>
-                                </li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list_womens-t-shirts.html">T-shirt</a></li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list-womens-shirts.html">shirts</a></li>
-                                <li class="dropdown-divider"></li>
-                                <li class="dropdown-item">
-                                    <h4>bottom wear</h4>
-                                </li>
-                                <li><a class="dropdown-item" href="../products/product_list_womens-jeans.html">jeans</a>
-                                </li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list_womens-palazzos.html">pallazoes</a></li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list-womens-skirts.html">skirts</a></li>
-
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">delete categories</a>
                         </li>
 
-                    </ul>
-
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="../products/all products list/men-allproducts-list.html"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                KIDS
-                            </a>
-
-                            <ul class="dropdown-menu ">
-
-
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list_kids-boys-clothing.html">boy's clothing</a></li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list_kids-girls-clothing.html">girl's clothing</a>
-                                </li>
-
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./addproduct.html">add products</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="./inventory.html">inventory</a>
+                        </li>
                     </ul>
 
                 </div>
-
-                <form class="searchbar" role="search">
-                    <input class="form-control me-8 " type="search" placeholder="search for products,brands and more"
-                        aria-label="Search">
-                </form>
-
-                <div class="icons">
-
-                    <a href="../homepage/account.html">
-                        <div><i class="fa-solid fa-user"></i></div>
-                        <div>profile</div>
-                    </a>
-
-                    <a href="../orders/wishlist.html">
-                        <div><i class="fa-solid fa-heart"></i></div>
-                        <div>wishlist</div>
-                    </a>
-
-                    <a href="../orders/shopping_bag.html">
-                        <div><i class="fa-solid fa-bag-shopping"></i></div>
-                        <div>bag</div>
-                    </a>
-                </div>
-
             </div>
-        </nav>
-    </header>
-
-
-    <!-- mobile header -->
-    <header id="mobile-header">
-        <nav class="navbar navbar-expand-lg" id="mobile-header">
-            <div class="container-fluid d-flex justify-content-between">
-
-
-
-                <div>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <a class="navbar-brand" href="../../index.html">
-                        <img src="../../assets/images/homepage-images/mobile logo.png" alt="mfs logo" />
-                    </a>
-                </div>
-
-                <div class="icons" id="mobile-icons">
-                    <a href="">
-                        <div><i class="fa-solid fa-magnifying-glass"></i></div>
-                    </a>
-                    <a href="../homepage/account.html">
-                        <div><i class="fa-solid fa-user"></i></div>
-                    </a>
-
-                    <a href="../orders/wishlist.html">
-                        <div><i class="fa-solid fa-heart"></i></div>
-                    </a>
-
-                    <a href="../orders/shopping_bag.html">
-                        <div><i class="fa-solid fa-bag-shopping"></i></div>
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="../products/all products list/men-allproducts-list.html"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                MEN
-                            </a>
-
-                            <ul class="dropdown-menu ">
-
-                                <li class="dropdown-item">
-                                    <h4>topwear</h4>
-                                </li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list-mens-t-shirt.html">T-shirt</a></li>
-                                <li><a class="dropdown-item" href="../products/product_list-mens-shirts.html">shirts</a>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li class="dropdown-item">
-                                    <h4>bottom wear</h4>
-                                </li>
-                                <li><a class="dropdown-item" href="../products/product_list-men-jeans.html">jeans</a>
-                                </li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list-mens-trousers.html">trousers</a></li>
-                                <li><a class="dropdown-item" href="../products/product_list_mens-shorts.html">shorts</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="../products/all products list/men-allproducts-list.html"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                WOMEN
-                            </a>
-
-                            <ul class="dropdown-menu ">
-
-                                <li class="dropdown-item">
-                                    <h4>topwear</h4>
-                                </li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list_womens-t-shirts.html">T-shirt</a></li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list-womens-shirts.html">shirts</a></li>
-                                <li class="dropdown-divider"></li>
-                                <li class="dropdown-item">
-                                    <h4>bottom wear</h4>
-                                </li>
-                                <li><a class="dropdown-item" href="../products/product_list_womens-jeans.html">jeans</a>
-                                </li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list_womens-palazzos.html">pallazoes</a></li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list-womens-skirts.html">skirts</a></li>
-
-                            </ul>
-                        </li>
-
-                    </ul>
-
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="../products/all products list/men-allproducts-list.html"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                KIDS
-                            </a>
-
-                            <ul class="dropdown-menu ">
-
-
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list_kids-boys-clothing.html">boy's clothing</a></li>
-                                <li><a class="dropdown-item"
-                                        href="../products/product_list_kids-girls-clothing.html">girl's clothing</a>
-                                </li>
-
-                            </ul>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-    </header>
-    <!-- mobile header -->
-
+        </div>
+    </nav>
 
     <main>
 
@@ -313,7 +97,7 @@
                         </div>
                     </div>
 
-                    <table id="user_data">
+                    <table id="seller_data">
 
 
                         <caption> </caption>
@@ -465,16 +249,16 @@
                 return e.email == seller_id;
             }
 
-            let user_data = seller_list.find(profile_data);
+            let seller_data = seller_list.find(profile_data);
 
-            document.getElementById("fullname").innerText = user_data["full_name"];
-            document.getElementById("email").innerText = user_data["email"];
-            document.getElementById("mobile_number").innerText = user_data["mobile_number"];
+            document.getElementById("fullname").innerText = seller_data["full_name"];
+            document.getElementById("email").innerText = seller_data["email"];
+            document.getElementById("mobile_number").innerText = seller_data["mobile_number"];
 
-            document.getElementById("gender").innerText = user_data["gender"];
-            document.getElementById("dateofbirth").innerText = user_data["dob"];
-            document.getElementById("address").innerText = user_data["address"];
-            document.getElementById("hintname").innerText = user_data["hintname"];
+            document.getElementById("gender").innerText = seller_data["gender"];
+            document.getElementById("dateofbirth").innerText = seller_data["dob"];
+            document.getElementById("address").innerText = seller_data["address"];
+            document.getElementById("hintname").innerText = seller_data["hintname"];
 
             function del(e) {
 
@@ -486,9 +270,9 @@
                     return e.email == seller_id;
                 }
 
-                let user_data = seller_list.find(profile_data);
+                let seller_data = seller_list.find(profile_data);
 
-                let indexOfUser = seller_list.indexOf(user_data);
+                let indexOfUser = seller_list.indexOf(seller_data);
                 seller_list.splice(indexOfUser, 1)
 
                 localStorage.setItem("seller_list", JSON.stringify(seller_list));

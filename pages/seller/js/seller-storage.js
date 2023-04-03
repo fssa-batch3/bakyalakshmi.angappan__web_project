@@ -59,7 +59,7 @@ function signIn(e) {
 
         //console.log(user_detail);
         alert("Login successfully");
-        location.href = "./seller-account.html";
+    location.href = "../seller/seller-account.html";
     }
 
 }

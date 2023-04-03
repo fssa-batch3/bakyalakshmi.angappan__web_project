@@ -229,7 +229,7 @@ div_rightside.append(div_prices);
 //<div class="current_price">rs.799</div>;
 div_current_price = document.createElement("div");
 div_current_price.setAttribute("class", "current_price");
-div_current_price.innerText = "Rs.799";
+div_current_price.innerText =  productdata["price"]["current"];
 div_prices.append(div_current_price);
 
 
@@ -259,13 +259,13 @@ div_prices.append(div_product_tax);
 //<div class="color"></div>
 div_color = document.createElement("div");
 div_color.setAttribute("class", "color");
-div_color.innerText = productdata["color"];
+div_color.innerText = "color: "+productdata["color"];
 div_rightside.append(div_color);
 
 //<div class="choosecolor"></div>
-div_choosecolor = document.createElement("div");
-div_choosecolor.setAttribute("class", "choosecolor");
-div_color.append(div_choosecolor);
+// div_choosecolor = document.createElement("div");
+// div_choosecolor.setAttribute("class", "choosecolor");
+// div_color.append(div_choosecolor);
 
 //<div class="size"></div>
 div_size = document.createElement("div");
@@ -273,9 +273,9 @@ div_size.setAttribute("class", "size");
 div_rightside.append(div_size);
 
 // <p>select size</p>
-p_select_size = document.createElement("p");
-p_select_size.innerText = "size";
-div_size.append(p_select_size);
+// p_select_size = document.createElement("p");
+// p_select_size.innerText = "size";
+// div_size.append(p_select_size);
 
 let size = JSON.parse(localStorage.getItem("size_list"));
 
@@ -283,7 +283,7 @@ let find_size = size.find(e => e.id == productdata["size"]);
 
 div_size = document.createElement("div");
 div_size.setAttribute("class", "size");
-div_size.innerText = find_size["value"];
+div_size.innerText = "size: "+find_size["value"];
 div_rightside.append(div_size);
 
 
@@ -301,6 +301,25 @@ div_rightside.append(div_size);
 //     div_size.append(span_size_no);
 
 // }
+
+div_qty = document.createElement("div");
+div_qty.setAttribute("class", "divlbl");
+div_rightside.append(div_qty);
+
+
+input_lbl = document.createElement("label");
+input_lbl.setAttribute("class", "inputlbl");
+input_lbl.innerText = "quantity: "
+div_qty.append(input_lbl);
+
+
+input_qty = document.createElement("input");
+input_qty.setAttribute("class", "inputquantity");
+input_qty.setAttribute("type", "number");
+input_qty.setAttribute("value", 1);
+input_qty.setAttribute("min", 1);
+div_qty.append(input_qty);
+
 
 //<div class="buttons"></div>
 div_buttons = document.createElement("div");
@@ -345,27 +364,34 @@ div_product.append(ul_details);
 button_bag.addEventListener("click", bag);
 
 function bag() {
-    let unique_id = JSON.parse(localStorage.getItem("unique_id"))
+    let bag_id = 
+    let unique_id = JSON.parse(localStorage.getItem("unique_id"));
     const params = new URLSearchParams(window.location.search);
 
     const urlproduct_id = params.get("product_id");
+    let input_quantity = document.querySelector(".inputquantity").value;
+    let addtobag = JSON.parse(localStorage.getItem("bag"))||[];
 
-    let addtobag = [];
+    if(unique_id == 0 || unique_id == undefined ){
+        alert("please login to add products into bag")
+        location.href = "/pages/homepage/login.html"
+    }
 
-    addtobag.push(
-        {
-            "user_id": unique_id,
-            "product_id": urlproduct_id
-        }
-    );
+    else{
+        addtobag.push(
+            {
+                "bag_id" : bag_id,
+                "user_id": unique_id,
+                "product_id": urlproduct_id,
+                "quantity": input_quantity
+            }
+        );
+
+        location.href = "/pages/orders/shopping_bag.html"
+    }
+
 
     localStorage.setItem("bag", JSON.stringify(addtobag));
-
-    // function find_product(e) {
-    //     return e.product_id == urlproduct_id;
-    // };
-
-    // let productdata = product.find(find_product);
 
 }
 

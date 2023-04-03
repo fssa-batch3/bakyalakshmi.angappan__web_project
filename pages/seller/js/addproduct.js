@@ -191,14 +191,23 @@ function upload(e) {
 
     let inputs = document.querySelectorAll(".form-control");
     console.log(inputs);
-    let inputvalue = ""
+    let inputvalue = "";
     inputs.forEach(input => {
         input.addEventListener("change", function (e) {
             inputvalue = e.target.value;
-            // console.log(inputvalue);
         })
-    })
-    if (inputvalue != "") {
+    });
+
+    let current;
+
+    if (type === "%") {
+        current = mrp - mrp * value / 100;
+        current = Math.round(current);
+    }
+    else {
+        current = mrp - value;
+    }
+    // if (inputvalue != "") {
         product_list.push({
             // source, gendercategory, category, brand, name, color, size, currency, mrp, value, type, details, product_id
             "seller_id":seller_uuid,
@@ -216,6 +225,7 @@ function upload(e) {
 
                 "currency": currency,
                 "mrp": mrp,
+                "current" : current,
 
                 "offer": {
                     "value": value,
@@ -233,15 +243,14 @@ function upload(e) {
             "status": true
         });
 
-
         localStorage.setItem('product_list', JSON.stringify(product_list));
         location.href = "./inventory.html"
-    }
+    // }
 
-    else {
-        alert("please fill in all the required fields")
-        document.querySelector('form').reset();
-    }
+    // else {
+    //     alert("please fill in all the required fields")
+    //     document.querySelector('form').reset();
+    // }
 
 };
 

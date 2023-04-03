@@ -2,19 +2,19 @@ const root = window.location.origin;
 console.log(root);
 
 let before_login =
-    `    <header id="desktop-header">
+`    <header id="desktop-header">
 <nav class="navbar navbar-expand-lg">
 
     <div class="container-fluid d-flex justify-content-evenly">
 
-        <a class="navbar-brand" href="./index.html">
-            <img src="./assets/images/homepage-images/logo.png" alt="my fashion studio logo" />
+        <a class="mx-1 navbar-brand" href="${root}/index.html">
+            <img src="${root}/assets/images/homepage-images/logo.png" alt="my fashion studio logo" />
         </a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="me-5 collapse navbar-collapse" id="navbarSupportedContent">
 
 
-            <ul class="navbar-nav me-auto mb-1 mb-lg-0">
+        <ul class="navbar-nav mb-1 mb-lg-0 mx-auto">
 
                 <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                     value=1>
@@ -26,7 +26,7 @@ let before_login =
 
             </ul>
 
-            <ul class="navbar-nav me-auto mb-1 mb-lg-0">
+            <ul class="navbar-nav mb-1 mb-lg-0 mx-auto">
 
                 <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                     value=2>
@@ -41,7 +41,7 @@ let before_login =
 
             </ul>
 
-            <ul class="navbar-nav me-auto mb-1 mb-lg-0">
+            <ul class="navbar-nav mb-1 mb-lg-0 mx-auto">
 
                 <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                     value=3>
@@ -55,23 +55,26 @@ let before_login =
 
         </div>
 
-    <div>
-        <a href="${root}/pages/seller/seller-login.html">
-                <button class="seller_btn"> seller <button>
-        </a>
-    </div>
+        
+
+
+        
         <form class="searchbar" role="search">
             <input class="form-control me-8 " type="search" placeholder="search for products,brands and more"
                 aria-label="Search">
+
+              
         </form>
 
-        <div class="icons">
+        <button class="btn btn-dark seller_btn mx-3"> seller </button>
+
+        <div class="mx-1 icons">
         <a href="${root}/pages/homepage/login.html">
             <div id="profile">
                 <div><i class="fa-solid fa-user"></i></div>
-                <div id="account">login</div>
+                <div id="account">login/signup</div>
             </div>
-        </a>
+        </a>   
 
             <a href="${root}/pages/orders/wishlist.html">
                 <div><i class="fa-solid fa-heart"></i></div>
@@ -96,14 +99,14 @@ let after_login =
 
     <div class="container-fluid d-flex justify-content-evenly">
 
-        <a class="navbar-brand" href="./index.html">
-            <img src="./assets/images/homepage-images/logo.png" alt="my fashion studio logo" />
+        <a class="mx-1 navbar-brand" href="${root}/index.html">
+            <img src="${root}/assets/images/homepage-images/logo.png" alt="my fashion studio logo" />
         </a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="me-5 collapse navbar-collapse" id="navbarSupportedContent">
 
 
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav mb-1 mb-lg-0 mx-auto">
 
                 <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                     value=1>
@@ -115,7 +118,7 @@ let after_login =
 
             </ul>
 
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mb-1 mb-lg-0 mx-auto">
 
                 <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                     value=2>
@@ -130,7 +133,7 @@ let after_login =
 
             </ul>
 
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mb-1 mb-lg-0 mx-auto">
 
                 <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                     value=3>
@@ -142,16 +145,22 @@ let after_login =
 
             </ul>
 
-
-
         </div>
 
+        
+
+
+        
         <form class="searchbar" role="search">
             <input class="form-control me-8 " type="search" placeholder="search for products,brands and more"
                 aria-label="Search">
+
+              
         </form>
 
-        <div class="icons">
+        <button class="btn btn-dark seller_btn mx-3"> seller </button>
+
+        <div class="mx-1 icons">
         <a href="${root}/pages/homepage/account.html">
             <div id="profile">
                 <div><i class="fa-solid fa-user"></i></div>
@@ -176,6 +185,7 @@ let after_login =
 `
 
 const unique_id = localStorage.getItem("unique_id")
+
 console.log(unique_id);
 
 if (unique_id == 0 || unique_id == undefined) {
@@ -194,6 +204,21 @@ else {
         location.href = "./pages/homepage/account.html"
     })
 }
+
+const seller_id = localStorage.getItem("seller_id");
+let seller_btn = document.querySelector(".seller_btn")
+seller_btn.addEventListener("click", sell);
+
+function sell() {
+    if (seller_id == 0 || seller_id == undefined) {
+        location.href = `${root}/pages/seller/seller-login.html`
+    }
+    else {
+        location.href = `${root}/pages/seller/seller-account.html`
+    }
+}
+
+
 
 let dropdown_menu = document.querySelectorAll("ul li.dropdown");
 console.log(dropdown_menu);

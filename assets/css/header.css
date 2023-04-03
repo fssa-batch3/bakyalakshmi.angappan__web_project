@@ -46,6 +46,11 @@ header {
     text-decoration: none;
 }
 
+button {
+    padding:5%;
+    background-color: #000;
+}
+
 .searchbar {
     font-family: 'Jost', sans-serif;
     display: flex;
@@ -59,14 +64,10 @@ header {
     padding: 10px;
     background-color: #eee;
     border: none;
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
 }
 
-.searchbar .button button {
+.searchbar .button{
     border: none;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
     height: 100%;
     padding: 10px;
 }
