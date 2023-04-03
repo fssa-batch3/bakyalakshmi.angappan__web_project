@@ -12,47 +12,47 @@ Low Fedility:https://drive.google.com/drive/folders/1XjLJWR7bkeLsjL0TFTkvkEeH2ox
 
 
 ### buyer (completed)
-    - login (completed)
-    - signup (completed)
-    - create profile (completed)
-    - read profile (completed)
-    - update profile (completed)
-    - delete profile (completed)
+- login (completed)
+- signup (completed)
+- create profile (completed)
+- read profile (completed)
+- update profile (completed)
+- delete profile (completed)
    
 ### category (completed) 
-    - create category (completed)
-    - read category (completed) 
-    - update category (completed)
-    - delete category (completed)
+- create category (completed)
+- read category (completed) 
+- update category (completed)
+- delete category (completed)
  
  ### product (completed)
-    - create product (completed)
-    - read product (completed)
-    - update product (completed)
-    - delete product (completed)
-    - product details (completed)
+- create product (completed)
+- read product (completed)
+- update product (completed)
+- delete product (completed)
+- product details (completed)
    
-### wishlist
-    - create wishlist products
-    - read wishlist products
-    - update wishlist product
-    - delete wishlist product
+### wishlist (yet to start)
+- create wishlist products (yet to start)
+- read wishlist products (yet to start)
+- update wishlist product (yet to start)
+- delete wishlist product (yet to start)
 
-### shopping bag
-    - add bag products 
-    - read bag products 
-    - update bag product 
-    - delete bag product 
+### shopping bag (yet to start)
+- add bag products (yet to start)
+- read bag products (yet to start)
+- update bag product (yet to start)
+- delete bag product (yet to start)
    
-### order
-    - create order
-    - read order
-    - delete order
+### order (yet to start)
+- create order (yet to start)
+- read order (yet to start)
+- read order (yet to start)
+- delete order (yet to start)
 
-### search
+### search (yet to start)
 
 
-  
 ## buyer
 
 ### Create an account (completed)
