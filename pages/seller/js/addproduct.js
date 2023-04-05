@@ -78,22 +78,6 @@ function cate() {
 
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // const option = document.querySelector("#inputcategory option");
 // // console.log(option);
 // option.addEventListener("onchange", opt)

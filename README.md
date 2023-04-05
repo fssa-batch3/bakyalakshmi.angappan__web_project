@@ -1,11 +1,11 @@
 # My Fashion Studio
 
 
-Flowchart:https://drive.google.com/file/d/1R- ySUlNxjOHtQiGh50aQ3m1uLXlkYWvV/view?usp=share_link
+-Flowchart :https://drive.google.com/file/d/1R-ySUlNxjOHtQiGh50aQ3m1uLXlkYWvV/view?usp=share_link
 
-Project Documentation:https://docs.google.com/document/d/1JJkHvSJVXeHNJWM7bJokUaGCsWcnCpLEVyqFg3vt9Q0/edit?usp=share_link
+-Project Documentation :https://docs.google.com/document/d/1JJkHvSJVXeHNJWM7bJokUaGCsWcnCpLEVyqFg3vt9Q0/edit?usp=share_link
 
-Low Fedility:https://drive.google.com/drive/folders/1XjLJWR7bkeLsjL0TFTkvkEeH2oxqBguf?usp=share_link
+-Low Fedility :https://drive.google.com/drive/folders/1XjLJWR7bkeLsjL0TFTkvkEeH2oxqBguf?usp=share_link
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=fssa- batch3_bakyalakshmi.angappan__web_project&metric=bugs)](https://sonarcloud.io/summary/new_code?id=fssa- batch3_bakyalakshmi.angappan__web_project)
 
@@ -111,7 +111,7 @@ Low Fedility:https://drive.google.com/drive/folders/1XjLJWR7bkeLsjL0TFTkvkEeH2ox
       - The user is logged out of their account.
       - The user is redirected to the home page.
 
-### view the categories (completed)
+### View the categories (completed)
 - scenario 1:successfully view the list of categories.
    - steps:
       1. Navigate to the gender (men,women,kids) link.
@@ -119,7 +119,7 @@ Low Fedility:https://drive.google.com/drive/folders/1XjLJWR7bkeLsjL0TFTkvkEeH2ox
    - Expected Result:
       - The user can view the available categories in the selected gender.
 
-### view the products (completed)
+### View the products (completed)
 - scenario 1:successfully view the list of products.
    - steps:
       1. Navigate to the gender (men,women,kids) link.
@@ -127,7 +127,7 @@ Low Fedility:https://drive.google.com/drive/folders/1XjLJWR7bkeLsjL0TFTkvkEeH2ox
    - Expected Result:
       - The user can view the list of available products of the selected category.
 
-### view the product details (completed)
+### View the product details (completed)
 - scenario 1:successfully view the product details
    - steps:
       1. Navigate to the gender (men,women,kids) link.

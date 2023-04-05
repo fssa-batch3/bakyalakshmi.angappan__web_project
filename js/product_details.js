@@ -361,10 +361,12 @@ div_product.append(ul_details);
 
 
 
+
 button_bag.addEventListener("click", bag);
 
 function bag() {
-    let bag_id = 
+
+    let bag_id = crypto.randomUUID();
     let unique_id = JSON.parse(localStorage.getItem("unique_id"));
     const params = new URLSearchParams(window.location.search);
 
@@ -376,6 +378,8 @@ function bag() {
         alert("please login to add products into bag")
         location.href = "/pages/homepage/login.html"
     }
+
+    
 
     else{
         addtobag.push(
@@ -394,6 +398,8 @@ function bag() {
     localStorage.setItem("bag", JSON.stringify(addtobag));
 
 }
+
+
 
 
 

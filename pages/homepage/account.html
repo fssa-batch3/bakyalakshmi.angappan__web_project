@@ -199,18 +199,17 @@
         </footer>
 
         <script src="/js/components/header.js"></script>
+        <script src="../../js/bootstrap.bundle.js"></script>
 
         <script>
-
-            
 
             //get value from local storage
             let user_list = JSON.parse(localStorage.getItem("user_list"));
 
-            let unique_id = JSON.parse(localStorage.getItem('unique_id'));
+            let uuid = JSON.parse(localStorage.getItem('unique_id'));
 
             function profile_data(e) {
-                return e.email == unique_id;
+                return e.email == uuid;
             }
 
             let user_data = user_list.find(profile_data);
@@ -228,10 +227,10 @@
 
                 let user_list = JSON.parse(localStorage.getItem("user_list"));
 
-                let unique_id = JSON.parse(localStorage.getItem('unique_id'));
+                let uuid = JSON.parse(localStorage.getItem('unique_id'));
 
                 function profile_data(e) {
-                    return e.email == unique_id;
+                    return e.email == uuid;
                 }
 
                 let user_data = user_list.find(profile_data);
@@ -243,8 +242,6 @@
                 localStorage.setItem("unique_id", "");
 
                 location.href = "./account.html"
-
-
             }
 
 
@@ -259,11 +256,10 @@
 
             }
 
-
         </script>
 
         <!-- <script src="../../js/storage.js"></script> -->
-        <script src="../../js/bootstrap.bundle.js"></script>
+
 
 </body>
 

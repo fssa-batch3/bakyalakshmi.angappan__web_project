@@ -5,8 +5,6 @@ let localunique_id = JSON.parse(localStorage.getItem("unique_id"));
 
 let filtereduser_bag = localbag.filter(e => e.user_id == localunique_id)
 
-console.log(filtereduser_bag)
-
 for (i = 0; i < filtereduser_bag.length; i++) {
 
     let empty = []
@@ -26,7 +24,7 @@ for (i = 0; i < filtereduser_bag.length; i++) {
 
 <div class="order_details">
 
-<div class="x-mark">
+<div class="x-mark"  data-id="${localbag[i]["bag_id"]}">
         <i class="fa-solid fa-xmark"></i>
 </div>
 
@@ -87,8 +85,23 @@ for (i = 0; i < filtereduser_bag.length; i++) {
 
 let remove = document.querySelectorAll(".x-mark")
 remove.forEach(del =>
-    del.addEventListener("click",function(){
-        let 
+    del.addEventListener("click", function (event) {
+        let bag_uuid = this.dataset.id
+        console.log(bag_uuid)
+
+        let find = localbag.find(e=>e.bag_id == bag_uuid)
+        console.log(find);
+
+        let indexofbagprod = localbag.indexOf(find)
+        console.log(indexofbagprod);
+
+        // user_list.splice(indexOfUser, 1)
+
+        // localStorage.setItem("user_list", JSON.stringify(user_list));
+        localbag.splice(indexofbagprod,1)
+
+        localStorage.setItem("bag",JSON.stringify(localbag));
+        location.reload();
     }
     )
 )

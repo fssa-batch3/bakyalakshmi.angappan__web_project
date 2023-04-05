@@ -28,24 +28,24 @@
                     <i class="fa-solid fa-xmark"></i>
                 </a>
             </div>
-            <form onsubmit="signIn(event)">
+            <form onSubmit="signIn(event)">
 
                 <h2> login </h2>
 
                 <div>
                     <label class="label_field">Email Address</label> <br />
-                    <input class="input_field" type="email" id="email" required="true" />
+                    <input class="input_field" type="email" id="email" required="true"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
                 </div>
 
                 <div>
                     <label class="label_field">password</label>
                     <a class="forgotpassword" href="../homepage/forgot_password.html">forgot password?</a> <br />
-                    <input class="input_field" id="password" type="password" required="true" />
+                    <input class="input_field" id="password" type="password" required="true" pattern="[a-z0-9].{5}" />
                 </div>
 
                 <div>
-                    <button type="submit">Login
-                    </button>
+                    <button type="submit">Login</button>
                 </div>
 
                 <div>
@@ -57,12 +57,7 @@
         </div>
     </div>
 
-
-    <script>
-
-    </script>
-
-    <script src="../../pages/seller/js/seller-storage.js"></script>
+    <script src="/js/storage.js"></script>
 
 </body>
 
