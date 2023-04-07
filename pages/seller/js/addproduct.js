@@ -1,19 +1,32 @@
 // getting the gender_list from ls
 const localsize = JSON.parse(localStorage.getItem("size_list"));
 
-console.log(localsize)
+// console.log(localsize)
 
 // create option for gender
-const inputsize = document.querySelector("#inputsize")
-inputsize.innerHTML = "";
+const div_size = document.querySelector("#size")
+// inputsize.innerHTML = "";
 
 function createsize() {
-    for (i = 0; i < localsize.length; i++) {
-        let size_option = document.createElement("option");
-        size_option.value = localsize[i]["id"]
-        size_option.innerHTML = localsize[i]["value"];
-        inputsize.append(size_option);
-    };
+    const noOfItems = localsize.length;
+
+    for (let k = 0; k < noOfItems; k++) {
+
+        input_size_no = document.createElement("input");
+        input_size_no.setAttribute("class", "size_no");
+        input_size_no.setAttribute("id", `localsize${k}`)
+        input_size_no.setAttribute("type", "radio");
+        input_size_no.setAttribute("value", localsize[k]["id"]);
+        input_size_no.setAttribute("check", false)
+        div_size.append(input_size_no);
+
+
+        label_size_no = document.createElement("label");
+        label_size_no.setAttribute("for", `localsize${k}`)
+        label_size_no.innerText = localsize[k]["value"];
+        div_size.append(label_size_no);
+
+    }
 }
 createsize();
 
@@ -148,7 +161,14 @@ function upload(e) {
     let brand = document.getElementById("inputbrand").value
     let name = document.getElementById("inputname").value
     let color = document.getElementById("inputcolor").value
-    let size = document.getElementById("inputsize").value
+
+    let size = []
+    for (i = 0; i < 5; i++) {
+        if (document.querySelector(`#localsize${i}:checked`)) {
+            size.push(document.querySelector(`#localsize${i}:checked`).value)
+        }
+    }
+    console.log(size)
 
     //price
     let currency = document.getElementById("inputcurrency").value
@@ -168,7 +188,7 @@ function upload(e) {
     let product_list = JSON.parse(localStorage.getItem('product_list')) || [];
 
     const localgender = JSON.parse(localStorage.getItem("gender_list"));
-    let seller_uuid = JSON.parse(localStorage.getItem('seller_id')) 
+    let seller_uuid = JSON.parse(localStorage.getItem('seller_id'))
     // let gender_category_list = JSON.parse(localStorage.getItem('gender_category_list')) || [];
 
 
@@ -191,44 +211,71 @@ function upload(e) {
     else {
         current = mrp - value;
     }
+
+    let avail_size = JSON.parse(localStorage.getItem("size_list"));
+    console.log(avail_size);
+
+    console.log(avail_size[0]["id"])
+
+    for (i = 0; i < avail_size.length; i++) {
+        let found_size = avail_size.find(e => e.id == size[i])
+        if (found_size) {
+            avail_size[i]["availability"] = true;
+        }
+    }
+
+    
+    let push_size=[]
+    for(i=0;i<avail_size.length;i++){
+        push_size.push(
+            {
+                "id":avail_size[i]["id"],
+                "availability" :avail_size[i]["availability"]
+            }
+        );
+    }
+
+    console.log(avail_size)
+
+
     // if (inputvalue != "") {
-        product_list.push({
-            // source, gendercategory, category, brand, name, color, size, currency, mrp, value, type, details, product_id
-            "seller_id":seller_uuid,
-            "product_id": product_id,
+    product_list.push({
+        // source, gendercategory, category, brand, name, color, size, currency, mrp, value, type, details, product_id
+        "seller_id": seller_uuid,
+        "product_id": product_id,
 
-            "image": {
-                "source": source,
-                "alt": name
-            },
+        "image": {
+            "source": source,
+            "alt": name
+        },
 
-            "brand": brand,
-            "name": name,
+        "brand": brand,
+        "name": name,
 
-            "price": {
+        "price": {
 
-                "currency": currency,
-                "mrp": mrp,
-                "current" : current,
+            "currency": currency,
+            "mrp": mrp,
+            "current": current,
 
-                "offer": {
-                    "value": value,
-                    "type": type
-                }
-            },
-            "size": size,
-            "color": color,
-            "details": details,
-            "ratings": 3.5,
-            "buyers": 100,
-            "gender": gender,
-            "category": category,
-            "stock": quantity,
-            "status": true
-        });
+            "offer": {
+                "value": value,
+                "type": type
+            }
+        },
+        "size": push_size,
+        "color": color,
+        "details": details,
+        "ratings": 3.5,
+        "buyers": 100,
+        "gender": gender,
+        "category": category,
+        "stock": quantity,
+        "status": true
+    });
 
-        localStorage.setItem('product_list', JSON.stringify(product_list));
-        location.href = "./inventory.html"
+    localStorage.setItem('product_list', JSON.stringify(product_list));
+    // location.href = "./inventory.html"
     // }
 
     // else {

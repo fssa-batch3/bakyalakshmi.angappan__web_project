@@ -1,74 +1,18 @@
-// storing the size in ls
-let size_list = [];
+// finding the object
 
-size_list.push(
-    {
-        "value": "s",
-        "quantity": 12,
-        "status": true,
-        "id": 1
-    },
-    {
-        "value": "l",
-        "quantity": 12,
-        "status": true,
-        "id": 2
-    },
-    {
-        "value": "m",
-        "quantity": 12,
-        "status": true,
-        "id": 3
-    },
-    {
-        "value": "xl",
-        "quantity": 12,
-        "status": true,
-        "id": 4
-    },
-    {
-        "value": "xxl",
-        "quantity": 12,
-        "status": true,
-        "id": 5
-    },
+// let findgender = gender.find(e => e.inputvalue == gender["value"]);
+// console.log(findgender);
 
-    {
-        "value": "32",
-        "quantity": 12,
-        "status": true,
-        "id": 6
-    },
-    {
-        "value": "34",
-        "quantity": 12,
-        "status": true,
-        "id": 7
-    },
-    {
-        "value": "36",
-        "quantity": 12,
-        "status": true,
-        "id": 8
-    },
-    {
-        "value": "38",
-        "quantity": 12,
-        "status": true,
-        "id": 9
-    },
-    {
-        "value": "40",
-        "quantity": 12,
-        "status": true,
-        "id": 10
-    }
-)
+// let gender_name = findgender["gender"];
+// console.log(gender_name);
 
-console.log(size_list);
-localStorage.setItem('size_list', JSON.stringify(size_list));
+//  <button type="button" id="btn_add_cat" class="btn btn-primary">add category</button>
 
-
+// function exist() {
+//     let exist = JSON.parse(localStorage.getItem('category_list')).some(e =>
+//         e.category.toLowerCase() == inputcategory.toLowerCase()
+//     );
+// }
 
 
 // getting the gender_list from ls
@@ -88,44 +32,6 @@ function creategender() {
 }
 
 creategender();
-
-let gender_list = [];
-
-gender_list.push(
-    {
-        "gender": "men",
-        "id": 1
-    },
-    {
-        "gender": "women",
-        "id": 2
-    },
-    {
-        "gender": "kids",
-        "id": 3
-    }
-);
-
-localStorage.setItem('gender_list', JSON.stringify(gender_list));
-
-
-
-
-// finding the object
-
-// let findgender = gender.find(e => e.inputvalue == gender["value"]);
-// console.log(findgender);
-
-// let gender_name = findgender["gender"];
-// console.log(gender_name);
-
-//  <button type="button" id="btn_add_cat" class="btn btn-primary">add category</button>
-
-// function exist() {
-//     let exist = JSON.parse(localStorage.getItem('category_list')).some(e =>
-//         e.category.toLowerCase() == inputcategory.toLowerCase()
-//     );
-// }
 
 
 function filter() {
@@ -183,11 +89,6 @@ function showcat() {
         div_category.append(div_name);
     }
 };
-
-
-
-
-
 
 
 
