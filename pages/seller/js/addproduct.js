@@ -17,7 +17,7 @@ function createsize() {
         input_size_no.setAttribute("id", `localsize${k}`)
         input_size_no.setAttribute("type", "radio");
         input_size_no.setAttribute("value", localsize[k]["id"]);
-        input_size_no.setAttribute("check", false)
+        // input_size_no.setAttribute("check", true)
         div_size.append(input_size_no);
 
 
@@ -162,6 +162,7 @@ function upload(e) {
     let name = document.getElementById("inputname").value
     let color = document.getElementById("inputcolor").value
 
+    
     let size = []
     for (i = 0; i < 5; i++) {
         if (document.querySelector(`#localsize${i}:checked`)) {
@@ -215,16 +216,13 @@ function upload(e) {
     let avail_size = JSON.parse(localStorage.getItem("size_list"));
     console.log(avail_size);
 
-    console.log(avail_size[0]["id"])
+    // for (i = 0; i < avail_size.length; i++) {
+    //     let found_size = avail_size.find(e => e.id == size[i])
+    //     if (found_size) {
+    //         avail_size[i]["availability"] = true;
+    //     }
+    // }
 
-    for (i = 0; i < avail_size.length; i++) {
-        let found_size = avail_size.find(e => e.id == size[i])
-        if (found_size) {
-            avail_size[i]["availability"] = true;
-        }
-    }
-
-    
     let push_size=[]
     for(i=0;i<avail_size.length;i++){
         push_size.push(

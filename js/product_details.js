@@ -229,7 +229,7 @@ div_rightside.append(div_prices);
 //<div class="current_price">rs.799</div>;
 div_current_price = document.createElement("div");
 div_current_price.setAttribute("class", "current_price");
-div_current_price.innerText = productdata["price"]["current"];
+div_current_price.innerText = productdata["price"]["currency"] + "." + productdata["price"]["current"];
 div_prices.append(div_current_price);
 
 
@@ -295,28 +295,40 @@ const noOfItems = productsize.length;
 
 // {/* <input type="radio" id="option1" name="radio-group" value="option1">
 // <label for="option1">Option 1</label> */}
-let localsize =  JSON.parse(localStorage.getItem("size_list"))
+let localsize = JSON.parse(localStorage.getItem("size_list"))
 
+let filter_avial_size = productsize.filter(e => e.availability == true)
+console.log(filter_avial_size)
 
 let filteredsize = [];
-for(i=0;i<localsize.length;i++){
-    filteredsize.push(localsize.find(e=>e.id == productsize[i]["id"]) )
+for (i = 0; i < filter_avial_size.length; i++) {
+    filteredsize.push(localsize.find(e => e.id == filter_avial_size[i]["id"]))
 }
 
-for(j=0;j<filteredsize.length;j++){
+console.log(filteredsize)
+
+
+for (j = 0; j < filteredsize.length; j++) {
     input_size_no = document.createElement("input");
     input_size_no.setAttribute("class", "size_no");
-    input_size_no.setAttribute("id",`productsize${j}`)
+    input_size_no.setAttribute("id", `productsize${j}`)
     input_size_no.setAttribute("type", "radio");
     input_size_no.setAttribute("name", "rad");
+
     input_size_no.setAttribute("value", filteredsize[j]["id"]);
     div_size.append(input_size_no);
 
     label_size_no = document.createElement("label");
-    label_size_no.setAttribute("for",`productsize${j}`)
+    label_size_no.setAttribute("for", `productsize${j}`)
     label_size_no.innerText = filteredsize[j]["value"];
     div_size.append(label_size_no);
 }
+
+
+
+// console.log(filter_avial_size)
+
+
 
 
 div_qty = document.createElement("div");
@@ -376,8 +388,6 @@ ul_details.setAttribute("class", "details");
 div_product.append(ul_details);
 
 
-
-
 button_bag.addEventListener("click", bag);
 
 function bag() {
@@ -389,7 +399,6 @@ function bag() {
     const urlproduct_id = params.get("product_id");
     let input_quantity = document.querySelector(".inputquantity").value;
 
-    
     console.log(input_quantity)
 
     let input_size;
@@ -398,8 +407,6 @@ function bag() {
             input_size = document.querySelector(`#productsize${i}:checked`).value;
         }
     }
-
-    console.log(input_size)
 
 
     let addtobag = JSON.parse(localStorage.getItem("bag")) || [];
@@ -417,15 +424,17 @@ function bag() {
                 "user_id": unique_id,
                 "product_id": urlproduct_id,
                 "quantity": input_quantity,
-                "size":input_size
+                "size": input_size
             }
         );
 
-        // location.href = "/pages/orders/shopping_bag.html"
+        location.href = `/pages/orders/shopping_bag.html?sizeid=${input_size}`
+
     }
 
-
     localStorage.setItem("bag", JSON.stringify(addtobag));
+
+
 }
 
 

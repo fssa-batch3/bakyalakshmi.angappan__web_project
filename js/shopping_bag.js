@@ -1,13 +1,15 @@
 let localproducts = JSON.parse(localStorage.getItem("product_list"));
 let localbag = JSON.parse(localStorage.getItem("bag"));
+console.log(localbag)
 
 let localunique_id = JSON.parse(localStorage.getItem("unique_id"));
+let localsize = JSON.parse(localStorage.getItem("size_list"));
 
 let filtereduser_bag = localbag.filter(e => e.user_id == localunique_id)
 
 for (i = 0; i < filtereduser_bag.length; i++) {
 
-    let empty = []
+    let empty = [];
 
     for (j = 0; j < filtereduser_bag.length; j++) {
         let find_product = localproducts.find(e => e.product_id == filtereduser_bag[j]["product_id"]);
@@ -18,6 +20,16 @@ for (i = 0; i < filtereduser_bag.length; i++) {
     let current_price = empty[i]["price"]["current"]
 
     let product_qty_price = quantity * current_price
+
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const urlsize = urlParams.get('sizeid')
+    console.log(urlsize)
+
+    let productsize  = localsize.find(e=>e.id = urlsize)
+console.log(productsize)
+
 
 
     let template_bag = `
@@ -43,15 +55,15 @@ for (i = 0; i < filtereduser_bag.length; i++) {
 
     <div>
         <label><b>Size:</b></label>
-        <span>${empty[i]["size"]}</span>
+        <span>${productsize["value"]}</span>
 
         <label><b>Qty:</b></label>
         <span>${localbag[i]["quantity"]}</span>
     </div>
 
     <div>
-        <span class="product_price">${product_qty_price}</span>
-        <span class="original_price"><del>${empty[i]["price"]["mrp"]}</del></span>
+        <span class="product_price">${empty[i]["price"]["currency"]+"."}${product_qty_price}</span> 
+        <span class="original_price"><del>${empty[i]["price"]["currency"]+"."+empty[i]["price"]["mrp"]}</del></span>
         <span class="product_offer"> (${empty[i]["price"]["offer"]["value"]} % off)</span>
     </div>
 
@@ -95,9 +107,6 @@ remove.forEach(del =>
         let indexofbagprod = localbag.indexOf(find)
         console.log(indexofbagprod);
 
-        // user_list.splice(indexOfUser, 1)
-
-        // localStorage.setItem("user_list", JSON.stringify(user_list));
         localbag.splice(indexofbagprod,1)
 
         localStorage.setItem("bag",JSON.stringify(localbag));
