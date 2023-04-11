@@ -35,39 +35,37 @@
             <h2>create account</h2>
 
             <form role="form" onsubmit="signUp(event)" id="signup">
-                <div>
+                <div class="form-control">
                     <label class="label_field">full name</label><br />
-                    <input class="input_field" id="full_name" type="text" pattern="[a-zA-Z]+" required="true" />
-                    <!-- <div class="error"></div> -->
-
+                    <input class="input_field" id="full_name" type="text" placeholder="Eg.Marion ame"/>
+                   <small></small>
                 </div>
 
-                <div>
+                <div class="form-control">
                     <label class="label_field">Email address</label><br />
-                    <input class="input_field" id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                        required="true" />
-                    <div class="emailerror"></div>
+                    <input class="input_field" id="email" type="email" placeholder="Eg.helloMarion@gmail.com" />
+                    <small></small>
 
                 </div>
 
-                <div>
+                <div class="form-control ">
                     <label class="label_field">Mobile number</label><br />
-                    <input class="input_field" id="mobile_number" type="tel" pattern="[0-9].{9}" required="true" />
-                    <!-- <div class="error"></div> -->
+                    <input class="input_field" id="mobile_number" type="tel" placeholder="Mobile number"  />
+                   <small></small>
 
                 </div>
 
-                <div>
+                <div class="form-control">
                     <label class="label_field">Password</label><br />
-                    <input class="input_field" type="password" id="password" pattern="[a-z0-9].{5}"
-                        title="must contain 6 characters" required="true" />
-                    <div class="pswerror"></div>
+                    <input class="input_field" type="password" id="password" placeholder="password" maxlength="6"
+                        title="Must contain 6 characters only" />
+                    <small></small>
                 </div>
 
-                <div>
+                <div class="form-control">
                     <label class="label_field">Re-enter password</label><br />
-                    <input class="input_field" type="password" id="re_enter_password" required="true" />
-                    <!-- <div class="error"></div> -->
+                    <input class="input_field" type="password" id="re_enter_password"  placeholder="Re-enter password" maxlength="6" />
+                    <small></small>
 
                 </div>
 
