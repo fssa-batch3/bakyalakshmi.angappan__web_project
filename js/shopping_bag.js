@@ -63,7 +63,7 @@ for (i = 0; i < filtereduser_bag.length; i++) {
         <span>s</span>
 
         <label><b>Qty:</b></label>
-        <input type="number" id="quantity" min="1" value="${localbag[i]["quantity"]}" data-bag_id =${localbag[i]["bag_id"]} />
+        <input type="number" id="quantity" min="1" default='1' value="${localbag[i]["quantity"]}" data-bag_id =${localbag[i]["bag_id"]} />
 
     </div>
 

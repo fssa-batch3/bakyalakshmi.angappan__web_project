@@ -429,7 +429,7 @@ function bag() {
                 "bag_id": bag_id,
                 "user_id": unique_id,
                 "product_id": urlproduct_id,
-                "quantity": parseInt(""),
+                "quantity": 1,
                 "size": "xs"
             }
         );
