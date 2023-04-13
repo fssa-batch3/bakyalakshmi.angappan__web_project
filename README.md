@@ -145,47 +145,47 @@
    - Expected Result:
       - The user can view the details of the selected product.
 
-### add product to bag (completed)
+### Add product to bag (completed)
 - scenario 1:successfully add product to bag
-      - steps:
-         1. Login as a buyer
-         2. Navigate to the product listing page
-         3. select the product to view its details
-         4. select the product to add to bag
-         5. click the "Add to Bag" button
-      - Expected Result:
-         - The user can view the list of products in bag
+   - steps:
+      1. Login as a buyer
+      2. Navigate to the product listing page
+      3. select the product to view its details
+      4. select the product to add to bag
+      5. click the "Add to Bag" button
+   - Expected Result:
+      - The user can view the list of products in bag
 
 ### View products in bag (completed)
 - Scenario 1: Successfully view products in bag
-      - Steps:
-         1. Log in as a buyer.
-         2. Navigate to the bag page.
-         3. View the list of products in the bag.
-         4. 
-      - Expected Result:
-         - The user can view the list of products in the bag.
+   - Steps:
+      1. Log in as a buyer.
+      2. Navigate to the bag page.
+      3. View the list of products in the bag.
+      4. 
+   - Expected Result:
+      - The user can view the list of products in the bag.
 
 ### update products in bag (completed)
 - Scenario 1: Successfully update products in bag
-      - Steps:
-         1. Log in as a buyer.
-         2. Navigate to the bag page.
-         3. View the list of products in the bag.
-         4. update the quantity of the product.
-         5. The user can view the price depending on the quantity.
-      - Expected Result:
-         - The user can view the list of products in the bag.
-         - The user can view the updated total amount in the bag total at the right.
+   - Steps:
+      1. Log in as a buyer.
+      2. Navigate to the bag page.
+      3. View the list of products in the bag.
+      4. update the quantity of the product.
+      5. The user can view the price depending on the quantity.
+   - Expected Result:
+      - The user can view the list of products in the bag.
+      - The user can view the updated total amount in the bag total at the right.
 
 
 ### Remove product from bag (completed)
 - Scenario 1: Successfully remove product from bag
-      - Steps:
-         1. Log in as a buyer.
-         2. Navigate to the bag page.
-         3. click the cross button.
-      - Expected Result:
-         - The product is removed from the user's bag.
+   - Steps:
+      1. Log in as a buyer.
+      2. Navigate to the bag page.
+      3. click the cross button.
+   - Expected Result:
+      - The product is removed from the user's bag.
 
 
