@@ -6,10 +6,17 @@ let localunique_id = JSON.parse(localStorage.getItem("unique_id"));
 let localsize = JSON.parse(localStorage.getItem("size_list"));
 
 let filtereduser_bag = localbag.filter(e => e.user_id == localunique_id)
+console.log(filtereduser_bag)
 
+if(filtereduser_bag.length == undefined || filtereduser_bag.length == null){
+
+    let message = "there is no products in the bag"
+
+    document.querySelector(".order_list").inneHTML = message
+}
+
+let empty = [];
 for (i = 0; i < filtereduser_bag.length; i++) {
-
-    let empty = [];
 
     for (j = 0; j < filtereduser_bag.length; j++) {
         let find_product = localproducts.find(e => e.product_id == filtereduser_bag[j]["product_id"]);
@@ -21,16 +28,14 @@ for (i = 0; i < filtereduser_bag.length; i++) {
 
     let product_qty_price = quantity * current_price
 
+    // console.log(empty);
+
 
     const urlParams = new URLSearchParams(window.location.search);
 
     const urlsize = urlParams.get('sizeid')
-    console.log(urlsize)
 
     let productsize  = localsize.find(e=>e.id = urlsize)
-console.log(productsize)
-
-
 
     let template_bag = `
 
@@ -55,10 +60,11 @@ console.log(productsize)
 
     <div>
         <label><b>Size:</b></label>
-        <span>${productsize["value"]}</span>
+        <span>s</span>
 
         <label><b>Qty:</b></label>
-        <span>${localbag[i]["quantity"]}</span>
+        <input type="number" id="quantity" min="1" value="${localbag[i]["quantity"]}" data-bag_id =${localbag[i]["bag_id"]} />
+
     </div>
 
     <div>
@@ -84,9 +90,83 @@ console.log(productsize)
 </div>
 `
 
-    document.querySelector(".order_list").insertAdjacentHTML("afterbegin", template_bag);
 
+// qty display
+        // <span>${localbag[i]["quantity"]}</span>
+    document.querySelector(".order_list").insertAdjacentHTML("afterbegin", template_bag);  
 }
+
+let quantity = document.querySelector("#quantity")
+let inputqtyvalue = 0
+quantity.addEventListener("change",function(e){
+
+    let bag_uuid = this.dataset.bag_id
+    console.log(bag_uuid)
+
+    let findbag = localbag.find(e=>e.bag_id == bag_uuid)
+    console.log(findbag);
+
+    inputqtyvalue +=  document.querySelector("#quantity").value
+
+    findbag["quantity"] = inputqtyvalue;
+
+    localStorage.setItem("bag",JSON.stringify(localbag));
+    location.reload();
+})
+console.log(inputqtyvalue)
+
+
+
+let sum=0
+for (i = 0; i < filtereduser_bag.length; i++) {
+    for (j=0;j<empty.length;j++){
+        sum += filtereduser_bag[i]["quantity"] * empty[i]["price"]["current"];
+        break;
+    }
+}
+
+
+let order = `
+<div class="details">
+            <h3>bag total</h3>
+                <table>
+                    <caption> </caption>
+                    <tbody>
+                        <tr>
+                            <th></th>
+                        </tr>
+                    
+                   
+                    <tr class="table_row">
+                        <td>sub-total</td>
+                        <td>Rs.${sum}</td>
+                    </tr>
+
+                    <tr>
+                        <td>delivery fee</td>
+                        <td>free</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>total amount</td>
+                        <td>Rs.${sum}</td>
+                    </tr>
+
+                </tbody>
+                </table>
+                
+                <div class="placeorder">
+                    <a href="../../pages/orders/order_list.html">
+                        <button>place order</button>
+                    </a>
+                </div> 
+            </div>      `
+
+            document.querySelector(".side_container").insertAdjacentHTML("afterbegin", order);
+
+            console.log(document.querySelector(".side_container"))
+
 
 
 // <div class="x-mark">
@@ -97,12 +177,12 @@ console.log(productsize)
 
 let remove = document.querySelectorAll(".x-mark")
 remove.forEach(del =>
-    del.addEventListener("click", function (event) {
+    del.addEventListener("click", function () {
         let bag_uuid = this.dataset.id
         console.log(bag_uuid)
 
-        let find = localbag.find(e=>e.bag_id == bag_uuid)
-        console.log(find);
+        let find_bag = localbag.find(e=>e.bag_id == bag_uuid)
+        console.log(find_bag);
 
         let indexofbagprod = localbag.indexOf(find)
         console.log(indexofbagprod);

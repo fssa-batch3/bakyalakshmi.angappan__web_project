@@ -58,5 +58,6 @@ function save(e) {
 
     location.href = "./inventory.html"
 
-    console.log("sa")
 }
+
+

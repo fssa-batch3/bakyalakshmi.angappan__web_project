@@ -1340,6 +1340,14 @@ for (let i = 0; i < filteredProducts.length; i++) {
     div_prices.append(span_product_offer);
 }
 
+let productlength = document.querySelector(".totalproduct")
+console.log(productlength)
+let w = product.length
+console.log(w)
+productlength.innerText = w + " items found";
+
+// productlength.append
+
 
 // // getting the image
 

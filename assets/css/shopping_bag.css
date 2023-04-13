@@ -151,6 +151,11 @@ span.date{
     margin-top: 4%;
 }
 
+#quantity{
+    width:60px;
+}
+
+
 
 
 /* @media(max-width:360px){

@@ -301,7 +301,7 @@ let filter_avial_size = productsize.filter(e => e.availability == true)
 console.log(filter_avial_size)
 
 let filteredsize = [];
-for (i = 0; i < filter_avial_size.length; i++) {
+for (i = 0; i < 5; i++) {
     filteredsize.push(localsize.find(e => e.id == filter_avial_size[i]["id"]))
 }
 
@@ -329,25 +329,23 @@ for (j = 0; j < filteredsize.length; j++) {
 // console.log(filter_avial_size)
 
 
-
-
 div_qty = document.createElement("div");
 div_qty.setAttribute("class", "divlbl");
 div_rightside.append(div_qty);
 
 
-input_lbl = document.createElement("label");
-input_lbl.setAttribute("class", "inputlbl");
-input_lbl.innerText = "quantity: "
-div_qty.append(input_lbl);
+// input_lbl = document.createElement("label");
+// input_lbl.setAttribute("class", "inputlbl");
+// input_lbl.innerText = "quantity: "
+// div_qty.append(input_lbl);
 
 
-input_qty = document.createElement("input");
-input_qty.setAttribute("class", "inputquantity");
-input_qty.setAttribute("type", "number");
-input_qty.setAttribute("value", 1);
-input_qty.setAttribute("min", 1);
-div_qty.append(input_qty);
+// input_qty = document.createElement("input");
+// input_qty.setAttribute("class", "inputquantity");
+// input_qty.setAttribute("type", "number");
+// input_qty.setAttribute("value", 1);
+// input_qty.setAttribute("min", 1);
+// div_qty.append(input_qty);
 
 
 //<div class="buttons"></div>
@@ -397,38 +395,46 @@ function bag() {
     const params = new URLSearchParams(window.location.search);
 
     const urlproduct_id = params.get("product_id");
-    let input_quantity = document.querySelector(".inputquantity").value;
+    // let input_quantity = document.querySelector(".inputquantity").value;
 
-    console.log(input_quantity)
+    // console.log(input_quantity)
 
-    let input_size;
-    for (i = 0; i < 5; i++) {
-        if (document.querySelector(`#productsize${i}:checked`)) {
-            input_size = document.querySelector(`#productsize${i}:checked`).value;
-        }
-    }
+    // let input_size;
+    // for (i = 0; i < 5; i++) {
+    //     if (document.querySelector(`#productsize${i}:checked`)) {
+    //         input_size = document.querySelector(`#productsize${i}:checked`).value;
+    //     }
+    // }
 
 
     let addtobag = JSON.parse(localStorage.getItem("bag")) || [];
+
+    let exist = addtobag.some(
+        e=>e.product_id == urlproduct_id 
+    )
 
     if (unique_id == 0 || unique_id == undefined) {
         alert("please login to add products into bag")
         location.href = "/pages/homepage/login.html"
     }
 
+    else if(exist){
+        alert("product aldready added to cart")
+    }
 
-    else {
+
+    if(!exist){
         addtobag.push(
             {
                 "bag_id": bag_id,
                 "user_id": unique_id,
                 "product_id": urlproduct_id,
-                "quantity": input_quantity,
-                "size": input_size
+                "quantity": parseInt(""),
+                "size": "xs"
             }
         );
-
-        location.href = `/pages/orders/shopping_bag.html?sizeid=${input_size}`
+        // ${input_size}
+        location.href = `/pages/orders/shopping_bag.html?sizeid=1`
 
     }
 

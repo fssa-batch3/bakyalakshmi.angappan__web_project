@@ -1,34 +1,4 @@
-// getting the gender_list from ls
-const localsize = JSON.parse(localStorage.getItem("size_list"));
 
-// console.log(localsize)
-
-// create option for gender
-const div_size = document.querySelector("#size")
-// inputsize.innerHTML = "";
-
-function createsize() {
-    const noOfItems = localsize.length;
-
-    for (let k = 0; k < noOfItems; k++) {
-
-        input_size_no = document.createElement("input");
-        input_size_no.setAttribute("class", "size_no");
-        input_size_no.setAttribute("id", `localsize${k}`)
-        input_size_no.setAttribute("type", "radio");
-        input_size_no.setAttribute("value", localsize[k]["id"]);
-        // input_size_no.setAttribute("check", true)
-        div_size.append(input_size_no);
-
-
-        label_size_no = document.createElement("label");
-        label_size_no.setAttribute("for", `localsize${k}`)
-        label_size_no.innerText = localsize[k]["value"];
-        div_size.append(label_size_no);
-
-    }
-}
-createsize();
 
 // getting the gender_list from ls
 const localgender = JSON.parse(localStorage.getItem("gender_list"));
@@ -90,6 +60,81 @@ function cate() {
     }
 
 };
+
+
+// getting the gender_list from ls
+const localsize = JSON.parse(localStorage.getItem("size_list"));
+
+// console.log(localsize)
+
+// create option for gender
+const div_size = document.querySelector("#size")
+console.log(div_size)
+// inputsize.innerHTML = "";
+
+function createsize() {
+    const noOfItems = localsize.length;
+
+    for (let k = 0; k < noOfItems; k++) {
+
+        input_size_no = document.createElement("option");
+        input_size_no.setAttribute("class", "size_no");
+        input_size_no.setAttribute("id", `localsize${k}`);
+        input_size_no.innerHTML = localsize[k]["value"]
+        input_size_no.setAttribute("value", localsize[k]["id"]);
+        // input_size_no.setAttribute("check", true)
+        div_size.append(input_size_no);
+
+
+        // label_size_no = document.createElement("label");
+        // label_size_no.setAttribute("for", `localsize${k}`)
+        // label_size_no.innerText = localsize[k]["value"];
+        // div_size.append(label_size_no);
+
+    }
+}
+createsize();
+
+
+let addsize = document.querySelector("#addsize_button")
+console.log(addsize)
+addsize.addEventListener("click",function(){
+
+
+    let sizevalue = document.querySelector("#size").value;
+    let mrpvalue = document.querySelector("#inputmrp").value;
+    let currencyvalue = document.querySelector("#inputcurrency").value;
+    let offervalue = document.querySelector("#inputoffer").value;
+    let offertypevalue = document.querySelector("#inputoffertype").value;
+
+    let size_varients = JSON.parse(localStorage.getItem("varients")) || [];
+    console.log(size_varients)
+
+    size_varients.push(
+        {
+            "size":parseInt(sizevalue),
+            "price":{
+                "mrp":parseInt(mrpvalue),
+                "currency": currencyvalue
+            },
+            "offer":{
+                "value":parseInt(offervalue),
+                "offertype": offertypevalue
+            },
+        }
+    )
+
+    localStorage.setItem("varients",JSON.stringify(size_varients))
+
+    function createProduct(size, mrp, offer,id) {
+
+        // let size = 
+    
+    };
+    
+        
+})
+
 
 // const option = document.querySelector("#inputcategory option");
 // // console.log(option);
@@ -162,14 +207,17 @@ function upload(e) {
     let name = document.getElementById("inputname").value
     let color = document.getElementById("inputcolor").value
 
-    
-    let size = []
+
+    let checkedsize = []
+    // let uncheckedsize = []
     for (i = 0; i < 5; i++) {
         if (document.querySelector(`#localsize${i}:checked`)) {
-            size.push(document.querySelector(`#localsize${i}:checked`).value)
+            checkedsize.push(parseInt(document.querySelector(`#localsize${i}:checked`).value))
         }
     }
-    console.log(size)
+
+    console.log(checkedsize)
+    // console.log(uncheckedsize)
 
     //price
     let currency = document.getElementById("inputcurrency").value
@@ -213,22 +261,28 @@ function upload(e) {
         current = mrp - value;
     }
 
+
+
+
     let avail_size = JSON.parse(localStorage.getItem("size_list"));
     console.log(avail_size);
 
-    // for (i = 0; i < avail_size.length; i++) {
-    //     let found_size = avail_size.find(e => e.id == size[i])
-    //     if (found_size) {
-    //         avail_size[i]["availability"] = true;
-    //     }
-    // }
+    let available = false;
+    for (i = 0; i < checkedsize.length; i++) {
+        let foundsize = avail_size.find(e => e.id == checkedsize[i])
+        console.log(foundsize)
+        if (document.querySelector(`#localsize${i}:checked`)) {
+            available = true;
+        }
+    }
 
-    let push_size=[]
-    for(i=0;i<avail_size.length;i++){
+
+    let push_size = []
+    for (i = 0; i < avail_size.length; i++) {
         push_size.push(
             {
-                "id":avail_size[i]["id"],
-                "availability" :avail_size[i]["availability"]
+                "id": avail_size[i]["id"],
+                "availability": available
             }
         );
     }
@@ -288,5 +342,7 @@ function upload(e) {
 // let valform = document.getElementById("form");
 
 // console.log(valform);
+
+// 
 
 

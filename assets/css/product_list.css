@@ -148,6 +148,10 @@ div.ratings i {
 div.ratings div {
     padding-left: 0.5rem;
 }
+small.totalproduct{
+    color:grey;
+    margin-left: 30px;
+}
 
 /* div.ratings div.ratings_count {
     border-right: 1px solid #000;

@@ -51,7 +51,6 @@ function signUp(e) {
 
     e.preventDefault();
 
-
     let full_namevalue = full_name.value.trim()
     let emailvalue = email.value.trim()
     let mobile_numbervalue = mobile_number.value.trim()
@@ -99,16 +98,13 @@ function signUp(e) {
     else if (!emailpattern.test(emailvalue)) {
         setErrorFor(email, "Please enter a valid email address");
     }
-
-    // if(user_list.length != 0 && user_list!== undefined || user_list!== null){
-        else if(exist){
+    else if(exist){
             setErrorFor(email, "Sorry the User already Exist!! \n Try with different Email'");
-        }
+    }
 
-        else {
+    else {
             setSuccessFor(email);
-        }
-    // }
+    }
 
     if (mobile_numbervalue == "") {
         setErrorFor(mobile_number, "Enter your mobile number")
@@ -124,7 +120,7 @@ function signUp(e) {
     if (passwordvalue == "") {
         setErrorFor(password, "Enter the password")
     }
-    else if (passwordvalue <= 6) {
+    else if (passwordvalue.length <= 6) {
         setErrorFor(password, "password must contain at least 6 characters")
     }
     else {
@@ -137,7 +133,7 @@ function signUp(e) {
     if (re_enter_passwordvalue !== passwordvalue) {
         setErrorFor(re_enter_password, "password must be the same")
     }
-    else{
+    if (re_enter_passwordvalue == passwordvalue){
         setSuccessFor(re_enter_password);
     }
 
@@ -154,15 +150,34 @@ function signUp(e) {
 
 
     function setSuccessFor(input, message) {
+
         const formcontrol = input.parentElement;
         const small_msg = formcontrol.querySelector("small")
         console.log(small_msg)
 
-        small_msg.innerHTML = "";
-
-        formcontrol.className = "form-control success"
-
+        // formcontrol.addEventListener("keyup",function(){
+            small_msg.innerHTML = ""
+            formcontrol.className = "form-control success"
+        // })
     }
+
+    // if(full_namevalue !== "" && !full_namespace.test(full_namevalue) && fullnamepattern.test(full_namevalue) && emailpattern.test(emailvalue) && emailvalue !== "" && !exist && mobile_numbervalue !== "" && passwordvalue !== "" && re_enter_passwordvalue !== "" && re_enter_passwordvalue == passwordvalue ){
+    //     let input = document.querySelectorAll(".form-control")
+    //     input.addEventListener("keyup",function(input){
+    //         const formcontrol = input.parentElement;
+    //         console.log(formcontrol)
+    //         const small_msg = formcontrol.querySelector("small")
+    //         console.log(small_msg)
+    
+    //         small_msg.innerHTML = "";
+    
+    //         formcontrol.className = "form-control error"
+    //     }
+    //     )
+    // }
+
+
+    
 
     if(full_namevalue !== "" && !full_namespace.test(full_namevalue) && fullnamepattern.test(full_namevalue) && emailpattern.test(emailvalue) && emailvalue !== "" && !exist && mobile_numbervalue !== "" && passwordvalue !== "" && re_enter_passwordvalue !== "" && re_enter_passwordvalue == passwordvalue ){
         user_list.push({
