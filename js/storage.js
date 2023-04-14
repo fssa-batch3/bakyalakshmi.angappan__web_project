@@ -120,7 +120,7 @@ function signUp(e) {
     if (passwordvalue == "") {
         setErrorFor(password, "Enter the password")
     }
-    else if (passwordvalue.length <= 6) {
+    else if (passwordvalue.length <6) {
         setErrorFor(password, "password must contain at least 6 characters")
     }
     else {
@@ -198,6 +198,10 @@ function signUp(e) {
         alert('Account created Successfully');
 
         document.querySelector('form').reset();
+
+        location.href = "./login.html";
+
+
 
     }
 }

@@ -413,7 +413,7 @@ function bag() {
         e=>e.product_id == urlproduct_id 
     )
 
-    if (unique_id == 0 || unique_id == undefined) {
+    if (unique_id == null || unique_id == undefined) {
         alert("please login to add products into bag")
         location.href = "/pages/homepage/login.html"
     }
@@ -423,7 +423,7 @@ function bag() {
     }
 
 
-    if(!exist){
+    if(unique_id == 0 || unique_id == undefined && !exist){
         addtobag.push(
             {
                 "bag_id": bag_id,

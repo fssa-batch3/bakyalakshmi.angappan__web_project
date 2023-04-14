@@ -250,7 +250,7 @@
                 let logout = document.getElementById("logout");
                 logout.onclick = "logOut(e)";
 
-                localStorage.setItem("unique_id", "");
+                localStorage.setItem("unique_id", JSON.stringify(""));
 
                 location.href = "../../index.html"
 

@@ -30,6 +30,7 @@
 - read product (completed)
 - update product (completed)
 - delete product (completed)
+- size (yet to start)
 - product details (completed)
 
 ### shopping bag (completed)
@@ -37,6 +38,7 @@
 - read bag products (completed)
 - update bag product (completed)
 - delete bag product (completed)
+- change address(yet to start)
    
 ### wishlist (yet to start)
 - create wishlist products (yet to start)
