@@ -1,21 +1,18 @@
-
-
-
-function createProduct(gendercategory, category, brand, name, color, size, mrp, value, product_id) {
+function createProduct(gender, category, brand, name, color, mrp, value, product_id) {
 
     let crudTable = document.querySelector(".table-light");
 
     let productData = document.createElement("tr");
 
     let td_index = document.createElement("td");
-    let td_gender_category = document.createElement("td");
+    let td_gender= document.createElement("td");
     let td_category = document.createElement("td");
     let td_brand = document.createElement("td");
     let td_name = document.createElement("td");
     let td_color = document.createElement("td");
-    let td_size = document.createElement("td");
+
     let td_mrp = document.createElement("td");
-    //  let td_currency = document.createElement("td");
+    // let td_currency = document.createElement("td");
     let td_offer = document.createElement("td");
     // let td_type = document.createElement("td");
     let td_actions = document.createElement("td");
@@ -35,16 +32,16 @@ function createProduct(gendercategory, category, brand, name, color, size, mrp, 
 
     td_index.innerText = i + 1;
 
-    // 
+    // finding the gender from the localgender using id
 
     let localgender = JSON.parse(localStorage.getItem("gender_list"));
     console.log(localgender);
-    let findgender = localgender.find(e => e.id == gendercategory);
+    let findgender = localgender.find(e => e.id == gender);
     console.log(findgender);
 
-    td_gender_category.innerText = findgender["gender"];
+    td_gender.innerText = findgender["gender"];
 
-
+    // finding the category from the localcategory using id
 
     let localcategory = JSON.parse(localStorage.getItem("category_list"));
     console.log(localcategory);
@@ -57,20 +54,12 @@ function createProduct(gendercategory, category, brand, name, color, size, mrp, 
     td_brand.innerText = brand;
     td_name.innerText = name;
     td_color.innerText = color;
-
-    const localsize = JSON.parse(localStorage.getItem("size_list"));
-    console.log(localsize);
-    let findsize = localsize.find(e => e.id == size);
-    console.log(findsize);
-
-    td_size.innerText = findsize["value"];
     td_mrp.innerText = mrp;
     td_offer.innerText = value;
 
-    productData.append(td_index, td_gender_category, td_category, td_brand, td_name, td_color, td_size, td_mrp, td_offer, td_actions);
+    productData.append(td_index, td_gender, td_category, td_brand, td_name, td_color,td_mrp, td_offer, td_actions);
     crudTable.append(productData);
-
-
+    
 };
 
 
@@ -79,7 +68,7 @@ let product = JSON.parse(localStorage.getItem("product_list"));
 
 
 for (i = 0; i < product.length; i++) {
-    createProduct(product[i]["gender"], product[i]["category"], product[i]["brand"], product[i]["name"], product[i]["color"], product[i]["size"], product[i]["price"]["mrp"], product[i]["price"]["offer"]["value"], product[i]["product_id"]);
+    createProduct(product[i]["gender"], product[i]["category"], product[i]["brand"], product[i]["name"],product[i]["color"],product[i]["varients"][i]["price"]["currency"]+"."+product[i]["varients"][i]["price"]["mrp"], product[i]["varients"][i]["offer"]["value"]+product[i]["varients"][i]["offer"]["type"] , product[i]["product_id"]);
 }
 
 

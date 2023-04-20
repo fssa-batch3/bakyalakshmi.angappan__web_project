@@ -63,132 +63,136 @@ function cate() {
 
 
 // getting the gender_list from ls
+
 const localsize = JSON.parse(localStorage.getItem("size_list"));
 
-// console.log(localsize)
+function createsize(e) {
 
-// create option for gender
-const div_size = document.querySelector("#size")
-console.log(div_size)
-// inputsize.innerHTML = "";
+    let size_template = ''
 
-function createsize() {
+
+    // localsize length
     const noOfItems = localsize.length;
 
+
+
+    // localsize values showing in dropdown
     for (let k = 0; k < noOfItems; k++) {
+        size_template += `
+    <div>
+        <input type="checkbox" value="${localsize[k]["id"]}" id="size${k + 1}" />
+        <label for="size${k + 1}"> ${localsize[k]["value"]} </label>
+    </div>
+        `
+    }
 
-        input_size_no = document.createElement("option");
-        input_size_no.setAttribute("class", "size_no");
-        input_size_no.setAttribute("id", `localsize${k}`);
-        input_size_no.innerHTML = localsize[k]["value"]
-        input_size_no.setAttribute("value", localsize[k]["id"]);
-        // input_size_no.setAttribute("check", true)
-        div_size.append(input_size_no);
+    let div_option = document.querySelector("#option")
+    div_option.innerHTML = ""
+    div_option.insertAdjacentHTML("afterbegin", size_template)
+}
 
 
-        // label_size_no = document.createElement("label");
-        // label_size_no.setAttribute("for", `localsize${k}`)
-        // label_size_no.innerText = localsize[k]["value"];
-        // div_size.append(label_size_no);
+document.querySelector("#inputsize").addEventListener("click", function (e) {
+    e.preventDefault(e);
+
+    // creating size from local storage when clicked
+    createsize();
+}, { once: true });
+
+
+const div_option = document.querySelector("#option")
+
+
+div_option.addEventListener("change", function () {
+
+    // array having only the unique values   if not----eg.[1,2,3,1]
+
+    let newresult = Array.from(new Set());
+    for (i = 0; i < localsize.length; i++) {
+        // pushing the checked value in newresult
+        if (document.querySelector(`#size${i + 1}:checked`)) {
+            newresult.push(document.querySelector(`#size${i + 1}:checked`).value)
+        }
+        // splicing the unchecked value in newresult
+        if (!document.querySelector(`#size${i + 1}:checked`)) {
+            newresult.splice(i, 1)
+        }
+    }
+
+    console.log(newresult)
+    // console.log(result)
+
+    // finding the size from localstorage by the newresult[] values
+    let foundsize = ""
+    document.querySelector("#inputsize").value = ""
+    document.querySelector("#varients").innerHTML = ""
+
+
+    for (j = 0; j < newresult.length; j++) {
+        for (i = 0; i < localsize.length; i++) {
+            foundsize = localsize.find(e => e.id == newresult[j]);
+            break;
+        }
+
+        // finding all the checkedvalues from localsize ---like s,m,l
+        console.log(foundsize);
+        document.querySelector("#inputsize").value += foundsize["value"] + ", "
+
+        // creating a div with all the varients showing the found value's size
+        create_div = `
+
+        <div class="spec_div form-row d-flex justify-content-between align-items-center p-3">
+
+        
+        <div class="form-group d-flex  justify-content-start w-25 column-gap-2">
+        <label for="size">size</label>
+        <input class="form-group form-control w-50" id="size${j + 1}" value=${foundsize["value"]} readonly></input>
+    </div>
+
+
+
+
+    <div class="form-group d-flex justify-content-center w-50 column-gap-2">
+        <label for="inputmrp"></label>MRP</label>
+        <div class="form-group d-flex">
+            <select class="form-control bg-body-secondary w-25" id="inputcurrency${j + 1}">
+                <option>rs</option>
+            </select>
+            <input type="number" min=1 class="form-control w-50" id="inputmrp${j + 1}">
+        </div>
+    </div>
+
+
+
+    <div class="form-group d-flex justify-content-center w-50 column-gap-1" id="offer">
+
+        <label for="inputoffer">offer</label>
+        <div class="form-group d-flex">
+            <input type="number" min=1 class="form-control w-50" id="inputoffer${j + 1}">
+            <select class="form-control w-25" id="inputoffertype${j + 1}">
+                <option>%</option>
+                <option>rs</option>
+            </select>
+        </div>
+
+    </div>
+
+
+    <div class="form-group d-flex justify-content-center w-50 column-gap-2" id="quantity">
+        <label for="inputquantity"> quantity</label>
+        <input type="number" class="form-control w-50  class=" d-flex justify-content-center""
+            id="inputquantity${j + 1}">
+    </div>
+    </div>
+    `
+
+        document.querySelector("#varients").insertAdjacentHTML("afterbegin", create_div)
 
     }
+
 }
-createsize();
+);
 
-
-let addsize = document.querySelector("#addsize_button")
-console.log(addsize)
-addsize.addEventListener("click",function(){
-
-
-    let sizevalue = document.querySelector("#size").value;
-    let mrpvalue = document.querySelector("#inputmrp").value;
-    let currencyvalue = document.querySelector("#inputcurrency").value;
-    let offervalue = document.querySelector("#inputoffer").value;
-    let offertypevalue = document.querySelector("#inputoffertype").value;
-
-    let size_varients = JSON.parse(localStorage.getItem("varients")) || [];
-    console.log(size_varients)
-
-    size_varients.push(
-        {
-            "size":parseInt(sizevalue),
-            "price":{
-                "mrp":parseInt(mrpvalue),
-                "currency": currencyvalue
-            },
-            "offer":{
-                "value":parseInt(offervalue),
-                "offertype": offertypevalue
-            },
-        }
-    )
-
-    localStorage.setItem("varients",JSON.stringify(size_varients))
-
-    function createProduct(size, mrp, offer,id) {
-
-        // let size = 
-    
-    };
-    
-        
-})
-
-
-// const option = document.querySelector("#inputcategory option");
-// // console.log(option);
-// option.addEventListener("onchange", opt)
-
-// function opt() {
-
-
-
-//     // let inputcatevalue = document.querySelector("#inputcategory").value;
-//     // console.log(inputcatevalue)
-
-//     // let localcategory = JSON.parse(localStorage.getItem('category_list'));
-
-//     // let filteredcategory = localcategory.find((e) =>
-//     //     e.id == inputcatevalue
-//     // );
-
-//     // console.log(filteredcategory)
-
-
-//     console.log("hsfya")
-
-//     // document.querySelector("#inputcategory").value = filteredcategory
-
-
-// }
-
-
-// console.log(filteredcategory);
-
-// const inputcategory = document.querySelector("#inputgendercategory")
-
-// function createcategory() {
-//     for (i = 0; i < category.length; i++) {
-//         let category_option = document.createElement("option");
-//         category_option.value = filteredcategory[i]["id"]
-//         category_option.innerText = filteredcategory[i]["category"]
-//         inputgender.append(category_option);
-//     };
-// }
-// createcategory();
-
-
-// function to store the gender name stored on ls 
-// const inputvalue = document.getElementById("inputgendercategory").value
-
-// // finding the object
-
-// let findgender = gender.find(e => e.inputvalue == gender["value"]);
-// console.log(findgender);
-
-// let gender_name = findgender["gender"];
-// console.log(gender_name);
 
 // function when from on submit
 const form = document.getElementById("form");
@@ -208,25 +212,22 @@ function upload(e) {
     let color = document.getElementById("inputcolor").value
 
 
-    let checkedsize = []
-    // let uncheckedsize = []
-    for (i = 0; i < 5; i++) {
-        if (document.querySelector(`#localsize${i}:checked`)) {
-            checkedsize.push(parseInt(document.querySelector(`#localsize${i}:checked`).value))
-        }
-    }
-
-    console.log(checkedsize)
     // console.log(uncheckedsize)
 
-    //price
-    let currency = document.getElementById("inputcurrency").value
-    let mrp = document.getElementById("inputmrp").value
-    //offer
-    let value = document.getElementById("inputoffer").value
-    let type = document.getElementById("inputoffertype").value
+    // size 
 
-    let quantity = document.getElementById("inputquantity").value
+
+    //     //price
+
+    let currency;
+    let mrp;
+    let value;
+    let type;
+    let quantity;
+
+
+    console.log(currency)
+
 
     //details
     let details = document.getElementById("inputdetails").value
@@ -251,44 +252,47 @@ function upload(e) {
         })
     });
 
-    let current;
+    // let avail_size = JSON.parse(localStorage.getItem("size_list"));
+    // console.log(avail_size);
 
-    if (type === "%") {
-        current = mrp - mrp * value / 100;
-        current = Math.round(current);
-    }
-    else {
-        current = mrp - value;
-    }
-
-
-
-
-    let avail_size = JSON.parse(localStorage.getItem("size_list"));
-    console.log(avail_size);
-
-    let available = false;
-    for (i = 0; i < checkedsize.length; i++) {
-        let foundsize = avail_size.find(e => e.id == checkedsize[i])
-        console.log(foundsize)
-        if (document.querySelector(`#localsize${i}:checked`)) {
-            available = true;
-        }
-    }
+    // let available = false;
+    // for (i = 0; i < checkedsize.length; i++) {
+    //     let foundsize = avail_size.find(e => e.id == checkedsize[i])
+    //     console.log(foundsize)
+    //     if (document.querySelector(`#localsize${i}:checked`)) {
+    //         available = true;
+    //     }
+    // }
 
 
-    let push_size = []
-    for (i = 0; i < avail_size.length; i++) {
-        push_size.push(
-            {
-                "id": avail_size[i]["id"],
-                "availability": available
+    
+    let div_len = document.querySelectorAll(".spec_div").length
+    let push_varients =[]
+    for(i=0;i<div_len;i++){
+        let current;
+            if (document.getElementById(`inputoffertype${i+1}`).value === "%") {
+                current = document.getElementById(`inputmrp${i+1}`).value - document.getElementById(`inputmrp${i+1}`).value * document.getElementById(`inputoffer${i+1}`).value / 100;
+                current = Math.round(current);
             }
-        );
-    }
-
-    console.log(avail_size)
-
+            else {
+                current = document.getElementById(`inputmrp${i+1}`).value - document.getElementById(`inputoffer${i+1}`).value;
+            }
+        push_varients.push(
+        {
+            "size":document.getElementById(`size${i+1}`).value,
+            "price":{
+                "currency":document.getElementById(`inputcurrency${i+1}`).value,
+                "mrp":document.getElementById(`inputmrp${i+1}`).value,
+                "current":current
+            },
+            "offer":{
+                "value":document.getElementById(`inputoffer${i+1}`).value,
+                "type":document.getElementById(`inputoffertype${i+1}`).value
+            },
+            "quantity":document.getElementById(`inputquantity${i+1}`).value
+        }
+    )
+    };
 
     // if (inputvalue != "") {
     product_list.push({
@@ -304,18 +308,7 @@ function upload(e) {
         "brand": brand,
         "name": name,
 
-        "price": {
-
-            "currency": currency,
-            "mrp": mrp,
-            "current": current,
-
-            "offer": {
-                "value": value,
-                "type": type
-            }
-        },
-        "size": push_size,
+        "varients":push_varients ,
         "color": color,
         "details": details,
         "ratings": 3.5,
@@ -327,13 +320,7 @@ function upload(e) {
     });
 
     localStorage.setItem('product_list', JSON.stringify(product_list));
-    // location.href = "./inventory.html"
-    // }
-
-    // else {
-    //     alert("please fill in all the required fields")
-    //     document.querySelector('form').reset();
-    // }
+    location.href = "./inventory.html"
 
 };
 
@@ -344,5 +331,3 @@ function upload(e) {
 // console.log(valform);
 
 // 
-
-

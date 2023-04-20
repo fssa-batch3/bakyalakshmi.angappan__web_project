@@ -155,13 +155,17 @@ let productdata = product.find(find_product);
 div_leftside = document.createElement("div");
 div_leftside.setAttribute("class", "leftside");
 document.querySelector("div.content").append(div_leftside);
+console.log(div_leftside)
 
-//<div class="thumbnailproducts"></div>
-div_thumbnailproducts = document.createElement("div");
-div_thumbnailproducts.setAttribute("class", "thumbnailproducts");
-div_leftside.append(div_thumbnailproducts);
 
-// //<img src="../../assets/images/product-images/product_thumbnail-1.jpg" alt=""></img>
+
+{/* <div class="thumbnailproducts"></div> */}
+
+// div_thumbnailproducts = document.createElement("div");
+// div_thumbnailproducts.setAttribute("class", "thumbnailproducts");
+// div_leftside.append(div_thumbnailproducts); 
+
+//<img src="../../assets/images/product-images/product_thumbnail-1.jpg" alt=""></img>
 
 // for (let i = 0; i < productdata["source"].length; i++) {
 
@@ -170,7 +174,7 @@ div_leftside.append(div_thumbnailproducts);
 //     thumbnail_img.setAttribute("src", productdata["image"]["source"]);
 //     div_thumbnailproducts.append(thumbnail_img);
 
-// };
+// }; 
 
 
 //<div class="product_image"></div>
@@ -229,7 +233,7 @@ div_rightside.append(div_prices);
 //<div class="current_price">rs.799</div>;
 div_current_price = document.createElement("div");
 div_current_price.setAttribute("class", "current_price");
-div_current_price.innerText = productdata["price"]["currency"] + "." + productdata["price"]["current"];
+div_current_price.innerText = productdata["varients"][0]["price"]["currency"] + "." + productdata["varients"][0]["price"]["current"];
 div_prices.append(div_current_price);
 
 
@@ -240,14 +244,13 @@ div_product_offer.setAttribute("class", "product_offer");
 div_prices.append(div_product_offer);
 
 del_actual = document.createElement("del");
-del_actual.innerText = productdata["price"]["currency"] + "." + productdata["price"]["mrp"];
+del_actual.innerText = productdata["varients"][0]["price"]["currency"] + "." + productdata["varients"][0]["price"]["mrp"];
 div_product_offer.append(del_actual)
 
 // `(${product["price"]["offer"]["value"]} ${product["price"]["offer"]["type"]} off)`
 b_offer = document.createElement("b");
-b_offer.innerText = productdata["price"]["offer"]["value"] + productdata["price"]["offer"]["type"] + "off"
+b_offer.innerText = productdata["varients"][0]["offer"]["value"] + productdata["varients"][0]["offer"]["type"] + "off"
 div_product_offer.append(b_offer);
-
 
 //<div class="product_tax"></div>
 div_product_tax = document.createElement("div");
@@ -275,7 +278,7 @@ div_size = document.createElement("div");
 div_size.setAttribute("class", "size");
 div_rightside.append(div_size);
 
-{/* <p>select size</p> */ }
+/* <p>select size</p> */ 
 
 
 
@@ -288,46 +291,39 @@ div_rightside.append(div_size);
 // div_size.innerText = "size: "+find_size["value"];
 // div_rightside.append(div_size);
 
-// -------------------------- multiple size  
+// -------------------------- multiple size 
 
-let productsize = productdata["size"];
+// let size = b
+
+let localsize = JSON.parse(localStorage.getItem("size_list"))
+let productsize = productdata["varients"];
 const noOfItems = productsize.length;
 
-// {/* <input type="radio" id="option1" name="radio-group" value="option1">
-// <label for="option1">Option 1</label> */}
-let localsize = JSON.parse(localStorage.getItem("size_list"))
+for (j = 0; j < noOfItems; j++) {
 
-let filter_avial_size = productsize.filter(e => e.availability == true)
-console.log(filter_avial_size)
-
-let filteredsize = [];
-for (i = 0; i < 5; i++) {
-    filteredsize.push(localsize.find(e => e.id == filter_avial_size[i]["id"]))
-}
-
-console.log(filteredsize)
-
-
-for (j = 0; j < filteredsize.length; j++) {
+    let foundsize;
+    for(k=0;k<localsize.length;k++){
+        foundsize = localsize.find(e=>e.id ==  productsize[j]["size"])
+    }
     input_size_no = document.createElement("input");
-    input_size_no.setAttribute("class", "size_no");
+    input_size_no.setAttribute("class", "size_no productsize");
     input_size_no.setAttribute("id", `productsize${j}`)
     input_size_no.setAttribute("type", "radio");
     input_size_no.setAttribute("name", "rad");
 
-    input_size_no.setAttribute("value", filteredsize[j]["id"]);
+    input_size_no.setAttribute("value", foundsize["id"]);
     div_size.append(input_size_no);
 
     label_size_no = document.createElement("label");
     label_size_no.setAttribute("for", `productsize${j}`)
-    label_size_no.innerText = filteredsize[j]["value"];
+    // label_size_no.setAttribute("class", "productsize")
+    label_size_no.innerText = foundsize["value"];
     div_size.append(label_size_no);
 }
 
 
 
 // console.log(filter_avial_size)
-
 
 div_qty = document.createElement("div");
 div_qty.setAttribute("class", "divlbl");
@@ -386,6 +382,44 @@ ul_details.setAttribute("class", "details");
 div_product.append(ul_details);
 
 
+
+let inputsize = document.querySelectorAll(".productsize")
+let foundprice = "";
+let click_size_value = "";
+inputsize.forEach(size=>
+    size.addEventListener("click",function(e){
+
+        click_size_value = e.target.value
+        console.log(click_size_value);
+
+        foundprice = productdata["varients"].find(e=>e.size == click_size_value)
+
+        console.log(foundprice)
+
+        let mrp = foundprice["price"]["mrp"];
+        let value = foundprice["offer"]["value"];
+        let type = foundprice["offer"]["type"];
+        let current;
+    
+        if (type === "%") {
+            current = mrp - mrp * value / 100;
+            current = Math.round(current);
+        }
+        else {
+            current = mrp - value;
+        }
+
+        document.querySelector(".current_price").innerText = foundprice["price"]["currency"]+"."+current
+
+        foundprice["price"]["current"] = current;
+        console.log(foundprice)
+
+        localStorage.setItem("product_list",JSON.stringify(product))
+
+    })
+    )
+
+
 button_bag.addEventListener("click", bag);
 
 function bag() {
@@ -399,12 +433,6 @@ function bag() {
 
     // console.log(input_quantity)
 
-    // let input_size;
-    // for (i = 0; i < 5; i++) {
-    //     if (document.querySelector(`#productsize${i}:checked`)) {
-    //         input_size = document.querySelector(`#productsize${i}:checked`).value;
-    //     }
-    // }
 
 
     let addtobag = JSON.parse(localStorage.getItem("bag")) || [];
@@ -422,26 +450,27 @@ function bag() {
         alert("product aldready added to cart")
     }
 
+    console.log(document.querySelector(".current_price").innerText)
 
-    if(unique_id == 0 || unique_id == undefined && !exist){
+
+    // if(unique_id == 0 || unique_id == undefined && !exist){
         addtobag.push(
             {
                 "bag_id": bag_id,
                 "user_id": unique_id,
                 "product_id": urlproduct_id,
-                "quantity": 1,
-                "size": "xs"
+                "size": click_size_value, 
             }
         );
         // ${input_size}
-        location.href = `/pages/orders/shopping_bag.html?sizeid=1`
+        // location.href = `/pages/orders/shopping_bag.html?"sizeid"=1`
+
+        localStorage.setItem("bag", JSON.stringify(addtobag));
 
     }
 
-    localStorage.setItem("bag", JSON.stringify(addtobag));
+ 
 
-
-}
 
 
 

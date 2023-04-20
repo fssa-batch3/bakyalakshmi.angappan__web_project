@@ -1,4 +1,5 @@
 let localproducts = JSON.parse(localStorage.getItem("product_list"));
+
 let localbag = JSON.parse(localStorage.getItem("bag"));
 console.log(localbag);
 
@@ -8,6 +9,8 @@ let localsize = JSON.parse(localStorage.getItem("size_list"));
 let filtereduser_bag = localbag.filter(e => e.user_id == localunique_id)
 console.log(filtereduser_bag)
 
+let inputquantity = document.querySelector("#quantity").value
+
 if (filtereduser_bag.length == undefined || filtereduser_bag.length == null) {
     let createp = document.createElement("p");
     console.log(createp)
@@ -16,26 +19,23 @@ if (filtereduser_bag.length == undefined || filtereduser_bag.length == null) {
 }
 
 let empty = [];
+let find_price =""
 for (i = 0; i < filtereduser_bag.length; i++) {
 
     for (j = 0; j < filtereduser_bag.length; j++) {
         let find_product = localproducts.find(e => e.product_id == filtereduser_bag[j]["product_id"]);
+        console.log(find_product)
         empty.push(find_product);
+
+        find_price = find_product["varients"].find(e=>e.id=filtereduser_bag[j]["size"])
+        console.log(find_price)
     }
 
-    let quantity = filtereduser_bag[i]["quantity"]
-    let current_price = empty[i]["price"]["current"]
+    let sizevalue = localsize.find(e=>e.id==localbag[i]["size"])
+    console.log(sizevalue);
 
-    let product_qty_price = quantity * current_price
-
-    // console.log(empty);
-
-
-    const urlParams = new URLSearchParams(window.location.search);
-
-    const urlsize = urlParams.get('sizeid')
-
-    let productsize = localsize.find(e => e.id = urlsize)
+    // let quantity = document.querySelector("#quantity1").value;
+    // console.log(quantity)
 
     let template_bag = `
 
@@ -60,17 +60,16 @@ for (i = 0; i < filtereduser_bag.length; i++) {
 
     <div>
         <label><b>Size:</b></label>
-        <span>s</span>
+        <span>${sizevalue["value"]}</span>
 
         <label><b>Qty:</b></label>
-        <input type="number" id="quantity" min="1" default='1' value="${localbag[i]["quantity"]}" data-bag_id =${localbag[i]["bag_id"]} />
-
+        <input type="number" id="quantity" min="1" default='1' value="1" data-bag_id =${localbag[i]["bag_id"]} />
     </div>
 
     <div>
-        <span class="product_price">${empty[i]["price"]["currency"] + "."}${product_qty_price}</span> 
-        <span class="original_price"><del>${empty[i]["price"]["currency"] + "." + empty[i]["price"]["mrp"]}</del></span>
-        <span class="product_offer"> (${empty[i]["price"]["offer"]["value"]} % off)</span>
+        <span class="product_price">${find_price["price"]["currency"] + "." + find_price["price"]["mrp"]}</span> 
+        <span class="original_price"><del>${find_price["price"]["currency"] + "." +find_price["price"]["current"]}</del></span>
+        <span class="product_offer"> (${find_price["offer"]["value"]} % off)</span>
     </div>
 
     <div> 
@@ -146,13 +145,6 @@ document.querySelector(".side_container").insertAdjacentHTML("afterbegin", order
 
 console.log(document.querySelector(".side_container"))
 
-
-
-// <div class="x-mark">
-//     <a href="../homepage/homepage.html">
-//         <i class="fa-solid fa-xmark"></i>
-//     </a>
-// </div>
 
 let quantity = document.querySelector("#quantity")
 let inputqtyvalue = 0

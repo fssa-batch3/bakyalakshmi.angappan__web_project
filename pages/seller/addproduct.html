@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="../seller/css/addproduct.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -78,36 +78,37 @@
     </nav>
 
 
-    <div class="container-form w-100 d-flex flex-column align-content-center justify-content-center flex-wrap ">
-        <form class="form w-50 p-5 d-flex flex-column justify-content-evenly" id="form">
+    <div class="container-form w-100 h-100 d-flex justify-content-center align-content-center">
+        <form class="form w-75 h-100 m-5 p-5 d-flex flex-column row-gap-4" id="form">
 
-            <div class="form-row ">
+            <div class="form-row">
                 <label>image</label>
                 <input type="text" class="form-control" id="inputsource">
             </div>
 
 
-
-            <div class="form-row">
-                <select id="inputgendercategory" class="form-control col-md-6">
-                    <option selected>select gender </option>
-                </select>
-            </div>
-
-            <div class="form-row">
-                <select id="inputcategory" class="form-control col-md-6">
-                </select>
-            </div>
-
-
-            <div class="form-row d-flex justify-content-around column-gap-2">
-
-                <div class="form-group w-50">
-                <label>brand</label>
-                <input type="text" class="form-control" id="inputbrand">
+            <div class="form-row d-flex justify-content-start column-gap-2">
+                <div class="form-row w-25">
+                    <select id="inputgendercategory" class="form-control col-md-6">
+                        <option selected>select gender </option>
+                    </select>
                 </div>
 
-                <div class="form-group w-50">
+                <div class="form-row w-25">
+                    <select id="inputcategory" class="form-control col-md-6">
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-row d-flex justify-content-start column-gap-2">
+
+                <div class="form-group w-25">
+                    <label>brand</label>
+                    <input type="text" class="form-control" id="inputbrand">
+                </div>
+
+                <div class="form-group w-100">
                     <label for="inputname">Name</label>
                     <input type="text" class="form-control" id="inputname">
                 </div>
@@ -115,14 +116,28 @@
             </div>
 
 
-            <div class="form-row d-flex  column-gap-2">
+            <div class="form-group d-flex w-50 column-gap-2">
                 <label for="inputcolor">color</label>
                 <input type="text" class="form-control" id="inputcolor">
             </div>
 
 
+            <div class="form-row d-flex flex-column column-gap-2" id="size">
+                <input type="" placeholder="choosesize" id="inputsize" value="" class="form-control" readonly>
 
-            <div class=" form-row d-flex justify-content-evenly align-items-center" id="varients">
+                <div id="option" class="d-flex justify-content-around flex-row w-75 flex-wrap">
+
+                </div>
+
+                <div id="varients" class="form-group d-flex flex-column align-items-center p-3">
+
+                </div>
+
+
+
+
+
+                <!-- <div class=" form-row d-flex justify-content-evenly align-items-center" id="varients">
 
                 <div class="form-group w-25">
                     <label for="size">size</label>
@@ -165,21 +180,14 @@
                     <input type="number" class="form-control w-75 class="d-flex justify-content-center"" id="inputquantity">
                 </div>
 
-                
-            <div class="form-group w-50" id="quantity" >
-                <button class="btn btn-light border-dark w-100" id="addsize_button">
-                    add size   <i class="fa-solid fa-plus"></i> 
-                </button>
-            </div>
+        </div> -->
 
-        </div>
+                <div class="form-group">
+                    <label for="inputdetails">details</label>
+                    <textarea name="" class="form-control" id="inputdetails" cols="45" rows="8"></textarea>
+                </div>
 
-            <div class="form-group">
-                <label for="inputdetails">details</label>
-                <textarea name="" class="form-control" id="inputdetails" cols="45" rows="8"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-dark">upload product</button>
+                <button type="submit" class="btn btn-dark">upload product</button>
         </form>
 
     </div>

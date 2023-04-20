@@ -34,6 +34,8 @@ function creategender() {
 creategender();
 
 
+
+
 function filter() {
 
     const inputvalue = document.getElementById("choosecategory").value;
@@ -138,11 +140,6 @@ function addcat(e) {
 
         alert("category created succesfully ");
     }
-
-
-
-
-
 
     localStorage.setItem('category_list', JSON.stringify(localcategory));
 };
