@@ -9,7 +9,7 @@ let localsize = JSON.parse(localStorage.getItem("size_list"));
 let filtereduser_bag = localbag.filter(e => e.user_id == localunique_id)
 console.log(filtereduser_bag)
 
-let inputquantity = document.querySelector("#quantity").value
+// let inputquantity = document.querySelector("#quantity").value
 
 if (filtereduser_bag.length == undefined || filtereduser_bag.length == null) {
     let createp = document.createElement("p");
@@ -18,24 +18,31 @@ if (filtereduser_bag.length == undefined || filtereduser_bag.length == null) {
     document.querySelector(".order_list").append(createp);
 }
 
-let empty = [];
-let find_price =""
+
+let find_size_price = ""
+let current_price = ""
 for (i = 0; i < filtereduser_bag.length; i++) {
 
-    for (j = 0; j < filtereduser_bag.length; j++) {
-        let find_product = localproducts.find(e => e.product_id == filtereduser_bag[j]["product_id"]);
-        console.log(find_product)
-        empty.push(find_product);
+// finding product from local storage
+    let find_product = localproducts.find(e => e.product_id == filtereduser_bag[i]["product_id"])
+    console.log(find_product)
+// finding size from localsize
+    let find_size = localsize.find(e => e.id == filtereduser_bag[i]["size"])
+    console.log(find_size)
+// find size from find_product
+let find_size_price = find_product["varients"].find(e => e.size == filtereduser_bag[i]["size"])
+console.log(find_size_price)
 
-        find_price = find_product["varients"].find(e=>e.id=filtereduser_bag[j]["size"])
-        console.log(find_price)
-    }
+// get price from find_product
+let size_price = find_size_price["price"]["current"]
+console.log(size_price)
 
-    let sizevalue = localsize.find(e=>e.id==localbag[i]["size"])
-    console.log(sizevalue);
+  let size_quantity = filtereduser_bag[i]["quantity"]
+    console.log(size_quantity)
 
-    // let quantity = document.querySelector("#quantity1").value;
-    // console.log(quantity)
+let current_price = size_price * size_quantity 
+console.log(current_price)
+
 
     let template_bag = `
 
@@ -47,29 +54,29 @@ for (i = 0; i < filtereduser_bag.length; i++) {
 
 <div class="product_thumbnail">
     <a href="../products/product details/mens_product_details/product_details-men-jean2.html">
-        <img src= "${empty[i]["image"]["source"]}" alt="${empty[i]["image"]["alt"]}">
+        <img src= "${find_product["image"]["source"]}" alt="${find_product["image"]["alt"]}">
     </a>
 </div>
 
 <div class="product_list">
 
     <div class="product_details">
-        <h4 class="brand_name">${empty[i]["brand"]}</h4>
-        <p class="product_name">${empty[i]["name"]}</p>
+        <h4 class="brand_name">${find_product["brand"]}</h4>
+        <p class="product_name">${find_product["name"]}</p>
     </div>
 
     <div>
         <label><b>Size:</b></label>
-        <span>${sizevalue["value"]}</span>
+        <span>${find_size["value"]}</span>
 
         <label><b>Qty:</b></label>
-        <input type="number" id="quantity" min="1" default='1' value="1" data-bag_id =${localbag[i]["bag_id"]} />
+        <input type="number" id="quantity" min="1" default="1" value="${filtereduser_bag[i]["quantity"]}" data-bag_id =${localbag[i]["bag_id"]} />
     </div>
 
     <div>
-        <span class="product_price">${find_price["price"]["currency"] + "." + find_price["price"]["mrp"]}</span> 
-        <span class="original_price"><del>${find_price["price"]["currency"] + "." +find_price["price"]["current"]}</del></span>
-        <span class="product_offer"> (${find_price["offer"]["value"]} % off)</span>
+        <span class="product_price">${find_size_price["price"]["currency"] + "." + current_price}</span> 
+        <span class="original_price"><del>${find_size_price["price"]["currency"] + "." + find_size_price["price"]["mrp"]}</del></span>
+        <span class="product_offer"> (${find_size_price["offer"]["value"]} % off)</span>
     </div>
 
     <div> 
@@ -88,21 +95,51 @@ for (i = 0; i < filtereduser_bag.length; i++) {
 </div>
 </div>
 `
-
-
     // qty display
     // <span>${localbag[i]["quantity"]}</span>
     document.querySelector(".order_list").insertAdjacentHTML("afterbegin", template_bag);
+
 }
+
+
+
+let inputquantity = document.querySelectorAll("#quantity");
+
+// console.log(inputquantity)
+
+inputquantity.forEach(qty =>
+
+    qty.addEventListener("change", function (e) {
+
+        e.preventDefault()
+
+        let id = this.dataset.bag_id
+        console.log(id)
+
+        let foundbag_quantity = localbag.find(e => e.bag_id == id)
+        console.log(foundbag_quantity)
+
+        console.log(foundbag_quantity)
+        foundbag_quantity["quantity"] = parseInt(e.target.value);
+
+        console.log(foundbag_quantity)
+
+        console.log("sgydgyagh")
+    })
+);
+
 
 
 let sum = 0
 for (i = 0; i < filtereduser_bag.length; i++) {
-    for (j = 0; j < empty.length; j++) {
-        sum += filtereduser_bag[i]["quantity"] * empty[i]["price"]["current"];
+    // for (j = 0; j < .length; j++) {
+        sum += filtereduser_bag[i]["quantity"] * find_size_price["price"]["current"];
         break;
     }
-}
+
+
+localStorage.setItem("bag", JSON.stringify(localbag))
+
 
 let order = `
 <div class="details">
@@ -117,7 +154,7 @@ let order = `
                    
                     <tr class="table_row">
                         <td>sub-total</td>
-                        <td>Rs.${sum}</td>
+                        <td>Rs.sum</td>
                     </tr>
 
                     <tr>
@@ -128,7 +165,7 @@ let order = `
 
                     <tr>
                         <td>total amount</td>
-                        <td>Rs.${sum}</td>
+                        <td>Rs.sum</td>
                     </tr>
 
                 </tbody>
@@ -147,7 +184,7 @@ console.log(document.querySelector(".side_container"))
 
 
 let quantity = document.querySelector("#quantity")
-let inputqtyvalue = 0
+let inputqtyvalue = 0;
 quantity.addEventListener("change", function (e) {
 
     let bag_uuid = this.dataset.bag_id

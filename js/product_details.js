@@ -438,7 +438,8 @@ function bag() {
     let addtobag = JSON.parse(localStorage.getItem("bag")) || [];
 
     let exist = addtobag.some(
-        e=>e.product_id == urlproduct_id 
+        e=>e.product_id == urlproduct_id &&
+        e.size == click_size_value
     )
 
     if (unique_id == null || unique_id == undefined) {
@@ -453,21 +454,21 @@ function bag() {
     console.log(document.querySelector(".current_price").innerText)
 
 
-    // if(unique_id == 0 || unique_id == undefined && !exist){
+    if(!exist){
         addtobag.push(
             {
                 "bag_id": bag_id,
                 "user_id": unique_id,
                 "product_id": urlproduct_id,
                 "size": click_size_value, 
+                "quantity": 1
             }
         );
         // ${input_size}
         // location.href = `/pages/orders/shopping_bag.html?"sizeid"=1`
-
         localStorage.setItem("bag", JSON.stringify(addtobag));
-
     }
+}
 
  
 
