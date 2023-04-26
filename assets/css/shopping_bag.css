@@ -151,10 +151,23 @@ span.date{
     margin-top: 4%;
 }
 
-#quantity{
+.quantity{
     width:60px;
 }
 
+.message{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:2%;
+    font-size: 25px;
+}
+
+.continueshop{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 

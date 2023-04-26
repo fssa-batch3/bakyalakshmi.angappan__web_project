@@ -110,3 +110,12 @@ h2.heading_top {
     font-weight: 600;
 }
 
+small.totalproducts{
+    color:grey;
+    margin-left: 50px;
+}
+
+.message {
+    font-size: 28px;
+}
+

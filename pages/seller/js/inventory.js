@@ -59,16 +59,15 @@ function createProduct(gender, category, brand, name, color, mrp, value, product
 
     productData.append(td_index, td_gender, td_category, td_brand, td_name, td_color,td_mrp, td_offer, td_actions);
     crudTable.append(productData);
-    
 };
 
 
 
 let product = JSON.parse(localStorage.getItem("product_list"));
-
+console.log(product)
 
 for (i = 0; i < product.length; i++) {
-    createProduct(product[i]["gender"], product[i]["category"], product[i]["brand"], product[i]["name"],product[i]["color"],product[i]["varients"][i]["price"]["currency"]+"."+product[i]["varients"][i]["price"]["mrp"], product[i]["varients"][i]["offer"]["value"]+product[i]["varients"][i]["offer"]["type"] , product[i]["product_id"]);
+    createProduct(product[i]["gender"], product[i]["category"], product[i]["brand"], product[i]["name"],product[i]["color"],product[i]["varients"][i]["price"]["currency"]+"."+product[i]["varients"][i]["price"]["mrp"], product[i]["varients"][i]["offer"]["value"] + product[i]["varients"][i]["offer"]["type"] , product[i]["product_id"]);
 }
 
 

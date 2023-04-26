@@ -90,6 +90,15 @@ div.x-mark i {
 .container-form div{
     margin-bottom: 1.5%;
 }
+
+.container-form #togglePassword{
+    position:relative;
+    font-size: 14px;
+    color:grey;
+    bottom:28px;
+    left:20rem;
+}
+
 /* 
 .container-form .input_field{
     font-family: 'Jost', sans-serif;

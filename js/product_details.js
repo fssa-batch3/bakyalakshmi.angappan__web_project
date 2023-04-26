@@ -194,10 +194,10 @@ div_product_image.append(img_product_image);
 // console.log(img_product_image);
 
 // <p class="modelsize">Our model wears a size 32</p>
-p_modelsize = document.createElement("p");
-p_modelsize.setAttribute("id", "modelsize");
-p_modelsize.innerText = `Our model wears a size` + " " + 32;
-div_product_image.append(p_modelsize);
+// p_modelsize = document.createElement("p");
+// p_modelsize.setAttribute("id", "modelsize");
+// p_modelsize.innerText = `Our model wears a size` + " " + 32;
+// div_product_image.append(p_modelsize);
 
 ////////////rightside//////////////
 
@@ -235,7 +235,6 @@ div_current_price = document.createElement("div");
 div_current_price.setAttribute("class", "current_price");
 div_current_price.innerText = productdata["varients"][0]["price"]["currency"] + "." + productdata["varients"][0]["price"]["current"];
 div_prices.append(div_current_price);
-
 
 //<div class="product_offer">MRP<del>rs.999</del><b>(20%OFF)</b></div>
 
@@ -293,7 +292,6 @@ div_rightside.append(div_size);
 
 // -------------------------- multiple size 
 
-// let size = b
 
 let localsize = JSON.parse(localStorage.getItem("size_list"))
 let productsize = productdata["varients"];
@@ -330,20 +328,6 @@ div_qty.setAttribute("class", "divlbl");
 div_rightside.append(div_qty);
 
 
-// input_lbl = document.createElement("label");
-// input_lbl.setAttribute("class", "inputlbl");
-// input_lbl.innerText = "quantity: "
-// div_qty.append(input_lbl);
-
-
-// input_qty = document.createElement("input");
-// input_qty.setAttribute("class", "inputquantity");
-// input_qty.setAttribute("type", "number");
-// input_qty.setAttribute("value", 1);
-// input_qty.setAttribute("min", 1);
-// div_qty.append(input_qty);
-
-
 //<div class="buttons"></div>
 div_buttons = document.createElement("div");
 div_buttons.setAttribute("class", "buttons");
@@ -369,17 +353,33 @@ div_buttons.append(button_wishlist);
 
 //<div class="product"></div>
 div_product = document.createElement("div");
-div_product.setAttribute("class", "product");
+div_product.setAttribute("class", "product details");
 div_rightside.append(div_product);
 
+
+h2_product = document.createElement("h2");
+h2_product.setAttribute("class", "headingdetails");
+h2_product.innerText = "product details";
+div_product.append(h2_product);
+
+i_chevron = document.createElement("i");
+i_chevron.setAttribute("class","details_chev fa-solid fa-chevron-up fa-rotate-180")
+h2_product.append(i_chevron)
+
+
+
 //<h3>Product Details</h3>
-h3_Product = document.createElement("h3");
+
+h3_Product = document.createElement("p");
 h3_Product.innerText = productdata["details"];
+h3_Product.setAttribute("id","details");
+h3_Product.setAttribute("style","display : none");
 div_product.append(h3_Product);
 
-ul_details = document.createElement("ul");
-ul_details.setAttribute("class", "details");
-div_product.append(ul_details);
+
+// ul_details = document.createElement("ul");
+// ul_details.setAttribute("class", "details");
+// div_product.append(ul_details);
 
 
 
@@ -396,6 +396,7 @@ inputsize.forEach(size=>
 
         console.log(foundprice)
 
+        let currency = foundprice["price"]["currency"]
         let mrp = foundprice["price"]["mrp"];
         let value = foundprice["offer"]["value"];
         let type = foundprice["offer"]["type"];
@@ -409,7 +410,9 @@ inputsize.forEach(size=>
             current = mrp - value;
         }
 
-        document.querySelector(".current_price").innerText = foundprice["price"]["currency"]+"."+current
+        document.querySelector(".current_price").innerText = currency+"."+ current
+        document.querySelector(".product_offer del").innerText = "MRP" + " " + currency + "." + mrp
+        document.querySelector(".product_offer b").innerText = "("+ value + type + "OFF" +")"
 
         foundprice["price"]["current"] = current;
         console.log(foundprice)
@@ -419,7 +422,7 @@ inputsize.forEach(size=>
     })
     )
 
-
+//  add to bag
 button_bag.addEventListener("click", bag);
 
 function bag() {
@@ -448,12 +451,15 @@ function bag() {
     }
 
     else if(exist){
-        alert("product aldready added to cart")
+        alert("product aldready added to bag")
     }
 
     console.log(document.querySelector(".current_price").innerText)
 
 
+    if(!click_size_value){
+        alert("please select a size to add the product to bag")
+    }
     if(!exist){
         addtobag.push(
             {
@@ -464,10 +470,85 @@ function bag() {
                 "quantity": 1
             }
         );
-        // ${input_size}
-        // location.href = `/pages/orders/shopping_bag.html?"sizeid"=1`
+
+        alert("product added to bag")
+
         localStorage.setItem("bag", JSON.stringify(addtobag));
+        location.href = `/pages/orders/shopping_bag.html`
     }
+}
+
+// add to wishlist
+
+button_wishlist.addEventListener("click",wishlist)
+
+function wishlist(){
+
+    let wishlist_id = crypto.randomUUID();
+    let unique_id = JSON.parse(localStorage.getItem("unique_id"));
+    const params = new URLSearchParams(window.location.search);
+
+    const urlproduct_id = params.get("product_id");
+    // let input_quantity = document.querySelector(".inputquantity").value;
+
+    // console.log(input_quantity)
+
+
+
+    let addtowishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    let exist = addtowishlist.some(
+        e=>e.product_id == urlproduct_id 
+    )
+
+    if (unique_id == null || unique_id == undefined) {
+        alert("please login to add your favorite products into wishlist")
+        location.href = "/pages/homepage/login.html"
+    }
+
+    else if(exist){
+        alert("product aldready added to wishlist")
+    }
+
+    console.log(document.querySelector(".current_price").innerText)
+
+
+    if(!exist){
+        addtowishlist.push(
+            {
+                "wishlist_id": wishlist_id,
+                "user_id": unique_id,
+                "product_id": urlproduct_id,
+                "size": click_size_value
+            }
+        );
+
+        alert("product added to wishlist")
+
+        localStorage.setItem("wishlist", JSON.stringify(addtowishlist));
+        location.href = `/pages/orders/wishlist.html`
+    }
+}
+
+// products details - to show on click
+
+let h_details = document.querySelector(".headingdetails")
+
+h_details.addEventListener("click",createdetails)
+// h3_Product.innerHtml = ""
+
+function createdetails(){
+
+    let details  = document.querySelector("#details")
+    console.log(details)
+
+    if(details.style.display === "none"){
+        details.style.display = "block"
+    }
+    else{
+        details.style.display ="none"  
+    }
+
 }
 
  

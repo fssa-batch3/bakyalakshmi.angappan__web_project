@@ -26,11 +26,11 @@
 
                             <h2>add your delivery address</h2>
                         <div>
-                            <label class="label_field">your name</label>
+                            <label class="label_field">Email Address</label>
                             <input class="input_field" type="text" required="true" id="name" />
                         </div>
 
-                        <div>
+                        <!-- <div>
                             <label class="label_field">Mobile number</label><br/>
                             <input class="input_field" id="mobilenumber"  />
                         </div>
@@ -48,15 +48,15 @@
                         <div>
                             <label class="label_field">state</label><br/>
                             <input class="input_field"  type="text"id="state" />
-                        </div>
+                        </div> -->
 
                         <div>
                             <label class="label_field">full address</label><br/>
-                            <textarea cols="30" rows="6"id="fulladdress" ></textarea>
+                            <textarea cols="30" rows="6"id="fulladdress" required></textarea>
                         </div>
 
                         <div>
-                            <button class="save_btn" type="button" onclick="add_address()" >save</button>
+                            <button class="save_btn" type="button">save</button>
                         </div>
 
                     </form>
@@ -66,24 +66,28 @@
 
                 <script>
 
-                    function add_address(){
+                    let localuser = JSON.parse(localStorage.getItem("user_list"))
+                    console.log(localuser)
 
-                    const yourname = document.getElementById("name").value;
-                    const mobilenumber = document.getElementById("mobilenumber").value;
-                    const pincode = document.getElementById("pincode").value;
-                    const city = document.getElementById("city").value;
-                    const state = document.getElementById("state").value;
-                    const fulladdress = document.getElementById("fulladdress").value;
+                    document.querySelector(".save_btn").addEventListener("click",change_address)
 
-                    console.log(yourname)
-                    console.log(mobilenumber)
-                    console.log(pincode)
-                    console.log(city)
-                    console.log(state)
-                    console.log(fulladdress)
+                    function change_address(){
 
-                    window.location.href="../orders/shopping_bag.html";
+                        let email_address = document.querySelector("#name").value;
+                        console.log(email_address)
+                        let full_address = document.querySelector("#fulladdress").value;
+                        console.log(full_address)
 
+                        let found_user = localuser.find(e=>e.email == email_address);
+                        console.log(found_user)
+
+                        if(found_user){
+                            found_user["address"] = full_address;
+                            localStorage.setItem("user_list",JSON.stringify(localuser))
+                            alert("delivery addressn changed")
+                        }
+
+                        location.href = "/pages/orders/shopping_bag.html"
                     }
 
                 </script>

@@ -179,7 +179,7 @@ function signUp(e) {
 
     
 
-    if(full_namevalue !== "" && !full_namespace.test(full_namevalue) && fullnamepattern.test(full_namevalue) && emailpattern.test(emailvalue) && emailvalue !== "" && !exist && mobile_numbervalue !== "" && passwordvalue !== "" && re_enter_passwordvalue !== "" && re_enter_passwordvalue == passwordvalue ){
+    if(full_namevalue !== "" && !full_namespace.test(full_namevalue) && fullnamepattern.test(full_namevalue) && emailpattern.test(emailvalue) && emailvalue !== "" && !exist && mobile_numbervalue !== "" && mobilenumberpattern.test(mobile_numbervalue) && passwordvalue !== "" && re_enter_passwordvalue !== "" && re_enter_passwordvalue == passwordvalue ){
         user_list.push({
             "full_name": full_namevalue,
             "email": emailvalue,
@@ -206,15 +206,6 @@ function signUp(e) {
     }
 }
 
-
- 
-        //     location.href = "./login.html";
-        // }
-        // else {
-        //     alert("password must be the same")
-        // }
-
-    // }
 
 console.log(document.querySelectorAll(".form-control.success"))
 
@@ -250,20 +241,4 @@ function signIn(e) {
     }
 
 }
-
-
-// function signUp(e) {
-
-//     e.preventDefault();
-
-//     validate();
-
-// }
-
-// function validate() {
-//    if
-// }
-
-
-
 

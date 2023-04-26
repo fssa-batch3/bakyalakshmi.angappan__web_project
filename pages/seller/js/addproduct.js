@@ -146,7 +146,7 @@ div_option.addEventListener("change", function () {
         
         <div class="form-group d-flex  justify-content-start w-25 column-gap-2">
         <label for="size">size</label>
-        <input class="form-group form-control w-50" id="size${j + 1}" value=${foundsize["value"]} readonly></input>
+        <input class="form-group form-control w-50" id="sizevalue${j + 1}" value=${foundsize["value"]} data-size_id=${foundsize["id"]} readonly></input>
     </div>
 
 
@@ -187,7 +187,6 @@ div_option.addEventListener("change", function () {
     `
 
         document.querySelector("#varients").insertAdjacentHTML("afterbegin", create_div)
-
     }
 
 }
@@ -277,9 +276,13 @@ function upload(e) {
             else {
                 current = document.getElementById(`inputmrp${i+1}`).value - document.getElementById(`inputoffer${i+1}`).value;
             }
+
+        console.log(document.getElementById(`sizevalue${i+1}`).value)
+
+
         push_varients.push(
         {
-            "size":document.getElementById(`size${i+1}`).value,
+            "size":document.getElementById(`sizevalue${i+1}`).dataset.size_id,
             "price":{
                 "currency":document.getElementById(`inputcurrency${i+1}`).value,
                 "mrp":document.getElementById(`inputmrp${i+1}`).value,
@@ -320,7 +323,7 @@ function upload(e) {
     });
 
     localStorage.setItem('product_list', JSON.stringify(product_list));
-    location.href = "./inventory.html"
+    // location.href = "./inventory.html"
 
 };
 

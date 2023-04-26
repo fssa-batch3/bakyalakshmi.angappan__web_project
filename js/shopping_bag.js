@@ -1,47 +1,111 @@
+let user_list = JSON.parse(localStorage.getItem("user_list"));
+
+
+let uuid = JSON.parse(localStorage.getItem('unique_id'));
+
+function profile_data(e) {
+    return e.email == uuid;
+}
+
+let user_data = user_list.find(profile_data);
+console.log(user_data)
+
+
+let address = `
+
+        <div class="address">
+            <div>
+                <p>Deliver to: ${user_data["full_name"]} </p>
+                <p> ${user_data["address"]} </p>
+            </div>
+
+            <div><a href="../homepage/add_address.html"><button>change address</button></a></div>
+        </div>
+`
+
+document.querySelector(".container").insertAdjacentHTML("afterbegin", address)
+
 let localproducts = JSON.parse(localStorage.getItem("product_list"));
 
-let localbag = JSON.parse(localStorage.getItem("bag"));
+let localbag = JSON.parse(localStorage.getItem("bag")) || [];
 console.log(localbag);
 
-let localunique_id = JSON.parse(localStorage.getItem("unique_id"));
-let localsize = JSON.parse(localStorage.getItem("size_list"));
+let localunique_id = "";
+let localsize = "";
+let filtereduser_bag = [];
 
-let filtereduser_bag = localbag.filter(e => e.user_id == localunique_id)
+if (localbag != null || localbag != undefined) {
+     localunique_id = JSON.parse(localStorage.getItem("unique_id"));
+     localsize = JSON.parse(localStorage.getItem("size_list"));
+
+    filtereduser_bag = localbag.filter(e => e.user_id == localunique_id)
+    console.log(filtereduser_bag)
+}
+
+console.log(localunique_id)
 console.log(filtereduser_bag)
+
 
 // let inputquantity = document.querySelector("#quantity").value
 
-if (filtereduser_bag.length == undefined || filtereduser_bag.length == null) {
-    let createp = document.createElement("p");
-    console.log(createp)
-    createp.innerText = "there is no products in the bag";
-    document.querySelector(".order_list").append(createp);
+let pr = document.querySelector(".container")
+if (filtereduser_bag.length === 0) {
+
+let createp = document.createElement("div");
+createp.setAttribute("class","message");
+console.log(createp)
+createp.innerText = "Your bag is empty!"
+pr.append(createp)
+
+
+let div_btn = document.createElement("div");
+div_btn.setAttribute("class","continueshop");
+
+let button = document.createElement("button");
+button.setAttribute("class","continue_btn btn btn-dark rounded-0");
+button.innerText = "Add products from Wishlist";
+
+div_btn.append(button)
+pr.append(div_btn)
+
+
+document.querySelector(".continue_btn").addEventListener("click",function(){
+    location.href = "/pages/orders/wishlist.html"
+})
+
 }
+
+
+
+
 
 
 let find_size_price = ""
 let current_price = ""
+let sum = 0;
 for (i = 0; i < filtereduser_bag.length; i++) {
 
-// finding product from local storage
+    // finding product from local storage
     let find_product = localproducts.find(e => e.product_id == filtereduser_bag[i]["product_id"])
     console.log(find_product)
-// finding size from localsize
+    // finding size from localsize
     let find_size = localsize.find(e => e.id == filtereduser_bag[i]["size"])
     console.log(find_size)
-// find size from find_product
-let find_size_price = find_product["varients"].find(e => e.size == filtereduser_bag[i]["size"])
-console.log(find_size_price)
+    // find size from find_product
+    find_size_price = find_product["varients"].find(e => e.size == filtereduser_bag[i]["size"])
+    console.log(find_size_price)
 
-// get price from find_product
-let size_price = find_size_price["price"]["current"]
-console.log(size_price)
+    // get price from find_product
+    let size_price = find_size_price["price"]["current"]
+    console.log(size_price)
 
-  let size_quantity = filtereduser_bag[i]["quantity"]
+    let size_quantity = filtereduser_bag[i]["quantity"]
     console.log(size_quantity)
 
-let current_price = size_price * size_quantity 
-console.log(current_price)
+    let current_price = size_price * size_quantity
+    console.log(current_price)
+
+    sum += current_price
 
 
     let template_bag = `
@@ -70,7 +134,7 @@ console.log(current_price)
         <span>${find_size["value"]}</span>
 
         <label><b>Qty:</b></label>
-        <input type="number" id="quantity" min="1" default="1" value="${filtereduser_bag[i]["quantity"]}" data-bag_id =${localbag[i]["bag_id"]} />
+        <input type="number" class="quantity" min="1" value="${filtereduser_bag[i]["quantity"]}" data-bag_id =${localbag[i]["bag_id"]} />
     </div>
 
     <div>
@@ -80,14 +144,12 @@ console.log(current_price)
     </div>
 
     <div> 
-        delivery by <span class="date">28 dec 2022</span>
+        delivery in <span class="date">2 days</span>
     </div>
 
     <div class="buttons">
         <div>
-            <a href="../orders/wishlist.html">
-                 <button class="movetobag">move to wishlist</button>
-            </a> 
+                 <button class="movetobag" data-bag_id=${localbag[i]["bag_id"]}>move to wishlist</button>
         </div>
  
     </div>
@@ -103,9 +165,9 @@ console.log(current_price)
 
 
 
-let inputquantity = document.querySelectorAll("#quantity");
 
-// console.log(inputquantity)
+
+let inputquantity = document.querySelectorAll(".quantity");
 
 inputquantity.forEach(qty =>
 
@@ -122,21 +184,11 @@ inputquantity.forEach(qty =>
         console.log(foundbag_quantity)
         foundbag_quantity["quantity"] = parseInt(e.target.value);
 
-        console.log(foundbag_quantity)
+        localStorage.setItem("bag", JSON.stringify(localbag));
 
-        console.log("sgydgyagh")
+        window.location.reload();
     })
 );
-
-
-
-let sum = 0
-for (i = 0; i < filtereduser_bag.length; i++) {
-    // for (j = 0; j < .length; j++) {
-        sum += filtereduser_bag[i]["quantity"] * find_size_price["price"]["current"];
-        break;
-    }
-
 
 localStorage.setItem("bag", JSON.stringify(localbag))
 
@@ -154,7 +206,7 @@ let order = `
                    
                     <tr class="table_row">
                         <td>sub-total</td>
-                        <td>Rs.sum</td>
+                        <td>Rs.${sum}</td>
                     </tr>
 
                     <tr>
@@ -165,7 +217,7 @@ let order = `
 
                     <tr>
                         <td>total amount</td>
-                        <td>Rs.sum</td>
+                        <td>Rs.${sum}</td>
                     </tr>
 
                 </tbody>
@@ -180,27 +232,6 @@ let order = `
 
 document.querySelector(".side_container").insertAdjacentHTML("afterbegin", order);
 
-console.log(document.querySelector(".side_container"))
-
-
-let quantity = document.querySelector("#quantity")
-let inputqtyvalue = 0;
-quantity.addEventListener("change", function (e) {
-
-    let bag_uuid = this.dataset.bag_id
-    console.log(bag_uuid)
-
-    let findbag = localbag.find(e => e.bag_id == bag_uuid)
-    console.log(findbag);
-
-    inputqtyvalue += document.querySelector("#quantity").value
-
-    findbag["quantity"] = inputqtyvalue;
-
-    localStorage.setItem("bag", JSON.stringify(localbag));
-    location.reload();
-})
-console.log(inputqtyvalue)
 
 let remove = document.querySelectorAll(".x-mark")
 remove.forEach(del =>
@@ -221,6 +252,44 @@ remove.forEach(del =>
     }
     )
 )
+
+let localwishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+let movetowishlist = document.querySelectorAll(".movetobag");
+movetowishlist.forEach(move=>
+    move.addEventListener("click",function(){
+        let clicked_bag_id  = this.dataset.bag_id;
+
+        let wishlist_id = crypto.randomUUID()
+        
+        let find_bag_prod = localbag.find(e=>e.bag_id == clicked_bag_id);
+        let find_wishlist_prod = localwishlist.find(e=>e.product_id == find_bag_prod["product_id"])
+
+        if(!find_wishlist_prod){
+            localwishlist.push({
+                "wishlist_id":wishlist_id,
+                "user_id": find_bag_prod["user_id"],
+                "product_id": find_bag_prod["product_id"],
+                "size": find_bag_prod["size"],
+                "quantity" : 1
+            })
+
+            
+        let indexofbag = localbag.indexOf(find_bag_prod)
+        localbag.splice(indexofbag,1)
+
+        alert("Item added to wishlist")
+
+        location.reload();
+        }
+
+        localStorage.setItem("bag",JSON.stringify(localbag))
+        localStorage.setItem("wishlist",JSON.stringify(localwishlist))
+
+        
+    })
+)
+
+
 
 
 

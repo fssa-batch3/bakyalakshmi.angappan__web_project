@@ -188,7 +188,7 @@ const unique_id = localStorage.getItem("unique_id")
 
 console.log(unique_id);
 
-if (unique_id == 0 || unique_id == undefined) {
+if (unique_id == 0 || unique_id == undefined || unique_id == "") {
     //console.log(user_account)
     document.body.insertAdjacentHTML("afterbegin", before_login);
     let user_profile = document.getElementById("profile");
@@ -196,6 +196,8 @@ if (unique_id == 0 || unique_id == undefined) {
         location.href = "./pages/homepage/login.html"
     })
 }
+
+
 else {
     document.body.insertAdjacentHTML("afterbegin", after_login);
     //     location.href = "./pages/homepage/account.html"
@@ -216,8 +218,7 @@ function sell() {
     else {
         location.href = `${root}/pages/seller/seller-account.html`
     }
-}
-
+};
 
 
 let dropdown_menu = document.querySelectorAll("ul li.dropdown");

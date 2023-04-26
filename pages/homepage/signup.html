@@ -55,9 +55,10 @@
                 </div>
 
                 <div class="form-control">
-                    <label class="label_field">Password</label><br />
+                    <label class="label_field">Password </label><br />
                     <input class="input_field" type="password" id="password" placeholder="password" maxlength="6"
                         title="Must contain 6 characters only" />
+                    <i id="togglePassword" class="fa-solid fa-eye"></i>
                     <small></small>
                 </div>
 
@@ -84,8 +85,22 @@
         </div>
 
     </div>
+<script>
+    
+document.querySelector("#togglePassword").addEventListener("click",showpsw)
 
+function showpsw(){
+    if(document.querySelector("#password").type === "password"){
+        document.querySelector("#password").type = "text"
+    }
+    else{
+        document.querySelector("#password").type = "password"
+    }
+
+}
+</script>
     <script src="/js/storage.js"></script>
+
 </body>
 
 </html>

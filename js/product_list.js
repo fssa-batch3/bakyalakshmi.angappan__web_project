@@ -1302,6 +1302,7 @@ for (let i = 0; i < filteredProducts.length; i++) {
     div_prices = document.createElement("div");
     div_prices.setAttribute("class", "prices");
     div_smallcontainer.append(div_prices);
+
     //////price - current calculation
     let mrp = filteredProducts[i]["varients"][i]["price"]["mrp"];
     let value = filteredProducts[i]["varients"][i]["offer"]["value"];
@@ -1321,7 +1322,7 @@ for (let i = 0; i < filteredProducts.length; i++) {
     span_product_price = document.createElement("span");
     span_product_price.setAttribute("class", "current_price");
 
-    span_product_price.innerText = filteredProducts[i]["varients"][0]["price"]["currency"] + "." + current;
+    span_product_price.innerText = filteredProducts[i]["varients"][0]["price"]["currency"] + "." + current + " ";
     div_prices.append(span_product_price);
 
     // <span class="original_price"><del>rs.999</del></span>
@@ -1330,21 +1331,21 @@ for (let i = 0; i < filteredProducts.length; i++) {
     div_prices.append(span_original_price);
 
     del_original_price = document.createElement("del");
-    del_original_price.innerText = filteredProducts[i]["varients"][0]["price"]["mrp"];
+    del_original_price.innerText = filteredProducts[i]["varients"][0]["price"]["currency"] + "."+filteredProducts[i]["varients"][0]["price"]["mrp"];
     span_original_price.append(del_original_price);
 
     // <span class="product_offer">(30% off)</span>
     span_product_offer = document.createElement("span");
     span_product_offer.setAttribute("class", "product_offer");
-    span_product_offer.innerText = "(" + filteredProducts[i]["varients"][0]["offer"]["value"] + filteredProducts[i]["varients"][0]["offer"]["type"] + "off" + ")";
+    span_product_offer.innerText =" "+ "(" + filteredProducts[i]["varients"][0]["offer"]["value"] + filteredProducts[i]["varients"][0]["offer"]["type"] +" "+ "off" + ")";
     div_prices.append(span_product_offer);
 }
 
 let productlength = document.querySelector(".totalproduct")
-console.log(productlength)
-let w = product.length
+console.log(productlength);
+let w = filteredProducts.length;
 console.log(w)
-productlength.innerText = w + " items found";
+productlength.innerText = w + " Items Found";
 
 // productlength.append
 
@@ -1354,11 +1355,9 @@ productlength.innerText = w + " items found";
 let product_container = document.querySelectorAll(".smallcontainer");
 
 // console.log(product_container);
-
 product_container.forEach(event => {
     event.addEventListener("click", function () {
         let product_uuid = event.dataset.id
-        // console.log(product_uuid);
         location.href = `./product-details.html?product_id=${product_uuid}`
     })
 }

@@ -12,9 +12,9 @@ span.location {
 .content {
     display: flex;
     width: 98vw;
-    height: 84vh;
     flex-wrap: nowrap;
     justify-content: space-around;
+
 }
 
 .location {
@@ -41,6 +41,8 @@ span.location {
     text-align: center;
     margin-top: 4%;
     padding-bottom: 10%;
+    height: 78vh;
+    overflow-y: scroll;
 }
 
 .rightside div {
@@ -239,6 +241,11 @@ button.wishlist:hover {
 .rightside .product_details {
     text-align: left;
     font-size: 18px;
+}
+
+.details_chev{
+    font-size: 25px;
+    margin-left: 40px;
 }
 
 .heading_top {
