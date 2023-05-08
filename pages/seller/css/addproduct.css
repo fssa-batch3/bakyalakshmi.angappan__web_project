@@ -3,12 +3,40 @@
     display: flex;
     justify-items:center
 }
-/* 
-input[type=checkbox] {
-    -webkit-appearance: none;
+
+.container{
+    height: 100vh;
 }
 
-input[type=checkbox] + label{
+.form{
+    height: 100%;
+}
+
+
+input[type=checkbox] {
+        accent-color: #000;
+}
+
+.form-row label{
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.form-row:first-child{
+margin-top: 10px;
+}
+
+.form-row h4{
+    text-align: center;
+    text-transform: uppercase;
+  
+}
+
+button[type=submit]{
+    text-transform: uppercase;
+}
+
+/* input[type=checkbox] + label{
     border: 1px solid #000;
     width: 100px;
     border-radius: 50%;

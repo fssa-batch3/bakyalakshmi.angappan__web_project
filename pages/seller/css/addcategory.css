@@ -1,0 +1,25 @@
+.form h4{
+        text-align: center;
+        text-transform: uppercase;
+}
+
+.form label{
+        font-weight: 500;
+        text-transform: uppercase;
+}
+
+.form select {
+    text-transform: capitalize;
+}
+
+button{
+    text-transform: uppercase;
+}
+
+.name{
+    border: 1px solid #bbb;
+    text-align: center;
+    padding: 2%;
+}
+
+

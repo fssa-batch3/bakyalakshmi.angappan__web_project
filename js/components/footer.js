@@ -1,7 +1,7 @@
-const origin = window.location.origin;
-let beforelogin = `
-<footer>
+const footer_origin = window.location.origin;
+console.log(footer_origin)
 
+const beforelogin = `
 <div class="footer">
 
     <div class="footer_nav_contact">
@@ -10,10 +10,10 @@ let beforelogin = `
                 <h3>shop</h3>
                 <nav>
                     <ul>
-                        <li><a href="./pages/products/all products list/men-allproducts-list.html">men</a></li>
-                        <li><a href="./pages/products/all products list/women-allproducts-list.html">women</a>
+                        <li><a href="${footer_origin}/pages/homepage/login.html">men</a></li>
+                        <li><a href="${footer_origin}/pages/homepage/login.html">women</a>
                         </li>
-                        <li><a href="./pages/products/all products list/kids-allproducts-list.html">kids</a>
+                        <li><a href="${footer_origin}/pages/homepage/login.html">kids</a>
                         </li>
                     </ul>
                 </nav>
@@ -24,9 +24,9 @@ let beforelogin = `
                 <h3>account</h3>
                 <nav>
                     <ul>
-                        <li><a href="./pages/orders/order_list.html">my orders</a></li>
-                        <li><a href="./pages/orders/shopping_bag.html">my bag</a></li>
-                        <li><a href="./pages/homepage/account.html">my account</a></li>
+                        <li><a href="${footer_origin}/pages/homepage/login.html">my orders</a></li>
+                        <li><a href="${footer_origin}/pages/homepage/login.html">my bag</a></li>
+                        <li><a href="${footer_origin}/pages/homepage/login.html">my account</a></li>
                     </ul>
                 </nav>
             </div>
@@ -76,12 +76,9 @@ let beforelogin = `
         </div>
     </div>
 </div>
-</footer>
-`
+`;
 
-let afterlogin = `
-<footer>
-
+const afterlogin = `
 <div class="footer">
 
     <div class="footer_nav_contact">
@@ -90,10 +87,10 @@ let afterlogin = `
                 <h3>shop</h3>
                 <nav>
                     <ul>
-                        <li><a href="${origin}./pages/product-list.html">men</a></li>
-                        <li><a href="${origin}./pages/product-list.html">women</a>
+                        <li><a href="${footer_origin}/pages/product-list.html">men</a></li>
+                        <li><a href="${footer_origin}/pages/product-list.html">women</a>
                         </li>
-                        <li><a href="${origin}./pages/product-list.html">kids</a>
+                        <li><a href="${footer_origin}/pages/product-list.html">kids</a>
                         </li>
                     </ul>
                 </nav>
@@ -104,9 +101,9 @@ let afterlogin = `
                 <h3>account</h3>
                 <nav>
                     <ul>
-                        <li><a href="${origin}./pages/orders/order_list.html">my orders</a></li>
-                        <li><a href="${origin}./pages/orders/shopping_bag.html">my bag</a></li>
-                        <li><a href="${origin}./pages/homepage/account.html">my account</a></li>
+                        <li> <a href="${footer_origin}/pages/orders/order_list.html">my orders</a> </li>
+                        <li> <a href="${footer_origin}/pages/orders/shopping_bag.html">my bag</a> </li>
+                        <li> <a href="${footer_origin}/pages/homepage/account.html">my account</a> </li>
                     </ul>
                 </nav>
             </div>
@@ -156,19 +153,11 @@ let afterlogin = `
         </div>
     </div>
 </div>
-</footer>
-`
+`;
 
-
-const uniqueid = localStorage.getItem("uniqueid")
-
-console.log(uniqueid);
-
-if (uniqueid == 0 || uniqueid == undefined || uniqueid == "") {
-    document.querySelector(".line").insertAdjacentHTML("afterbegin", beforelogin);
-}
-
-
-else {
-    document.querySelector(".line").insertAdjacentHTML("afterbegin", afterlogin);
-}
+// const uniqueid = JSON.parse(localStorage.getItem("unique_id"));
+// if (uniqueid == 0 || uniqueid == undefined || uniqueid == "") {
+//   document.querySelector("footer").insertAdjacentHTML("afterbegin", beforelogin);
+// } else {
+  document.querySelector("footer").insertAdjacentHTML("afterbegin", afterlogin);
+// }

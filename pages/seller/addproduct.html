@@ -1,202 +1,106 @@
-<!-- <form>
-    <div class="form-row">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="First name">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Last name">
-      </div>
-    </div>
-  </form> -->
-
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>add product</title>
-
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="../../assets/css/bootstrap css/bootstrap.css">
-
-    <!-- addproduct css -->
-
-    <link rel="stylesheet" href="../seller/css/addproduct.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="../../assets/css/bootstrap css/bootstrap.css">
 
-<body>
+        <!-- header css -->
+        <link rel="stylesheet" href="/assets/css/header.css">
 
+        <!-- addproduct css -->
+        <link rel="stylesheet" href="../seller/css/addproduct.css">
 
-    <nav class="navbar navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">MY FASHION STUDIO</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
-                aria-labelledby="offcanvasDarkNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">seller</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./seller-account.html">profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./addcategory.html">add categories</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">delete categories</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="./addproduct.html">add products</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="./inventory.html">inventory</a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-    </nav>
+        <!-- font awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
 
 
-    <div class="container-form w-100 h-100 d-flex justify-content-center align-content-center">
-        <form class="form w-75 h-100 m-5 p-5 d-flex flex-column row-gap-4" id="form">
+        <title>Add Product</title>
 
-            <div class="form-row">
-                <label>image</label>
-                <input type="text" class="form-control" id="inputsource">
-            </div>
+    </head>
 
+    <body>
 
-            <div class="form-row d-flex justify-content-start column-gap-2">
-                <div class="form-row w-25">
-                    <select id="inputgendercategory" class="form-control col-md-6">
-                        <option selected>select gender </option>
-                    </select>
+        <div class="container-form w-100 h-100 d-flex justify-content-center align-content-center">
+            <form class="form w-75 h-100 p-5 d-flex flex-column row-gap-4" id="form">
+
+                <div class="form-row">
+                    <h4>Add Products</h4>
                 </div>
 
-                <div class="form-row w-25">
-                    <select id="inputcategory" class="form-control col-md-6">
-                    </select>
-                </div>
-            </div>
-
-
-            <div class="form-row d-flex justify-content-start column-gap-2">
-
-                <div class="form-group w-25">
-                    <label>brand</label>
-                    <input type="text" class="form-control" id="inputbrand">
+                <div class="form-row">
+                    <label>image</label>
+                    <input type="text" class="form-control" id="inputsource" required>
                 </div>
 
-                <div class="form-group w-100">
-                    <label for="inputname">Name</label>
-                    <input type="text" class="form-control" id="inputname">
-                </div>
-
-            </div>
-
-
-            <div class="form-group d-flex w-50 column-gap-2">
-                <label for="inputcolor">color</label>
-                <input type="text" class="form-control" id="inputcolor">
-            </div>
-
-
-            <div class="form-row d-flex flex-column column-gap-2" id="size">
-                <input type="" placeholder="choosesize" id="inputsize" value="" class="form-control" readonly>
-
-                <div id="option" class="d-flex justify-content-around flex-row w-75 flex-wrap">
-
-                </div>
-
-                <div id="varients" class="form-group d-flex flex-column align-items-center p-3">
-
-                </div>
-
-
-
-
-
-                <!-- <div class=" form-row d-flex justify-content-evenly align-items-center" id="varients">
-
-                <div class="form-group w-25">
-                    <label for="size">size</label>
-                    <div class="form-row d-flex">
-                        <select class="form-group form-control w-75" id="size" ></select>
-                    </div>
-                </div>
-
-
-
-                
-                <div class="form-group w-50" >
-                    <label for="inputmrp" class="d-flex justify-content-center">MRP</label>
-                    <div class="form-group d-flex justify-content-center w-100">
-                        <select class="form-group  form-control bg-body-secondary w-50" id="inputcurrency">
-                            <option>rs</option>
+                <div class="form-row d-flex justify-content-start column-gap-2">
+                    <div class="form-group w-25">
+                        <select id="inputgendercategory" class="form-control col-md-6" required>
+                            <option selected>select gender </option>
                         </select>
-                        <input type="number" class="form-control w-100" id="inputmrp">
-    
-         
                     </div>
-                </div>
-                
 
-
-                <div class="form-group w-50 " id="offer">
-                    <label for="inputoffer" class="d-flex justify-content-start">offer</label>
-                    <div class="form-group d-flex  justify-content-center w-100">
-                    <input type="number" class="form-control w-100" id="inputoffer">
-                    <select class="form-control w-50" id="inputoffertype">
-                        <option>%</option>
-                        <option>rs</option>
-                    </select>
+                    <div class="form-group w-25">
+                        <select id="inputcategory" class="form-control col-md-6" required>
+                        </select>
                     </div>
                 </div>
 
+                <div class="form-row d-flex justify-content-start column-gap-2">
 
-                <div class="form-group w-50" id="quantity" >
-                <label for="inputquantity"  class="d-flex justify-content-start"> quantity</label>
-                    <input type="number" class="form-control w-75 class="d-flex justify-content-center"" id="inputquantity">
+                    <div class="form-group w-25">
+                        <label>brand</label>
+                        <input type="text" class="form-control" id="inputbrand" required>
+                    </div>
+
+                    <div class="form-group w-100">
+                        <label for="inputname">Name</label>
+                        <input type="text" class="form-control" id="inputname" required>
+                    </div>
+
                 </div>
 
-        </div> -->
-
-                <div class="form-group">
-                    <label for="inputdetails">details</label>
-                    <textarea name="" class="form-control" id="inputdetails" cols="45" rows="8"></textarea>
+                <div class="form-row d-flex w-50 column-gap-2">
+                    <label for="inputcolor">color</label>
+                    <input type="text" class="form-control" id="inputcolor" required>
                 </div>
 
-                <button type="submit" class="btn btn-dark">upload product</button>
+                <div class="form-row d-flex flex-column column-gap-2" id="size">
+                    <input type="" placeholder="Choose Size" id="inputsize" value="" class="form-control" readonly required>
+
+                    <div id="option" class="d-flex justify-content-around flex-row w-75 flex-wrap">
+
+                    </div>
+
+                    <div id="varients" class="form-group d-flex flex-column align-items-center p-3">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputdetails">details</label>
+                        <textarea name="" class="form-control" id="inputdetails" cols="45" rows="8" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark">upload product</button>
         </form>
 
-    </div>
+                </div>
 
-    <hr>
+                <hr>
+        <!-- header -->
 
-    <script src="../../js/bootstrap.bundle.js"></script>
+                <script src="/pages/seller/js/components/header.js"></script>
+   
+                <script src="/js/vendor/bootstrap.bundle.js"></script>
 
-    <script src="./js/addproduct.js"></script>
+                <script src="./js/addproduct.js"></script>
 
 </body>
 

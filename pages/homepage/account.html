@@ -1,261 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../assets/css/account.css">
-    <link rel="stylesheet" href="../../assets/css/header.css">
-    <link rel="stylesheet" href="../../assets/css/footer.css">
-    <link rel="stylesheet" href="../../assets/css/bootstrap css/bootstrap.css">
+        <link rel="stylesheet" href="../../assets/css/account.css">
+        <link rel="stylesheet" href="../../assets/css/header.css">
+        <link rel="stylesheet" href="../../assets/css/footer.css">
+        <link rel="stylesheet" href="../../assets/css/add_address.css">
+        <link rel="stylesheet" href="../../assets/css/bootstrap css/bootstrap.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
 
+        <title>Account</title>
 
-    <title>account</title>
+    </head>
 
-</head>
+    <body>
 
-<body>
+        <main>
 
- 
-    <main>
+            <div class="header-account">
+                <div class="">
+                    <h2>Your Profile</h2>
+                </div>
 
-        <div class="header-account">
-            <div class="">
-                <h2>your profile</h2>
+                <div>
+                    <span id="logout" onClick="logOut(event)">Log out</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
             </div>
 
-            <div>
-                <span id="logout" onClick="logOut(event)">Log out</span>
-                <i class="fa-solid fa-chevron-right"></i>
-            </div>
-        </div>
+            <div class="account">
 
-        <div class="container">
-
-            <div class="profile_details">
-                <div class="profile_details_table">
+                <div class="addressbook">
 
                     <div class="heading">
-                        <div>
-                            <h3>profile details</h3>
-                        </div>
-
-                        <!-- <div>
-                            <button id="remove" onClick="del(event)"><i class="fa-solid fa-trash"></i></button>
-                        </div> -->
+                        <h5> Address Book</h5>
                     </div>
 
-                    <table id="user_data">
+                    <!-- <i class="fa-solid fa-location-dot"></i> -->
 
-                        <caption> </caption>
+                    <div class="createdAddress">
 
-                        <tr>
-                            <th></th>
-                        </tr>
-                        <tbody>
-
-                            <tr>
-                                <td>Full Name</td>
-                                <td id="fullname"></td>
-                            </tr>
-
-                            <tr>
-                                <td>Mobile Number</td>
-                                <td id="mobile_number"></td>
-                            </tr>
-
-                            <tr>
-                                <td>Email Address</td>
-                                <td id="email"></td>
-                            </tr>
-
-                            <tr>
-                                <td>Gender</td>
-                                <td id="gender"></td>
-                            </tr>
-
-                            <tr>
-                                <td>Date of Birth</td>
-                                <td id="dateofbirth"></td>
-                            </tr>
-
-                            <tr>
-                                <td>address</td>
-                                <td id="address"></td>
-                            </tr>
-
-                            <tr>
-                                <td>Hint Name</td>
-                                <td id="hintname"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <a href="../../pages/homepage/edit profile.html">
-                        <div class="profile-editButton"><button>EDIT</button> </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
-
-        <footer>
-
-            <div class="footer">
-                <div class="seller">
-                    <h2>become a seller</h2>
-                    <p>sell your products on My Fashion Studio</p>
-                    <button>start selling</button>
-                </div>
-                <div class="footer_nav_contact">
-                    <div class="footer_nav">
-                        <div>
-                            <h3>shop</h3>
-                            <nav>
-                                <ul>
-                                    <li><a href="../products/all products list/men-allproducts-list.html">men</a></li>
-                                    <li><a href="../products/all products list/women-allproducts-list.html">women</a>
-                                    </li>
-                                    <li><a href="../products/all products list/kids-allproducts-list.html">kids</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-
-
-                        <div>
-                            <h3>account</h3>
-                            <nav>
-                                <ul>
-                                    <li><a href="../orders/order_list.html">my orders</a></li>
-                                    <li><a href="../orders/shopping_bag.html">my bag</a></li>
-                                    <li><a href="../homepage/account.html">my account</a></li>
-                                </ul>
-                            </nav>
-                        </div>
 
                     </div>
+                    
 
-                    <div class="footer_contact">
-                        <div>
-                            <div class="contact_details">
-                                <h3>contact</h3>
-                                <i class="fa-solid fa-location-dot"></i>
-                                Page Industries Ltd, Cessna Park, Umiya Bay, T-1, 7th Flr, ORR, Bengaluru - 560103,
-                                Karnataka.
+
+                    <div class="add btn">
+                        <i class="fa-solid fa-plus"></i> ADD NEW ADDRESS
+                    </div>
+
+
+                </div>
+
+<!-- Html code for add address page -->
+
+
+
+                <div class="profile_details">
+                    <div class="profile_details_table">
+
+                        <div class="heading">
+                            <div>
+                                <h3>profile details</h3>
                             </div>
 
+<!-- unused code to delete a user -->
 
-                            <div class="contact_details">
-                                <i class="fa-solid fa-envelope"></i>
-                                wecare@MFS.india.com
+                                <!-- <div>
+                                    <button id="remove" onClick="del(event)"><i class="fa-solid fa-trash"></i></button>
+                                </div> -->
+                        </div>
+
+                        <table id="user_data">
+
+                            <caption> </caption>
+
+                            <tr>
+                                <th></th>
+                            </tr>
+                            <tbody>
+
+                                <tr>
+                                    <td>Full Name</td>
+                                    <td id="fullname"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Mobile Number</td>
+                                    <td id="mobile_number"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Email Address</td>
+                                    <td id="email"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Gender</td>
+                                    <td id="gender"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Date of Birth</td>
+                                    <td id="dateofbirth"></td>
+                                </tr>
+
+                                <!-- <tr>
+                                    <td>address</td>
+                                    <td id="address"></td>
+                                    </tr> -->
+
+                                <tr>
+                                    <td>Hint Name</td>
+                                    <td id="hintname"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                            <div class="profile-editButton">
+                                <button>EDIT</button> 
                             </div>
-                        </div>
-
-
-                        <div class="contact_details">
-                            <i class="fa-solid fa-phone"></i>
-                            1800-572-1299(Toll Free) / 1860-425-3333 <br />
-                            <p>(Monday to Saturday, IST 10:00 AM to 7:00 PM)</p>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="bottom_footer">
-                    <div>
-                        <h2>My Fashion Studio</h2>
-                    </div>
-
-                    <div class="socialmedia">
-                        <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
-                    </div>
-
-                    <div>
-                        2022 My fashion studio | All Rights Reserved
                     </div>
                 </div>
             </div>
-        </footer>
 
-        <script src="/js/components/header.js"></script>
-        <script src="../../js/bootstrap.bundle.js"></script>
+            <footer>
 
-        <script>
+            </footer>
 
-            //get value from local storage
-            let user_list = JSON.parse(localStorage.getItem("user_list"));
-
-            let uuid = JSON.parse(localStorage.getItem('unique_id'));
-
-            function profile_data(e) {
-                return e.email == uuid;
-            }
-
-            let user_data = user_list.find(profile_data);
-
-            document.getElementById("fullname").innerText = user_data["full_name"];
-            document.getElementById("email").innerText = user_data["email"];
-            document.getElementById("mobile_number").innerText = user_data["mobile_number"];
-
-            document.getElementById("gender").innerText = user_data["gender"];
-            document.getElementById("dateofbirth").innerText = user_data["dob"];
-            document.getElementById("address").innerText = user_data["address"];
-            document.getElementById("hintname").innerText = user_data["hintname"];
-
-            function del(e) {
-
-                let user_list = JSON.parse(localStorage.getItem("user_list"));
-
-                let uuid = JSON.parse(localStorage.getItem('unique_id'));
-
-                function profile_data(e) {
-                    return e.email == uuid;
-                }
-
-                let user_data = user_list.find(profile_data);
-
-                let indexOfUser = user_list.indexOf(user_data);
-                user_list.splice(indexOfUser, 1)
-
-                localStorage.setItem("user_list", JSON.stringify(user_list));
-                localStorage.setItem("unique_id", "");
-
-                location.href = "./account.html"
-            }
-
-
-            function logOut(e) {
-
-                let logout = document.getElementById("logout");
-                logout.onclick = "logOut(e)";
-
-                localStorage.removeItem("unique_id");
-
-                location.href = "../../index.html"
-
-            }
-
-        </script>
-
-        <!-- <script src="../../js/storage.js"></script> -->
-
-
+            <script src="/js/components/header.js"></script>
+            <script src="/js/components/footer.js"></script>
+            <script src="../../js/account.js"></script>
+            <script src="/js/vendor/bootstrap.bundle.js"></script>
+            
 </body>
 
 </html>

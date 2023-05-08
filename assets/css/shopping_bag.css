@@ -10,7 +10,6 @@
     display:flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content:;
     width:80%;
     margin-left: 10%;
 }
@@ -44,14 +43,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:6%;
+    padding:4%;
     margin-bottom: 5%;
 } 
 
 .container div.address p{
+    margin-bottom: 2px ;
     font-size: 18px;
     text-transform: capitalize;
-    padding-bottom: 5%;
 }
 
 .container div.address button{
@@ -73,6 +72,10 @@
     position:relative;
 }
 
+.product_list{
+    width:50%
+}
+
 div.x-mark i{
     color:#555;
     float:right;
@@ -85,6 +88,7 @@ div.x-mark i{
  .product_thumbnail img{
     width:10em;  
     margin-right: 5em;
+    height:100%
 } 
 
 .product_name , .brand_name{
@@ -136,6 +140,8 @@ span.date{
     padding-right: 10px;
     width:100%;
 }
+
+
 .side_container table tbody tr:last-child td:first-child,tr:last-child td:last-child{
     text-transform: uppercase;
     font-weight: 600;
@@ -168,6 +174,78 @@ span.date{
     align-items: center;
     justify-content: center;
 }
+
+/* change address */
+.inputcontainer{
+    visibility: hidden;
+    position:absolute;
+      top:0px;
+    width: 98vw; 
+    height: 100vh;
+    background-color: #00000075;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputcontainer.openpopup{
+    visibility: visible;
+}
+.inputcontainer input[type=radio]{
+    accent-color: #000;
+}
+.inputchangeaddress{
+    position:relative;
+    width:30%;
+    padding: 1%;
+    z-index: 2;
+    background-color: #fff;
+}
+
+.inputchangeaddress .add{
+    border: 1px solid #000;
+    width:100%;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.inputchangeaddress .add:hover {
+    border: 1px solid #000;
+    width: 100%;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.inputchangeaddress h5{
+    /* padding-bottom: 2%;
+    border-bottom: 1px solid #bbb; */
+    margin-bottom: 3%;
+}
+
+.localaddress{
+    background-color: #fff;
+    padding:2%;
+    border-top: 1px solid #bbb;
+}
+
+
+.localaddress div{
+    padding-right: 10px;
+
+}
+
+.changeaddressx-mark{
+    color: #555;
+    float: right;
+    font-size: 22px;
+    position: absolute;
+    top: 4%;
+    right: 4%;
+}
+
+
 
 
 

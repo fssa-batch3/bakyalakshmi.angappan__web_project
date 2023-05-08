@@ -1,8 +1,9 @@
 const root = window.location.origin;
 console.log(root);
 
-let before_login =
-`    <header id="desktop-header">
+const before_login = `   
+
+  <header id="desktop-header">
 <nav class="navbar navbar-expand-lg">
 
     <div class="container-fluid d-flex justify-content-evenly">
@@ -20,7 +21,7 @@ let before_login =
                     value=1>
                     men
                     <ul class="dropdown-menu " id="cate_men">
-                  
+                
                     </ul>
                 </li>
 
@@ -34,7 +35,7 @@ let before_login =
                     WOMEN
 
                     <ul class="dropdown-menu" id="cate_women">
-
+                
 
                     </ul>
                 </li>
@@ -47,7 +48,7 @@ let before_login =
                     value=3>
                     KIDS
                      <ul class="dropdown-menu" id="cate_kids">
-
+                
                     </ul>
                 </li>
 
@@ -90,11 +91,9 @@ let before_login =
     </div>
 </nav>
 </header>
-`
+`;
 
-let after_login =
-
-    `    <header id="desktop-header">
+const after_login = `    <header id="desktop-header">
 <nav class="navbar navbar-expand-lg">
 
     <div class="container-fluid d-flex justify-content-evenly">
@@ -112,7 +111,7 @@ let after_login =
                     value=1>
                     men
                     <ul class="dropdown-menu " id="cate_men">
-                  
+                
                     </ul>
                 </li>
 
@@ -126,7 +125,7 @@ let after_login =
                     WOMEN
 
                     <ul class="dropdown-menu" id="cate_women">
-
+                
 
                     </ul>
                 </li>
@@ -139,7 +138,7 @@ let after_login =
                     value=3>
                     KIDS
                      <ul class="dropdown-menu" id="cate_kids">
-
+                  
                     </ul>
                 </li>
 
@@ -182,121 +181,143 @@ let after_login =
     </div>
 </nav>
 </header>
-`
+`;
 
-const unique_id = localStorage.getItem("unique_id")
+
+
+const unique_id = JSON.parse(localStorage.getItem("unique_id"));
 
 console.log(unique_id);
 
 if (unique_id == 0 || unique_id == undefined || unique_id == "") {
-    //console.log(user_account)
-    document.body.insertAdjacentHTML("afterbegin", before_login);
-    let user_profile = document.getElementById("profile");
-    user_profile.addEventListener("click", function (e) {
-        location.href = "./pages/homepage/login.html"
-    })
-}
-
-
-else {
-    document.body.insertAdjacentHTML("afterbegin", after_login);
-    //     location.href = "./pages/homepage/account.html"
-    let user_profile = document.getElementById("profile");
-    user_profile.addEventListener("click", function (e) {
-        location.href = "./pages/homepage/account.html"
-    })
+  // console.log(user_account)
+  document.body.insertAdjacentHTML("afterbegin", before_login);
+  const user_profile = document.getElementById("profile");
+  user_profile.addEventListener("click", (e) => {
+    location.href = "./pages/homepage/login.html";
+  });
+} else {
+  document.body.insertAdjacentHTML("afterbegin", after_login);
+  //     location.href = "./pages/homepage/account.html"
+  const user_profile = document.getElementById("profile");
+  user_profile.addEventListener("click", (e) => {
+    location.href = "./pages/homepage/account.html";
+  });
 }
 
 const seller_id = localStorage.getItem("seller_id");
-let seller_btn = document.querySelector(".seller_btn")
+const seller_btn = document.querySelector(".seller_btn");
 seller_btn.addEventListener("click", sell);
 
 function sell() {
-    if (seller_id == 0 || seller_id == undefined) {
-        location.href = `${root}/pages/seller/seller-login.html`
-    }
-    else {
-        location.href = `${root}/pages/seller/seller-account.html`
-    }
-};
+  if (seller_id == 0 || seller_id == undefined) {
+    location.href = `${root}/pages/seller/seller-login.html`;
+  } else {
+    location.href = `${root}/pages/seller/seller-account.html`;
+  }
+}
 
-
-let dropdown_menu = document.querySelectorAll("ul li.dropdown");
+const dropdown_menu = document.querySelectorAll("ul li.dropdown");
 console.log(dropdown_menu);
 
-dropdown_menu.forEach(menu => {
-    menu.addEventListener("click", show)
+dropdown_menu.forEach((menu) => {
+  menu.addEventListener("click", show);
 
-    function show() {
+  function show() {
+    const inputvalue = this.value;
+    // console.log(inputvalue);
 
-        const inputvalue = this.value;
-        // console.log(inputvalue);
+    const localcategory =
+      JSON.parse(localStorage.getItem("category_list")) || [];
 
-        let localcategory = JSON.parse(localStorage.getItem('category_list')) || [];
+    const filteredcategory = localcategory.filter(
+      (e) => e.gender == inputvalue && e.status == true
+    );
 
-        let filteredcategory = localcategory.filter((e) =>
-            e.gender == inputvalue && e.status == true
-        );
+    console.log(filteredcategory);
 
-        console.log(filteredcategory);
+    if (inputvalue == 1) {
+      const category_ul = document.querySelector("#cate_men");
+      category_ul.innerHTML = `<li class="dropdown-item clickedgender"  data-gender_id=${inputvalue}>all</li>`;
 
-        if (inputvalue == 1) {
-            let category_ul = document.querySelector("#cate_men");
-            category_ul.innerHTML = " ";
 
-            // for (i = 0; i < filteredcategory.length; i++) {
-            //     let dropdown_item_li = document.createElement("li");
-            //     dropdown_item_li.setAttribute("class", "dropdown-item")
-            //     dropdown_item_li.setAttribute("data-filter", "dropdown-item")
-            //     dropdown_item_li.innerHTML = filteredcategory[i]["category"]
-            //     category_ul.append(dropdown_item_li);
-            // }
-            for (i = 0; i < filteredcategory.length; i++) {
-                let dropdown_item_li = document.createElement("li");
-                dropdown_item_li.setAttribute("class", "dropdown-item")
-                dropdown_item_li.setAttribute("value", filteredcategory[i]["id"])
-                dropdown_item_li.innerHTML = filteredcategory[i]["category"]
-                // dropdown_item_li.setAttribute("href", "/pages/products/product-list.html?category=" + filteredcategory[i]["id"])
-                category_ul.append(dropdown_item_li);
-            }
-        };
-
-        if (inputvalue == 2) {
-            let category_ul = document.querySelector("#cate_women");
-            category_ul.innerHTML = " ";
-
-            for (i = 0; i < filteredcategory.length; i++) {
-                let dropdown_item_li = document.createElement("li");
-                dropdown_item_li.setAttribute("class", "dropdown-item")
-                dropdown_item_li.setAttribute("value", filteredcategory[i]["id"])
-                dropdown_item_li.innerHTML = filteredcategory[i]["category"]
-                category_ul.append(dropdown_item_li);
-            }
-        };
-
-        if (inputvalue == 3) {
-            let category_ul = document.querySelector("#cate_kids");
-            category_ul.innerHTML = " ";
-
-            for (i = 0; i < filteredcategory.length; i++) {
-                let dropdown_item_li = document.createElement("li");
-                dropdown_item_li.setAttribute("class", "dropdown-item")
-                dropdown_item_li.setAttribute("value", filteredcategory[i]["id"])
-                dropdown_item_li.innerHTML = filteredcategory[i]["category"]
-                category_ul.append(dropdown_item_li);
-            }
-        };
-
+      for (i = 0; i < filteredcategory.length; i++) {
+        const dropdown_item_li = document.createElement("li");
+        dropdown_item_li.setAttribute("class", "dropdown-item");
+        dropdown_item_li.setAttribute("value", filteredcategory[i].id);
+        dropdown_item_li.innerHTML = filteredcategory[i].category;
+        // dropdown_item_li.setAttribute("href", "/pages/products/product-list.html?category=" + filteredcategory[i]["id"])
+        category_ul.append(dropdown_item_li);
+      }
     }
-})
 
-let ul_dropdown_menu = document.querySelectorAll(".dropdown-menu")
-console.log(ul_dropdown_menu)
-ul_dropdown_menu.forEach(event => {
-    event.addEventListener("click", function (e) {
+    if (inputvalue == 2) {
+      const category_ul = document.querySelector("#cate_women");
+       category_ul.innerHTML = `<li class="dropdown-item clickedgender" class="clickedgender" data-gender_id=${inputvalue}>all</li>`;
 
-        let inputvalue = e.target.value;
-        location.href = `/pages/products/product-list.html?category=${inputvalue}`
+      for (i = 0; i < filteredcategory.length; i++) {
+        const dropdown_item_li = document.createElement("li");
+        dropdown_item_li.setAttribute("class", "dropdown-item");
+        dropdown_item_li.setAttribute("value", filteredcategory[i].id);
+        dropdown_item_li.innerHTML = filteredcategory[i].category;
+        category_ul.append(dropdown_item_li);
+      }
+    }
 
-    })
-})
+    if (inputvalue == 3) {
+      const category_ul = document.querySelector("#cate_kids");
+       category_ul.innerHTML = `<li class="dropdown-item clickedgender" class="clickedgender" data-gender_id=${inputvalue}>all</li>`;
+
+      for (i = 0; i < filteredcategory.length; i++) {
+        const dropdown_item_li = document.createElement("li");
+        dropdown_item_li.setAttribute("class", "dropdown-item");
+        dropdown_item_li.setAttribute("value", filteredcategory[i].id);
+        dropdown_item_li.innerHTML = filteredcategory[i].category;
+        category_ul.append(dropdown_item_li);
+      }
+    }
+  }
+
+});
+
+
+
+const ul_dropdown_menu = document.querySelectorAll(".dropdown-menu");
+
+console.log(ul_dropdown_menu);
+ul_dropdown_menu.forEach((event) => {
+  event.addEventListener("click", (e) => {
+
+    const inputvalue = e.target.value;
+
+
+      if(inputvalue == 0){
+
+        let getValue = document.querySelectorAll(".dropdown-item.clickedgender");
+        
+        getValue.forEach(function(e){
+          let gValue = e.dataset.gender_id;
+           location.href = `/pages/products/product-list.html?gender=${gValue}`;
+        })
+      }
+          
+
+
+    if(inputvalue!==0){
+      location.href = `/pages/products/product-list.html?category=${inputvalue}`;
+    }
+   
+  });
+});
+
+
+
+
+// const  = document.querySelectorAll(".dropdown-menu");
+// console.log(ul_dropdown_menu);
+// ul_dropdown_menu.forEach((event) => {
+//   event.addEventListener("click", (e) => {
+//     const inputvalue = e.target.value;
+//     location.href = `/pages/products/product-list.html?category=${inputvalue}`;
+//   });
+// });

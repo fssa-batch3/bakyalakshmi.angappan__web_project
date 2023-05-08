@@ -23,22 +23,18 @@ header {
     height: 70px;
 }
 
-.nav-item,
-.nav-link {
+
+.nav-item{
     font-family: 'Jost', sans-serif;
     font-weight: 600;
     color: #000;
     text-decoration: none;
     font-size: 20px;
+    text-transform: uppercase;
 }
-
-.nav-link:hover {
-    text-transform: capitalize;
+.nav-item:hover{
     font-weight: 700;
-    color: #000;
-    text-decoration: none;
 }
-
 .dropdown-menu a:hover {
     text-transform: capitalize;
     font-weight: 700;

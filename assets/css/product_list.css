@@ -31,13 +31,14 @@ div.location {
 .heading_top h1 {
     font-family: 'Jost', sans-serif;
     font-weight: 600;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
+    font-size: 28px;
 }
 
 .heading_top h3 {
     font-weight: 400;
     color: #5a5a5a;
-
+    font-size: 20px;
 }
 
 .products {
