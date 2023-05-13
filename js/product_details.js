@@ -307,7 +307,7 @@ function bag() {
   if (!click_size_value) {
     alert("please select a size to add the product to bag");
   }
-  if (!exist) {
+  if (click_size_value && !exist) {
     addtobag.push({
       bag_id,
       user_id: unique_id,
@@ -320,6 +320,7 @@ function bag() {
 
     localStorage.setItem("bag", JSON.stringify(addtobag));
     location.href = "/pages/orders/shopping_bag.html";
+
   }
 }
 
@@ -362,6 +363,7 @@ function wishlist() {
 
     localStorage.setItem("wishlist", JSON.stringify(addtowishlist));
     location.href = "/pages/orders/wishlist.html";
+    window.location.reload()
   }
 }
 

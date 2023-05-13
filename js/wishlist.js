@@ -86,7 +86,6 @@ const remove = document.querySelectorAll(".x-mark");
 remove.forEach((del) =>
   del.addEventListener("click", function () {
     const wishlist_uuid = this.dataset.id;
-    console.log(bag_uuid);
 
     const find_wishlist = localwishlist.find(
       (e) => e.wishlist_id == wishlist_uuid

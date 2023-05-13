@@ -87,10 +87,10 @@ const afterlogin = `
                 <h3>shop</h3>
                 <nav>
                     <ul>
-                        <li><a href="${footer_origin}/pages/product-list.html">men</a></li>
-                        <li><a href="${footer_origin}/pages/product-list.html">women</a>
+                        <li><a href="${footer_origin}/pages/products/product-list.html?gender=1">men</a></li>
+                        <li><a href="${footer_origin}/pages/products/product-list.html?gender=2">women</a>
                         </li>
-                        <li><a href="${footer_origin}/pages/product-list.html">kids</a>
+                        <li><a href="${footer_origin}/pages/products/product-list.html?gender=3">kids</a>
                         </li>
                     </ul>
                 </nav>

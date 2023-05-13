@@ -151,15 +151,19 @@ const after_login = `    <header id="desktop-header">
 
         
         <form class="searchbar" role="search">
-            <input class="form-control me-8 " type="search" placeholder="search for products,brands and more"
+            <input class="form-control me-10 " type="search" placeholder="search for products,brands and more"
                 aria-label="Search">
 
               
         </form>
+        
+        <button class="btn btn-dark seller_btn mx-3"><i class="fa-regular fa-user"></i> SELLER </button> 
 
-        <button class="btn btn-dark seller_btn mx-3"> seller </button>
 
         <div class="mx-1 icons">
+
+
+
         <a href="${root}/pages/homepage/account.html">
             <div id="profile">
                 <div><i class="fa-solid fa-user"></i></div>
