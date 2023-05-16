@@ -1,5 +1,6 @@
 let storedgender = JSON.parse(localStorage.getItem("gender_list"));
 
+
 let storedcategory = JSON.parse(localStorage.getItem("category_list"))
 
 
@@ -10,6 +11,7 @@ console.log(url);
 
 
 function updateBreadcrumbs(url) {
+
   // Get the current breadcrumb array from session storage, or create a new one if it doesn't exist
   let breadcrumbs = JSON.parse(sessionStorage.getItem('breadcrumbs')) || [{"name":"home","url":"/index.html"}];
 
@@ -36,9 +38,11 @@ console.log(storedgender);
 
     let urlgender = getparam.get("gender")
 
+
   let getgender = storedgender.find(
   (e) => e.id == urlgender
   );
+
 
   console.log(getgender);
 
@@ -47,6 +51,7 @@ console.log(storedgender);
 }
 
 if(hereurlcategory!==null){
+
 
   let getcategory = storedcategory.find(
   (e) => e.id == hereurlcategory
@@ -68,6 +73,8 @@ if(hereurlcategory!==null){
 
   // Add the new page name to the end of the breadcrumb array
   if(!findcrumbs && hereurlcategory == null){
+
+
   breadcrumbs.push({
     "name":findgender,
     "url":url
@@ -76,12 +83,15 @@ if(hereurlcategory!==null){
 
 // if category is found then gender and category should push
     if(!findcrumbs && hereurlcategory !== null){
+
+
   breadcrumbs.push(
     {
     "name":findgender,
     "url":`http://127.0.0.1:5501/pages/products/product-list.html?gender=${heregender}`
     },
         {
+
       "name":findcategory,
       "url":url
     },
@@ -92,9 +102,11 @@ if(hereurlcategory!==null){
 
   // Store the updated breadcrumb array in session storage
   sessionStorage.setItem('breadcrumbs', JSON.stringify(breadcrumbs));
+
 }
 
 updateBreadcrumbs(url);
+
 
 
 

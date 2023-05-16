@@ -64,12 +64,16 @@ for (let i = 0; i < filteredProducts.length; i++) {
   img_product_image.setAttribute("alt", filteredProducts[i].name);
   div_images.append(img_product_image);
 
+
   // // <i class="wishlist" class="fa-solid fa-heart"></i>
+
   // i_wishlist = document.createElement("i");
   // i_wishlist.setAttribute("class", "wishlist fa-solid fa-heart");
   // div_images.append(i_wishlist);
 
+
   // // <div class="ratings"></div>
+
   // div_ratings = document.createElement("div");
   // div_ratings.setAttribute("class", "ratings");
   // div_images.append(div_ratings);
