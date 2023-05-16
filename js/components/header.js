@@ -277,9 +277,7 @@ dropdown_menu.forEach((menu) => {
       }
     }
   }
-
 });
-
 
 
 const ul_dropdown_menu = document.querySelectorAll(".dropdown-menu");
@@ -290,6 +288,12 @@ ul_dropdown_menu.forEach((event) => {
 
     const inputvalue = e.target.value;
 
+    // let sessionbreadcrumbs = JSON.parse(sessionStorage.getItem("breadcrumbs")) || []
+    // sessionbreadcrumbs.push({
+    //   "name": inputvalue
+    // })
+    // sessionStorage.setItem("breadcrumbs",JSON.stringify(sessionbreadcrumbs))
+
 
       if(inputvalue == 0){
 
@@ -297,11 +301,12 @@ ul_dropdown_menu.forEach((event) => {
         
         getValue.forEach(function(e){
           let gValue = e.dataset.gender_id;
+    //           sessionbreadcrumbs.push({
+    //   "name": gvalue
+    // })
            location.href = `/pages/products/product-list.html?gender=${gValue}`;
         })
       }
-          
-
 
     if(inputvalue!==0){
       location.href = `/pages/products/product-list.html?category=${inputvalue}`;

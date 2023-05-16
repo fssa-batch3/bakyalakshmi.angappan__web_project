@@ -49,7 +49,7 @@ const after_address = `
         <div class="address">
             <div>
                 <p>Deliver to: ${user_data.full_name} </p>
-                <div class="filladdress">
+                <div class="filladdress"   value="${foundUserAddress.address_id}" >
                    ${foundUserAddress.streetaddress} ,
                    ${foundUserAddress.landmark} ,
                    ${foundUserAddress.city} - ${foundUserAddress.pincode}.
@@ -318,9 +318,7 @@ const order = `
                 </table>
                 
                 <div class="placeorder">
-                    <a href="../../pages/orders/order_list.html">
                         <button>place order</button>
-                    </a>
                 </div> 
             </div>      `;
 
@@ -390,12 +388,10 @@ movetowishlist.forEach((move) =>
 //   window.location.href = "/pages/orders/add_address.html"
 // })
 
-
 // function when change address is clicked
 
 let changeaddressbtn = document.querySelector(".changeaddress")
 console.log(changeaddressbtn)
-
 
 changeaddressbtn.addEventListener("click",openpopup)
 
@@ -413,4 +409,34 @@ function closepopup(){
 inputcontainer.classList.remove("openpopup")
 }
 
+
+document.querySelector(".placeorder").addEventListener("click",place)
+
+function place(){
+
+
+  let localOrder = JSON.parse(localStorage.getItem("order")) || [];
+
+
+  let order_uuid = crypto.randomUUID();
+
+  document.querySelector(".filladdress")
+
+
+  localOrder.push({
+    "order_id":order_uuid ,
+    "order_status":"ontheway" ,
+    "ordered_time" :new Date() ,
+    "address" : 0
+  })
+
+  localStorage.setItem("order",JSON.stringify(localOrder));
+
+  let localOrderedItems = JSON.parse(localStorage.getItem("order")) || [];
+  
+
+  localStorage.setItem("ordered_items",JSON.stringify(filtereduser_bag))
+
+
+}
 

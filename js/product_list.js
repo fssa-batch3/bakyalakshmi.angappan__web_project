@@ -67,31 +67,31 @@ for (let i = 0; i < filteredProducts.length; i++) {
   div_images.append(img_product_image);
 
   // <i class="wishlist" class="fa-solid fa-heart"></i>
-  i_wishlist = document.createElement("i");
-  i_wishlist.setAttribute("class", "wishlist fa-solid fa-heart");
-  div_images.append(i_wishlist);
+  // i_wishlist = document.createElement("i");
+  // i_wishlist.setAttribute("class", "wishlist fa-solid fa-heart");
+  // div_images.append(i_wishlist);
 
   // <div class="ratings"></div>
-  div_ratings = document.createElement("div");
-  div_ratings.setAttribute("class", "ratings");
-  div_images.append(div_ratings);
+  // div_ratings = document.createElement("div");
+  // div_ratings.setAttribute("class", "ratings");
+  // div_images.append(div_ratings);
 
-  // <div class="ratings_count">4.4</div>
-  div_ratings_count = document.createElement("div");
-  div_ratings_count.setAttribute("class", "ratings_count");
-  div_ratings_count.innerText = filteredProducts[i].ratings;
-  div_ratings.append(div_ratings_count);
+  // // <div class="ratings_count">4.4</div>
+  // div_ratings_count = document.createElement("div");
+  // div_ratings_count.setAttribute("class", "ratings_count");
+  // div_ratings_count.innerText = filteredProducts[i].ratings;
+  // div_ratings.append(div_ratings_count);
 
-  // <i class="star fa-solid fa-star"></i>
-  i_star = document.createElement("i");
-  i_star.setAttribute("class", "star fa-solid fa-star");
-  div_ratings.append(i_star);
+  // // <i class="star fa-solid fa-star"></i>
+  // i_star = document.createElement("i");
+  // i_star.setAttribute("class", "star fa-solid fa-star");
+  // div_ratings.append(i_star);
 
-  // <p class="buyers_count">4.4</p>
-  div_buyers_count = document.createElement("div");
-  div_buyers_count.setAttribute("class", "buyers_count");
-  div_buyers_count.innerText = filteredProducts[i].buyers;
-  div_ratings.append(div_buyers_count);
+  // // <p class="buyers_count">4.4</p>
+  // div_buyers_count = document.createElement("div");
+  // div_buyers_count.setAttribute("class", "buyers_count");
+  // div_buyers_count.innerText = filteredProducts[i].buyers;
+  // div_ratings.append(div_buyers_count);
 
   // <div class ="names"> <div>
   div_names = document.createElement("div");
@@ -117,9 +117,9 @@ for (let i = 0; i < filteredProducts.length; i++) {
   div_smallcontainer.append(div_prices);
 
   /// ///price - current calculation
-  const { mrp } = filteredProducts[i].varients[i].price;
-  const { value } = filteredProducts[i].varients[i].offer;
-  const { type } = filteredProducts[i].varients[i].offer;
+  const { mrp } = filteredProducts[i].varients[0].price;
+  const { value } = filteredProducts[i].varients[0].offer;
+  const { type } = filteredProducts[i].varients[0].offer;
   let current;
 
   if (type === "%") {
