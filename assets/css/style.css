@@ -13,98 +13,6 @@ body {
     text-transform: capitalize;
 }
 
-/*-------header-------*/
-
-/* header {
-    position: sticky;
-    top: 0px;
-    z-index: 1;
-    background-color: #fff;
-    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
-}
-
-#desktop-header nav .container-fluid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-
-
-.navbar-brand img {
-    padding-left: 10px;
-    height: 70px;
-}
-
-.nav-item,
-.nav-link {
-    font-family: 'Jost', sans-serif;
-    font-weight: 600;
-    color: #000;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.nav-link:hover {
-    text-transform: capitalize;
-    font-weight: 700;
-    color: #000;
-    text-decoration: none;
-}
-
-.dropdown-menu a:hover {
-    text-transform: capitalize;
-    font-weight: 700;
-    color: #000;
-    text-decoration: none;
-}
-
-.searchbar {
-    font-family: 'Jost', sans-serif;
-    display: flex;
-}
-
-.searchbar input {
-    font-family: 'Jost', sans-serif;
-    border: none;
-    width: 351px;
-    height: 80%;
-    padding: 10px;
-    background-color: #eee;
-
-}
-
-.searchbar button {
-    border: none;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    height: 80%;
-    padding: 10px;
-}
-
-.icons i {
-    font-size: 24px;
-    padding-bottom: 5%;
-}
-
-.icons a {
-    font-family: 'Jost', sans-serif;
-    margin-left: 30px;
-    text-decoration: none;
-    color: #000;
-    font-size: 14px;
-}
-
-.icons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    text-align: center;
-    padding-right: 10px;
-} */
-
 /* container */
 div.container-fluid {
     padding-left: 0;
@@ -185,6 +93,7 @@ section.banner1 {
     width: 10rem;
 }
 
+
 .categories .categories_list div h4 {
     font-family: 'Jost', sans-serif;
     position: absolute;
@@ -203,17 +112,23 @@ section.banner1 {
 }
 
 .categories h1 {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     text-align: center;
     text-transform: uppercase;
 }
 
+
 .categories .categories_list {
+  
+    width:100%;
+    overflow-x: scroll;
     background-color: #eee;
-    padding: 40px;
+    padding: 30px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-around;
+
 }
 
 .categories img {
@@ -302,11 +217,13 @@ div.deals .deals_list h4 {
 }
 
 .banner {
-    width: 95vw;
+    width: 98.5vw;
     height: 60vh;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -317,7 +234,9 @@ div.deals .deals_list h4 {
     background: linear-gradient(10deg, #fff, #222);
     border: 5px solid #fff;
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .bannersub div:nth-child(1),
@@ -342,12 +261,12 @@ div.deals .deals_list h4 {
 
 .bannersub div:nth-child(2) {
     background-color: #fff;
-    height: 85%;
-    margin-top: 2%;
+    height: 80%;
     text-align: center;
     position: relative;
     border-radius: 10px;
     box-shadow: 1px 1px 10px #555;
+    padding: 2%;
 }
 
 .bannersub div:nth-child(2) button {
@@ -364,31 +283,40 @@ div.deals .deals_list h4 {
     text-transform: capitalize;
 }
 
+.bannersub div:nth-child(2) div{
+    margin-bottom: 10%;
+}
+/* 
 .bannersub div:nth-child(2) div:hover {
     background-color: #555;
-}
+} */
 
 .bannersub .image {
     border: 1px solid #000;
     width: 20rem;
-
     padding: 2%;
     box-shadow: 1px 2px 5px #000;
-    margin-top: 6px;
+    margin-top: 6%;
 }
 
 div.fashion_list {
     background-color: #eee;
+      
 }
 
 div.fashion_categories {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-around;
+    align-items: center;
     position: relative;
     margin-top: 5%;
     padding-bottom: 5%;
+    padding-left: 3%;
+    width: 100%;
+    overflow-x: scroll;
+
 }
 
 div.fashion_categories div {

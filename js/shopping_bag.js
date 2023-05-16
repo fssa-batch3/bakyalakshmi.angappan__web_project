@@ -341,7 +341,7 @@ remove.forEach((del) =>
     localbag.splice(indexofbagprod, 1);
 
     localStorage.setItem("bag", JSON.stringify(localbag));
-    location.reload();
+    window.location.reload();
   })
 );
 
@@ -377,6 +377,7 @@ movetowishlist.forEach((move) =>
 
     localStorage.setItem("bag", JSON.stringify(localbag));
     localStorage.setItem("wishlist", JSON.stringify(localwishlist));
+     window.location.reload();
   })
 );
 
@@ -407,6 +408,7 @@ let changeaddressclosebtn = document.querySelector(".changeaddressx-mark")
 changeaddressclosebtn.addEventListener("click",closepopup)
 function closepopup(){
 inputcontainer.classList.remove("openpopup")
+
 }
 
 

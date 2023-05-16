@@ -1,5 +1,4 @@
 let div_smallcontainer;
-// let a_product_link;
 let div_images;
 let img_product_image;
 let i_wishlist;
@@ -17,7 +16,8 @@ let span_product_offer;
 const product = JSON.parse(localStorage.getItem("product_list"));
 const params = new URLSearchParams(window.location.search);
 const urlcategory = params.get("category")
-let filteredcategory = ""
+console.log(urlcategory)
+let filteredcategory ;
 
 if(!urlcategory){
   const urlgender = params.get("gender");
@@ -37,9 +37,9 @@ if(urlcategory && urlcategory!==0){
   );
 }
 
+console.log(filteredProducts)
 
 
-console.log(filteredProducts);
 
 
 for (let i = 0; i < filteredProducts.length; i++) {
@@ -51,8 +51,6 @@ for (let i = 0; i < filteredProducts.length; i++) {
   // console.log(div_smallcontainer);
   document.querySelector("div.products").append(div_smallcontainer);
   // console.log(div_smallcontainer);
-
-  // <a class="product_link" href="../products/product details/mens_product_details/product_details-men-jean1.html"></a>
 
   //  <div class= "images"> <div>
   div_images = document.createElement("div");
@@ -66,12 +64,16 @@ for (let i = 0; i < filteredProducts.length; i++) {
   img_product_image.setAttribute("alt", filteredProducts[i].name);
   div_images.append(img_product_image);
 
-  // <i class="wishlist" class="fa-solid fa-heart"></i>
+
+  // // <i class="wishlist" class="fa-solid fa-heart"></i>
+
   // i_wishlist = document.createElement("i");
   // i_wishlist.setAttribute("class", "wishlist fa-solid fa-heart");
   // div_images.append(i_wishlist);
 
-  // <div class="ratings"></div>
+
+  // // <div class="ratings"></div>
+
   // div_ratings = document.createElement("div");
   // div_ratings.setAttribute("class", "ratings");
   // div_images.append(div_ratings);
