@@ -197,11 +197,13 @@ console.log(findGender)
 
 document.querySelector(".heading_top_gender").innerText = findGender["gender"]+"'s"
 
+
 }
 
 if(!findCategory){
   document.querySelector(".heading_top_category").innerText = "all products"
 }
+
 
 
 

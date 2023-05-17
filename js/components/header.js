@@ -67,7 +67,7 @@ const before_login = `
               
         </form>
 
-        <button class="btn btn-dark seller_btn mx-3"> seller </button>
+        <button class="btn btn-dark seller_btn mx-3"><i class="fa-regular fa-user"></i> SELLER </button>
 
         <div class="mx-1 icons">
         <a href="${root}/pages/homepage/login.html">

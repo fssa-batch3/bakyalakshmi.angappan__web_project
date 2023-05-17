@@ -1,23 +1,25 @@
-let storedgender = JSON.parse(localStorage.getItem("gender_list"));
 
 
-let storedcategory = JSON.parse(localStorage.getItem("category_list"))
+const storedgender = JSON.parse(localStorage.getItem("gender_list"));
+
+const storedcategory = JSON.parse(localStorage.getItem("category_list"));
+
+const storedproduct = JSON.parse(localStorage.getItem("product_list"));
 
 
 let url = window.location.href
 console.log(url);
 
-
-
-
 function updateBreadcrumbs(url) {
 
   // Get the current breadcrumb array from session storage, or create a new one if it doesn't exist
-  let breadcrumbs = JSON.parse(sessionStorage.getItem('breadcrumbs')) || [{"name":"home","url":"/index.html"}];
+  let breadcrumbs = JSON.parse(sessionStorage.getItem('breadcrumbs')) || [];
 
 
 
   let findcrumbs = breadcrumbs.some(e=>e.url === url);
+
+  
 
   let searchparam = window.location.search
 console.log(searchparam);
@@ -27,28 +29,65 @@ console.log(searchparam);
 
   const hereurlcategory = getparam.get("category");
 
+  let heregender = "";
   let findgender = "";
   let findcategory = "";
-  let findurlgender = ""
-  
+  let hereproduct = "";
+  let urlgender = "";
+  let findproduct = ""
+
+
+
   if(hereurlcategory == null){
 
-let storedgender = JSON.parse(localStorage.getItem("gender_list"));
-console.log(storedgender);
+    urlgender = getparam.get("gender")
+    console.log(urlgender);
 
-    let urlgender = getparam.get("gender")
+          hereproduct =  getparam.get("product_id");
+// ////////////
 
-
-  let getgender = storedgender.find(
-  (e) => e.id == urlgender
-  );
+    if(urlgender == null ){
 
 
-  console.log(getgender);
+      
+      getproduct = storedproduct.find(e=>e.product_id == findproduct);
+      console.log(getproduct);
 
-  findgender = getgender["gender"]
+      findproduct = getproduct["name"];
+      console.log(findproduct);
 
+      let getgender = storedgender.find(e=>e.id == getproduct["gender"]);
+      console.log(getgender);
+
+      findgender = getgender["gender"];
+      console.log(findgender);
+
+
+      let getcategory = storedcategory.find(e=>e.id == getproduct["category"]);
+      console.log(getcategory);
+
+      findcategory = getcategory["category"];
+      console.log(findcategory);
+
+      
+      // breadcrumbs.splice(0)
+    }
+
+
+    if(urlgender !== null){
+        let getgender = storedgender.find(
+      (e) => e.id == urlgender
+      );
+
+    console.log(getgender);
+
+    findgender = getgender["gender"]
+
+    breadcrumbs.splice(0)
+  } 
 }
+
+// /////////
 
 if(hereurlcategory!==null){
 
@@ -61,38 +100,71 @@ if(hereurlcategory!==null){
 
     heregender = getcategory["gender"]
   
-
   let getgender = storedgender.find(
   (e) => e.id == heregender
   );
 
   findgender = getgender["gender"]
 
+   breadcrumbs.splice(0) 
 
 };
 
   // Add the new page name to the end of the breadcrumb array
-  if(!findcrumbs && hereurlcategory == null){
+  if(!findcrumbs && hereurlcategory == null && heregender !== null ){
 
+  breadcrumbs.push(
 
-  breadcrumbs.push({
+    {"name":"home","url":"/index.html"},
+    
+    {
     "name":findgender,
     "url":url
-  });
+    }
+
+  );
+
   }
 
 // if category is found then gender and category should push
-    if(!findcrumbs && hereurlcategory !== null){
+    if(!findcrumbs && hereurlcategory !== null ){
 
 
   breadcrumbs.push(
+    {"name":"home","url":"/index.html"},
+
     {
     "name":findgender,
     "url":`http://127.0.0.1:5501/pages/products/product-list.html?gender=${heregender}`
     },
-        {
+
+    {
 
       "name":findcategory,
+      "url":url
+    },
+  );
+
+  }
+
+  // // if category is found then gender and category should push
+    if(!findcrumbs && hereurlcategory == null && heregender == null){
+
+  breadcrumbs.push(
+    {"name":"home","url":"/index.html"},
+
+    {
+    "name":findgender,
+    "url":`http://127.0.0.1:5501/pages/products/product-list.html?gender=${heregender}`
+    },
+
+    {
+    "name":findcategory,
+    "url":`http://127.0.0.1:5501/pages/products/product-list.html?gender=${hereurlcategory}`
+    },
+
+    {
+      "name":findproduct,
       "url":url
     },
   );
@@ -111,10 +183,10 @@ updateBreadcrumbs(url);
 
 
 
+
 const container = document.querySelector('.location');
 console.log(container)
-// const pages = generateBreadcrumbs();
-// console.log(pages)
+
 
  let pages = JSON.parse(sessionStorage.getItem('breadcrumbs')) || [];
 for (let i = 0; i < pages.length; i++) {
@@ -128,5 +200,6 @@ for (let i = 0; i < pages.length; i++) {
     const separator = document.createElement('span');
     separator.textContent = '>';
     container.appendChild(separator);
+
   }
 }

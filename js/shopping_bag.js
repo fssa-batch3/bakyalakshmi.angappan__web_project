@@ -49,7 +49,7 @@ const after_address = `
         <div class="address">
             <div>
                 <p>Deliver to: ${user_data.full_name} </p>
-                <div class="filladdress"   value="${foundUserAddress.address_id}" >
+                <div class="filladdress"   data-address_id="${foundUserAddress.address_id}" >
                    ${foundUserAddress.streetaddress} ,
                    ${foundUserAddress.landmark} ,
                    ${foundUserAddress.city} - ${foundUserAddress.pincode}.
@@ -118,8 +118,6 @@ document.querySelector(".inputchangeaddress .add").addEventListener("click",adda
 function addaddresspage(){
   window.location.href="/pages/orders/add_address.html"
 }
-
-
 
 const localproducts = JSON.parse(localStorage.getItem("product_list"));
 
@@ -391,6 +389,7 @@ movetowishlist.forEach((move) =>
 
 // function when change address is clicked
 
+
 let changeaddressbtn = document.querySelector(".changeaddress")
 console.log(changeaddressbtn)
 
@@ -414,31 +413,66 @@ inputcontainer.classList.remove("openpopup")
 
 document.querySelector(".placeorder").addEventListener("click",place)
 
+
+
 function place(){
 
 
   let localOrder = JSON.parse(localStorage.getItem("order")) || [];
+  console.log(localOrder);
 
+  let address_id = document.querySelector(".filladdress").dataset.address_id
+console.log(address_id);
 
   let order_uuid = crypto.randomUUID();
 
-  document.querySelector(".filladdress")
+  console.log(filtereduser_bag.length);
+
+if(filtereduser_bag.length !== 0 && address_id !== null){
 
 
   localOrder.push({
     "order_id":order_uuid ,
     "order_status":"ontheway" ,
     "ordered_time" :new Date() ,
-    "address" : 0
+    "address" : address_id
   })
 
   localStorage.setItem("order",JSON.stringify(localOrder));
 
-  let localOrderedItems = JSON.parse(localStorage.getItem("order")) || [];
+  let localOrders = JSON.parse(localStorage.getItem("order")) || [];
+  let localOrderedItems = JSON.parse(localStorage.getItem("ordered_item")) || [];
   
+  console.log(filtereduser_bag);
 
-  localStorage.setItem("ordered_items",JSON.stringify(filtereduser_bag))
+  for(i=0;i<filtereduser_bag.length;i++){
 
+      filtereduser_bag[i].order_id = order_uuid;
+
+  }
+
+  localOrderedItems.push(...filtereduser_bag);
+
+  console.log(localOrderedItems);
+
+  localStorage.setItem("ordered_items",JSON.stringify(localOrderedItems));
+
+}
+// if(address_id == null){
+//   alert("add address to place order")
+// }
+
+if(filtereduser_bag.length === 0 ){
+  alert(`There is no products in the bag 
+kindly, add the products to bag to place order`)
+}
+
+let filternotuserbag = localbag.filter(e=>e.user_id !== localunique_id);
+console.log(filternotuserbag);
+
+localStorage.setItem("bag",JSON.stringify(filternotuserbag));
+
+window.location.reload()
 
 }
 
