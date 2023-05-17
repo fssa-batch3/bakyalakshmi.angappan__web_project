@@ -57,8 +57,6 @@ const before_login = `
         </div>
 
         
-
-
         
         <form class="searchbar" role="search">
             <input class="form-control me-8 " type="search" placeholder="search for products,brands and more"

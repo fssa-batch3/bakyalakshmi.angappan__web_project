@@ -474,6 +474,7 @@ div.features div h2 {
     display: none;
 }
 
+
 @media(max-width:360px) {
     header#desktop-header {
         display: none;
