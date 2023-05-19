@@ -107,8 +107,9 @@
 
       document.getElementById("gender").value = user_data.gender;
       document.getElementById("dateofbirth").value = user_data.dob;
-      document.getElementById("address").value = user_data.address;
       document.getElementById("hintname").value = user_data.hintname;
+
+
 
       function update(e) {
         event.preventDefault();
@@ -120,7 +121,6 @@
 
         user_data.gender = document.getElementById("gender").value;
         user_data.dob = document.getElementById("dateofbirth").value;
-        user_data.address = document.getElementById("address").value;
         user_data.hintname = document.getElementById("hintname").value;
 
         localStorage.setItem("user_list", JSON.stringify(user_list));

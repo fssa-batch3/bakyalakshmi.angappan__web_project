@@ -229,7 +229,7 @@ for (let i = 0; i < filtereduser_bag.length; i++) {
         <label><b>Qty:</b></label>
         <input type="number" class="quantity" min="1" value="${
           filtereduser_bag[i].quantity
-        }" data-bag_id =${localbag[i].bag_id} />
+        }" data-bag_id =${localbag[i].bag_id} required />
     </div>
 
     <div>
@@ -414,65 +414,91 @@ inputcontainer.classList.remove("openpopup")
 document.querySelector(".placeorder").addEventListener("click",place)
 
 
-
 function place(){
 
 
   let localOrder = JSON.parse(localStorage.getItem("order")) || [];
   console.log(localOrder);
 
-  let address_id = document.querySelector(".filladdress").dataset.address_id
+  let address_id = document.querySelector(".filladdress").dataset.address_id;
+
+  let inp_quantity =  document.querySelectorAll(".quantity");
+
 console.log(address_id);
 
   let order_uuid = crypto.randomUUID();
 
   console.log(filtereduser_bag.length);
 
-if(filtereduser_bag.length !== 0 && address_id !== null){
+if(filtereduser_bag.length > 0 || address_id !==0 || inp_quantity.value !== ""){
 
-
-  localOrder.push({
+  localOrder.push(
+    {
     "order_id":order_uuid ,
     "order_status":"ontheway" ,
     "ordered_time" :new Date() ,
-    "address" : address_id
-  })
+    "address" : address_id ,
+    "user_id" : localunique_id
+    }
+  )
 
   localStorage.setItem("order",JSON.stringify(localOrder));
 
   let localOrders = JSON.parse(localStorage.getItem("order")) || [];
-  let localOrderedItems = JSON.parse(localStorage.getItem("ordered_item")) || [];
+
+  let localOrderedItems = JSON.parse(localStorage.getItem("ordered_items")) || [];
   
+  console.log(localOrderedItems);
+
   console.log(filtereduser_bag);
 
-  for(i=0;i<filtereduser_bag.length;i++){
-
+  for(let i=0;i<filtereduser_bag.length;i++){
       filtereduser_bag[i].order_id = order_uuid;
-
   }
 
   localOrderedItems.push(...filtereduser_bag);
 
-  console.log(localOrderedItems);
-
   localStorage.setItem("ordered_items",JSON.stringify(localOrderedItems));
 
+  window.location.href = "/pages/orders/order_list.html"
+
+  let filternotuserbag = localbag.filter(e=>e.user_id !== localunique_id);
+console.log(filternotuserbag);
+localStorage.setItem("bag",JSON.stringify(filternotuserbag));
 }
+
+else if(inp_quantity.value == ""){
+alert(`please enter quantity to place order`);
+}
+
+else{
+    alert(`There is no products in the bag 
+kindly, add the products to bag to place order`)
+location.reload()
+}
+  
+
+
 // if(address_id == null){
 //   alert("add address to place order")
 // }
 
-if(filtereduser_bag.length === 0 ){
-  alert(`There is no products in the bag 
-kindly, add the products to bag to place order`)
+
 }
 
-let filternotuserbag = localbag.filter(e=>e.user_id !== localunique_id);
-console.log(filternotuserbag);
 
-localStorage.setItem("bag",JSON.stringify(filternotuserbag));
 
-window.location.reload()
+
+document.querySelector(".rem_all").addEventListener("click",removeWishlist)
+
+function removeWishlist(){
+  let wishlist = JSON.parse(localStorage.getItem("wishlist"));
+  
+  let unique_id = JSON.parse(localStorage.getItem("unique_id"));
+
+const filterwishlist = wishlist.filter(e=>e.user_id !== unique_id);
+
+localStorage.setItem("wishlist",JSON.stringify(filterwishlist));
 
 }
 

@@ -277,6 +277,23 @@ inputsize.forEach((size) =>
 );
 
 //  add to bag
+  const addtobag = JSON.parse(localStorage.getItem("bag")) || [];
+
+  const bagexist = addtobag.some(
+    (e) => e.product_id == urlproduct_id && e.size == click_size_value
+  );
+
+  console.log(bagexist);
+
+  console.log(button_bag.innerText);
+
+  if(bagexist){
+    button_bag.innerText = "GO TO BAG";
+  }
+
+  if(!bagexist){
+
+    
 button_bag.addEventListener("click", bag);
 
 function bag() {
@@ -299,7 +316,8 @@ function bag() {
     alert("please login to add products into bag");
     location.href = "/pages/homepage/login.html";
   } else if (exist) {
-    alert("product aldready added to bag");
+        button_bag.innerText = "GO TO BAG";
+    location.href = "/pages/orders/shopping_bag.html"
   }
 
   console.log(document.querySelector(".current_price").innerText);
@@ -324,7 +342,17 @@ function bag() {
   }
 }
 
+  }
+
+
+
 // add to wishlist
+  const addtowishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  const exist = addtowishlist.some((e) => e.product_id == urlproduct_id);
+  
+  if(exist){
+        button_wishlist.innerText = "wishlisted"
+  }
 
 button_wishlist.addEventListener("click", wishlist);
 
@@ -342,10 +370,12 @@ function wishlist() {
 
   const exist = addtowishlist.some((e) => e.product_id == urlproduct_id);
 
+
   if (unique_id == null || unique_id == undefined) {
     alert("please login to add your favorite products into wishlist");
     location.href = "/pages/homepage/login.html";
   } else if (exist) {
+
     alert("product aldready added to wishlist");
   }
 
@@ -362,6 +392,7 @@ function wishlist() {
     alert("product added to wishlist");
 
     localStorage.setItem("wishlist", JSON.stringify(addtowishlist));
+
     location.href = "/pages/orders/wishlist.html";
     window.location.reload()
   }

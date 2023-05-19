@@ -83,7 +83,8 @@ div.x-mark i{
 }
 
 h2.heading_top {
-    margin-left:1%
+    margin-left:1%;
+    display:inline-block
 }
 
 .smallcontainer button{
@@ -117,5 +118,30 @@ small.totalproducts{
 
 .message {
     font-size: 28px;
+}
+
+/* .btn_wishlist{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+
+.buttonsofwishlist{
+    float: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 3%;
+    width: 25%;
+}
+
+
+.rem_all.btn{
+    border: 1px solid #000;
+}
+
+.rem_all.btn:hover {
+    border: 1px solid #000;
 }
 

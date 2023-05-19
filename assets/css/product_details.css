@@ -216,6 +216,7 @@ button.addtobag {
     letter-spacing: 1px;
     font-weight: 600;
     margin-top: 1em;
+    text-transform: uppercase;
 }
 
 button.addtobag:hover {

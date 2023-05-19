@@ -49,7 +49,7 @@ for (i = 0; i < filtereduser_wishlist.length; i++) {
 
   const wishlist = `
 
-<div class="smallcontainer">
+<div class="smallcontainer" data-product_id = ${find_product.product_id}>
 
 <img class="product_image" src="${find_product.image.source}" alt="${
     find_product.name
@@ -153,3 +153,31 @@ movetobag_btn.forEach((tobag) =>
     localStorage.setItem("bag", JSON.stringify(localbag));
   })
 );
+
+
+
+const product_container = document.querySelectorAll(".smallcontainer");
+
+// console.log(product_container);
+product_container.forEach((event) => {
+  event.addEventListener("click", () => {
+    const product_uuid = event.dataset.product_id;
+    console.log(product_uuid);
+    location.href = `/pages/products/product-details.html?product_id=${product_uuid}`;
+  });
+});
+
+document.querySelector(".rem_all").addEventListener("click",removeWishlist)
+
+function removeWishlist(){
+  let wishlist = JSON.parse(localStorage.getItem("wishlist"));
+  
+  let unique_id = JSON.parse(localStorage.getItem("unique_id"));
+
+const filterwishlist = wishlist.filter(e=>e.user_id !== unique_id);
+
+localStorage.setItem("wishlist",JSON.stringify(filterwishlist));
+
+window.location.reload();
+
+}
