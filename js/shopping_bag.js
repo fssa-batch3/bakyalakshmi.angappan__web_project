@@ -155,7 +155,7 @@ if (filtereduser_bag.length === 0) {
   const createp = document.createElement("div");
   createp.setAttribute("class", "message");
   console.log(createp);
-  createp.innerText = "Your bag is empty!";
+  createp.innerText = "Your bag is empty!"
   pr.append(createp);
 
   const div_btn = document.createElement("div");
