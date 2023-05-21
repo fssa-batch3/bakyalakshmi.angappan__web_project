@@ -176,6 +176,8 @@ if (filtereduser_bag.length === 0) {
 let find_size_price = "";
 const current_price = "";
 let sum = 0;
+
+
 for (let i = 0; i < filtereduser_bag.length; i++) {
   // finding product from local storage
   const find_product = localproducts.find(
@@ -208,9 +210,9 @@ for (let i = 0; i < filtereduser_bag.length; i++) {
 
   sum += current_price;
 
-  const template_bag = `
+  const template_bag = ` 
 
-<div class="order_details">
+<div class="order_details"> 
 
 <div class="x-mark"  data-id="${localbag[i].bag_id}">
         <i class="fa-solid fa-xmark"></i>
