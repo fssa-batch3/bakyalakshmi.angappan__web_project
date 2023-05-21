@@ -58,7 +58,7 @@ div.x-mark i {
     padding-left: 2%;
     width: 100%;
     height: 30px;
-    border: 1px solid #000;
+    border: 1px solid #000;git 
     margin-top: 1%;
 }
 
@@ -84,7 +84,7 @@ div.x-mark i {
 .form-control small{
     /* visibility:hidden; */
     color:#e74c3c;
-    fontsize:12px;
+    font-size:12px;
 }
 
 .container-form div{
