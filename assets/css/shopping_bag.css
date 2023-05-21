@@ -44,6 +44,7 @@
     justify-content: space-between;
     align-items: center;
     padding:4%;
+    margin-bottom: 5%;
 } 
 
 .container div.address p{
@@ -221,6 +222,8 @@ span.date{
     /* padding-bottom: 2%;
     border-bottom: 1px solid #bbb; */
     margin-bottom: 3%;
+    display: inline-block;
+
 }
 
 .localaddress{
@@ -229,18 +232,16 @@ span.date{
     border-top: 1px solid #bbb;
 }
 
-
 .localaddress div{
     padding-right: 10px;
-
 }
 
 .changeaddressx-mark{
     color: #555;
     float: right;
-    font-size: 22px;
-    position: absolute;
-    top: 10%;
+    font-size: 20px;
+    top: 2%;
+
 }
 
 .buttonsofwishlist{
@@ -257,6 +258,29 @@ span.date{
 .rem_all.btn:hover {
     border: 1px solid #000;
 }
+
+.wishlist{
+        border: 2px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5%;
+            font-weight:500
+}
+
+.wishlist:hover {
+    border: 2px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5%;
+}
+.span_size{
+    text-transform: uppercase;
+}
+
+
+
 
 
 

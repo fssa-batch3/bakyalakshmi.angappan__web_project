@@ -231,7 +231,7 @@ div.deals .deals_list h4 {
     width: 100%;
     height: 100%;
     margin: 0;
-    background: linear-gradient(10deg, #fff, #222);
+    background: linear-gradient(180deg, #fff, #000000cc);
     border: 5px solid #fff;
     display: flex;
     flex-direction: row;
@@ -376,104 +376,9 @@ div.features div h2 {
     padding-bottom: 20px;
 }
 
-/* footer */
-.footer {
-    background-color: #eee;
-    color: #555;
-}
-
-.footer_nav_contact {
-    padding-top: 5%;
-    width: 80%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    text-transform: capitalize;
-    margin-left: 10%;
-    margin-right: 10%;
-
-}
-
-.footer_nav {
-    width: 30%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-}
-
-.footer_contact {
-    width: 60%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-}
-
-.footer_contact div {
-    width: 80%;
-}
-
-.footer_contact .contact_details i {
-    color: #555;
-
-}
-
-.footer_nav div h3 {
-    padding-bottom: 10%;
-}
-
-.footer_contact div h3 {
-    padding-bottom: 2%;
-}
-
-.footer_nav nav ul {
-    list-style: none;
-
-}
-
-.footer_nav nav ul li {
-    /* padding-bottom: 5%; */
-    text-decoration: none;
-}
-
-.footer_nav nav ul li a {
-    text-decoration: none;
-}
-
-.footer_nav nav ul li a:hover {
-    border-bottom: 1px solid #000;
-}
-
-
-.bottom_footer {
-    border-top: 1px solid #bbb;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 5%;
-}
-
-.footer_contact .contact_details {
-    padding-bottom: 5%;
-}
-
-.socialmedia a i {
-    color: #555;
-    font-size: 30PX;
-    padding: 8px;
-}
-
 #mobile-header {
     display: none;
 }
-
 
 @media(max-width:360px) {
     header#desktop-header {
@@ -569,7 +474,7 @@ div.features div h2 {
 
     }
 
-    .deals .deals_list {
+        /* .deals .deals_list {
         background-color: #eee;
         display: flex;
         flex-direction: row;
@@ -577,7 +482,7 @@ div.features div h2 {
         justify-content: initial;
         padding: 4%;
         overflow-x: scroll;
-    }
+    */
 
     .deals_list img {
         width: 18rem;

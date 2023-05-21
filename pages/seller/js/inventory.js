@@ -19,10 +19,7 @@ function createProduct(
   const td_name = document.createElement("td");
   const td_color = document.createElement("td");
 
-  const td_mrp = document.createElement("td");
-  // let td_currency = document.createElement("td");
-  const td_offer = document.createElement("td");
-  // let td_type = document.createElement("td");
+  
   const td_actions = document.createElement("td");
 
   const edit_button = document.createElement("button");
@@ -62,8 +59,8 @@ function createProduct(
   td_brand.innerText = brand;
   td_name.innerText = name;
   td_color.innerText = color;
-  td_mrp.innerText = mrp;
-  td_offer.innerText = value;
+  // td_mrp.innerText = mrp;
+  // td_offer.innerText = value;
 
   productData.append(
     td_index,
@@ -72,8 +69,6 @@ function createProduct(
     td_brand,
     td_name,
     td_color,
-    td_mrp,
-    td_offer,
     td_actions
   );
   crudTable.append(productData);
@@ -89,8 +84,7 @@ for (i = 0; i < product.length; i++) {
     product[i].brand,
     product[i].name,
     product[i].color,
-    `${product[i].varients[i].price.currency}.${product[i].varients[i].price.mrp}`,
-    product[i].varients[i].offer.value + product[i].varients[i].offer.type,
+   
     product[i].product_id
   );
 }

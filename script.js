@@ -73,7 +73,7 @@ let addmendiv = `
                                 <img src="${filtermenProduct[0]["image"]["source"]}" alt="${filtermenProduct[0]["name"]}">
                             <div>
                                 <h2>${filtergcategory[i]["category"]}</h2>
-                            
+
                             </div>
                         </div>
 `
@@ -111,7 +111,7 @@ let adddwomendiv = `
                         <div class="categorycontainer" data-category=${filterwomencategory[i]["id"]}>
                                 <img src="${filterwomenProduct[0]["image"]["source"]}" alt="${filterwomenProduct[0]["name"]}">
                             <div>
-                                <h2>${filterwomencategory[i]["category"]}</h2>
+                                <h2>${localCategory[i]["category"]}</h2>
                             
                             </div>
                         </div>
@@ -131,5 +131,53 @@ function movetoProductlist(){
     window.location.href=`/pages/products/product-list.html?category=${clcikedcategory}`
 }
 }
+
+// dynamic categories 
+
+// const localCategory = JSON.parse(localStorage.getItem("category_list"));''
+// const localProduct = JSON.parse(localStorage.getItem("product_list"));
+
+for(let i=0;i<5;i++){
+const filterProduct = localProduct.filter(e=>e.category == localCategory[i]["id"]);
+
+
+
+if(filterProduct.length !== 0){
+
+
+    let offer = Math.round(filterProduct[0]["varients"][0]["offer"]["value"]);
+
+let dealaddcategorydiv = `
+                        <div class="categorycontainer" data-category=${localCategory[i]["id"]}>
+                                <img src="${filterProduct[0]["image"]["source"]}" alt="${filterProduct[0]["name"]}">
+                                <h2>
+                                    <p>${localCategory[i]["category"]}</p>up to ${offer}% off
+                                </h2>
+                        </div>
+`
+console.log(document.querySelector(".categories_list"))
+document.querySelector(".deals_list").insertAdjacentHTML("afterbegin",dealaddcategorydiv)
+}
+
+
+document.querySelectorAll(".categorycontainer").forEach(move=>
+    move.addEventListener("click",movetoProductlist))
+function movetoProductlist(){
+    let clcikedcategory = this.dataset.category
+    console.log(clcikedcategory)
+    window.location.href=`/pages/products/product-list.html?category=${clcikedcategory}`
+}
+}
+
+
+//  shop now button
+
+document.querySelectorAll(".gender_btn").forEach(movetoproduct =>
+    movetoproduct.addEventListener("click",function(){
+        let getgender = this.dataset.gender
+
+        window.location.href=`pages/products/product-list.html?gender=${getgender}`
+    })
+)
 
 

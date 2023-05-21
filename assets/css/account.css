@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+
 }
 
 .header-account {
@@ -16,9 +17,11 @@
 .header-account h2 {
     position: absolute;
     margin-left: 2%;
+    text-transform: capitalize;
 }
 
 .header-account span {
+    cursor: pointer;
     font-weight: 600;
 }
 
@@ -40,6 +43,8 @@
 /* address style */
 
 .account div.addressbook{
+
+    text-transform: capitalize;
     background-color: #eee;
     width:25%;
     height:77%;
@@ -74,6 +79,7 @@
 }
 
 .add.btn{
+
     margin-top: 18px;
     border: 1px solid #555;
     /* background-color: #555; */
@@ -105,12 +111,14 @@
     margin-bottom: 6%;
 }
 
+
 .mobilenumber{
     padding:10px 1px;
     font-size: 14px;
 }
 
 .buttons{
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -162,6 +170,7 @@
 .profile_details div.heading h3 {
     margin-left: 1%;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .profile_details_table {

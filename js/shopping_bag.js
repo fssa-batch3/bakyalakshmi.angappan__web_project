@@ -21,7 +21,7 @@ console.log(foundUser)
 // showing the address from localstorage in the bag
 
 
-if(foundUser["address"]==0){
+if(foundUser["address"].length==0){
 // find address which is default or first
 let foundUserAddress = foundUser["address"].find(e=>e.status === "default") || foundUser["address"][0];
 
@@ -33,12 +33,21 @@ const before_address = `
             </div>
 
             <div class="addaddress">
-              <button>add address</button>
+              <button >add address</button>
             </div>
         </div>
 `;
 
 document.querySelector(".container").insertAdjacentHTML("afterbegin", before_address);
+
+
+document.querySelector(".addaddress").addEventListener("click",addaddress)
+
+function addaddress(){
+  window.location.href = "/pages/orders/add_address.html"
+}
+
+
 }
 
 if(foundUser["address"]!=0){
@@ -109,8 +118,8 @@ radioinput.forEach(get=>
 
     document.querySelector(".filladdress").innerHTML = `  
                   ${addressfind.streetaddress} ,${addressfind.landmark} ,${addressfind.city} - ${addressfind.pincode}.`
-
-    inputcontainer.classList.remove("openpopup")
+                  
+    closepopup();
   
   }
 
@@ -208,11 +217,9 @@ for (let i = 0; i < filtereduser_bag.length; i++) {
 </div>
 
 <div class="product_thumbnail">
-    <a href="../products/product details/mens_product_details/product_details-men-jean2.html">
         <img src= "${find_product.image.source}" alt="${
     find_product.image.alt
   }">
-    </a>
 </div>
 
 <div class="product_list">
@@ -224,7 +231,7 @@ for (let i = 0; i < filtereduser_bag.length; i++) {
 
     <div>
         <label><b>Size:</b></label>
-        <span>${find_size.value}</span>
+        <span class="span_size">${find_size.value}</span>
 
         <label><b>Qty:</b></label>
         <input type="number" class="quantity" min="1" value="${
@@ -390,6 +397,10 @@ movetowishlist.forEach((move) =>
 // function when change address is clicked
 
 
+
+// popup for changeaddress
+
+if(foundUser["address"].length!==0){
 let changeaddressbtn = document.querySelector(".changeaddress")
 console.log(changeaddressbtn)
 
@@ -407,8 +418,9 @@ let changeaddressclosebtn = document.querySelector(".changeaddressx-mark")
 changeaddressclosebtn.addEventListener("click",closepopup)
 function closepopup(){
 inputcontainer.classList.remove("openpopup")
-
 }
+}
+
 
 
 document.querySelector(".placeorder").addEventListener("click",place)
@@ -430,13 +442,15 @@ console.log(address_id);
 
   console.log(filtereduser_bag.length);
 
-if(filtereduser_bag.length > 0 || address_id !==0 || inp_quantity.value !== ""){
+if(filtereduser_bag.length !== 0  && address_id !== 0){
+
+  let getdate = new Date();
 
   localOrder.push(
     {
     "order_id":order_uuid ,
-    "order_status":"ontheway" ,
-    "ordered_time" :new Date() ,
+    "order_status":"On the way" ,
+    "ordered_time" :getdate,
     "address" : address_id ,
     "user_id" : localunique_id
     }
@@ -467,38 +481,55 @@ console.log(filternotuserbag);
 localStorage.setItem("bag",JSON.stringify(filternotuserbag));
 }
 
-else if(inp_quantity.value == ""){
-alert(`please enter quantity to place order`);
-}
 
-else{
+if(filtereduser_bag.length == 0){
     alert(`There is no products in the bag 
 kindly, add the products to bag to place order`)
-location.reload()
+
 }
-  
+
+if(inp_quantity.value == ""){
+alert(`please enter quantity to place order`);
+
+}
 
 
 // if(address_id == null){
 //   alert("add address to place order")
 // }
 
-
 }
 
 
 
 
-document.querySelector(".rem_all").addEventListener("click",removeWishlist)
 
-function removeWishlist(){
-  let wishlist = JSON.parse(localStorage.getItem("wishlist"));
+if(filtereduser_bag.length !== 0){
+
   
-  let unique_id = JSON.parse(localStorage.getItem("unique_id"));
+  let getwishlist = `      
 
-const filterwishlist = wishlist.filter(e=>e.user_id !== unique_id);
+                <div class="wishlist">
+                
+                    Add more from wishlist <i class="fa-solid fa-chevron-up fa-rotate-90"></i>
+                
+                </div>
+                `
 
-localStorage.setItem("wishlist",JSON.stringify(filterwishlist));
+     document.querySelector(".order_list").insertAdjacentHTML("afterend",getwishlist);
 
+  document.querySelector(".wishlist").addEventListener("click",function(){
+
+
+
+  window.location.href = "/pages/orders/wishlist.html"
+})
 }
+
+
+
+
+
+
+
 

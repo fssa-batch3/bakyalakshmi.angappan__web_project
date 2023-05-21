@@ -158,6 +158,7 @@ h3{
 }
 
 .order_list{
+    font-family: 'Jost', sans-serif;
     display:flex;
     padding:2%;
     align-content: center;

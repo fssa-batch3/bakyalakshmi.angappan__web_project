@@ -145,7 +145,6 @@ function signUp(e) {
       re_enter_password: re_enter_passwordvalue,
       gender,
       dob,
-      address,
       hintname,
       unique_id,
     });

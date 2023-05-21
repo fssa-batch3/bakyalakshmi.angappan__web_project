@@ -3,6 +3,7 @@ const gender_list = JSON.parse(localStorage.getItem("gender_list"));
 const size_list = JSON.parse(localStorage.getItem("size_list"));
 const product_list = JSON.parse(localStorage.getItem("product_list"));
 const category_list = JSON.parse(localStorage.getItem("category_list"));
+const address_list = JSON.parse(localStorage.getItem("address_list"));
 
 const user_data = [
   {
@@ -88,6 +89,11 @@ const product_data = [{"seller_id":"vela623@gmail.com","product_id":"bf5a89fe-31
 
 const category_data = [{"seller_id":"vela623@gmail.com","category":"T-shirts","id":1,"gender":"1","status":true},{"seller_id":"vela623@gmail.com","category":"Shirts","id":2,"gender":"1","status":true},{"seller_id":"vela623@gmail.com","category":"Jeans","id":3,"gender":"1","status":true},{"seller_id":"vela623@gmail.com","category":"Shorts","id":4,"gender":"1","status":true},{"seller_id":"vela623@gmail.com","category":"Skirts","id":5,"gender":"2","status":true},{"seller_id":"vela623@gmail.com","category":"T-shirts","id":6,"gender":"2","status":true},{"seller_id":"vela623@gmail.com","category":"Pants","id":7,"gender":"3","status":true},{"seller_id":"vela623@gmail.com","category":"shirts","id":8,"gender":"3","status":true}];
 
+
+
+const address_data = [{"email_id":"surya.umapathy@ctr.freshworks.com","address":[{"address_id":1,"title":"Home","streetaddress":"No 114, valluvan street, otteri","landmark":"near school","city":" Chennai","pincode":"600012","state":"Tamilnadu","country":"India","mobile_number":"9789853625","status":"default"}]}]
+
+
 if (!user_list) {
   localStorage.setItem("user_list", JSON.stringify(user_data));
 }
@@ -106,5 +112,9 @@ if (!product_list) {
 
 if (!category_list) {
   localStorage.setItem("category_list", JSON.stringify(category_data));
+}
+
+if(!address_list){
+  localStorage.setItem("address_list", JSON.stringify(address_data));
 }
 

@@ -1,3 +1,15 @@
+// back button is clicked 
+
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted || 
+                         ( typeof window.performance != "undefined" && 
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    // Handle page restore.
+    window.location.reload();
+  }
+});
+
 const product = JSON.parse(localStorage.getItem("product_list"));
 
 // searching values in url params
@@ -132,7 +144,7 @@ div_rightside.append(div_color);
 // div_color.append(div_choosecolor);
 p_select_size = document.createElement("p");
 p_select_size.setAttribute("class","headingsize")
-p_select_size.innerText = "size";
+p_select_size.innerText = "Select size";
 div_rightside.append(p_select_size);
 
 // <div class="size"></div>
@@ -162,7 +174,7 @@ for (j = 0; j < noOfItems; j++) {
   for (k = 0; k < localsize.length; k++) {
     foundsize = localsize.find((e) => e.id == productsize[j].size);
   }
-  input_size_no = document.createElement("input");
+  let input_size_no = document.createElement("input");
   input_size_no.setAttribute("class", "size_no productsize");
   input_size_no.setAttribute("id", `productsize${j}`);
   input_size_no.setAttribute("type", "radio");
@@ -171,7 +183,7 @@ for (j = 0; j < noOfItems; j++) {
   input_size_no.setAttribute("value", foundsize.id);
   div_size.append(input_size_no);
 
-  label_size_no = document.createElement("label");
+  let label_size_no = document.createElement("label");
   label_size_no.setAttribute("for", `productsize${j}`);
   // label_size_no.setAttribute("class", "productsize")
   label_size_no.innerText = foundsize.value;

@@ -1,7 +1,7 @@
 let div_smallcontainer;
 let div_images;
 let img_product_image;
-let i_wishlist;
+let hover_wishlist;
 let div_names;
 let h3_brand_name;
 let h4_product_name;
@@ -15,32 +15,26 @@ let span_product_offer;
 
 const product = JSON.parse(localStorage.getItem("product_list"));
 const params = new URLSearchParams(window.location.search);
-const urlcategory = params.get("category")
-console.log(urlcategory)
-let filteredcategory ;
+const urlcategory = params.get("category");
+console.log(urlcategory);
+let filteredcategory;
 
-if(!urlcategory){
+if (!urlcategory) {
   const urlgender = params.get("gender");
   console.log(urlgender);
 
-  filteredProducts = product.filter(
-  (product) => product.gender === urlgender
-  );
+  filteredProducts = product.filter((product) => product.gender === urlgender);
 
-  console.log(filteredProducts)
+  console.log(filteredProducts);
 }
 
-
-if(urlcategory && urlcategory!==0){
+if (urlcategory && urlcategory !== 0) {
   filteredProducts = product.filter(
-  (product) => product.category === urlcategory
+    (product) => product.category === urlcategory
   );
 }
 
-console.log(filteredProducts)
-
-
-
+console.log(filteredProducts);
 
 for (let i = 0; i < filteredProducts.length; i++) {
   // <div class="smallcontainer"></div>
@@ -64,13 +58,20 @@ for (let i = 0; i < filteredProducts.length; i++) {
   img_product_image.setAttribute("alt", filteredProducts[i].name);
   div_images.append(img_product_image);
 
+  hover_wishlist = document.createElement("div");
+  hover_wishlist.setAttribute("class", "wishlist");
+  hover_wishlist.setAttribute(
+    "data-wish_product_id",
+    filteredProducts[i].product_id
+  );
+  hover_wishlist.innerText = "Wishlist";
+  div_images.append(hover_wishlist);
 
   // // <i class="wishlist" class="fa-solid fa-heart"></i>
 
   // i_wishlist = document.createElement("i");
   // i_wishlist.setAttribute("class", "wishlist fa-solid fa-heart");
   // div_images.append(i_wishlist);
-
 
   // // <div class="ratings"></div>
 
@@ -179,37 +180,67 @@ product_container.forEach((event) => {
   });
 });
 
+const div_wishlist = document.querySelectorAll(".wishlist");
+
+// console.log(product_container);
+div_wishlist.forEach((event) => {
+  event.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    let getproduct_id = e.target.dataset.wish_product_id;
+    console.log(getproduct_id);
+          let get = e.target;
+          console.log(get)
+
+    const addtowishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    const exist = addtowishlist.some((e) => e.product_id == getproduct_id);
+
+    let wishlist_id = crypto.randomUUID();
+
+    if (unique_id == null || unique_id == undefined) {
+      alert("please login to add your favorite products into wishlist");
+      location.href = "/pages/homepage/login.html";
+    } else if (exist) {
+      alert("product aldready added to wishlist");
+
+    }
+
+    if (!exist) {
+      addtowishlist.push({
+        wishlist_id,
+        user_id: unique_id,
+        product_id: getproduct_id,
+        size: "",
+      });
+
+      localStorage.setItem("wishlist", JSON.stringify(addtowishlist));
+      alert("Product added to wishlist");
+    }
+  });
+});
 
 // showing the  gender and catgeory in the heading
 
-const localgender = JSON.parse(localStorage.getItem("gender_list"))
-const localcategory = JSON.parse(localStorage.getItem("category_list"))
+const localgender = JSON.parse(localStorage.getItem("gender_list"));
+const localcategory = JSON.parse(localStorage.getItem("category_list"));
 
+const findCategory = localcategory.find((e) => e.id == urlcategory);
 
-const findCategory = localcategory.find(e=>e.id == urlcategory)
+if (findCategory) {
+  document.querySelector(".heading_top_category").innerText =
+    findCategory["category"];
 
-if(findCategory){
-document.querySelector(".heading_top_category").innerText = findCategory["category"]
+  const findGender = localgender.find((e) => e.id == findCategory["gender"]);
+  console.log(findGender);
 
-const findGender = localgender.find(e=>e.id == findCategory["gender"])
-console.log(findGender)
-
-
-document.querySelector(".heading_top_gender").innerText = findGender["gender"]+"'s"
-
-
+  document.querySelector(".heading_top_gender").innerText =
+    findGender["gender"] + "'s";
 }
 
-if(!findCategory){
-  document.querySelector(".heading_top_category").innerText = "all products"
+if (!findCategory) {
+  document.querySelector(".heading_top_category").innerText = "all products";
 }
-
-
-
-
-
-
-
 
 // function setActive(e) {
 //     smallcontainer.forEach((img) => {
@@ -227,3 +258,5 @@ if(!findCategory){
 
 // document.querySelector("#brand_name").innerText = product_data["brand"];
 // document.querySelector("#product_name").innerText = product_data["name"];
+
+// if wishlist is clicked

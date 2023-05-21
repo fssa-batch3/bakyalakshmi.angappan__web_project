@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Jost', sans-serif;
+    text-transform: capitalize;
+}
+
 .container{
     font-family: 'Jost', sans-serif;
     margin-top: 6%;

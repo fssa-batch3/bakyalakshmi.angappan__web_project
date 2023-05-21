@@ -56,11 +56,11 @@
                     <div>
                         <label class="label_field">gender</label>
                         <select name="" class ="input_field" id="gender">
-                            <option value="">Male</option>
-                            <option value="">Female</option>
-                            <option value="">Kids</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="Others">Others</option>
                         </select>
-                    </div>
+                    </div>  
 
                     <div>
                         <label class="label_field">date of birth</label>
@@ -71,7 +71,7 @@
                     <div>
                         <label class="label_field">hint name</label>
                         <br >
-                        <input class="input_field" id="hintname">
+                        <input class="input_field" type="text"  id="hintname">
                     </div>
 
                     <div class="save-changes">
@@ -104,8 +104,8 @@
       document.getElementById("fullname").value = user_data.full_name;
       document.getElementById("email").value = user_data.email;
       document.getElementById("mobile_number").value = user_data.mobile_number;
-
       document.getElementById("gender").value = user_data.gender;
+      
       document.getElementById("dateofbirth").value = user_data.dob;
       document.getElementById("hintname").value = user_data.hintname;
 
@@ -120,6 +120,7 @@
         user_data.mobile_number = document.getElementById("mobile_number").value;
 
         user_data.gender = document.getElementById("gender").value;
+
         user_data.dob = document.getElementById("dateofbirth").value;
         user_data.hintname = document.getElementById("hintname").value;
 

@@ -5,6 +5,12 @@
     box-sizing: border-box;
 }
 
+
+body {
+    font-family: 'Jost', sans-serif;
+    text-transform: capitalize;
+}
+
 .container{
     font-family: 'Jost', sans-serif;
     height:100vh;
@@ -27,13 +33,13 @@
     text-transform: capitalize;
 }
 
-div.x-mark i{
-    color:#555;
-    float:right;
-    font-size:25px;
+div.x-mark i {
+    color: #555;
+    float: right;
+    font-size: 25px;
     position: absolute;
-    top:2%;
-    right:3%;
+    top: 2%;
+    right: 3%;
 }
 
 .container-form h2{

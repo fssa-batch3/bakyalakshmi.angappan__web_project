@@ -97,13 +97,13 @@ for(i=0;i<foundAddress.length;i++){
   <div class="address_title">${foundAddress[i]["title"]}</div>
 
   <div class="address">
-      ${foundAddress[i]["streetaddress"]}
+      ${foundAddress[i]["streetaddress"]},
       <br>
-      ${foundAddress[i]["landmark"]}
+      ${foundAddress[i]["landmark"]},
       <br>
-      ${foundAddress[i]["city"]} - ${foundAddress[i]["pincode"]}
+      ${foundAddress[i]["city"]} - ${foundAddress[i]["pincode"]},
       <br>
-      ${foundAddress[i]["state"]}
+      ${foundAddress[i]["state"]}.
   </div>
 
   <div class="mobilenumber">

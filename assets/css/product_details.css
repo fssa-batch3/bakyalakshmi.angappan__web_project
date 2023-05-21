@@ -142,6 +142,10 @@ text-transform: capitalize;
 .headingsize{
     text-transform: capitalize;
 }
+
+
+/* radio button - size */
+
 .size {
     text-transform: uppercase;
     display: flex;
@@ -153,6 +157,7 @@ input[type=radio] {
 }
 
 input[type=radio] + label{
+    cursor: pointer;
     background-color: #fff;
     border: 1px solid #000;
     width: 100px;
@@ -248,10 +253,12 @@ button.wishlist:hover {
 }
 
 .product_details h3 {
+    cursor: pointer;
     padding-bottom: 3%;
 }
 
 .rightside .product_details {
+
     text-align: left;
     font-size: 18px;
 }
