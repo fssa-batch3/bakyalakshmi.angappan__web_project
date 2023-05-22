@@ -30,27 +30,27 @@
 - read product (completed)
 - update product (completed)
 - delete product (completed)
-- size (yet to start)
+- size (completed)
 - product details (completed)
 
 ### shopping bag (completed)
 - add bag products (completed)
 - read bag products (completed)
 - update bag product (completed)
+- movr to wishlist (completed)
 - delete bag product (completed)
-- change address(yet to start)
+- change address(completed)
    
-### wishlist (yet to start)
-- create wishlist products (yet to start)
-- read wishlist products (yet to start)
-- update wishlist product (yet to start)
-- delete wishlist product (yet to start)
+### wishlist (completed)
+- create wishlist products (completed)
+- read wishlist products (completed)
+- update wishlist product (completed)
+- move to bag (completed)
+- delete wishlist product (completed)
  
-### order (yet to start)
-- create order (yet to start)
-- read order (yet to start)
-- read order (yet to start)
-- delete order (yet to start)
+### order (completed)
+- create order (completed)
+- read order (completed)
 
 ### search (yet to start)
 
@@ -180,6 +180,17 @@
       - The user can view the list of products in the bag.
       - The user can view the updated total amount in the bag total at the right.
 
+### move products to wishlist (completed)
+- Scenario 1: Successfully update products in wishlist
+   - Steps:
+      1. Log in as a buyer.
+      2. Navigate to the bag page.
+      3. View the list of products in the bag.
+      4. click the "Move to wishlist" button
+      5. The selected product is added to wishlist.
+   - Expected Result:
+      - The product is moved to wishlist.
+      - The user can view the list of products in the wishlist.
 
 ### Remove product from bag (completed)
 - Scenario 1: Successfully remove product from bag
@@ -189,5 +200,58 @@
       3. click the cross button.
    - Expected Result:
       - The product is removed from the user's bag.
+
+### Add product to wishlist (completed)
+- scenario 1:successfully add product to wishlist
+   - steps:
+      1. Login as a buyer
+      2. Navigate to the product listing page
+      3. select the product to view its details
+      4. select the product to add to wishlist
+      5. click the "wishlist" button
+   - Expected Result:
+      - The user can view the list of products in wishlist
+
+- scenario 2:successfully add product to wishlist
+   - steps:
+      1. Login as a buyer
+      2. Navigate to the product listing page
+      3. hover the product to add to wishlist
+      4. click the "wishlist" button
+   - Expected Result:
+      - The user can view the list of products in wishlist.
+
+### View products in wishlist (completed)
+- Scenario 1: Successfully view products in wishlist
+   - Steps:
+      1. Log in as a buyer.
+      2. Navigate to the wishlist page.
+      3. View the list of products in the wishlist.
+   - Expected Result:
+      - The user can view the list of products in the wishlist.
+
+### move products to bag (completed)
+- Scenario 1: Successfully update products in wishlist
+   - Steps:
+      1. Log in as a buyer.
+      2. Navigate to the wishlist page.
+      3. View the list of products in the wishlist.
+      4. click the "MOve to bag" button
+      5. update the size of the product if not selected.
+      6. The selected product is added to bag.
+   - Expected Result:
+      - The product is moved to bag
+      - The user can view the list of products in the bag.
+      - The user can view the updated total amount in the bag total at the right.
+
+
+### Remove product from wishlist (completed)
+- Scenario 1: Successfully remove product from wishlist
+   - Steps:
+      1. Log in as a buyer.
+      2. Navigate to the wishlist page.
+      3. click the cross button.
+   - Expected Result:
+      - The product is removed from the user's wishlist.
 
 
