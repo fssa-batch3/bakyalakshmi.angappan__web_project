@@ -1,16 +1,17 @@
-// // back button is clicked 
+// back button is clicked 
 
-// window.addEventListener( "pageshow", function ( event ) {
-//   var historyTraversal = event.persisted || 
-//                          ( typeof window.performance != "undefined" && 
-//                               window.performance.navigation.type === 2 );
-//   if ( historyTraversal ) {
-//     // Handle page restore.
-//     window.location.reload();
-//   }
-// });
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted || 
+                         ( typeof window.performance != "undefined" && 
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    // Handle page restore.
+    window.location.reload();
+  }
+});
 
 const product = JSON.parse(localStorage.getItem("product_list"));
+const localseller = JSON.parse(localStorage.getItem("seller_list"));
 
 // searching values in url params
 const params = new URLSearchParams(window.location.search);
@@ -22,6 +23,14 @@ function find_product(e) {
 }
 
 const productdata = product.find(find_product);
+
+
+const  getseller = productdata.seller_id
+console.log(getseller);
+const findseller = localseller.find(e=>e.email == getseller);
+
+
+const sellername = findseller.corporate_name;
 
 /// /////////leftside////////////
 
@@ -195,6 +204,14 @@ for (j = 0; j < noOfItems; j++) {
 div_qty = document.createElement("div");
 div_qty.setAttribute("class", "divlbl");
 div_rightside.append(div_qty);
+
+div_seller = document.createElement("span");
+div_seller.innerText = "seller : "
+div_rightside.append(div_seller)
+
+span_seller = document.createElement("span");
+span_seller.innerText = sellername;
+div_seller.append(span_seller)
 
 // <div class="buttons"></div>
 div_buttons = document.createElement("div");
@@ -426,4 +443,20 @@ function createdetails() {
   } else {
     details.style.display = "none";
   }
+}
+
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
 }

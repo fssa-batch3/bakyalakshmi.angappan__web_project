@@ -12,6 +12,7 @@ const user_data = user_list.find(profile_data);
 
 // filling the user details
 
+
 document.getElementById("fullname").innerText = user_data.full_name;
 document.getElementById("email").innerText = user_data.email;
 document.getElementById("mobile_number").innerText = user_data.mobile_number;
@@ -56,7 +57,6 @@ const logout = document.getElementById("logout");
 // function to open popup
 
 let add_btn = document.querySelector(".add")
-
 // let opendiv = document.querySelector(".popup")
 
 add_btn.addEventListener("click",addaddresspage)
@@ -77,7 +77,6 @@ function addaddresspage(){
 // reading the address from  the localstorage.
 
 
-
 let localaddress = JSON.parse(localStorage.getItem("address_list"))
 console.log(localaddress)
 
@@ -85,15 +84,19 @@ console.log(localaddress)
 let findUserAddress = localaddress.find(e=>e.email_id === uuid)
 console.log(findUserAddress)
 
+if(findUserAddress["address"].length == 3){
+  add_btn.style.display = "none" 
+}
+
 if(findUserAddress){
 let foundAddress = findUserAddress["address"];
 
-for(i=0;i<foundAddress.length;i++){
+for(i=0;i < foundAddress.length;i++){
 
   let address_template =`
   
   <div class="address_details">
-  <span class="status ${foundAddress[i]["status"]}">default</span>
+  <span class="status ${foundAddress[i]["status"]}" >default</span>
   <div class="address_title">${foundAddress[i]["title"]}</div>
 
   <div class="address">
@@ -138,6 +141,7 @@ edit_btn.forEach(edit=>
 
 }
 
+
   // remove address from localstorage
 
   let remove_btn = document.querySelectorAll(".remove_address")
@@ -169,7 +173,6 @@ document.querySelector(".profile-editButton").addEventListener("click",function(
 
 window.location.href = "/pages/homepage/edit profile.html"
 }
-
 )
 
 

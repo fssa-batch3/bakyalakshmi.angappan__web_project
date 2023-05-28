@@ -20,7 +20,7 @@ h3{
 .heading_top{
     font-family: 'Jost', sans-serif;
     padding-top: 5%;
-    width:71%;
+    width: 74%;
     margin-bottom: 40px;
     display:flex;
     flex-direction: row;
@@ -109,6 +109,7 @@ h3{
 }
 
 .delivery_date h3{
+    text-transform: capitalize;
     font-size: 20px;
     margin-bottom: 1px;
 }
@@ -147,7 +148,7 @@ h3{
 
    display:flex;
    flex-direction: row;
-   padding-left: 70%;
+   padding-left: 20%;
    align-self: center;
    
 }
@@ -192,6 +193,30 @@ h3{
 
 textarea{
     width:100%;
+}
+
+.spanproduct{
+    font-size: 10px;
+    color: #555;
+    width: 100%;
+}
+
+.smallglimpse{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+.smallglimpse::-webkit-scrollbar {
+    display: none;
+}
+
+.orderpicture{
+    width:70px;
+}
+
+.smallglimpse img{
+    width:27px;
 }
 
 @media(max-width:360px){

@@ -180,6 +180,9 @@ product_container.forEach((event) => {
   });
 });
 
+
+// wishlist feature
+
 const div_wishlist = document.querySelectorAll(".wishlist");
 
 // console.log(product_container);
@@ -206,7 +209,7 @@ div_wishlist.forEach((event) => {
 
     }
 
-    if (!exist) {
+    else{
       addtowishlist.push({
         wishlist_id,
         user_id: unique_id,
@@ -239,6 +242,12 @@ if (findCategory) {
 }
 
 if (!findCategory) {
+  const urlgender = params.get("gender");
+  console.log(urlgender);
+
+  let heading_top_gender = localgender.find(e=>e.id == urlgender);
+  console.log(heading_top_gender);
+  document.querySelector(".heading_top_gender").innerText = heading_top_gender["gender"]
   document.querySelector(".heading_top_category").innerText = "all products";
 }
 

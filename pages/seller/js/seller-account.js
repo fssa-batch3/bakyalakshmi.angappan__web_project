@@ -10,7 +10,7 @@
 
             const seller_data = seller_list.find(profile_data);
 
-            document.getElementById("fullname").innerText = seller_data.full_name;
+            document.getElementById("fullname").innerText = seller_data.corporate_name;
             document.getElementById("email").innerText = seller_data.email;
             document.getElementById("mobile_number").innerText = seller_data.mobile_number;
 

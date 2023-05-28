@@ -46,8 +46,10 @@ document.querySelector(".addaddress").addEventListener("click",addaddress)
 function addaddress(){
   window.location.href = "/pages/orders/add_address.html"
 }
+}
 
-
+if(foundUser["address"].length == 3){
+    document.querySelector(".add").style.display = "none" 
 }
 
 if(foundUser["address"]!=0){
@@ -236,9 +238,21 @@ for (let i = 0; i < filtereduser_bag.length; i++) {
         <span class="span_size">${find_size.value}</span>
 
         <label><b>Qty:</b></label>
-        <input type="number" class="quantity" min="1" value="${
-          filtereduser_bag[i].quantity
-        }" data-bag_id =${localbag[i].bag_id} required />
+        <select class="quantity" value="${filtereduser_bag[i]["quantity"]}" data-bag_id =${localbag[i].bag_id} required>
+            <option selected disabled hidden> ${filtereduser_bag[i]["quantity"]} </option>
+            <option value="1" class="opt">1</option>
+            <option value="2" >2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+
+
     </div>
 
     <div>
@@ -264,6 +278,8 @@ for (let i = 0; i < filtereduser_bag.length; i++) {
 </div>
 </div>
 `;
+
+          console.log(filtereduser_bag[i].quantity)
   // qty display
   // <span>${localbag[i]["quantity"]}</span>
   document
@@ -311,12 +327,6 @@ const order = `
                     </tr>
 
                     <tr>
-                        <td>delivery fee</td>
-                        <td>free</td>
-                    </tr>
-
-
-                    <tr>
                         <td>total amount</td>
                         <td>Rs.${sum}</td>
                     </tr>
@@ -325,7 +335,9 @@ const order = `
                 </table>
                 
                 <div class="placeorder">
-                        <button>place order</button>
+                        <small>cash on delivery only<small>
+                        <button type="submit">place order</button>
+
                 </div> 
             </div>      `;
 
@@ -342,7 +354,7 @@ remove.forEach((del) =>
     const find_bag = localbag.find((e) => e.bag_id == bag_uuid);
     console.log(find_bag);
 
-    const indexofbagprod = localbag.indexOf(find);
+    const indexofbagprod = localbag.indexOf(find_bag);
     console.log(indexofbagprod);
 
     localbag.splice(indexofbagprod, 1);
@@ -360,10 +372,16 @@ movetowishlist.forEach((move) =>
 
     const wishlist_id = crypto.randomUUID();
 
+    // clicked bag 
+
     const find_bag_prod = localbag.find((e) => e.bag_id == clicked_bag_id);
+
+    // find there is product or not 
     const find_wishlist_prod = localwishlist.find(
-      (e) => e.product_id == find_bag_prod.product_id
-    );
+      (e) => e.product_id == find_bag_prod.product_id)
+
+      console.log(find_wishlist_prod);
+
 
     if (!find_wishlist_prod) {
       localwishlist.push({
@@ -380,12 +398,44 @@ movetowishlist.forEach((move) =>
       alert("Item added to wishlist");
 
       location.reload();
-    }
+    
 
     localStorage.setItem("bag", JSON.stringify(localbag));
     localStorage.setItem("wishlist", JSON.stringify(localwishlist));
-     window.location.reload();
-  })
+
+    }
+    //  window.location.reload();
+
+  
+
+    if (find_wishlist_prod) {
+       if(confirm("Product aldready exist in wishlist do you want to remove ?")){
+
+                    let confirm_bag_id = find_bag_prod;
+                    console.log(confirm_bag_id);
+
+                                
+        const indexofbagprod = localbag.indexOf(confirm_bag_id);
+        console.log(indexofbagprod);
+
+        localbag.splice(indexofbagprod, 1);
+
+        // console.log(localbag)
+
+        let get = localStorage.setItem("bag", JSON.stringify(localbag));
+        // console.log(get)
+
+        location.reload();
+
+       }
+
+    }
+
+    // ////////////////////
+
+
+  }  
+)
 );
 
 
@@ -430,7 +480,6 @@ document.querySelector(".placeorder").addEventListener("click",place)
 
 function place(){
 
-
   let localOrder = JSON.parse(localStorage.getItem("order")) || [];
   console.log(localOrder);
 
@@ -454,7 +503,8 @@ if(filtereduser_bag.length !== 0  && address_id !== 0){
     "order_status":"On the way" ,
     "ordered_time" :getdate,
     "address" : address_id ,
-    "user_id" : localunique_id
+    "user_id" : localunique_id,
+    "bag_price" : sum
     }
   )
 
@@ -468,8 +518,37 @@ if(filtereduser_bag.length !== 0  && address_id !== 0){
 
   console.log(filtereduser_bag);
 
+
+
+
   for(let i=0;i<filtereduser_bag.length;i++){
+
+    // get product id from filtered bag
+        let filtereduser_bagproduct = filtereduser_bag[i]["product_id"];
+        console.log(filtereduser_bagproduct);
+
+            // get size id from filtered bag
+        let findsize = filtereduser_bag[i]["size"];
+  
+
+        // get price is the goal
+        let findproduct = localproducts.find(e=>e.product_id == filtereduser_bagproduct);
+        
+        let findproductprice = findproduct["varients"].find(e=>e.size == findsize);
+
+// found the ordered product price
+        let order_product_price = findproductprice.price.current;
+
+
+     let ordered_item_id = crypto.randomUUID();
+
+     console.log( filtereduser_bag[i].item_id =  ordered_item_id
+)
+
+// pushing price in ordered_item
+      filtereduser_bag[i].item_id =  ordered_item_id
       filtereduser_bag[i].order_id = order_uuid;
+      filtereduser_bag[i].price = order_product_price;
   }
 
   localOrderedItems.push(...filtereduser_bag);

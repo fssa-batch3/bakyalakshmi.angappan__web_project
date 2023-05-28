@@ -47,7 +47,7 @@ div.location {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* justify-content: space-evenly; */
+    justify-content: space-evenly;
     padding-bottom: 30px;
 }
 

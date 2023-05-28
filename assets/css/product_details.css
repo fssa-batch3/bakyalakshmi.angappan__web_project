@@ -30,6 +30,8 @@ span.location {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    position: sticky;
+    top:130px;
 }
 
 .rightside {
@@ -69,7 +71,9 @@ span.location {
 
 .product_image {
     margin-right: 10%;
-    width: 40%;
+    width: 30%;
+    /* position: sticky;
+    top:0px; */
 }
 
 .product_image p {

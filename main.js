@@ -4,6 +4,7 @@ const size_list = JSON.parse(localStorage.getItem("size_list"));
 const product_list = JSON.parse(localStorage.getItem("product_list"));
 const category_list = JSON.parse(localStorage.getItem("category_list"));
 const address_list = JSON.parse(localStorage.getItem("address_list"));
+const seller_list = JSON.parse(localStorage.getItem("seller_list"));
 
 const user_data = [
   {
@@ -91,7 +92,9 @@ const category_data = [{"seller_id":"vela623@gmail.com","category":"T-shirts","i
 
 
 
-const address_data = [{"email_id":"surya.umapathy@ctr.freshworks.com","address":[{"address_id":1,"title":"Home","streetaddress":"No 114, valluvan street, otteri","landmark":"near school","city":" Chennai","pincode":"600012","state":"Tamilnadu","country":"India","mobile_number":"9789853625","status":"default"}]}]
+const address_data = [{"email_id":"marion007@gmail.com","address":[{"address_id":1,"title":"Home","streetaddress":"No 114, valluvan street, otteri","landmark":"near school","city":" Chennai","pincode":"600012","state":"Tamilnadu","country":"India","mobile_number":"9789853625","status":"default"}]}]
+
+const seller_data = [{"corporate_name":"Globus stores Private Ltd.","email":"vela623@gmail.com","mobile_number":"9789853625","password":"978985","re_enter_password":"978985","gender":"","dob":"","address":"","hintname":"","unique_id":"85de4666-38a8-46df-9159-5f482c8cf16d"}]
 
 
 if (!user_list) {
@@ -116,5 +119,9 @@ if (!category_list) {
 
 if(!address_list){
   localStorage.setItem("address_list", JSON.stringify(address_data));
+}
+
+if(!seller_list){
+   localStorage.setItem("seller_list", JSON.stringify(seller_data));
 }
 

@@ -209,10 +209,26 @@ movetobag_btn.forEach((tobag) =>
         (e) => e.product_id == find_wishlist_product.product_id
       );
 
-      console.log(find_wishlist_product);
+      // console.log(find_wishlist_product);
 
       if (find_bag_product) {
-        alert("product aldready exist in cart");
+        
+        if(confirm("Product aldready exist in bag do you want to remove ?")){
+
+            let confirm_wishlist_id = find_wishlist_product.wishlist_id;
+            console.log(confirm_wishlist_id);
+            console.log("ajkbsahjdbhjabdh");
+            
+        const indexofwishprod = localwishlist.indexOf(confirm_wishlist_id);
+        console.log(indexofwishprod);
+
+        localwishlist.splice(indexofwishprod, 1);
+
+        localStorage.setItem("wishlist", JSON.stringify(localwishlist));
+
+        
+        location.reload();
+        };
       }
 
       if (!find_bag_product) {
@@ -223,6 +239,9 @@ movetobag_btn.forEach((tobag) =>
           size: find_wishlist_product.size,
           quantity: 1,
         });
+
+
+        // remove from wishlist when moved to bag
 
         const indexofwishprod = localwishlist.indexOf(find_wishlist_product);
         console.log(indexofwishprod);
@@ -257,10 +276,23 @@ movetobag_btn.forEach((tobag) =>
         (e) => e.product_id == find_wishlist_product.product_id
       );
 
-      console.log(find_wishlist_product);
+      console.log(find_wishlist_product.wishlist_id);
 
       if (find_bag_product) {
-        alert("product aldready exist in cart");
+                if(confirm("Product aldready exist in bag do you want to remove ?")){
+            let confirm_wishlist_id = find_wishlist_product.wishlist_id;
+            console.log(confirm_wishlist_id)
+            
+        const indexofwishprod = localwishlist.indexOf(find_wishlist_product);
+        console.log(indexofwishprod);
+
+        localwishlist.splice(indexofwishprod, 1);
+
+        localStorage.setItem("wishlist", JSON.stringify(localwishlist));
+
+        location.reload();
+
+        };
       }
 
       if (!find_bag_product) {

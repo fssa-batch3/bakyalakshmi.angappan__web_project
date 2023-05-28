@@ -1,7 +1,19 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    /* width:100%; */
+}
+
+
 .footer{
     margin-top:5%;
     background-color: #eee;
     color:#555;
+    position:sticky;
+    bottom: 0px;
+    width:100%;
+    z-index: index 999;
 
 }
 .footer_nav_contact{
@@ -15,7 +27,6 @@
     text-transform: capitalize;
     margin-left:10%;
     margin-right: 10%;
-
 }
 .footer_nav{
     width:30%;

@@ -75,12 +75,12 @@ const before_login = `
             </div>
         </a>   
 
-            <a href="${root}/pages/orders/wishlist.html">
+            <a href="${root}/pages/homepage/login.html">
                 <div><i class="fa-solid fa-heart"></i></div>
                 <div>wishlist</div>
             </a>
 
-            <a href="${root}/pages/orders/shopping_bag.html">
+            <a href="${root}/pages/homepage/login.html">
                 <div><i class="fa-solid fa-bag-shopping"></i></div>
                 <div>bag</div>
             </a>

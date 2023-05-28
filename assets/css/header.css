@@ -31,6 +31,7 @@ header {
     text-decoration: none;
     font-size: 20px;
     text-transform: uppercase;
+    /* appearance: none; */
 }
 .nav-item:hover{
     font-weight: 700;
@@ -87,6 +88,8 @@ button {
     flex-wrap: wrap;
     text-align: center;
 }
+
+
 
 header#mobile-header {
     display: none;

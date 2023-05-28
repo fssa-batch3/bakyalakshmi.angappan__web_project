@@ -36,6 +36,11 @@ button[type=submit]{
     text-transform: uppercase;
 }
 
+.inputdetails{
+    margin-bottom: 5% ;
+    border-bottom: 1px solid #000;
+}
+
 /* input[type=checkbox] + label{
     border: 1px solid #000;
     width: 100px;

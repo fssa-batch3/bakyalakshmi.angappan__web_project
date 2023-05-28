@@ -25,7 +25,7 @@ function signUp(e) {
 
   if (!exist) {
     seller_list.push({
-      full_name,
+      "corporate_name" :full_name,
       email,
       mobile_number,
       password,
