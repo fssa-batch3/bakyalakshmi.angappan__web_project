@@ -315,7 +315,7 @@ for (let i = 0; i < filtereduser_bag.length; i++) {
         delivery in <span class="date">2 days</span>
     </div>
 
-    <div class="alert">${availability}</div>
+    <span class="alert">${availability}</span>
 
     <div class="buttons">
         <div>

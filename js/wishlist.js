@@ -249,7 +249,7 @@ movetobag_btn.forEach((tobag) =>
           bag_id,
           user_id: find_wishlist_product.user_id,
           product_id: find_wishlist_product.product_id,
-          size: find_wishlist_product.size,
+          size: parseInt(find_wishlist_product.size),
           quantity: 1,
         });
 
@@ -313,7 +313,7 @@ movetobag_btn.forEach((tobag) =>
           bag_id,
           user_id: find_wishlist_product.user_id,
           product_id: find_wishlist_product.product_id,
-          size: find_wishlist_product.size,
+          size: parseInt(find_wishlist_product.size),
           quantity: 1,
         });
 
