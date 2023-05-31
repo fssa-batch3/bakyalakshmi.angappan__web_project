@@ -28,8 +28,9 @@ const inputcate = document.querySelector("#inputgendercategory");
 inputcate.addEventListener("change", cate);
 
 function cate() {
-  const inputcatevalue = document.querySelector("#inputcategory").value;
-  console.log(inputcatevalue);
+
+  // let inputcatevalue = document.querySelector("#inputcategory").value;
+  // console.log(inputcatevalue);
 
   const inputvalue = document.getElementById("inputgendercategory").value;
   console.log(inputvalue);
@@ -52,6 +53,14 @@ for( let i =  0; i < filteredcategory.length; i++) {
     category_option.innerHTML = filteredcategory[i].category;
     inputcate.append(category_option);
   }
+
+}
+
+
+  
+if (document.querySelector("#inputcategory").value == 3) {
+  console.log("sadbabdnabh");
+  document.querySelector("#inputneckline").style.display = "none";
 }
 
 // getting the gender_list from ls
@@ -83,7 +92,6 @@ document.querySelector("#inputsize").addEventListener(
   "click",
   (e) => {
     e.preventDefault(e);
-
     // creating size from local storage when clicked
     createsize();
   },
@@ -122,7 +130,9 @@ for( let j =  0; j < newresult.length; j++) {
     }
 
     // finding all the checkedvalues from localsize ---like s,m,l
+
     console.log(foundsize);
+
     document.querySelector("#inputsize").value += `${foundsize.value}, `;
 
     // creating a div with all the varients showing the found value's size
@@ -189,6 +199,138 @@ for( let j =  0; j < newresult.length; j++) {
   }
 });
 
+document.querySelector("#inputcategory").addEventListener("change",show)
+
+
+function show(){
+
+
+  let secondrowdetail = "";
+if (
+  document.querySelector("#inputcategory").value == 3 ||
+  document.querySelector("#inputcategory").value == 4
+) {
+  document.querySelector(".secondrow").innerHTML = "";
+
+  secondrowdetail = `<div class="form-group w-50">
+                <label for="pattern">rise type</label>
+
+                <select name="" id="inputrise" class="form-control" required>
+                  <option value="low-rise">Low Rise</option>
+                  <option value="mid-rise">Mid Rise</option>
+                  <option value="high-rise">High Rise</option>
+                  <option value="ultra-high-rise">Ultra High Rise</option>
+                  <option value="classic-rise">Classic Rise</option>
+                </select>
+              </div>
+
+              <div class="form-group w-50">
+                <label for="pattern">closure type</label>
+
+                <select name="" id="inputclosure" class="form-control" required>
+                    <option value="buttons">Buttons</option>
+                  <option value="zippers">Zippers</option>
+                  <option value="hooks">Hooks</option>
+                  <option value="snaps">Snaps</option>
+                  <option value="ties">Ties</option>
+                  </select>
+              </div>
+              
+              <div class="form-group w-50">
+                <label for="pattern">Occassion</label>
+
+                <select name="" id="inputoccasion" class="form-control" required>
+                  <option value="casual">Casual</option>
+                  <option value="formal">Formal</option>
+                  <option value="summer">Summer</option>
+                  <option value="winter">Winter</option>
+                </select>
+              </div>
+              <div class="form-group w-50">
+                <label for="pattern">Care</label>
+
+                <select name="" id="inputcare" class="form-control" required>
+                  <option value="Machine Wash">Machine Wash</option>
+                  <option value="Hand Wash">Hand Wash</option>
+                  <option value="Dry Clean">Dry Clean</option>
+                </select>
+              </div>`;
+
+}
+
+else{
+
+    document.querySelector(".secondrow").innerHTML = "";
+
+    secondrowdetail = `<div class="form-group w-50">
+                <label for="pattern">Neckline Type</label>
+
+                <select name="" id="inputneckline" class="form-control" required>
+                  <option value="Crew Neck">Crew Neck</option>
+                  <option value="V-Neck">V-Neck</option>
+                  <option value="Scoop Neck">Scoop Neck</option>
+                  <option value="Boat Neck">Boat Neck</option>
+                  <option value="Square Neck">Square Neck</option>
+                  <option value="Halter Neck">Halter Neck</option>
+                  <option value="Off-Shoulder">Off-Shoulder</option>
+                  <option value="One-Shoulder">One-Shoulder</option>
+                  <option value="Sweetheart Neck">Sweetheart Neck</option>
+                  <option value="Plunging Neckline">Plunging Neckline</option>
+                  <option value="High Neck">High Neck</option>
+                  <option value="Turtleneck">Turtleneck</option>
+                  <option value="Collared Neck">Collared Neck</option>
+                  <option value="Wrap Neck">Wrap Neck</option>
+                  <option value="Keyhole Neck">Keyhole Neck</option>
+                  <option value="Sweatheart Neck">Sweatheart Neck</option>
+                  <option value="Square Neck">Square Neck</option>
+                  <option value="Scoop Neck">Scoop Neck</option>
+                </select>
+              </div>
+
+              <div class="form-group w-50">
+                <label for="pattern">Sleeve type</label>
+
+                <select name="" id="inputsleeve" class="form-control" required>
+                  <option value="Short Sleeve">Short Sleeve</option>
+                  <option value="Long Sleeve">Long Sleeve</option>
+                  <option value="Three-Quarter Sleeve">
+                    Three-Quarter Sleeve
+                  </option>
+                  <option value="Cap Sleeve">Cap Sleeve</option>
+                  <option value="Sleeveless">Sleeveless</option>
+                  <option value="Puff Sleeve">Puff Sleeve</option>
+                  <option value="Bell Sleeve">Bell Sleeve</option>
+                  </select>
+              </div>
+              
+              <div class="form-group w-50">
+                <label for="pattern">Occassion</label>
+
+                <select name="" id="inputoccasion" class="form-control" required>
+                  <option value="casual">Casual</option>
+                  <option value="formal">Formal</option>
+                  <option value="summer">Summer</option>
+                  <option value="winter">Winter</option>
+                </select>
+              </div>
+              <div class="form-group w-50">
+                <label for="pattern">Care</label>
+
+                <select name="" id="inputcare" class="form-control" required>
+                  <option value="Machine Wash">Machine Wash</option>
+                  <option value="Hand Wash">Hand Wash</option>
+                  <option value="Dry Clean">Dry Clean</option>
+                </select>
+              </div>`;
+}
+
+
+  document
+    .querySelector(".secondrow")
+    .insertAdjacentHTML("afterbegin", secondrowdetail);
+
+}
+
 // function when from on submit
 const form = document.getElementById("form");
 form.addEventListener("submit", upload);
@@ -196,14 +338,44 @@ form.addEventListener("submit", upload);
 // product_list.foreach(createProduct);
 
 function upload(e) {
+
+  console.log("savaban")
   e.preventDefault();
 
   const source = document.getElementById("inputsource").value;
-  const gender = document.getElementById("inputgendercategory").value;
-  const category = document.getElementById("inputcategory").value;
+  const gender = parseInt(document.getElementById("inputgendercategory").value);
+  const category = parseInt(document.getElementById("inputcategory").value);
   const brand = document.getElementById("inputbrand").value;
   const name = document.getElementById("inputname").value;
   const color = document.getElementById("inputcolor").value;
+  const pattern = document.getElementById("inputpattern").value;
+  const fit = document.getElementById("inputfit").value;
+  const material = document.getElementById("inputmaterial").value;
+  let closure  = "";
+  let rise = "";
+  let neckline = "";
+  let sleeve = ""
+  console.log(category);
+    if (
+      document.querySelector("#inputcategory").value == 3 ||
+      document.querySelector("#inputcategory").value == 4
+    ) {
+      closure = document.getElementById("inputclosure").value;
+      rise = document.getElementById("inputrise").value;
+    }
+
+else{
+    neckline = document.getElementById("inputneckline").value;
+    sleeve = document.getElementById("inputsleeve").value;
+  }
+
+
+
+
+  const length = document.getElementById("inputlength").value;
+
+  const occasion = document.getElementById("inputoccasion").value;
+  const care = document.getElementById("inputcare").value;
 
   // console.log(uncheckedsize)
 
@@ -265,51 +437,106 @@ for( let i =  0; i < div_len; i++) {
       current = Math.round(current);
     } else {
       current =
-        document.getElementById(`inputmrp${i + 1}`).value -
-        document.getElementById(`inputoffer${i + 1}`).value;
+        parseInt(document.getElementById(`inputmrp${i + 1}`).value -
+        document.getElementById(`inputoffer${i + 1}`).value);
     }
 
     console.log(document.getElementById(`sizevalue${i + 1}`).value);
 
     push_varients.push({
-      size: document.getElementById(`sizevalue${i + 1}`).dataset.size_id,
+      size: parseInt(document.getElementById(`sizevalue${i + 1}`).dataset.size_id),
       price: {
         currency: document.getElementById(`inputcurrency${i + 1}`).value,
-        mrp: document.getElementById(`inputmrp${i + 1}`).value,
+        mrp: parseInt(document.getElementById(`inputmrp${i + 1}`).value),
         current,
       },
       offer: {
-        value: document.getElementById(`inputoffer${i + 1}`).value,
+        value: parseInt(document.getElementById(`inputoffer${i + 1}`).value),
         type: document.getElementById(`inputoffertype${i + 1}`).value,
       },
-      quantity: document.getElementById(`inputquantity${i + 1}`).value,
+      quantity: parseInt(document.getElementById(`inputquantity${i + 1}`).value),
     });
   }
 
-  // if (inputvalue != "") {
-  product_list.push({
-    // source, gendercategory, category, brand, name, color, size, currency, mrp, value, type, details, product_id
-    seller_id: seller_uuid,
-    product_id,
+  if (
+    document.querySelector("#inputcategory").value == 3 ||
+    document.querySelector("#inputcategory").value == 4
+  ) {
 
-    image: {
-      source,
-      alt: name,
-    },
+    console.log(closure)
+        
+    product_list.push({
+      // source, gendercategory, category, brand, name, color, size, currency, mrp, value, type, details, product_id
+      seller_id: seller_uuid,
+      product_id,
 
-    brand,
-    name,
+      image: {
+        source,
+        alt: name,
+      },
 
-    varients: push_varients,
-    color,
-    details,
-    ratings: 3.5,
-    buyers: 100,
-    gender,
-    category,
-    stock: quantity,
-    status: true,
-  });
+      brand,
+      name,
+
+      varients: push_varients,
+      color,
+      details,
+      pattern,
+      fit,
+      material,
+      length,
+      closure,
+      rise,
+      occasion,
+      care,
+
+      ratings: 3.5,
+      buyers: 100,
+      gender,
+      category,
+      stock: quantity,
+
+      status: true,
+    });
+  } 
+  
+  else {
+
+        product_list.push({
+          // source, gendercategory, category, brand, name, color, size, currency, mrp, value, type, details, product_id
+          seller_id: seller_uuid,
+          product_id,
+
+          image: {
+            source,
+            alt: name,
+          },
+
+          brand,
+          name,
+
+          varients: push_varients,
+          color,
+          details,
+          pattern,
+          fit,
+          material,
+          length,
+          neckline,
+          sleeve,
+          occasion,
+          care,
+
+          ratings: 3.5,
+          buyers: 100,
+          gender,
+          category,
+          stock: quantity,
+
+          status: true,
+        });
+
+  }
 
   localStorage.setItem("product_list", JSON.stringify(product_list));
 
@@ -323,3 +550,5 @@ for( let i =  0; i < div_len; i++) {
 // console.log(valform);
 
 //
+
+

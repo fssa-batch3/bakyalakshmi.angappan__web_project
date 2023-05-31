@@ -11,7 +11,7 @@ span.location {
 
 .content {
     display: flex;
-    width: 98vw;
+    /* width: 98vw; */
     flex-wrap: nowrap;
     justify-content: space-around;
 
@@ -24,33 +24,34 @@ span.location {
 }
 
 .leftside {
-    width: 60%;
+    width: 50%;
     height: 90vh;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    /* /* justify-content: space-around; */
     align-items: center;
     position: sticky;
     top:130px;
 }
 
 .rightside {
-    width: 40%;
+    font-family: 'Jost', sans-serif;
+    width: 50%;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    /* align-items: center;
+    text-align: center;  */
     margin-top: 4%;
-    height: 79vh;
-    overflow-y: scroll;
+    /* height: 79vh; */
+    /* overflow-y: scroll; */
 }
 
 .rightside::-webkit-scrollbar {
     display: none;
 }
 .rightside div {
-    margin-bottom: 4%;
+    margin-bottom: 2%;
 }
 
 /* leftside */
@@ -70,10 +71,11 @@ span.location {
 }
 
 .product_image {
-    margin-right: 10%;
-    width: 30%;
-    /* position: sticky;
-    top:0px; */
+    /* margin-right: 10%;
+    width: 30%; */
+    margin-left: 20%;
+    position: sticky;
+    top:0px;
 }
 
 .product_image p {
@@ -144,7 +146,9 @@ text-transform: capitalize;
     margin-bottom: 18px;
 } */
 .headingsize{
-    text-transform: capitalize;
+        text-transform: capitalize;
+        font-weight: 500;
+        font-size: 20px;
 }
 
 
@@ -154,6 +158,44 @@ text-transform: capitalize;
     text-transform: uppercase;
     display: flex;
     justify-items:center
+}
+
+.sizechart{
+text-decoration: underline;
+}
+
+.fa-solid{
+    float: right;
+}
+
+.size input[type=radio]:disabled+label {
+    background-color: #eee;
+}
+
+
+.sizecontainer {
+    visibility: hidden;
+    position: fixed;
+    top: 0px;
+    width: 98vw;
+    height: 100vh;
+    background-color: #00000075;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sizecontainer.openpopup {
+    visibility: visible;
+}
+
+.inputsizecontainer {
+    position: relative;
+    width: 45%;
+    padding: 1%;
+    z-index: 2;
+    background-color: #fff;
 }
 
 input[type=radio] {
@@ -211,8 +253,8 @@ input[type=radio]:not:checked + label {
 } */
 
 .buttons div {
-    margin-top: 7%;
-    margin-bottom: 5%;
+    margin-top: 3%;
+    margin-bottom: 2%;
 }
 
 button.addtobag {
@@ -224,8 +266,8 @@ button.addtobag {
     width: 20em;
     letter-spacing: 1px;
     font-weight: 600;
-    margin-top: 1em;
     text-transform: uppercase;
+    margin-right: 3%;
 }
 
 button.addtobag:hover {
@@ -239,8 +281,7 @@ button.wishlist {
     background-color: white;
     border: 1px solid #000;
     padding: 10px;
-    width: 20em;
-    margin-top: 1em;
+    width: 15em;
 }
 
 button.wishlist:hover {
@@ -249,7 +290,7 @@ button.wishlist:hover {
     background-color: white;
     border: 1px solid #000;
     padding: 10px;
-    width: 20em;
+    width: 15em;
 }
 
 .wishlist i {
@@ -327,6 +368,104 @@ button.wishlist:hover {
     margin-bottom: 2%;
     letter-spacing: 1px;
 }
+
+.accordion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    border-bottom: 1px solid #bbb;
+    width:85%;
+}
+
+.accordion:hover {
+    background-color: #eee;
+}
+
+.panel {
+    width:85%;
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+
+div.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+div.accordion.active:after {
+    content: "\2212";
+}
+
+.attribute-key{
+    margin:0px;
+    color: #555;
+    font-size: 14px;
+}
+
+.chlidpanel{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.firstchlidpanel{
+    width:50%;
+}
+
+.Secondchlidpanel {
+    padding-left: 6%;
+    border-left: 1px solid #bbb;
+    width: 50%;
+}
+
+.product_details div{
+    margin-bottom: 2%;
+}
+
+table{
+    width:100%;
+    text-align: center;
+}
+
+table tr:nth-child(odd) {
+    background-color: #F0F2F2;
+};
+
+table tr:nth-child(even) {
+    background-color: #FFF;
+};
+
+table tr {
+    padding: 7px 14px 6px;
+    border-bottom: 1px solid #BBBFBF;
+};
+
+td{
+    padding: 7px 14px 6px;
+        border-bottom: 1px solid #BBBFBF;
+}
+
+.headingsizechart{
+    padding-bottom: 2%;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 4%;
+}
+
 
 @media(max-width:360px) {
     .location {

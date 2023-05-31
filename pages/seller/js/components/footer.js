@@ -29,7 +29,7 @@ let template = `
                                 <nav>
                                     <ul>
                                         <li>
-                                            <a href="${origin}/pages/seller/addproduct.html">My account</a>
+                                            <a href="${origin}/pages/seller/seller-account.html">My account</a>
                                         </li>
                                         <li>
                                             <a href="${origin}/pages/seller/inventory.html">inventory</a>

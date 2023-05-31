@@ -13,11 +13,7 @@
             document.getElementById("fullname").innerText = seller_data.corporate_name;
             document.getElementById("email").innerText = seller_data.email;
             document.getElementById("mobile_number").innerText = seller_data.mobile_number;
-
-            document.getElementById("gender").innerText = seller_data.gender;
-            document.getElementById("dateofbirth").innerText = seller_data.dob;
             document.getElementById("address").innerText = seller_data.address;
-            document.getElementById("hintname").innerText = seller_data.hintname;
 
             function del(e) {
               const seller_list = JSON.parse(localStorage.getItem("seller_list"));

@@ -44,11 +44,13 @@ console.log(filteruserorder[i]["order_id"]);
 
 let filterordereditems = localordereditems.filter(e=>e.order_id == filteruserorder[i]["order_id"]);
 
-console.log(filterordereditems)
+console.log(filterordereditems[0]["product_id"])
 
     for(let j=0;j<1;j++){
     let findproduct ;
     let findsize ;
+
+    console.log(localproducts);
 
     findproduct = localproducts.find(e=>e.product_id == filterordereditems[j]["product_id"] );
     console.log(findproduct);
@@ -164,28 +166,30 @@ let orderproducts = `
 
     }
 
+console.log(filterordereditems.length);
+    
+    if(filterordereditems.length == 1 ){
+        document.querySelector(".spanproduct").style.display = "none";
+    }
+
+    
+else{
 
 for(let i=1;i<filterordereditems.length;i++){
+
     let filterproduct = localproducts.find(e=>e.product_id == filterordereditems[i]["product_id"]);
     console.log(filterproduct);
-
-
-    // for(let j=0;j<filterproduct.length;j++){
         
     let showimage =  `
      <img class="img${i}" src="${filterproduct["image"]["source"]}" alt="">
     `
 
-    document.querySelector(".smallglimpse").insertAdjacentHTML("afterbegin",showimage)
+    document.querySelector(".smallglimpse").insertAdjacentHTML("afterbegin",showimage);
 
-    // }
-
-   
-
-
- 
-    
 }
+    }
+
+
 }
 };
 
@@ -203,7 +207,6 @@ allorderlist.forEach(move=>
         window.location.href = `/pages/orders/order-details.html?order_id=${getorderid}&item_id=${getitemid}`
     }
 
-const smallglimpse = document.querySelector(".smallglimpse")
 
 
     

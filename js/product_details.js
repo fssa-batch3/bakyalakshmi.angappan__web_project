@@ -1,10 +1,11 @@
-// back button is clicked 
+// back button is clicked
 
-window.addEventListener( "pageshow", function ( event ) {
-  var historyTraversal = event.persisted || 
-                         ( typeof window.performance != "undefined" && 
-                              window.performance.navigation.type === 2 );
-  if ( historyTraversal ) {
+window.addEventListener("pageshow", function (event) {
+  var historyTraversal =
+    event.persisted ||
+    (typeof window.performance != "undefined" &&
+      window.performance.navigation.type === 2);
+  if (historyTraversal) {
     // Handle page restore.
     window.location.reload();
   }
@@ -24,11 +25,9 @@ function find_product(e) {
 
 const productdata = product.find(find_product);
 
-
-const  getseller = productdata.seller_id
+const getseller = productdata.seller_id;
 console.log(getseller);
-const findseller = localseller.find(e=>e.email == getseller);
-
+const findseller = localseller.find((e) => e.email == getseller);
 
 const sellername = findseller.corporate_name;
 
@@ -51,14 +50,12 @@ let b_offer;
 let div_product_tax;
 let div_color;
 let p_select_size;
-
-
+let div_inputsize;
 
 // <div class="leftside"></div>
 div_leftside = document.createElement("div");
 div_leftside.setAttribute("class", "leftside");
 document.querySelector("div.content").append(div_leftside);
-console.log(div_leftside);
 
 
 div_product_image = document.createElement("div");
@@ -136,10 +133,10 @@ b_offer.innerText = `(${
 div_product_offer.append(b_offer);
 
 // <div class="product_tax"></div>
-div_product_tax = document.createElement("div");
-div_product_tax.setAttribute("class", "product_tax");
-div_product_tax.innerText = "Price inclusive of all taxes";
-div_prices.append(div_product_tax);
+// div_product_tax = document.createElement("div");
+// div_product_tax.setAttribute("class", "product_tax");
+// div_product_tax.innerText = "Price inclusive of all taxes";
+// div_prices.append(div_product_tax);
 
 // <div class="color"></div>
 div_color = document.createElement("div");
@@ -152,14 +149,25 @@ div_rightside.append(div_color);
 // div_choosecolor.setAttribute("class", "choosecolor");
 // div_color.append(div_choosecolor);
 p_select_size = document.createElement("p");
-p_select_size.setAttribute("class","headingsize")
+p_select_size.setAttribute("class", "headingsize");
 p_select_size.innerText = "Select size";
 div_rightside.append(p_select_size);
+
+div_sizechart = document.createElement("p");
+div_sizechart.setAttribute("class", "sizechart");
+div_sizechart.innerText = "sizechart"
+div_rightside.append(div_sizechart);
 
 // <div class="size"></div>
 div_size = document.createElement("div");
 div_size.setAttribute("class", "size");
 div_rightside.append(div_size);
+
+
+
+div_alert = document.createElement("p");
+div_alert.setAttribute("class", "sizealert");
+div_rightside.append(div_alert);
 
 /* <p>select size</p> */
 
@@ -172,6 +180,8 @@ div_rightside.append(div_size);
 // div_size.innerText = "size: "+find_size["value"];
 // div_rightside.append(div_size);
 
+
+
 // -------------------------- multiple size
 
 const localsize = JSON.parse(localStorage.getItem("size_list"));
@@ -179,10 +189,14 @@ const productsize = productdata.varients;
 const noOfItems = productsize.length;
 
 for (j = 0; j < noOfItems; j++) {
+
+
+  // finding from local storage
   let foundsize;
   for (k = 0; k < localsize.length; k++) {
-    foundsize = localsize.find((e) => e.id == productsize[j].size);
+    foundsize = localsize.find((e) => e.id === productsize[j].size);
   }
+
   let input_size_no = document.createElement("input");
   input_size_no.setAttribute("class", "size_no productsize");
   input_size_no.setAttribute("id", `productsize${j}`);
@@ -197,21 +211,31 @@ for (j = 0; j < noOfItems; j++) {
   // label_size_no.setAttribute("class", "productsize")
   label_size_no.innerText = foundsize.value;
   div_size.append(label_size_no);
+
 }
+
+for (let i = 0; i < noOfItems; i++) {
+  if (productsize[i]["quantity"] <= 0) {
+    document.querySelector(`#productsize${i}`).disabled = true;
+  }
+}
+
+
+
 
 // console.log(filter_avial_size)
 
-div_qty = document.createElement("div");
-div_qty.setAttribute("class", "divlbl");
-div_rightside.append(div_qty);
+// div_qty = document.createElement("div");
+// div_qty.setAttribute("class", "divlbl");
+// div_rightside.append(div_qty);
 
-div_seller = document.createElement("span");
-div_seller.innerText = "seller : "
-div_rightside.append(div_seller)
+// div_seller = document.createElement("span");
+// div_seller.innerText = "seller : "
+// div_rightside.append(div_seller)
 
-span_seller = document.createElement("span");
-span_seller.innerText = sellername;
-div_seller.append(span_seller)
+// span_seller = document.createElement("span");
+// span_seller.innerText = sellername;
+// div_seller.append(span_seller)
 
 // <div class="buttons"></div>
 div_buttons = document.createElement("div");
@@ -238,42 +262,199 @@ div_buttons.append(button_wishlist);
 
 // <div class="product"></div>
 div_product = document.createElement("div");
-div_product.setAttribute("class", "product details");
+div_product.setAttribute("class", "product_details");
 div_rightside.append(div_product);
 
-h2_product = document.createElement("h2");
-h2_product.setAttribute("class", "headingdetails");
-h2_product.innerText = "product details";
-div_product.append(h2_product);
 
-i_chevron = document.createElement("i");
-i_chevron.setAttribute(
-  "class",
-  "details_chev fa-solid fa-chevron-up fa-rotate-180"
-);
-h2_product.append(i_chevron);
+let details_accordian =""
 
-// <h3>Product Details</h3>
+if(productdata.category == 3 || productdata.category == 4){
 
-h3_Product = document.createElement("p");
-h3_Product.innerText = productdata.details;
-h3_Product.setAttribute("id", "details");
-h3_Product.setAttribute("style", "display : none");
-div_product.append(h3_Product);
+details_accordian = `
+<h5> product information </h5>
 
-// ul_details = document.createElement("ul");
-// ul_details.setAttribute("class", "details");
-// div_product.append(ul_details);
+<div class="accordion">  <h6> Product details </h6> </div>
+<div class="panel">
+
+
+    <div class="chlidpanel">
+
+      <div class="firstchlidpanel">
+      
+        <div class="components">
+            <p class="attribute-key">Pattern</p>
+            <p class="attribute-value">${productdata.pattern}</p>
+        </div>
+
+        <div class="components">
+            <p class="attribute-key">Fit</p>
+            <p class="attribute-value">${productdata.fit}</p>
+        </div>
+
+        <div class="components">
+            <p class="attribute-key">Material</p>
+            <p class="attribute-value">${productdata.material}</p>
+        </div>
+
+        <div class="components">
+            <p class="attribute-key">Length</p>
+            <p class="attribute-value">${productdata.length}</p>
+        </div>
+
+      </div>
+
+      <div class="Secondchlidpanel">
+
+        <div class="components">
+            <p class="attribute-key">Rise Type</p>
+            <p class="attribute-value">${productdata.rise}</p>
+        </div>
+
+        <div class="components">
+            <p class="attribute-key">Closure Type</p>
+            <p class="attribute-value">${productdata.closure}</p>
+        </div>
+
+        <div class="components">
+            <p class="attribute-key">Occasion</p>
+            <p class="attribute-value">${productdata.occasion}</p>
+        </div> 
+        
+        <div class="components">
+            <p class="attribute-key">Care</p>
+            <p class="attribute-value">${productdata.care}</p>
+        </div>
+
+      </div>
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="accordion"> <h6> Product Description</h6> </div>
+<div class="panel">
+  <p>${productdata.details}</p>
+</div>
+
+<div class="accordion"><h6> Seller details </h6> </div>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>`;
+}
+
+else{
+
+details_accordian = ` 
+<h5> product information </h5>
+
+<div class="accordion">  <h6> Product details </h6> </div>
+<div class="panel">
+
+
+    <div class="chlidpanel">
+
+      <div class="firstchlidpanel">
+      
+        <div class="components">
+            <p class="attribute-key">Pattern</p>
+            <p class="attribute-value">${productdata.pattern}</p>
+        </div>
+
+        <div class="components">
+            <p class="attribute-key">Fit</p>
+            <p class="attribute-value">${productdata.fit}</p>
+        </div>
+
+        <div class="components">
+            <p class="attribute-key">Material</p>
+            <p class="attribute-value">${productdata.material}</p>
+        </div>
+
+        <div class="components">
+            <p class="attribute-key">Length</p>
+            <p class="attribute-value">${productdata.length}</p>
+        </div>
+
+      </div>
+
+      <div class="Secondchlidpanel">
+
+        <div class="components">
+            <p class="attribute-key">Neckline Type</p>
+            <p class="attribute-value">${productdata.neckline}</p>
+        </div>
+
+        <div class="components">
+            <p class="attribute-key">Sleeve Type</p>
+            <p class="attribute-value">${productdata.sleeve}</p>
+        </div>
+
+        <div class="components">
+            <p class="attribute-key">Occasion</p>
+            <p class="attribute-value">${productdata.occasion}</p>
+        </div> 
+        
+        <div class="components">
+            <p class="attribute-key">Care</p>
+            <p class="attribute-value">${productdata.care}</p>
+        </div>
+
+      </div>
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="accordion"> <h6> Product Description</h6> </div>
+<div class="panel">
+  <p>${productdata.details}</p>
+</div>
+
+<div class="accordion"><h6> Seller details </h6> </div>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>`;
+}
+
+
+document
+  .querySelector(".product_details")
+  .insertAdjacentHTML("afterbegin", details_accordian);
 
 const inputsize = document.querySelectorAll(".productsize");
 let foundprice = "";
 let click_size_value = "";
 inputsize.forEach((size) =>
   size.addEventListener("click", (e) => {
-    click_size_value = e.target.value;
+    click_size_value = parseInt(e.target.value);
     console.log(click_size_value);
 
-    foundprice = productdata.varients.find((e) => e.size == click_size_value);
+    foundprice = productdata.varients.find((e) => e.size === click_size_value);
+
+    console.log(foundprice);
+
+    if(foundprice.quantity !== 0){
+
+      document.querySelector(".addtobag").innerText = "Add to bag"
+      document.querySelector(".addtobag").disabled = false;
+      document.querySelector(".sizealert").innerText = ""
+    }
+
+    if(foundprice.quantity <= 0){
+      document.querySelector(".addtobag").disabled = true;
+      document.querySelector(".addtobag").innerText = "out of stock";
+      document.querySelector(".sizealert").innerText = ""
+    }
+
+    if(foundprice.quantity < 5 && !(foundprice.quantity <= 0)){
+      document.querySelector(".sizealert").innerHTML = `only ${foundprice.quantity } left`
+    }
+
+
 
     console.log(foundprice);
 
@@ -306,82 +487,78 @@ inputsize.forEach((size) =>
 );
 
 //  add to bag
-  const addtobag = JSON.parse(localStorage.getItem("bag")) || [];
+const addtobag = JSON.parse(localStorage.getItem("bag")) || [];
 
-  const bagexist = addtobag.some(
-    (e) => e.product_id == urlproduct_id && e.size == click_size_value
-  );
+const bagexist = addtobag.some(
+  (e) => e.product_id === urlproduct_id && e.size === click_size_value
+);
 
-  console.log(bagexist);
+console.log(bagexist);
 
-  console.log(button_bag.innerText);
+console.log(button_bag.innerText);
 
-  if(bagexist){
-    button_bag.innerText = "GO TO BAG";
-  }
+if (bagexist) {
+  button_bag.innerText = "GO TO BAG";
+}
 
-  if(!bagexist){
+if (!bagexist) {
+  button_bag.addEventListener("click", bag);
+
+  function bag() {
+    const bag_id = crypto.randomUUID();
+    const unique_id = JSON.parse(localStorage.getItem("unique_id"));
+    const params = new URLSearchParams(window.location.search);
+
+    const urlproduct_id = params.get("product_id");
+    // let input_quantity = document.querySelector(".inputquantity").value;
+
+    // console.log(input_quantity)
+
+    const addtobag = JSON.parse(localStorage.getItem("bag")) || [];
+
+    const exist = addtobag.some(
+      (e) => e.product_id === urlproduct_id && e.size === click_size_value
+    );
+
+    if (unique_id === null || unique_id === undefined) {
+      alert("please login to add products into bag");
+      window.location.href = "/pages/homepage/login.html";
+    } 
+
+
+    if (unique_id !== null  && !click_size_value) {
+      alert("please select a size to add the product to bag");
+    }
 
     
-button_bag.addEventListener("click", bag);
+    if (unique_id !== null && exist) {
+      alert("product aldready added to bag");
+    }
 
-function bag() {
-  const bag_id = crypto.randomUUID();
-  const unique_id = JSON.parse(localStorage.getItem("unique_id"));
-  const params = new URLSearchParams(window.location.search);
+    if (unique_id !== null && click_size_value && !exist) {
+      addtobag.push({
+        bag_id,
+        user_id: unique_id,
+        product_id: urlproduct_id,
+        size: parseInt(click_size_value),
+        quantity: 1,
+      });
 
-  const urlproduct_id = params.get("product_id");
-  // let input_quantity = document.querySelector(".inputquantity").value;
+      alert("product added to bag");
 
-  // console.log(input_quantity)
-
-  const addtobag = JSON.parse(localStorage.getItem("bag")) || [];
-
-  const exist = addtobag.some(
-    (e) => e.product_id == urlproduct_id && e.size == click_size_value
-  );
-
-  if (unique_id == null || unique_id == undefined) {
-    alert("please login to add products into bag");
-    location.href = "/pages/homepage/login.html";
-  } else if (exist) {
-        button_bag.innerText = "GO TO BAG";
-    location.href = "/pages/orders/shopping_bag.html"
-  }
-
-  console.log(document.querySelector(".current_price").innerText);
-
-  if (!click_size_value) {
-    alert("please select a size to add the product to bag");
-  }
-  if (click_size_value && !exist) {
-    addtobag.push({
-      bag_id,
-      user_id: unique_id,
-      product_id: urlproduct_id,
-      size: parseInt(click_size_value),
-      quantity: 1,
-    });
-
-    alert("product added to bag");
-
-    localStorage.setItem("bag", JSON.stringify(addtobag));
-    location.href = "/pages/orders/shopping_bag.html";
-
+      localStorage.setItem("bag", JSON.stringify(addtobag));
+      location.href = "/pages/orders/shopping_bag.html";
+    }
   }
 }
 
-  }
-
-
-
 // add to wishlist
-  const addtowishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-  const exist = addtowishlist.some((e) => e.product_id == urlproduct_id);
-  
-  if(exist){
-        button_wishlist.innerText = "wishlisted"
-  }
+const addtowishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+const exist = addtowishlist.some((e) => e.product_id === urlproduct_id);
+
+if (exist) {
+  button_wishlist.innerText = "wishlisted";
+}
 
 button_wishlist.addEventListener("click", wishlist);
 
@@ -397,20 +574,18 @@ function wishlist() {
 
   const addtowishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-  const exist = addtowishlist.some((e) => e.product_id == urlproduct_id);
-
+  const exist = addtowishlist.some((e) => e.product_id === urlproduct_id);
 
   if (unique_id == null || unique_id == undefined) {
     alert("please login to add your favorite products into wishlist");
     location.href = "/pages/homepage/login.html";
   } else if (exist) {
-
     alert("product aldready added to wishlist");
   }
 
   console.log(document.querySelector(".current_price").innerText);
 
-  if (!exist) {
+  if (unique_id !== null || unique_id !== undefined && !exist) {
     addtowishlist.push({
       wishlist_id,
       user_id: unique_id,
@@ -423,34 +598,34 @@ function wishlist() {
     localStorage.setItem("wishlist", JSON.stringify(addtowishlist));
 
     location.href = "/pages/orders/wishlist.html";
-    window.location.reload()
+    window.location.reload();
   }
 }
 
 // products details - to show on click
 
-const h_details = document.querySelector(".headingdetails");
+// const h_details = document.querySelector(".headingdetails");
 
-h_details.addEventListener("click", createdetails);
-// h3_Product.innerHtml = ""
+// h_details.addEventListener("click", createdetails);
+// // h3_Product.innerHtml = ""
 
-function createdetails() {
-  const details = document.querySelector("#details");
-  console.log(details);
+// function createdetails() {
+//   const details = document.querySelector("#details");
+//   console.log(details);
 
-  if (details.style.display === "none") {
-    details.style.display = "block";
-  } else {
-    details.style.display = "none";
-  }
-}
+//   if (details.style.display === "none") {
+//     details.style.display = "block";
+//   } else {
+//     details.style.display = "none";
+//   }
+// }
 
 
 var acc = document.getElementsByClassName("accordion");
 var i;
 
 for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
+  acc[i].addEventListener("click", function () {
     this.classList.toggle("active");
     var panel = this.nextElementSibling;
     if (panel.style.display === "block") {
@@ -460,3 +635,191 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+
+console.log(productdata.category);
+
+let sizechart = ""
+
+
+
+
+
+if (productdata.category !==3  || productdata.category !== 4) {
+
+  sizechart = `
+<div class="sizecontainer">
+
+
+<div class = "inputsizecontainer">
+
+
+<h5 class="headingsizechart"> Size chart  <i class="fa-solid fa-xmark sizeclose"></i> </h5>
+
+<table id="fit-sizechartv2-0-table-0" class="a-bordered a-size-base">
+        <tbody>
+            <tr>
+                <th>Size</th>
+                <th>Chest (in)</th>
+                <th>Waist (in)</th>
+                <th>Sleeve Length (in)</th>
+                <th>Shoulder (in)</th>
+                <th>Length (in)</th>
+            </tr>
+            <tr>
+                <td>xs</td>
+                <td class="a-nowrap">19</td>
+                <td class="a-nowrap">18.5</td>
+                <td class="a-nowrap">24.5</td>
+                <td class="a-nowrap">17.5</td>
+                <td class="a-nowrap">26</td>
+            </tr>
+            <tr>
+                <td>s</td>
+                <td class="a-nowrap">20</td>
+                <td class="a-nowrap">19.5</td>
+                <td class="a-nowrap">25</td>
+                <td class="a-nowrap">18.5</td>
+                <td class="a-nowrap">27</td>
+            </tr>
+            <tr>
+                <td>m</td>
+                <td class="a-nowrap">21</td>
+                <td class="a-nowrap">20.5</td>
+                <td class="a-nowrap">25.5</td>
+                <td class="a-nowrap">19.3</td>
+                <td class="a-nowrap">28</td>
+            </tr>
+            <tr>
+                <td>l</td>
+                <td class="a-nowrap">22</td>
+                <td class="a-nowrap">21.5</td>
+                <td class="a-nowrap">25.5</td>
+                <td class="a-nowrap">20</td>
+                <td class="a-nowrap">29</td>
+            </tr>
+            <tr>
+                <td>xl</td>
+                <td class="a-nowrap">23</td>
+                <td class="a-nowrap">22.5</td>
+                <td class="a-nowrap">25.5</td>
+                <td class="a-nowrap">21</td>
+                <td class="a-nowrap">30</td>
+            </tr>
+            <tr>
+                <td>2xl</td>
+                <td class="a-nowrap">24</td>
+                <td class="a-nowrap">23.5</td>
+                <td class="a-nowrap">26</td>
+                <td class="a-nowrap">21.5</td>
+                <td class="a-nowrap">30.5</td>
+            </tr>
+        </tbody>
+    </table>
+
+    </div>
+
+    </div>
+`;
+}
+
+
+
+if (productdata.category == 3 || productdata.category == 4) {
+  sizechart = `
+
+  
+  <div class="sizecontainer">
+
+
+<div class = "inputsizecontainer">
+
+
+<h5 class="headingsizechart"> Size chart  <i class="fa-solid fa-xmark sizeclose"></i> </h5>
+    <table id="fit-sizechartv2-0-table-0" class="a-bordered a-size-base">
+        <tbody>
+            <tr>
+                <th>Brand Size</th>
+                <th>Waist (in)</th>
+                <th>Inseam (in)</th>
+                <th>Rise (in)</th>
+            </tr>
+            <tr>
+                <td>28</td>
+              
+                <td class="a-nowrap">29<span>&nbsp;- </span>30</td>
+                <td class="a-nowrap">32</td>
+                <td class="a-nowrap">9.2</td>
+            </tr>
+            <tr>
+                <td>30</td>
+              
+                <td class="a-nowrap">31<span>&nbsp;- </span>32</td>
+                <td class="a-nowrap">32</td>
+                <td class="a-nowrap">9.5</td>
+            </tr>
+            <tr>
+                <td>32</td>
+              
+                <td class="a-nowrap">33<span>&nbsp;- </span>34</td>
+                <td class="a-nowrap">32</td>
+                <td class="a-nowrap">10</td>
+            </tr>
+            <tr>
+                <td>34</td>
+              
+                <td class="a-nowrap">35<span>&nbsp;- </span>36</td>
+                <td class="a-nowrap">32</td>
+                <td class="a-nowrap">10.5</td>
+            </tr>
+            <tr>
+                <td>36</td>
+              
+                <td class="a-nowrap">37<span>&nbsp;- </span>38</td>
+                <td class="a-nowrap">32</td>
+                <td class="a-nowrap">11</td>
+            </tr>
+            <tr>
+                <td>38</td>
+              
+                <td class="a-nowrap">39<span>&nbsp;- </span>40</td>
+                <td class="a-nowrap">32</td>
+                <td class="a-nowrap">11.8</td>
+            </tr>
+            <tr>
+                <td>40</td>
+              
+                <td class="a-nowrap">41<span>&nbsp;- </span>42</td>
+                <td class="a-nowrap">32</td>
+                <td class="a-nowrap">12.2</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    </div>
+
+    </div>
+
+`;
+} 
+
+
+document.querySelector(".content").insertAdjacentHTML("afterbegin",sizechart )
+
+document.querySelector(".sizechart").addEventListener("click",givesizechart);
+
+function givesizechart(){
+
+
+  document.querySelector(".sizecontainer").classList.add("openpopup")
+
+}
+
+
+let sizeclosebtn = document.querySelector(".sizeclose")
+sizeclosebtn.addEventListener("click",closepopup)
+function closepopup(){
+document.querySelector(".sizecontainer").classList.remove("openpopup")
+}
+

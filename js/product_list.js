@@ -15,24 +15,44 @@ let span_product_offer;
 
 const product = JSON.parse(localStorage.getItem("product_list"));
 const params = new URLSearchParams(window.location.search);
-const urlcategory = params.get("category");
+const urlcategory = parseInt(params.get("category"));
+
+
 console.log(urlcategory);
-let filteredcategory;
+
+let filteredcategory = product;
+
+console.log(filteredcategory);
+
+
 
 if (!urlcategory) {
-  const urlgender = params.get("gender");
-  console.log(urlgender);
+  const urlgender = parseInt(params.get("gender"));
 
-  filteredProducts = product.filter((product) => product.gender === urlgender);
+    if (!urlgender && urlcategory == 0) {
+      filteredProducts = product;
+    }
+
+    else{
+
+  filteredProducts = product.filter((e) => e.gender === urlgender);
 
   console.log(filteredProducts);
+    }
+
+
+
 }
 
-if (urlcategory && urlcategory !== 0) {
-  filteredProducts = product.filter(
-    (product) => product.category === urlcategory
-  );
-}
+
+
+
+  if (urlcategory && urlcategory !== 0) {
+    filteredProducts = product.filter(
+      (product) => product.category === urlcategory
+    );
+  }
+
 
 console.log(filteredProducts);
 
@@ -197,11 +217,11 @@ div_wishlist.forEach((event) => {
 
     const addtowishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-    const exist = addtowishlist.some((e) => e.product_id == getproduct_id);
+    const exist = addtowishlist.some((e) => e.product_id === getproduct_id);
 
     let wishlist_id = crypto.randomUUID();
 
-    if (unique_id == null || unique_id == undefined) {
+    if (unique_id === null || unique_id === undefined) {
       alert("please login to add your favorite products into wishlist");
       location.href = "/pages/homepage/login.html";
     } else if (exist) {
@@ -228,7 +248,7 @@ div_wishlist.forEach((event) => {
 const localgender = JSON.parse(localStorage.getItem("gender_list"));
 const localcategory = JSON.parse(localStorage.getItem("category_list"));
 
-const findCategory = localcategory.find((e) => e.id == urlcategory);
+const findCategory = localcategory.find((e) => e.id === urlcategory);
 
 if (findCategory) {
   document.querySelector(".heading_top_category").innerText =
@@ -241,13 +261,19 @@ if (findCategory) {
     findGender["gender"] + "'s";
 }
 
-if (!findCategory) {
-  const urlgender = params.get("gender");
-  console.log(urlgender);
+if (!findCategory && urlcategory !==0) {
+  const urlgender = parseInt(params.get("gender"));
 
-  let heading_top_gender = localgender.find(e=>e.id == urlgender);
+  let heading_top_gender = localgender.find((e) => e.id === urlgender);
+
   console.log(heading_top_gender);
-  document.querySelector(".heading_top_gender").innerText = heading_top_gender["gender"]
+  document.querySelector(".heading_top_gender").innerText =
+    heading_top_gender["gender"];
+  document.querySelector(".heading_top_category").innerText = "all products";
+}
+
+if (!findCategory && urlcategory == 0) {
+
   document.querySelector(".heading_top_category").innerText = "all products";
 }
 

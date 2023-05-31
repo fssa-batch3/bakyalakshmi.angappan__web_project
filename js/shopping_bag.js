@@ -48,14 +48,16 @@ function addaddress(){
 }
 }
 
-if(foundUser["address"].length == 3){
-    document.querySelector(".add").style.display = "none" 
+if (foundUser["address"].length === 3) {
+  document.querySelector(".add").style.display = "none";
 }
 
-if(foundUser["address"]!=0){
-  let foundUserAddress = foundUser["address"].find(e=>e.status === "default") || foundUser["address"][0];
+if (foundUser["address"] != 0) {
+  let foundUserAddress =
+    foundUser["address"].find((e) => e.status === "default") ||
+    foundUser["address"][0];
 
-const after_address = `
+  const after_address = `
 
         <div class="address">
             <div>
@@ -73,15 +75,15 @@ const after_address = `
         </div>
 `;
 
-document.querySelector(".container").insertAdjacentHTML("afterbegin", after_address);
+  document
+    .querySelector(".container")
+    .insertAdjacentHTML("afterbegin", after_address);
 }
-
 
 // showing all local address in change address form
 
-for(i=0;i<foundUser["address"].length;i++){
-
-        let alllocaladdress = `
+for (i = 0; i < foundUser["address"].length; i++) {
+  let alllocaladdress = `
 
                   <div class="localaddress d-flex">
               
@@ -97,37 +99,42 @@ for(i=0;i<foundUser["address"].length;i++){
                           </label>
               
                       </div>
-        `
+        `;
 
-document.querySelector(".alllocaladdress").insertAdjacentHTML("afterbegin", alllocaladdress);
+  document
+    .querySelector(".alllocaladdress")
+    .insertAdjacentHTML("afterbegin", alllocaladdress);
 }
 
 // if any chnages in the change address page change the address in the bag
 
-let radioinput = document.querySelectorAll(".inputchangeaddress input[type=radio]")
+let radioinput = document.querySelectorAll(
+  ".inputchangeaddress input[type=radio]"
+);
 
-radioinput.forEach(get=>
-  get.addEventListener("change",getaddress)
-)
+radioinput.forEach((get) => get.addEventListener("change", getaddress));
 
 // function when any changes in the changeadress page
-  function getaddress(){
-    let clickedaddress = parseInt(this.dataset.address_id)
-    console.log(clickedaddress)
+function getaddress() {
+  let clickedaddress = parseInt(this.dataset.address_id);
+  console.log(clickedaddress);
 
-    let addressfind = foundUser["address"].find(e=>e.address_id === clickedaddress)
-    console.log(addressfind);
+  let addressfind = foundUser["address"].find(
+    (e) => e.address_id === clickedaddress
+  );
+  console.log(addressfind);
 
-    document.querySelector(".filladdress").innerHTML = `  
-                  ${addressfind.streetaddress} ,${addressfind.landmark} ,${addressfind.city} - ${addressfind.pincode}.`
-                  
-    closepopup();
-  
-  }
+  document.querySelector(".filladdress").innerHTML = `  
+                  ${addressfind.streetaddress} ,${addressfind.landmark} ,${addressfind.city} - ${addressfind.pincode}.`;
 
-document.querySelector(".inputchangeaddress .add").addEventListener("click",addaddresspage)
-function addaddresspage(){
-  window.location.href="/pages/orders/add_address.html"
+  closepopup();
+}
+
+document
+  .querySelector(".inputchangeaddress .add")
+  .addEventListener("click", addaddresspage);
+function addaddresspage() {
+  window.location.href = "/pages/orders/add_address.html";
 }
 
 const localproducts = JSON.parse(localStorage.getItem("product_list"));
@@ -139,7 +146,7 @@ let localunique_id = "";
 let localsize = "";
 let filtereduser_bag = [];
 
-if (localbag != null || localbag !== undefined) {
+if (localbag !== null || localbag !== undefined) {
   localunique_id = JSON.parse(localStorage.getItem("unique_id"));
   localsize = JSON.parse(localStorage.getItem("size_list"));
 
@@ -157,7 +164,7 @@ if (filtereduser_bag.length === 0) {
   const createp = document.createElement("div");
   createp.setAttribute("class", "message");
   console.log(createp);
-  createp.innerText = "Your bag is empty!"
+  createp.innerText = "Your bag is empty!";
   pr.append(createp);
 
   const div_btn = document.createElement("div");
@@ -179,20 +186,18 @@ let find_size_price = "";
 const current_price = "";
 let sum = 0;
 
-
 for (let i = 0; i < filtereduser_bag.length; i++) {
   // finding product from local storage
   const find_product = localproducts.find(
     (e) => e.product_id === filtereduser_bag[i].product_id
   );
-  console.log(find_product);
 
+  console.log(find_product);
 
   // finding size from localsize
 
-  const find_size = localsize.find((e) => e.id == filtereduser_bag[i].size);
+  let find_size = localsize.find((e) => e.id === filtereduser_bag[i].size);
   console.log(find_size);
-
 
   // find size from find_product
   find_size_price = find_product.varients.find(
@@ -211,6 +216,45 @@ for (let i = 0; i < filtereduser_bag.length; i++) {
   console.log(current_price);
 
   sum += current_price;
+
+  let availability = "";
+
+  for (let i = 0; i < filtereduser_bag.length; i++) {
+    let filtereduser_bagproduct = filtereduser_bag[i]["product_id"];
+    console.log(filtereduser_bagproduct);
+
+    // get size id from filtered bag
+    let findsize = filtereduser_bag[i]["size"];
+
+    console.log(findsize);
+
+    let findquantity = filtereduser_bag[i]["quantity"];
+
+    console.log(findquantity);
+
+    // get price is the goal
+    let findproduct = localproducts.find(
+      (e) => e.product_id === filtereduser_bagproduct
+    );
+
+
+
+    let findproductprice = findproduct["varients"].find(
+      (e) => e.size == findsize
+    );
+
+    console.log(findproductprice);
+
+
+
+    if (findproductprice.quantity < findquantity) {
+      availability = `out of stock only ${findproductprice.quantity} left`;
+    }
+
+    if (findproductprice.quantity >= findquantity) {
+      availability = `only ${findproductprice.quantity} left `;
+    }
+  }
 
   const template_bag = ` 
 
@@ -238,8 +282,12 @@ for (let i = 0; i < filtereduser_bag.length; i++) {
         <span class="span_size">${find_size.value}</span>
 
         <label><b>Qty:</b></label>
-        <select class="quantity" value="${filtereduser_bag[i]["quantity"]}" data-bag_id =${localbag[i].bag_id} required>
-            <option selected disabled hidden> ${filtereduser_bag[i]["quantity"]} </option>
+        <select class="quantity" value="${
+          filtereduser_bag[i]["quantity"]
+        }" data-bag_id =${localbag[i].bag_id} required>
+            <option selected disabled hidden> ${
+              filtereduser_bag[i]["quantity"]
+            } </option>
             <option value="1" class="opt">1</option>
             <option value="2" >2</option>
             <option value="3">3</option>
@@ -267,6 +315,8 @@ for (let i = 0; i < filtereduser_bag.length; i++) {
         delivery in <span class="date">2 days</span>
     </div>
 
+    <div class="alert">${availability}</div>
+
     <div class="buttons">
         <div>
                  <button class="movetobag" data-bag_id=${
@@ -279,7 +329,7 @@ for (let i = 0; i < filtereduser_bag.length; i++) {
 </div>
 `;
 
-          console.log(filtereduser_bag[i].quantity)
+  console.log(filtereduser_bag[i].quantity);
   // qty display
   // <span>${localbag[i]["quantity"]}</span>
   document
@@ -296,7 +346,7 @@ inputquantity.forEach((qty) =>
     const id = this.dataset.bag_id;
     console.log(id);
 
-    const foundbag_quantity = localbag.find((e) => e.bag_id == id);
+    const foundbag_quantity = localbag.find((e) => e.bag_id === id);
     console.log(foundbag_quantity);
 
     console.log(foundbag_quantity);
@@ -351,7 +401,7 @@ remove.forEach((del) =>
     const bag_uuid = this.dataset.id;
     console.log(bag_uuid);
 
-    const find_bag = localbag.find((e) => e.bag_id == bag_uuid);
+    const find_bag = localbag.find((e) => e.bag_id === bag_uuid);
     console.log(find_bag);
 
     const indexofbagprod = localbag.indexOf(find_bag);
@@ -372,16 +422,16 @@ movetowishlist.forEach((move) =>
 
     const wishlist_id = crypto.randomUUID();
 
-    // clicked bag 
+    // clicked bag
 
-    const find_bag_prod = localbag.find((e) => e.bag_id == clicked_bag_id);
+    const find_bag_prod = localbag.find((e) => e.bag_id === clicked_bag_id);
 
-    // find there is product or not 
+    // find there is product or not
     const find_wishlist_prod = localwishlist.find(
-      (e) => e.product_id == find_bag_prod.product_id)
+      (e) => e.product_id == find_bag_prod.product_id
+    );
 
-      console.log(find_wishlist_prod);
-
+    console.log(find_wishlist_prod);
 
     if (!find_wishlist_prod) {
       localwishlist.push({
@@ -398,23 +448,19 @@ movetowishlist.forEach((move) =>
       alert("Item added to wishlist");
 
       location.reload();
-    
 
-    localStorage.setItem("bag", JSON.stringify(localbag));
-    localStorage.setItem("wishlist", JSON.stringify(localwishlist));
-
+      localStorage.setItem("bag", JSON.stringify(localbag));
+      localStorage.setItem("wishlist", JSON.stringify(localwishlist));
     }
     //  window.location.reload();
 
-  
-
     if (find_wishlist_prod) {
-       if(confirm("Product aldready exist in wishlist do you want to remove ?")){
+      if (
+        confirm("Product aldready exist in wishlist do you want to remove ?")
+      ) {
+        let confirm_bag_id = find_bag_prod;
+        console.log(confirm_bag_id);
 
-                    let confirm_bag_id = find_bag_prod;
-                    console.log(confirm_bag_id);
-
-                                
         const indexofbagprod = localbag.indexOf(confirm_bag_id);
         console.log(indexofbagprod);
 
@@ -426,20 +472,14 @@ movetowishlist.forEach((move) =>
         // console.log(get)
 
         location.reload();
-
-       }
-
+      }
     }
 
     // ////////////////////
-
-
-  }  
-)
+  })
 );
 
-
-// function when add address is clicked 
+// function when add address is clicked
 
 // let addaddressbtn = document.querySelector(".addaddress")
 // addaddressbtn.addEventListener("click",function(){
@@ -448,137 +488,153 @@ movetowishlist.forEach((move) =>
 
 // function when change address is clicked
 
-
-
 // popup for changeaddress
 
-if(foundUser["address"].length!==0){
-let changeaddressbtn = document.querySelector(".changeaddress")
-console.log(changeaddressbtn)
+if (foundUser["address"].length !== 0) {
+  let changeaddressbtn = document.querySelector(".changeaddress");
+  console.log(changeaddressbtn);
 
-changeaddressbtn.addEventListener("click",openpopup)
+  changeaddressbtn.addEventListener("click", openpopup);
 
-let inputcontainer = document.querySelector(".inputcontainer")
+  let inputcontainer = document.querySelector(".inputcontainer");
 
+  function openpopup() {
+    inputcontainer.classList.add("openpopup");
+  }
 
-function openpopup(){
-inputcontainer.classList.add("openpopup")
+  let changeaddressclosebtn = document.querySelector(".changeaddressx-mark");
+  changeaddressclosebtn.addEventListener("click", closepopup);
+  function closepopup() {
+    inputcontainer.classList.remove("openpopup");
+  }
 }
 
+document.querySelector(".placeorder").addEventListener("click", place);
 
-let changeaddressclosebtn = document.querySelector(".changeaddressx-mark")
-changeaddressclosebtn.addEventListener("click",closepopup)
-function closepopup(){
-inputcontainer.classList.remove("openpopup")
-}
-}
+function place() {
+  let output = false;
 
+  for (let i = 0; i < filtereduser_bag.length; i++) {
+    let filtereduser_bagproduct = filtereduser_bag[i]["product_id"];
+    console.log(filtereduser_bagproduct);
 
+    // get size id from filtered bag
+    let findsize = filtereduser_bag[i]["size"];
 
-document.querySelector(".placeorder").addEventListener("click",place)
+    let findquantity = filtereduser_bag[i]["quantity"];
 
+    // get price is the goal
+    let findproduct = localproducts.find(
+      (e) => e.product_id === filtereduser_bagproduct
+    );
 
-function place(){
+    let findproductprice = findproduct["varients"].find(
+      (e) => e.size === findsize
+    );
+
+    if (findproductprice.quantity <= 0) {
+      document.querySelector(".alert").innerHTMl = "out of stock";
+      output = true;
+    }
+
+    if (findproductprice.quantity > findquantity) {
+      document.querySelector(
+        ".alert"
+      ).innerText = `only ${findproductprice.quantity} left `;
+
+      output = true;
+    }
+  }
 
   let localOrder = JSON.parse(localStorage.getItem("order")) || [];
   console.log(localOrder);
 
-  let address_id = document.querySelector(".filladdress").dataset.address_id;
+  let address_id = document.querySelector(".filladdress").innerText;
 
-  let inp_quantity =  document.querySelectorAll(".quantity");
+  let inp_quantity = document.querySelectorAll(".quantity");
 
-console.log(address_id);
+  console.log(address_id);
 
   let order_uuid = crypto.randomUUID();
 
   console.log(filtereduser_bag.length);
 
-if(filtereduser_bag.length !== 0  && address_id !== 0){
+  if (filtereduser_bag.length !== 0 && address_id !== 0 && output == true) {
+    let getdate = new Date();
 
-  let getdate = new Date();
+    localOrder.push({
+      order_id: order_uuid,
+      order_status: "On the way",
+      ordered_time: getdate,
+      address: address_id,
+      user_id: localunique_id,
+      bag_price: sum,
+    });
 
-  localOrder.push(
-    {
-    "order_id":order_uuid ,
-    "order_status":"On the way" ,
-    "ordered_time" :getdate,
-    "address" : address_id ,
-    "user_id" : localunique_id,
-    "bag_price" : sum
-    }
-  )
+    localStorage.setItem("order", JSON.stringify(localOrder));
 
-  localStorage.setItem("order",JSON.stringify(localOrder));
+    let localOrders = JSON.parse(localStorage.getItem("order")) || [];
 
-  let localOrders = JSON.parse(localStorage.getItem("order")) || [];
+    let localOrderedItems =
+      JSON.parse(localStorage.getItem("ordered_items")) || [];
 
-  let localOrderedItems = JSON.parse(localStorage.getItem("ordered_items")) || [];
-  
-  console.log(localOrderedItems);
+    console.log(localOrderedItems);
 
-  console.log(filtereduser_bag);
+    console.log(filtereduser_bag);
 
+    for (let i = 0; i < filtereduser_bag.length; i++) {
+      // get product id from filtered bag
+      let filtereduser_bagproduct = filtereduser_bag[i]["product_id"];
+      console.log(filtereduser_bagproduct);
 
+      // get size id from filtered bag
+      let findsize = filtereduser_bag[i]["size"];
 
+      let findquantity = filtereduser_bag[i]["quantity"];
 
-  for(let i=0;i<filtereduser_bag.length;i++){
+      // get price is the goal
+      let findproduct = localproducts.find(
+        (e) => e.product_id === filtereduser_bagproduct
+      );
 
-    // get product id from filtered bag
-        let filtereduser_bagproduct = filtereduser_bag[i]["product_id"];
-        console.log(filtereduser_bagproduct);
+      let findproductprice = findproduct["varients"].find(
+        (e) => e.size === findsize
+      );
 
-            // get size id from filtered bag
-        let findsize = filtereduser_bag[i]["size"];
-  
+      findproductprice.quantity = parseInt(
+        findproductprice.quantity - findquantity
+      );
 
-        // get price is the goal
-        let findproduct = localproducts.find(e=>e.product_id == filtereduser_bagproduct);
-        
-        let findproductprice = findproduct["varients"].find(e=>e.size == findsize);
+      localStorage.setItem("product_list", JSON.stringify(localproducts));
 
-// found the ordered product price
-        let order_product_price = findproductprice.price.current;
+      // found the ordered product price
+      let order_product_price = findproductprice.price.current;
 
+      let ordered_item_id = crypto.randomUUID();
 
-     let ordered_item_id = crypto.randomUUID();
+      console.log((filtereduser_bag[i].item_id = ordered_item_id));
 
-     console.log( filtereduser_bag[i].item_id =  ordered_item_id
-)
-
-// pushing price in ordered_item
-      filtereduser_bag[i].item_id =  ordered_item_id
+      // pushing price in ordered_item
+      filtereduser_bag[i].item_id = ordered_item_id;
       filtereduser_bag[i].order_id = order_uuid;
       filtereduser_bag[i].price = order_product_price;
+    }
+
+    localOrderedItems.push(...filtereduser_bag);
+
+    localStorage.setItem("ordered_items", JSON.stringify(localOrderedItems));
+
+    window.location.href = "/pages/orders/order_list.html";
+
+    let filternotuserbag = localbag.filter((e) => e.user_id !== localunique_id);
+    console.log(filternotuserbag);
+    localStorage.setItem("bag", JSON.stringify(filternotuserbag));
   }
 
-  localOrderedItems.push(...filtereduser_bag);
-
-  localStorage.setItem("ordered_items",JSON.stringify(localOrderedItems));
-
-  window.location.href = "/pages/orders/order_list.html"
-
-  let filternotuserbag = localbag.filter(e=>e.user_id !== localunique_id);
-console.log(filternotuserbag);
-localStorage.setItem("bag",JSON.stringify(filternotuserbag));
-}
-
-
-if(filtereduser_bag.length == 0){
+  if (filtereduser_bag.length == 0) {
     alert(`There is no products in the bag 
-kindly, add the products to bag to place order`)
-
-}
-
-if(inp_quantity.value == ""){
-alert(`please enter quantity to place order`);
-
-}
-
-
-// if(address_id == null){
-//   alert("add address to place order")
-// }
-
+kindly, add the products to bag to place order`);
+  }
 }
 
 

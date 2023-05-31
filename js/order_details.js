@@ -236,9 +236,7 @@ console.log(monthName);
                         </div>
 
                         <div class="filladdress">
-                    ${findaddressdetail.streetaddress} ,
-                    ${findaddressdetail.landmark} ,
-                    ${findaddressdetail.city} - ${findaddressdetail.pincode}.
+                                ${findorder.address}
                         </div>
                     </div>
             </div>
@@ -249,11 +247,7 @@ console.log(monthName);
                 <div class="otherorders">
                     <h5>Other items in this order</h5>
                 </div>
-
             </div>
-
-
-
 
         <div>
             <div class="Total_order_price">

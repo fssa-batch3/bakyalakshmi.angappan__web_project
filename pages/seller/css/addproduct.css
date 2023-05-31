@@ -37,8 +37,9 @@ button[type=submit]{
 }
 
 .inputdetails{
-    margin-bottom: 5% ;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #eee;
+        padding-bottom: 1%;
+        margin-bottom: 1%;
 }
 
 /* input[type=checkbox] + label{

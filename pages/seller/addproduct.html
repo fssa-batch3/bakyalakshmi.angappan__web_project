@@ -1,258 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap css/bootstrap.css" />
 
+    <!-- header css -->
+    <link rel="stylesheet" href="/assets/css/header.css" />
 
-        <!-- bootstrap -->
-        <link rel="stylesheet" href="../../assets/css/bootstrap css/bootstrap.css">
+    <!-- addproduct css -->
+    <link rel="stylesheet" href="/pages/seller/css/addproduct.css" />
 
-        <!-- header css -->
-        <link rel="stylesheet" href="/assets/css/header.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-        <!-- addproduct css -->
-        <link rel="stylesheet" href="../seller/css/addproduct.css">
+    <title>Add Product</title>
+  </head>
 
-        <!-- font awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-            crossorigin="anonymous" referrerpolicy="no-referrer">
+  <body>
+    <div class="container-form w-100 h-100 d-flex justify-content-center align-content-center">
+      <form class="form w-75 h-100 p-5 d-flex flex-column row-gap-4" id="form">
+        <div class="form-row">
+          <h4>Add Products</h4>
+        </div>
 
+        <div class="form-row">
+          <label>image</label>
+          <input type="text" class="form-control" id="inputsource" required />
+          </div>
 
-        <title>Add Product</title>
+        <div class="form-row d-flex justify-content-start column-gap-2">
+          <div class="form-group w-25">
+            <select id="inputgendercategory" class="form-control col-md-6" required>
+              <option selected>select gender</option>
+              </select>
+              </div>
 
-    </head>
+          <div class="form-group w-25">
+            <select id="inputcategory" class="form-control col-md-6" required></select>
+            </div>
+            </div>
 
-    <body>
+        <div class="form-row d-flex justify-content-start column-gap-2">
+          <div class="form-group w-25">
+            <label>brand</label>
+            <input type="text" class="form-control" id="inputbrand" required />
+            </div>
 
-        <div class="container-form w-100 h-100 d-flex justify-content-center align-content-center">
-            <form class="form w-75 h-100 p-5 d-flex flex-column row-gap-4" id="form">
+          <div class="form-group w-100">
+            <label for="inputname">Name</label>
+            <input type="text" class="form-control" id="inputname" required />
+            </div>
+        </div>
 
-                <div class="form-row">
-                    <h4>Add Products</h4>
+        <div class="form-row d-flex w-50 column-gap-2">
+          <label for="inputcolor">color</label>
+            <select name="" id="inputcolor" class="form-control" required>
+              <option value="red">Red</option>
+              <option value="blue">Blue</option>
+              <option value="green">Green</option>
+              <option value="yellow">Yellow</option>
+              <option value="orange">Orange</option>
+              <option value="purple">Purple</option>
+              <option value="pink">Pink</option>
+              <option value="brown">Brown</option>
+              <option value="black">Black</option>
+              <option value="white">White</option>
+              <option value="gray">Gray</option>
+              <option value="silver">Silver</option>
+              <option value="gold">Gold</option>
+              <option value="indigo">Indigo</option>
+              <option value="turquoise">Turquoise</option>
+              <option value="cyan">Cyan</option>
+              <option value="magenta">Magenta</option>
+              <option value="lavender">Lavender</option>
+              <option value="maroon">Maroon</option>
+              <option value="olive">Olive</option>
+            </select>
+
+</div>
+
+        <div class="form-row d-flex flex-column column-gap-2" id="size">
+          <input type="" placeholder="Choose Size" id="inputsize" value="" class="form-control" readonly required />
+
+          <div id="option" class="d-flex justify-content-around flex-row w-75 flex-wrap"></div>
+
+          <div id="varients" class="form-group d-flex flex-column p-3"></div>
+
+          <div class="inputdetails">
+            <label>Product details</label>
+          </div>
+
+          <div class="form-row d-flex flex-column row-gap-4">
+            <div class="form-group d-flex flex-row column-gap-5 w-100 firstrow">
+              <div class="form-group w-50">
+                <label for="pattern">Pattern</label>
+
+                <select name="" id="inputpattern" class="form-control" required>
+                  <option value="floral">Floral</option>
+                  <option value="stripes">Stripes</option>
+                  <option value="checks">Checks/Plaid</option>
+                  <option value="polkadots">Polka dots</option>
+                  <option value="animalprint">Animal print</option>
+                  <option value="paisley">Paisley</option>
+                  <option value="solidcolor">Solid color</option>
+                  <option value="abstract">Abstract</option>
+                  <option value="geometric">Geometric</option>
+                </select>
                 </div>
 
-                <div class="form-row">
-                    <label>image</label>
-                    <input type="text" class="form-control" id="inputsource" required>
-                </div>
+              <div class="form-group w-50">
+                <label for="pattern">fit</label>
 
-                <div class="form-row d-flex justify-content-start column-gap-2">
-                    <div class="form-group w-25">
-                        <select id="inputgendercategory" class="form-control col-md-6" required>
-                            <option selected>select gender </option>
-                        </select>
-                    </div>
+                <select name="" id="inputfit" class="form-control" required>
+                  <option value="Slim Fit">Slim Fit</option>
+                  <option value="Regular Fit">Regular Fit</option>
+                  <option value="Loose Fit">Loose Fit</option>
+                  <option value="Athletic Fit">Athletic Fit</option>
+                  <option value="Relaxed Fit">Relaxed Fit</option>
+                  <option value="Fitted">Fitted</option>
+                  <option value="Tailored Fit">Tailored Fit</option>
+                  <option value="Oversized Fit">Oversized Fit</option>
+                  <option value="Skinny Fit">Skinny Fit</option>
+                  <option value="Straight Fit">Straight Fit</option>
+                  <option value="Tapered Fit">Tapered Fit</option>
+                  <option value="Cropped Fit">Cropped Fit</option>
+                  <option value="High Waisted Fit">High Waisted Fit</option>
+                  <option value="Low Rise Fit">Low Rise Fit</option>
+                  <option value="Bootcut Fit">Bootcut Fit</option>
+                  <option value="Flared Fit">Flared Fit</option>
+                  <option value="Wide Leg Fit">Wide Leg Fit</option>
+                </select>
+              </div>
 
-                    <div class="form-group w-25">
-                        <select id="inputcategory" class="form-control col-md-6" required>
-                        </select>
-                    </div>
-                </div>
+              <div class="form-group w-50">
+                <label for="pattern">material</label>
 
-                <div class="form-row d-flex justify-content-start column-gap-2">
+                <select name="" id="inputmaterial" class="form-control" required>
+                  <option value="cotton">Cotton</option>
+                  <option value="polyester">Polyester</option>
+                  <option value="silk">Silk</option>
+                  <option value="wool">Wool</option>
+                  <option value="linen">Linen</option>
+                  <option value="denim">Denim</option>
+                  <option value="rayon">Rayon/Viscose</option>
+                  <option value="nylon">Nylon</option>
+                  <option value="spandex">Spandex/Elastane</option>
+                  <option value="leather">Leather</option>
+                  <option value="suede">Suede</option>
+                  <option value="velvet">Velvet</option>
+                </select>
+              </div>
+              
+              <div class="form-group w-50">
+                <label for="pattern">length</label>
 
-                    <div class="form-group w-25">
-                        <label>brand</label>
-                        <input type="text" class="form-control" id="inputbrand" required>
-                    </div>
+                <select name="" id="inputlength" class="form-control" required>
+                  <option value="Regular">Regular</option>
+                  <option value="cropped">Cropped</option>
+                  <option value="full-length">Full-length</option>
+                  <option value="Below-Knee-length">Below-Knee-length</option>
+                   <option value="Above-Knee-length">Above-Knee-length</option>
+                </select>
+              </div>
+            </div>
 
-                    <div class="form-group w-100">
-                        <label for="inputname">Name</label>
-                        <input type="text" class="form-control" id="inputname" required>
-                    </div>
+            <div class="form-group d-flex flex-row column-gap-5 row-gap-4 w-100 secondrow">
+              </div>
+              </div>
 
-                </div>
+          <div class="form-group">
+            <label for="pattern">Description</label>
+            
+            <textarea name="" class="form-control" id="inputdetails" cols="45" rows="5" required></textarea>
+            </div>
 
-                <div class="form-row d-flex w-50 column-gap-2">
-                    <label for="inputcolor">color</label>
-                    <input type="text" class="form-control" id="inputcolor" required>
-                </div>
 
-                <div class="form-row d-flex flex-column column-gap-2" id="size">
-                    <input type="" placeholder="Choose Size" id="inputsize" value="" class="form-control" readonly required>
-
-                    <div id="option" class="d-flex justify-content-around flex-row w-75 flex-wrap">
-
-                    </div>
-
-                    <div id="varients" class="form-group d-flex flex-column  p-3">
-                    
-                    </div>
-                    
-                    <div for="inputdetails">
-                        <label for="">Product details</label>
-                    </div>
-                    
-                    <div class="form-row d-flex flex-column">
-                    
-                        <div class="form-group d-flex flex-row column-gap-5 w-100">
-                    
-                            <div class="form-group   w-50">
-                                <label for="pattern">Pattern</label>
-                    
-                                <select name="" id="" class="form-control">
-                                    <option value="floral">Floral</option>
-                                    <option value="stripes">Stripes</option>
-                                    <option value="checks">Checks/Plaid</option>
-                                    <option value="polkadots">Polka dots</option>
-                                    <option value="animalprint">Animal print</option>
-                                    <option value="paisley">Paisley</option>
-                                    <option value="solidcolor">Solid color</option>
-                                    <option value="abstract">Abstract</option>
-                                    <option value="geometric">Geometric</option>
-                                </select>
-                            </div>
-                    
-                            <div class="form-group   w-50">
-                                <label for="pattern">fit</label>
-                    
-                                <select name="" id="" class="form-control">
-                    
-                                    <option value="Slim Fit">Slim Fit</option>
-                                    <option value="Regular Fit">Regular Fit</option>
-                                    <option value="Loose Fit">Loose Fit</option>
-                                    <option value="Athletic Fit">Athletic Fit</option>
-                                    <option value="Relaxed Fit">Relaxed Fit</option>
-                                    <option value="Fitted">Fitted</option>
-                                    <option value="Tailored Fit">Tailored Fit</option>
-                                    <option value="Oversized Fit">Oversized Fit</option>
-                                    <option value="Skinny Fit">Skinny Fit</option>
-                                    <option value="Straight Fit">Straight Fit</option>
-                                    <option value="Tapered Fit">Tapered Fit</option>
-                                    <option value="Cropped Fit">Cropped Fit</option>
-                                    <option value="High Waisted Fit">High Waisted Fit</option>
-                                    <option value="Low Rise Fit">Low Rise Fit</option>
-                                    <option value="Bootcut Fit">Bootcut Fit</option>
-                                    <option value="Flared Fit">Flared Fit</option>
-                                    <option value="Wide Leg Fit">Wide Leg Fit</option>
-                    
-                    
-                                </select>
-                    
-                            </div>
-                    
-                            <div class="form-group   w-50">
-                                <label for="pattern">material</label>
-                    
-                                <select name="" id="" class="form-control">
-                    
-                                    <option value="cotton">Cotton</option>
-                                    <option value="polyester">Polyester</option>
-                                    <option value="silk">Silk</option>
-                                    <option value="wool">Wool</option>
-                                    <option value="linen">Linen</option>
-                                    <option value="denim">Denim</option>
-                                    <option value="rayon">Rayon/Viscose</option>
-                                    <option value="nylon">Nylon</option>
-                                    <option value="spandex">Spandex/Elastane</option>
-                                    <option value="leather">Leather</option>
-                                    <option value="suede">Suede</option>
-                                    <option value="velvet">Velvet</option>
-                                </select>
-                    
-                            </div>
-                    
-                        </div>
-                    
-                    
-                        <div class="form-group d-flex flex-row column-gap-5 w-100">
-                    
-                            <div class="form-group w-50">
-                                <label for="pattern">Neckline Type</label>
-                    
-                                <select name="" id="" class="form-control">
-                                    <option value="Crew Neck">Crew Neck</option>
-                                    <option value="V-Neck">V-Neck</option>
-                                    <option value="Scoop Neck">Scoop Neck</option>
-                                    <option value="Boat Neck">Boat Neck</option>
-                                    <option value="Square Neck">Square Neck</option>
-                                    <option value="Halter Neck">Halter Neck</option>
-                                    <option value="Off-Shoulder">Off-Shoulder</option>
-                                    <option value="One-Shoulder">One-Shoulder</option>
-                                    <option value="Sweetheart Neck">Sweetheart Neck</option>
-                                    <option value="Plunging Neckline">Plunging Neckline</option>
-                                    <option value="High Neck">High Neck</option>
-                                    <option value="Turtleneck">Turtleneck</option>
-                                    <option value="Collared Neck">Collared Neck</option>
-                                    <option value="Wrap Neck">Wrap Neck</option>
-                                    <option value="Keyhole Neck">Keyhole Neck</option>
-                                    <option value="Sweatheart Neck">Sweatheart Neck</option>
-                                    <option value="Square Neck">Square Neck</option>
-                                    <option value="Scoop Neck">Scoop Neck</option>
-                    
-                                </select>
-                    
-                            </div>
-                    
-                    
-                            <div class="form-group w-50">
-                                <label for="pattern">Sleeve type</label>
-                    
-                                <select name="" id="" class="form-control">
-                                    <option value="Short Sleeve">Short Sleeve</option>
-                                    <option value="Long Sleeve">Long Sleeve</option>
-                                    <option value="Three-Quarter Sleeve">Three-Quarter Sleeve</option>
-                                    <option value="Cap Sleeve">Cap Sleeve</option>
-                                    <option value="Sleeveless">Sleeveless</option>
-                                    <option value="Puff Sleeve">Puff Sleeve</option>
-                                    <option value="Bell Sleeve">Bell Sleeve</option>
-                                </select>
-                    
-                            </div>
-                    
-                            <div class="form-group w-50">
-                                <label for="pattern">Occassion</label>
-                    
-                                <select name="" id="" class="form-control">
-                                    <option value="casual">Casual</option>
-                                    <option value="formal">Formal</option>
-                                    <option value="summer">Summer</option>
-                                    <option value="winter">Winter</option>
-                                </select>
-                    
-                            </div>
-                    
-                    
-                    
-                        </div>
-                                        <!-- <textarea name="" class="form-control" id="inputdetails" cols="45" rows="8" required></textarea> -->
-                                        </div>
-                                        <div class="form-group">
-                                        <div class="form-group d-flex d-flex flex-row gap-4 ">
-                                            <label for="pattern">Care Instruction</label>
-                                        
-                                            <select name="" id="" class="form-control w-50">
-                                                <option value="Machine Wash">Machine Wash</option>
-                                                <option value="Hand Wash">Hand Wash</option>
-                                                <option value="Dry Clean">Dry Clean</option>
-                                            </select>
-                                        
-                                        </div>
-                                        
-                                        <label for="pattern">Description</label>
-                                        
-                                        <textarea name="" class="form-control" id="inputdetails" cols="45" rows="5" required></textarea>
-                                        
-                                        </div>
-
-                    <button type="submit" class="btn btn-dark">upload product</button>
+        <button type="submit" class="btn btn-dark">upload product</button>
         </form>
+    </div>
 
-                </div>
+    <hr />
+    <!-- header -->
 
-                <hr>
-        <!-- header -->
+    <script src="/pages/seller/js/components/header.js"></script>
+    
+    <script src="/js/vendor/bootstrap.bundle.js"></script>
 
-                <script src="/pages/seller/js/components/header.js"></script>
-   
-                <script src="/js/vendor/bootstrap.bundle.js"></script>
-
-                <script src="./js/addproduct.js"></script>
-
-</body>
-
+    <script src="./js/addproduct.js"></script>
+  </body>
 </html>

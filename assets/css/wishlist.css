@@ -179,6 +179,10 @@ select size
     accent-color: #000;
 }
 
+.selectSize input[type=radio]:disabled + label  {
+    background-color: #eee;
+}
+
 .inputSelectSize {
     position: relative;
     width: 30%;

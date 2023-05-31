@@ -42,14 +42,12 @@ const before_login = `
 
             </ul>
 
-            <ul class="navbar-nav mb-1 mb-lg-0 mx-auto">
+            <ul class="all_section navbar-nav mb-1 mb-lg-0 mx-auto">
 
                 <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                     value=3>
-                    KIDS
-                     <ul class="dropdown-menu" id="cate_kids">
-                
-                    </ul>
+
+                    ALL
                 </li>
 
             </ul>
@@ -130,14 +128,12 @@ const after_login = `    <header id="desktop-header">
 
             </ul>
 
-            <ul class="navbar-nav mb-1 mb-lg-0 mx-auto">
+            <ul class=" all_section navbar-nav mb-1 mb-lg-0 mx-auto">
 
                 <li class="nav-item dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                    value=3>
-                    KIDS
-                     <ul class="dropdown-menu" id="cate_kids">
-                  
-                    </ul>
+                    value="">
+
+                    ALL
                 </li>
 
             </ul>
@@ -320,11 +316,11 @@ ul_dropdown_menu.forEach((event) => {
 
 
 
-// const  = document.querySelectorAll(".dropdown-menu");
-// console.log(ul_dropdown_menu);
-// ul_dropdown_menu.forEach((event) => {
-//   event.addEventListener("click", (e) => {
-//     const inputvalue = e.target.value;
-//     location.href = `/pages/products/product-list.html?category=${inputvalue}`;
-//   });
-// });
+const all = document.querySelectorAll(".all_section");
+
+all.forEach((event) => {
+  event.addEventListener("click", (e) => {
+    const inputvalue = e.target.value;
+    location.href = `/pages/products/product-list.html?category=0`;
+  });
+});

@@ -90,8 +90,6 @@ const afterlogin = `
                         <li><a href="${footer_origin}/pages/products/product-list.html?gender=1">men</a></li>
                         <li><a href="${footer_origin}/pages/products/product-list.html?gender=2">women</a>
                         </li>
-                        <li><a href="${footer_origin}/pages/products/product-list.html?gender=3">kids</a>
-                        </li>
                     </ul>
                 </nav>
             </div>

@@ -32,7 +32,7 @@ console.log(localunique_id);
 console.log(filtereduser_wishlist);
 
 const pr = document.querySelector(".products");
-if (filtereduser_wishlist.length === 0) {
+if (filtereduser_wishlist.length == 0) {
   const createp = document.createElement("div");
   createp.setAttribute("class", "message");
   console.log(createp);
@@ -117,15 +117,16 @@ movetobag_btn.forEach((tobag) =>
     e.stopPropagation();
     // product_id of a particular product
     const cick_wishlist_id = this.dataset.wishlist_id;
+    console.log(cick_wishlist_id);
 
     const find_wishlist_product = localwishlist.find(
-      (e) => e.wishlist_id == cick_wishlist_id
+      (e) => e.wishlist_id === cick_wishlist_id
     );
     // check whether  there is size or not
 
     console.log(find_wishlist_product);
 
-    // before selecting the size
+    // // before selecting the size
 
     const emptySize = find_wishlist_product["size"] == "";
 
@@ -147,6 +148,8 @@ movetobag_btn.forEach((tobag) =>
       // get local size
       const localsize = JSON.parse(localStorage.getItem("size_list"));
 
+      console.log(localsize);
+
       // function to find product 
 
       // localproducts
@@ -157,12 +160,14 @@ movetobag_btn.forEach((tobag) =>
       }
 
       const productdata = localProduct.find(find_product);
-      console.log(productdata);
-      
+      console.log(productdata);    
 
       const div_size = document.querySelector(".alllocalsize")
       const productsize = productdata.varients;
       const noOfItems = productsize.length;
+
+
+
       div_size.innerHTML =""
       for (j = 0; j < noOfItems; j++) {
         
@@ -170,6 +175,8 @@ movetobag_btn.forEach((tobag) =>
         for (k = 0; k < localsize.length; k++) {
           foundsize = localsize.find((e) => e.id == productsize[j].size);
         }
+
+
         let input_size_no = document.createElement("input");
         input_size_no.setAttribute("class", "size_no productsize");
         input_size_no.setAttribute("id", `productsize${j}`);
@@ -184,6 +191,12 @@ movetobag_btn.forEach((tobag) =>
         // label_size_no.setAttribute("class", "productsize")
         label_size_no.innerText = foundsize.value;
         div_size.append(label_size_no);
+      }
+      
+      for(let i=0 ;i<noOfItems;i++){
+        if(productsize[i]["quantity"] <= 0){
+          document.querySelector(`#productsize${i}`).disabled = true ;
+        }
       }
 
       const inputsize = document.querySelectorAll(".productsize");
