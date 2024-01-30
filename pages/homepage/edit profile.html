@@ -1,180 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/edit_profile.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../assets/css/edit_profile.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
 
-    <title>edit_profile</title>
-</head>
+        <title>edit_profile</title>
+    </head>
 
-<body>
-    <div class="container">
+    <body>
+        <div class="container">
 
-        <div class="container-form">
-            <div class="x-mark">
-                <a href="./account.html">
-                    <i class="fa-solid fa-xmark"></i>
-                </a>
+            <div class="container-form">
+                <div class="x-mark">
+                    <a href="./account.html">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                </div>
+
+                <h2>edit profile</h2>
+                <form onSubmit="update(event)">
+                    <div>
+                        <label class="label_field">full name</label>
+                        <br >
+                        <input class="input_field" type="text" id="fullname" required>
+                        <small></small>
+                    </div>
+
+                    <div>
+                        <label class="label_field">Mobile number</label>
+                        <br >
+                        <input class="input_field" type="tel" id="mobile_number" required>
+                        <small></small>
+                    </div>
+
+                    <div>
+                        <label class="label_field">Email </label>
+                        <br >
+                        <input class="input_field" type="email" id="email" disabled>
+
+                    </div>
+
+                    <div>
+                        <label class="label_field">gender</label>
+                        <select name="" class ="input_field" id="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>  
+
+                    <div>
+                        <label class="label_field">date of birth</label>
+                        <br >
+                        <input class="input_field" type="date" id="dateofbirth">
+                    </div>
+
+                    <div>
+                        <label class="label_field">hint name</label>
+                        <br >
+                        <input class="input_field" type="text"  id="hintname">
+                    </div>
+
+                    <div class="save-changes">
+                        <button type="submit"> save changes</button>
+                    </div>
+                    <!-- 
+                        <div class="change-password">
+                        <button type="button">change password</button>
+                        </div> -->
+
+                </form>
+
             </div>
-
-            <h2>edit profile</h2>
-            <form onSubmit="update(event)">
-                <div>
-                    <label class="label_field">full name</label><br />
-                    <input class="input_field" type="text" id="fullname" />
-                </div>
-
-                <div>
-                    <label class="label_field">Mobile number</label><br />
-                    <input class="input_field" type="tel" id="mobile_number" />
-                </div>
-
-                <div>
-                    <label class="label_field">Email </label><br />
-                    <input class="input_field" type="email" id="email" />
-                </div>
-
-
-
-                <div>
-                    <label class="label_field">gender</label>
-                    <input class="input_field" type="text" id="gender" />
-                </div>
-
-                <div>
-                    <label class="label_field">date of birth</label><br />
-                    <input class="input_field" type="date" id="dateofbirth" />
-                </div>
-
-                <div>
-                    <label class="label_field">address</label><br />
-                    <input class="input_field" id="address" />
-                </div>
-
-                <div>
-                    <label class="label_field">hint name</label><br />
-                    <input class="input_field" id="hintname" />
-                </div>
-
-
-                <div class="save-changes">
-                    <button type="submit"> save changes</button>
-                </div>
-                <!-- 
-                <div class="change-password">
-                    <button type="button">change password</button>
-                </div> -->
-
-            </form>
-
         </div>
-    </div>
 
+        <script>//get value from local storage
+      const user_list = JSON.parse(localStorage.getItem("user_list"));
 
-    <script>
+      const unique_id = JSON.parse(localStorage.getItem("unique_id"));
 
-        // function save_profile() {
+      //console.log(userData);
+      function profile_data(e) {
+        return e.email == unique_id;
+      }
 
-        //     const fullname = document.getElementById("fullname").value;
-        //     const mobilenumber = document.getElementById("mobilenumber").value;
-        //     const Email = document.getElementById("email").value;
-        //     const gender = document.getElementById("gender").value;
-        //     const dateofbirth = document.getElementById("dateofbirth").value;
-        //     const address = document.getElementById("address").value;
-        //     const hintname = document.getElementById("hint").value;
+      const user_data = user_list.find(profile_data);
 
-        //     console.log(fullname)
-        //     console.log(mobilenumber)
-        //     console.log(Email)
-        //     console.log(gender)
-        //     console.log(dateofbirth)
-        //     console.log(address)
-        //     console.log(hintname)
+      //console.log('userdata' + user_data);
 
-        //     let user_fullname = localStorage.getItem("");
-        //     const user_mobilenumber = localStorage.getItem("");
-        //     let user_email = localStorage.getItem("");
-        //     // const user_gender = localStorage.serItem("user_gender", gender);
-        //     // const user_date = localStorage.setItem("user_date", date);
-        //     // const user_address = localStorage.setItem("user_address", address);
-        //     // const user_hintname = localStorage.setItem("user_hintname", hintname);
-
-        //     // document.getElementById("fullname").innerText = user_fullname;
-        //     // document.getElementById("user_mobilenumber").innerText = user_mobilenumber;
-        //     // document.getElementById("user_email").innerText = user_email;
-        //     // document.getElementById("user_gender").innerText = user_gender;
-        //     // document.getElementById("user_date").innerText = user_date;
-        //     // document.getElementById("user_address").innerText = user_address;
-        //     // document.getElementById("user_hintname").innerText = user_hintname;
-
-        //     window.location.href = "./account.html";
-
-
-        // }
-
-        // function change_password() {
-
-        //     window.location.href = "../../pages/homepage/changepassword.html";
-        // }
-
-
-        //get value from local storage
-        let user_list = JSON.parse(localStorage.getItem("user_list"));
-
-        let unique_id = JSON.parse(localStorage.getItem('unique_id'));
-
-        //console.log(userData);
-        function profile_data(e) {
-            return e.email == unique_id;
-        }
-
-        let user_data = user_list.find(profile_data);
-
-        //console.log('userdata' + user_data);
-
-        document.getElementById("fullname").value = user_data["full_name"];
-        document.getElementById("email").value = user_data["email"];
-        document.getElementById("mobile_number").value = user_data["mobile_number"];
-
-        document.getElementById("gender").value = user_data["gender"];
-        document.getElementById("dateofbirth").value = user_data["dob"];
-        document.getElementById("address").value = user_data["address"];
-        document.getElementById("hintname").value = user_data["hintname"];
-
-        function update(e) {
-            event.preventDefault()
-            // console.log("bakya");
-
-            user_data["full_name"] = document.getElementById("fullname").value;
-            user_data["email"] = document.getElementById("email").value;
-            user_data["mobile_number"] = document.getElementById("mobile_number").value
-
-            user_data["gender"] = document.getElementById("gender").value;
-            user_data["dob"] = document.getElementById("dateofbirth").value;
-            user_data["address"] = document.getElementById("address").value;
-            user_data["hintname"] = document.getElementById("hintname").value;
-
-            localStorage.setItem("user_list", JSON.stringify(user_list));
-            // //console.log(userData);
-            window.location.href = "./account.html"
-        }
+      document.getElementById("fullname").value = user_data.full_name;
+      document.getElementById("email").value = user_data.email;
+      document.getElementById("mobile_number").value = user_data.mobile_number;
+      document.getElementById("gender").value = user_data.gender;
+      
+      document.getElementById("dateofbirth").value = user_data.dob;
+      document.getElementById("hintname").value = user_data.hintname;
 
 
 
+      function update(e) {
+        event.preventDefault();
+        // console.log("bakya");
+
+        user_data.full_name = document.getElementById("fullname").value;
+        user_data.email = document.getElementById("email").value;
+        user_data.mobile_number = document.getElementById("mobile_number").value;
+
+        user_data.gender = document.getElementById("gender").value;
+
+        user_data.dob = document.getElementById("dateofbirth").value;
+        user_data.hintname = document.getElementById("hintname").value;
+
+        localStorage.setItem("user_list", JSON.stringify(user_list));
+        // //console.log(userData);
+        window.location.href = "./account.html";
+      }
     </script>
-</body>
+    </body>
 
 </html>

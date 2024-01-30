@@ -54,6 +54,10 @@ div.x-mark i{
     padding-bottom:2%;
 }
 
+.container-form .input_field{
+    padding:2%;
+}
+
 a.forgotpassword{
     color: #000;
     font-family: 'Jost', sans-serif;

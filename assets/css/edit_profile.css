@@ -5,10 +5,15 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Jost', sans-serif;
+    text-transform: capitalize;
+}
+
 .container{
     font-family: 'Jost', sans-serif;
-    margin-top: 3%;
-    height:90vh;
+    margin-top: 6%;
+    /* height:vh; */
     display:flex;
     justify-content:center;
     align-items:center;

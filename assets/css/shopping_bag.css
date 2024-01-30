@@ -10,7 +10,6 @@
     display:flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content:;
     width:80%;
     margin-left: 10%;
 }
@@ -44,14 +43,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:6%;
+    padding:4%;
     margin-bottom: 5%;
 } 
 
 .container div.address p{
+    margin-bottom: 2px ;
     font-size: 18px;
     text-transform: capitalize;
-    padding-bottom: 5%;
 }
 
 .container div.address button{
@@ -59,6 +58,7 @@
     width:150px;
     font-weight: 500;
     border: 1px solid #000;
+    color:#fff;
 }
 
 /* orderlist */
@@ -72,6 +72,10 @@
     position:relative;
 }
 
+.product_list{
+    width:50%
+}
+
 div.x-mark i{
     color:#555;
     float:right;
@@ -82,16 +86,14 @@ div.x-mark i{
 }
 
  .product_thumbnail img{
-    width:60%;  
+    width:10em;  
+    margin-right: 5em;
+    height:100%
 } 
 
 .product_name , .brand_name{
     margin:0;
     font-size: 20px;
-}
-
-.order_details div.product_list div{
-    padding-bottom: 4%;
 }
 
 .product_price{
@@ -112,7 +114,7 @@ span.date{
     font-size: 18px;
 }
 .buttons{
-    margin-top: 3%;
+    margin-top: 8%;
     display:flex;
 }
 .buttons div {
@@ -138,6 +140,8 @@ span.date{
     padding-right: 10px;
     width:100%;
 }
+
+
 .side_container table tbody tr:last-child td:first-child,tr:last-child td:last-child{
     text-transform: uppercase;
     font-weight: 600;
@@ -153,7 +157,137 @@ span.date{
     margin-top: 4%;
 }
 
-@media(max-width:360px){
+.quantity{
+    width:60px;
+}
+
+.message{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:2%;
+    font-size: 25px;
+}
+
+.continueshop{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* change address */
+.inputcontainer{
+    visibility: hidden;
+    position:fixed;
+    top:0px;
+    width: 98vw; 
+    height: 100vh;
+    background-color: #00000075;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputcontainer.openpopup{
+    visibility: visible;
+}
+.inputcontainer input[type=radio]{
+    accent-color: #000;
+}
+.inputchangeaddress{
+    position:relative;
+    width:30%;
+    padding: 1%;
+    z-index: 2;
+    background-color: #fff;
+}
+
+.inputchangeaddress .add{
+    border: 1px solid #000;
+    width:100%;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.inputchangeaddress .add:hover {
+    border: 1px solid #000;
+    width: 100%;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.inputchangeaddress h5{
+    /* padding-bottom: 2%;
+    border-bottom: 1px solid #bbb; */
+    margin-bottom: 3%;
+    display: inline-block;
+
+}
+
+.localaddress{
+    background-color: #fff;
+    padding:2%;
+    border-top: 1px solid #bbb;
+}
+
+.localaddress div{
+    padding-right: 10px;
+}
+
+.changeaddressx-mark{
+    color: #555;
+    float: right;
+    font-size: 20px;
+    top: 2%;
+
+}
+
+.buttonsofwishlist{
+    width:100%;
+    padding: 1%;
+    display: flex;
+    justify-content: right;
+}
+
+.rem_all.btn {
+    border: 1px solid #000;
+}
+
+.rem_all.btn:hover {
+    border: 1px solid #000;
+}
+
+.wishlist{
+        border: 2px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5%;
+            font-weight:500
+}
+
+.wishlist:hover {
+    border: 2px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5%;
+}
+.span_size{
+    text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+/* @media(max-width:360px){
     .main_content {
         font-family: 'Jost', sans-serif;
         display: flex;
@@ -205,4 +339,4 @@ span.date{
     }
 }
 
-
+ */

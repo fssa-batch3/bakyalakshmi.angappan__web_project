@@ -1,533 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../assets/css/wishlist.css">
-    <link rel="stylesheet" href="../../assets/css/product_list.css">
-    <link rel="stylesheet" href="../../assets/css/header.css">
-    <link rel="stylesheet" href="../../assets/css/footer.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="../../assets/css/wishlist.css">
+        <link rel="stylesheet" href="../../assets/css/product_list.css">
+        <link rel="stylesheet" href="../../assets/css/header.css">
+        <link rel="stylesheet" href="../../assets/css/footer.css">
+        <link rel="stylesheet" href="/assets/css/myorder.css">
     
-    <link rel="stylesheet" href="../../assets/css/bootstrap css/bootstrap.css">
-    <title>wishlist</title>
-</head>
-<body>
-
-    <!-- <header class="header">
-        <a href="../homepage/homepage.html">
-            <img id="logo" src="../../assets/images/homepage-images/logo.png" alt="my fashion studio logo">
-        </a>
-        
-        
-        <div class="navigation">
-            <nav>
-                <ul class="navigation_list">
-                    <li class="navigation_item">
-
-                        <a href="../products/all products list/men-allproducts-list.html">
-                            <div class="dropdown">    
-                                <span>MEN</span>            
-                                <div class="dropdown_list">
-                                    <div>                                        
-                                        <a href=""><h4>Top Wear</h4></a>
-                                        <a href="../products/product_list-mens-t-shirt.html">t-shirts</a>
-                                        <a href="../products/product_list-mens-shirts.html">shirts</a>
-                                    </div>
-
-                                    <div>
-                                        <a href=""><h4>Bottom Wear</h4></a>
-                                        <a href="../products/product_list-men-jeans.html">Jeans</a>
-                                        <a href="../products/product_list-mens-trousers.html">trousers</a>
-                                        <a href="../products/product_list_mens-shorts.html">shorts</a>
-                                    </div>   
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="navigation_item">
-                        <a href="../../pages/products/all products list/women-allproducts-list.html">
-                            <div class="dropdown">
-                            <span>WOMEN</span>
-                            <div class="dropdown_list">
-                                <div>                                        
-                                    <a href=""><h4>Top Wear</h4></a>
-                                    <a href="../products/product_list_womens-t-shirts.html">t-shirts</a>
-                                    <a href="../products/product_list-womens-shirts.html">shirts</a>
-                                    <a href="../products/product_list-womens-tops.html">tops</a>
-
-                                </div>
-
-                                <div>
-                                    <a href=""><h4>Bottom Wear</h4></a>
-                                    <a href="../products/product_list_womens-jeans.html">Jeans</a>
-                                    <a href="../products/product_list_womens-palazzos.html">palazzos</a>
-                                    <a href="../products/product_list-womens-skirts.html">skirts</a>
-                                </div>                                                                          
-                            </div>
-                        </div>
-
-                    </li>
-
-                    <li class="navigation_item">
-            
-                            <a href="../../pages/products/all products list/kids-allproducts-list.html">
-                                <div class="dropdown">
-                                    <span>KIDS</span>
-                                    <div class="dropdown_list">
-                                        <div class="dropdown_categories">
-                                        <div>                                        
-                                            <a href="../products/product_list_kids-boys-clothing.html">boys clothing</a>
-                                        </div>
+        <link rel="stylesheet" href="../../assets/css/bootstrap css/bootstrap.css">
     
-                                        <div>
-                                            <a href="../products/product_list_kids-girls-clothing.html">girls clothing</a>
-                                        </div>   
-                                    </div>                                                                       
-                                    </div>
-                            </a>
-                        </li> 
-                </ul>
-            </nav>
-        </div>
-        
-        <div class="searchbar">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <title>wishlist</title>
+    </head>
+    <body>
 
-            <div class="search_box">
-                <input type="text" title="search for products,brands and more" placeholder="search for products,brands and more" />
-            </div>
-
-            <div class="button">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-
-        </div>
+        <div class="btn_wishlist">
             
-        <div class="icons">
 
-            <a href="../../pages/homepage/account.html">
-                <div><i class="fa-solid fa-user"></i></div>
-                <div>profile</div>
-            </a>
+            <h2 class="heading_top"> My Wishlist </h2>
 
-            <a href="../../pages/orders/wishlist.html">
-                <div><i class="fa-solid fa-heart"></i></div>
-                <div>wishlist</div>
-            </a>
-
-            
-            <a href="../../pages/orders/shopping_bag.html">
-                <div><i class="fa-solid fa-bag-shopping"></i></div>
-                <div>bag</div>   
-            </a>
+        <div class="buttonsofwishlist">
+            <div class="btn rem_all">REMOVE ALL</div>
         </div>
-    </header>
 
- -->
-
-     <!-- desktop header -->
-     <header id="desktop-header">
-        <nav class="navbar navbar-expand-lg">
-           <div class="container-fluid d-flex justify-content-between">
-   
-               <a class="navbar-brand" href="../../index.html">
-                   <img src="../../assets/images/homepage-images/mobile logo.png" alt="my fashio studio logo" />
-               </a>
-   
-             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-   
-               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                
-                 <li class="nav-item dropdown">
-                       <a class="nav-link" href="../products/all products list/men-allproducts-list.html" role="button" data-bs-toggle="dropdown"  aria-expanded="false">
-                       MEN
-                       </a>
-   
-                       <ul class="dropdown-menu ">
-   
-                               <li class="dropdown-item"><h4>topwear</h4></li>
-                               <li><a class="dropdown-item" href="../products/product_list-mens-t-shirt.html">T-shirt</a></li>
-                               <li><a class="dropdown-item" href="../products/product_list-mens-shirts.html">shirts</a></li>
-                               <li class="dropdown-divider"></li>
-                               <li class="dropdown-item"><h4>bottom wear</h4></li>
-                               <li><a class="dropdown-item" href="../products/product_list-men-jeans.html">jeans</a></li>
-                               <li><a class="dropdown-item" href="../products/product_list-mens-trousers.html">trousers</a></li>
-                               <li><a class="dropdown-item" href="../products/product_list_mens-shorts.html">shorts</a></li>      
-                       </ul>
-                 </li>
-   
-               </ul>
-   
-               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                
-                   <li class="nav-item dropdown">
-                         <a class="nav-link" href="../products/all products list/men-allproducts-list.html" role="button" data-bs-toggle="dropdown"  aria-expanded="false">
-                            WOMEN
-                         </a>
-     
-                         <ul class="dropdown-menu ">
-                           
-                                 <li class="dropdown-item"><h4>topwear</h4></li>
-                                 <li><a class="dropdown-item" href="../products/product_list_womens-t-shirts.html">T-shirt</a></li>
-                                 <li><a class="dropdown-item" href="../products/product_list-womens-shirts.html">shirts</a></li>
-                                 <li class="dropdown-divider"></li>
-                                 <li class="dropdown-item"><h4>bottom wear</h4></li>
-                                 <li><a class="dropdown-item" href="../products/product_list_womens-jeans.html">jeans</a></li>
-                                 <li><a class="dropdown-item" href="../products/product_list_womens-palazzos.html">pallazoes</a></li>
-                                 <li><a class="dropdown-item" href="../products/product_list-womens-skirts.html">skirts</a></li>
-                         
-                         </ul>
-                   </li>
-   
-                 </ul>
-   
-                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                
-                   <li class="nav-item dropdown">
-                         <a class="nav-link" href="../products/all products list/men-allproducts-list.html" role="button" data-bs-toggle="dropdown"  aria-expanded="false">
-                         KIDS
-                         </a>
-     
-                         <ul class="dropdown-menu ">
-                           
-                                
-                                 <li><a class="dropdown-item" href="../products/product_list_kids-boys-clothing.html">boy's clothing</a></li>
-                                 <li><a class="dropdown-item" href="../products/product_list_kids-girls-clothing.html">girl's clothing</a></li>
-                                
-                         </ul>
-                   </li>
-     
-               </ul>
-   
-               </div>
-   
-               <form class="searchbar" role="search">
-                   <input class="form-control me-8 " type="search" placeholder="search for products,brands and more" aria-label="Search">
-               </form>
-                 
-                 <div class="icons">
-     
-                     <a href="../homepage/account.html">
-                         <div><i class="fa-solid fa-user"></i></div>
-                         <div>profile</div>
-                     </a>
-         
-                     <a href="../orders/wishlist.html">
-                         <div><i class="fa-solid fa-heart"></i></div>
-                         <div>wishlist</div>
-                     </a>
-                     
-                     <a href="../orders/shopping_bag.html">
-                         <div><i class="fa-solid fa-bag-shopping"></i></div>
-                         <div>bag</div>   
-                     </a>
-                 </div>
-   
-             </div>
-         </nav>
-       </header> 
-   
-
-<!-- mobile header -->
-    <header id="mobile-header">
-        <nav class="navbar navbar-expand-lg" id="mobile-header">
-            <div class="container-fluid d-flex justify-content-between">
-
-                
-
-                <div>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <a class="navbar-brand" href="../../index.html">
-                        <img src="../../assets/images/homepage-images/mobile logo.png" alt="mfs logo" />
-                    </a>
-                </div>
-
-                <div class="icons" id="mobile-icons">
-                    <a href="">
-                        <div><i class="fa-solid fa-magnifying-glass"></i></div>
-                    </a>
-                    <a href="../homepage/account.html">
-                        <div><i class="fa-solid fa-user"></i></div>
-                    </a>
+        </div>
         
-                    <a href="../orders/wishlist.html">
-                        <div><i class="fa-solid fa-heart"></i></div>
-                    </a>
-                    
-                    <a href="../orders/shopping_bag.html">
-                        <div><i class="fa-solid fa-bag-shopping"></i></div>
-                    </a>
-                </div>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-   
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                     
-                      <li class="nav-item dropdown">
-                            <a class="nav-link" href="../products/all products list/men-allproducts-list.html" role="button" data-bs-toggle="dropdown"  aria-expanded="false">
-                            MEN
-                            </a>
-        
-                            <ul class="dropdown-menu ">
-        
-                                    <li class="dropdown-item"><h4>topwear</h4></li>
-                                    <li><a class="dropdown-item" href="../products/product_list-mens-t-shirt.html">T-shirt</a></li>
-                                    <li><a class="dropdown-item" href="../products/product_list-mens-shirts.html">shirts</a></li>
-                                    <li class="dropdown-divider"></li>
-                                    <li class="dropdown-item"><h4>bottom wear</h4></li>
-                                    <li><a class="dropdown-item" href="../products/product_list-men-jeans.html">jeans</a></li>
-                                    <li><a class="dropdown-item" href="../products/product_list-mens-trousers.html">trousers</a></li>
-                                    <li><a class="dropdown-item" href="../products/product_list_mens-shorts.html">shorts</a></li>      
-                            </ul>
-                      </li>
-        
-                    </ul>
-        
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                     
-                        <li class="nav-item dropdown">
-                              <a class="nav-link" href="../products/all products list/men-allproducts-list.html" role="button" data-bs-toggle="dropdown"  aria-expanded="false">
-                                 WOMEN
-                              </a>
-          
-                              <ul class="dropdown-menu ">
-                                
-                                      <li class="dropdown-item"><h4>topwear</h4></li>
-                                      <li><a class="dropdown-item" href="../products/product_list_womens-t-shirts.html">T-shirt</a></li>
-                                      <li><a class="dropdown-item" href="../products/product_list-womens-shirts.html">shirts</a></li>
-                                      <li class="dropdown-divider"></li>
-                                      <li class="dropdown-item"><h4>bottom wear</h4></li>
-                                      <li><a class="dropdown-item" href="../products/product_list_womens-jeans.html">jeans</a></li>
-                                      <li><a class="dropdown-item" href="../products/product_list_womens-palazzos.html">pallazoes</a></li>
-                                      <li><a class="dropdown-item" href="../products/product_list-womens-skirts.html">skirts</a></li>
-                              
-                              </ul>
-                        </li>
-        
-                      </ul>
-        
-                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                     
-                        <li class="nav-item dropdown">
-                              <a class="nav-link" href="../products/all products list/men-allproducts-list.html" role="button" data-bs-toggle="dropdown"  aria-expanded="false">
-                              KIDS
-                              </a>
-          
-                              <ul class="dropdown-menu ">
-                                
-                                     
-                                      <li><a class="dropdown-item" href="../products/product_list_kids-boys-clothing.html">boy's clothing</a></li>
-                                      <li><a class="dropdown-item" href="../products/product_list_kids-girls-clothing.html">girl's clothing</a></li>
-                                     
-                              </ul>
-                        </li>
-          
-                    </ul>
-        
-                    </div>
+        <small class="totalproducts"> 
+        </small>
 
-    </header>
-<!-- mobile header -->
+        <div class="products">
+        </div>
 
-    <h2 class="heading_top"> my wishlist</h2>
-
-    <div class="products">
-
-        <div class="smallcontainer">
-
-           
-            <a href="../products/product details/mens_product_details/product_details-men-jean1.html">
-            <img class="product_image" src="../../assets/images/product_list-images/product_list-1.jpg" alt="men jean" />
-
-            <div class="x-mark">
-                <a href="../homepage/homepage.html">
+        <!-- select size -->
+        <div class="selectSize">
+        
+            <div class="inputSelectSize">
+                <h5>select size</h5>
+                <div class="selectsizex-mark">
                     <i class="fa-solid fa-xmark"></i>
-                </a>
-            </div>
-            <h3 class="brand_name">DNMX</h3>
-            <h4 class="product_name">Mid-Rise Skinny Fit Jeans</h4>
-
-            <span class="product_price">rs.799</span>
-            <span class="original_price"><del>rs.999</del></span>
-            <span class="product_offer">(20% off)</span>
-
-            <div>
-                <a href="../../pages/orders/shopping_bag.html">
-                    <button>move to bag</button>
-                </a>
-            </div>
-            </a>
-        </div>
-
-        <div class="smallcontainer">
-           
-            <a href="../products/product details/womens_product_details/women-shirt-2.html">
-                <img class="product_image" src="../../assets/images/homepage-images/womens fashion/shirt-2.jpg" alt="women shirt" />
-
-                <div class="x-mark">
-                    <a href="../homepage/homepage.html">
-                        <i class="fa-solid fa-xmark"></i>
-                    </a>
                 </div>
-
-                <h3 class="brand_name">DNMX</h3>
-                <h4 class="product_name">checked cut-away collar shirt</h4>
-
-                <span class="product_price">rs.524</span>
-                <span class="original_price"><del>rs.699</del></span>
-                <span class="product_offer">(25% off)</span>
-
-                <div>
-                    <a href="../../pages/orders/shopping_bag.html">
-                        <button>move to bag</button>
-                    </a>
+                <!-- dynamic change address -->
+                <div class="alllocalsize">
+        
                 </div>
-            </a>
+                <button class="btn done">Done</button>
+            </div>
+        
         </div>
 
-        <div class="smallcontainer">
-
-            <div class="x-mark">
-                <a href="../homepage/homepage.html">              
-                    <i class="fa-solid fa-xmark"></i>
-                </a>
-            </div>
-            
-            <a href="../products/product details/mens_product_details/product_details-men-shirt2.html">
-            <img class="product_image" src="../../assets/images/homepage-images/mens fashion/mens-shirt-2.jpg" alt="men shirt" />
-
-            <h3 class="brand_name">highlander </h3>
-            <h4 class="product_name">slim fit casual shirt</h4>
-
-            <span class="product_price">rs.799</span>
-            <span class="original_price"><del>rs.999</del></span>
-            <span class="product_offer">(20% off)</span>
-
-            <div>
-                <a href="../../pages/orders/shopping_bag.html">
-                    <button>move to bag</button>
-                </a>
-            </div>
-            </a>
-        </div>
-
-        <div class="smallcontainer">
-
-            <div class="x-mark">
-                <a href="../homepage/homepage.html">               
-                    <i class="fa-solid fa-xmark"></i>
-                </a>
-            </div>
-
-            <a href="../products/product details/mens_product_details/product_details-men-t-shirt1.html">
-            
-            <img class="product_image" src="../../assets/images/homepage-images/mens fashion/t-shirt-1.jpg" alt="" />
-
-            <h3 class="brand_name">here&now</h3>
-            <h4 class="product_name">men typograpy printed t-shirt</h4>
-
-            <span class="product_price">rs.599</span>
-            <span class="original_price"><del>rs.999</del></span>
-            <span class="product_offer">(30% off)</span>
-
-            <div>
-                <a href="../../pages/orders/shopping_bag.html">
-                    <button>move to bag</button>
-                </a>
-            </div>
-
-            </a>
-        </div>
-        </div>
-
-    <div class="line"></div>
+        <div class="line"></div>
     
-    <footer>
-        
-        <div class="footer">
+        <footer>
+    
+        </footer>
 
-            <div class="footer_nav_contact">
-            <div class="footer_nav">
-                <div>
-                    <h3>shop</h3>
-                    <nav>
-                        <ul>
-                            <li><a href="../../pages/products/all products list/men-allproducts-list.html">men</a></li>
-                            <li><a href="../../pages/products/all products list/women-allproducts-list.html">women</a></li>
-                            <li><a href="../../pages/products/all products list/kids-allproducts-list.html">kids</a></li>
-                        </ul>
-                    </nav>
-                </div>
-
-
-                <div>
-                <h3>account</h3>
-                    <nav>
-                        <ul>
-                            <li><a href="../../pages/orders/order_list.html">my orders</a></li>
-                            <li><a href="../../pages/orders/shopping_bag.html">my bag</a></li>
-                            <li><a href="../../pages/homepage/account.html">my account</a></li>
-                        </ul>
-                    </nav>
-                </div>
-
-            </div>
-
-            <div class="footer_contact">
-                <div>
-                <div class="contact_details">
-                    <h3>contact</h3>
-                    <i class="fa-solid fa-location-dot"></i>
-                    Page Industries Ltd, Cessna Park, Umiya Bay, T-1, 7th Flr, ORR, Bengaluru - 560103, Karnataka.
-                </div>
-
-                
-                <div class="contact_details">
-                    <i class="fa-solid fa-envelope"></i>
-                    wecare@MFS.india.com 
-                </div>
-                </div>
-
-            
-                <div class="contact_details">
-                    <i class="fa-solid fa-phone"></i>
-                    1800-572-1299(Toll Free) / 1860-425-3333 <br/>
-                    <p>(Monday to Saturday, IST 10:00 AM to 7:00 PM)</p>
-
-                </div>
-            </div>
-            </div>
-                
-
-            <div class="bottom_footer">
-                <div>
-                    <h2>My Fashion Studio</h2>
-                </div>
-
-                <div class="socialmedia">  
-                    <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
-                </div>
-
-                <div>
-                    2022 My fashion studio | All Rights Reserved
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
-    <script src="../../js/bootstrap.bundle.js"></script>
-</body>
+        <script src="/js/components/header.js"></script>
+        <script src="/js/components/footer.js"></script>
+        <script src="/js/vendor/bootstrap.bundle.js"></script>
+        <script src="../../js/wishlist.js"></script>
+        <script src="/js/components/myorder.js"></script>
+    </body>
 </html>

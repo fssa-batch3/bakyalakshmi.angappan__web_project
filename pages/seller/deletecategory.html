@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>delete categories</title>
+        <link rel="stylesheet" href="../../assets/css/bootstrap css/bootstrap.css">
+                <link rel="stylesheet" href="../../assets/css/header.css">
+                <link rel="stylesheet" href="../../assets/css/footer.css">
+
+        <style>
+
+        .category #div_show {
+            border: 1px solid #000;
+            padding: 5px;
+            display: grid;
+            text-align: center;
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <div class="container-form w-100 d-flex flex-column align-content-center justify-content-center flex-wrap "
+            style="margin-top: 50px;">
+
+            <form class="form w-50 d-flex flex-column m-5 row-gap-3" id="form">
+
+                <!-- for entering gender -->
+                <!-- <h6 class="text-center">add gender</h6>
+                    <div class="mb-3">
+                    <label for="inputcategory" class="form-label">Enter gender</label>
+                    <input class="form-control" id="inputcategory">
+                    </div>
+
+                    <button type="button" id="btn_add_cat" class="btn btn-primary">add gender</button> -->
+
+                <h6 class="text-center">delete categories</h6>
+
+                <div class="form-row d-flex gap-5">
+
+                    <select id="choosecategory" aria-placeholder="choose category" class="form-control w-75">
+
+                        <option selected value="">select gender</option>
+                        <!-- <option>men</option>
+                            <option>women</option>
+                            <option>kids</option> -->
+                    </select>
+
+                    <button type="button" id="btn_cat" class="btn btn-dark ">show</button>
+
+                </div>
+
+                <div class="category form-row d-flex flex-row justify-content-center float-end gap-5">
+
+                </div>
+                <!-- 
+                    <button type="button" id="btn_del_cat" class="btn btn-primary">delete category</button> -->
+            </form>
+        </div>
+
+        <script src="/pages/seller/js/components/header.js"></script>
+        <script src="/pages/seller/js/components/footer.js"></script>
+        
+        <script src="/js/vendor/bootstrap.bundle.js"></script>
+
+        <script src="./js/deletecategory.js"></script>
+    </body>
+
+</html>

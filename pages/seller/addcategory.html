@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="../../assets/css/bootstrap css/bootstrap.css">
+        
+        <!-- header css -->
+        <link rel="stylesheet" href="/assets/css/header.css">
+        
+        <!-- addcategory css -->
+        <link rel="stylesheet" href="../seller/css/addcategory.css">
+        
+        <!-- font awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+        <title>Add Categories</title>
+
+    </head>
+
+    <body>
+
+        <div class="container-form w-100 d-flex flex-column align-content-center justify-content-center flex-wrap "
+            style="margin-top: 50px;">
+
+            <form class="form w-50 d-flex flex-column m-5 row-gap-3" id="form">
+
+                <!-- for entering gender -->
+                <!-- <h6 class="text-center">add gender</h6>
+                    <div class="mb-3">
+                    <label for="inputcategory" class="form-label">Enter gender</label>
+                    <input class="form-control" id="inputcategory">
+                    </div>
+
+                    <button type="button" id="btn_add_cat" class="btn btn-primary">add gender</button> -->
+
+                <h4>add categories</h4>
+
+                <div class="form-row d-flex gap-5">
+                    <select id="choosecategory" aria-placeholder="choose category" class="form-control w-75" required>
+                        <option selected value="">select gender</option>
+                        <!-- <option>men</option>
+                            <option>women</option>
+                            <option>kids</option> -->
+                    </select>
+
+                    <button type="button" id="btn_cat" class="btn btn-dark ">show</button>
+
+                </div>
+
+                <div class="form-row d-flex flex-column float-end gap-5">
+                    <table class="category w-100">
+                    </table>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputcategory" class="form-label">Enter category</label>
+                    <input type="text" class="form-control" id="inputcategory" pattern="[a-zA-Z]*" required>
+                </div>
+
+                <button type="submit" id="btn_add_cat" class="btn btn-dark">add category</button>
+            </form>
+        </div>
+
+        <!-- scripts -->
+
+        <script src="/pages/seller/js/components/header.js"></script>
+        
+        <script src="/js/vendor/bootstrap.bundle.js"></script>
+
+        <script src="./js/addcategory.js"></script>
+    </body>
+
+</html>
